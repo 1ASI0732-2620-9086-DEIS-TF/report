@@ -736,17 +736,160 @@ recurrente en su cuidado.
 
 ### 2.1.1. Análisis competitivo
 
-_Pendiente de completar._
+#### Competitive Analysis Landscape
+
+| | **VetPass** (Su startup) | **VetPraxis App** | **OKFAC** | **11pets** |
+|---|---|---|---|---|
+| **Logo** | [Insertar logo] | [Insertar logo] | [Insertar logo] | [Insertar logo] |
+| **PERFIL** | | | | |
+| Overview | Plataforma web y móvil enfocada exclusivamente en digitalizar la cartilla de vacunación y el historial veterinario de perros y gatos. La clínica registra desde la web; el dueño consulta desde el móvil. | ERP-CRM integral para clínicas y hospitales veterinarios de Latinoamérica. Nace de una empresa dedicada previamente a la capacitación profesional del sector veterinario. | Plataforma de gestión todo-en-uno para clínicas veterinarias y pet shops del Perú, con énfasis en el cumplimiento tributario local. | Plataforma de cuidado de mascotas centrada en el dueño, con aplicación móvil gratuita y un módulo web para negocios del sector. |
+| Ventaja competitiva: ¿Qué valor ofrece a los clientes? | La cartilla se genera automáticamente según la especie y valida las reglas del esquema sanitario. El dueño obtiene acceso permanente a la información de su mascota sin depender del papel. | Amplitud funcional y cobertura regional. Concentra en un solo sistema la operación administrativa y clínica del establecimiento. | Adaptación al contexto regulatorio peruano, con facturación electrónica SUNAT integrada y recordatorios por WhatsApp, canal de comunicación predominante en el país. | Gratuidad y propiedad del dato por parte del usuario. El dueño mantiene el control de la información de su mascota con independencia de la clínica. |
+| **PERFIL DE MARKETING** | | | | |
+| Mercado objetivo | Clínicas veterinarias independientes de Lima Metropolitana con uno a tres veterinarios, y los dueños de perros y gatos atendidos en ellas. | Clínicas y hospitales veterinarios de Latinoamérica, incluyendo establecimientos de mediano y gran tamaño. | Clínicas veterinarias y pet shops formalizados del Perú, que requieren emitir comprobantes electrónicos. | Dueños de mascotas a nivel global, sin restricción de país ni de vínculo con una clínica determinada. |
+| Estrategias de marketing | Aproximación directa a clínicas del segmento inicial, apoyada en la validación con usuarios reales. Landing page orientada a comunicar el beneficio para el cliente final de la clínica. | Posicionamiento a partir de su trayectoria previa en formación profesional veterinaria. Demostración gratuita del producto como mecanismo de captación. | Posicionamiento por buscador orientado a términos locales, apoyado en testimonios de profesionales veterinarios peruanos. | Distribución masiva a través de las tiendas de aplicaciones, con modelo gratuito como mecanismo de adquisición y monetización posterior. |
+| **PERFIL DE PRODUCTO** | | | | |
+| Productos & Servicios | Cartilla de vacunación digital generada por especie, historial veterinario con formato preestablecido, recetas digitales y consulta móvil para el dueño. | Historias clínicas, agenda, facturación, inventario con control de lotes y vencimientos, hospitalización, trazabilidad de acciones por usuario. | Historial clínico digital con registro de consultas, vacunas, desparasitaciones y cirugías, carga de radiografías y análisis, agenda con recordatorios, inventario y facturación SUNAT. | Perfil de mascota, historial médico, registros de vacunación, seguimiento de peso y signos vitales, recordatorios de medicación y citas, y compartición de registros con el veterinario. |
+| Precios & Costos | Modelo de suscripción mensual por clínica, con acceso sin costo para el dueño de la mascota. Estructura de precios por definir. | Solicita demostración gratuita. *[Verificar el esquema de precios vigente en la web oficial del proveedor.]* | *[Verificar el esquema de precios vigente en la web oficial del proveedor.]* | Descarga gratuita en App Store y Google Play, con compras dentro de la aplicación. |
+| Canales de distribución (Web y/o Móvil) | Aplicación web para la clínica, aplicación móvil nativa para el dueño y landing page informativa. | Aplicación web en la nube. | Plataforma web en la nube. | Aplicación móvil para iOS y Android, y aplicación web 11pets Business para negocios. |
+| **ANÁLISIS SWOT** | | | | |
+| Fortalezas | Alcance delimitado que permite construir con alta calidad de código y una suite de pruebas exhaustiva. Modelado explícito del esquema de vacunación por especie, con validaciones automáticas de edad e intervalo. Acceso del dueño incluido desde el diseño y no como añadido. | Amplitud funcional, madurez del producto y presencia consolidada en múltiples países de la región. Respaldo de una marca ya reconocida en la formación del gremio veterinario. | Integración con la normativa tributaria peruana y uso de WhatsApp como canal de recordatorio, ambos altamente valorados en el mercado local. Cobertura funcional completa para la operación del negocio. | Gratuidad, base de usuarios global e independencia respecto de cualquier clínica. Permite al dueño conservar el expediente aunque cambie de veterinario. |
+| Debilidades | Ausencia de trayectoria comercial y de base de usuarios. Alcance funcional reducido frente a los sistemas integrales del mercado. Equipo sin experiencia previa en el sector veterinario. | Complejidad derivada de su amplitud funcional, que puede resultar excesiva para un consultorio pequeño. La cartilla de vacunación es un módulo dentro del sistema y no un eje del producto. | Orientación centrada en la operación administrativa del establecimiento. El acceso del cliente final a su información no constituye un elemento central de la propuesta. | La información es registrada por el propio dueño y no por el profesional veterinario, por lo que carece de validez clínica verificable. No sustituye al registro oficial de la clínica. |
+| Oportunidades | Bajo nivel de digitalización de las clínicas independientes del segmento inicial. Crecimiento sostenido del gasto de los hogares peruanos en el cuidado de sus mascotas. Ausencia de una norma nacional de registro clínico veterinario que imponga barreras de entrada. | Expansión hacia establecimientos aún no digitalizados en los mercados donde ya opera. Incorporación de funcionalidades orientadas al cliente final de la clínica. | Formalización creciente de los establecimientos veterinarios peruanos y la consiguiente necesidad de facturación electrónica. | Incorporación de mecanismos de validación profesional que otorguen respaldo clínico a los registros ingresados por el dueño. |
+| Amenazas | Ingreso de los competidores establecidos al espacio de la cartilla validada y del acceso del dueño. Resistencia del personal veterinario a abandonar el registro en papel. | Aparición de soluciones especializadas más simples y económicas, orientadas a clínicas pequeñas que no requieren un ERP completo. | Competencia de plataformas regionales con mayor amplitud funcional y respaldo de marca. | Adopción por parte de las clínicas de sistemas propios que incluyan aplicación para el cliente, lo que desplazaría al registro autogestionado. |
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-_Pendiente de completar._
+A partir del análisis anterior, el equipo define cuatro líneas de acción
+preliminares, cada una derivada de un cuadrante del FODA.
+
+**A. Frente a las fortalezas de los competidores**
+
+Los competidores directos superan a VetPass en amplitud funcional y
+trayectoria. La estrategia es no competir en ese terreno, sino
+posicionarse como solución especializada.
+
+| Estrategia | Tácticas |
+|---|---|
+| Especialización en lugar de amplitud | Comunicar el producto como cartilla de vacunación digital validada, y no como sistema de gestión veterinaria. Evitar comparaciones funcionales directas en el material de la landing page. |
+| Reducción de la barrera de adopción | Ofrecer un proceso de registro de clínica sin instalación ni configuración inicial. Permitir el uso del producto sin migrar datos históricos. |
+
+**B. Aprovechando las debilidades de los competidores**
+
+Ninguno de los competidores directos diseña en torno al acceso del dueño,
+y el competidor indirecto carece de validez profesional en sus registros.
+
+| Estrategia | Tácticas |
+|---|---|
+| Convertir el acceso del cliente en argumento de venta de la clínica | Presentar la aplicación móvil como un beneficio que la clínica ofrece a sus clientes, no como un costo que asume. Incluir ese mensaje en el discurso comercial y en la landing page. |
+| Sustentar la validez del registro | Garantizar que toda información clínica provenga del profesional veterinario e identificar en la cartilla al responsable de cada dosis aplicada. |
+
+**C. Aprovechando las oportunidades del entorno**
+
+El segmento inicial presenta bajo nivel de digitalización y el gasto de
+los hogares en el cuidado de mascotas mantiene una tendencia creciente.
+
+| Estrategia | Tácticas |
+|---|---|
+| Captación del establecimiento aún no digitalizado | Dirigir la aproximación comercial a clínicas que operan en papel, donde no existe costo de cambio frente a un sistema previo. |
+| Adopción guiada por el caso de uso más frecuente | Iniciar el uso del producto por el registro de vacunas, que es la tarea de mayor recurrencia diaria, antes de incorporar el historial completo. |
+
+**D. Frente a las amenazas identificadas**
+
+Las principales amenazas son que un competidor establecido incorpore
+estas funcionalidades y que el personal veterinario resista el abandono
+del papel.
+
+| Estrategia | Tácticas |
+|---|---|
+| Diferenciación sostenida por calidad del producto | Mantener la confiabilidad de las reglas del esquema de vacunación como atributo distintivo, respaldada por una cobertura de pruebas verificable. |
+| Continuidad con la práctica actual | Replicar en la interfaz la estructura visual de la cartilla física que el usuario ya conoce, de modo que la transición no exija reaprendizaje. |
 
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
 
-_Pendiente de completar._
+Las entrevistas son semiestructuradas, con una duración estimada de 10 a
+15 minutos. Se aplican preguntas principales, comunes a todos los
+entrevistados del segmento, y preguntas complementarias que el
+entrevistador formula solo cuando la respuesta previa lo amerita.
+
+Se aplican las siguientes buenas prácticas: las preguntas se formulan en
+forma abierta, se indaga sobre hechos ocurridos y no sobre intenciones
+futuras, se evita sugerir la solución propuesta durante el desarrollo de
+la entrevista, y se solicita al entrevistado su consentimiento para la
+grabación antes de iniciar.
+
+#### Segmento 1: Personal de clínicas veterinarias
+
+**Datos de perfil (recolectados al inicio)**
+
+Nombres y apellidos, edad, distrito de residencia, ocupación o cargo en
+la clínica, años de experiencia en el sector, y tamaño de la clínica
+en la que trabaja.
+
+**Preguntas principales**
+
+1. ¿Podría describirnos cómo es un día de atención típico en su clínica?
+2. Cuando atiende a un paciente, ¿cómo registra la información de esa
+   consulta y dónde queda guardada?
+3. Si un paciente que atendió hace un año regresa hoy, ¿cómo hace para
+   recuperar sus antecedentes?
+4. ¿Cómo maneja actualmente la cartilla de vacunación de las mascotas que
+   atiende?
+5. ¿El esquema de vacunación que usted aplica es el mismo que aplican
+   otras clínicas, o cada una maneja su propio criterio?
+6. ¿Le ha ocurrido que un cliente llegue sin la cartilla de su mascota?
+   ¿Qué hace en esa situación?
+7. ¿Qué herramientas digitales usa hoy en la clínica, si usa alguna?
+8. ¿Qué es lo que más le incomoda del manejo actual de la información de
+   sus pacientes?
+9. ¿Qué dispositivos utiliza durante su jornada de trabajo?
+10. Si tuviera que mejorar una sola cosa de su forma de trabajo, ¿cuál
+    sería?
+
+**Preguntas complementarias**
+
+- Sobre la pregunta 3: ¿cuánto tiempo le toma aproximadamente? ¿Le ha
+  pasado que no logre encontrarlo?
+- Sobre la pregunta 5: ¿de qué depende esa variación? ¿Quién define el
+  esquema que usted usa?
+- Sobre la pregunta 6: ¿ha aplicado alguna vez una dosis sin poder
+  confirmar las anteriores?
+- Sobre la pregunta 7: ¿ha evaluado antes contratar un sistema? ¿Qué lo
+  detuvo?
+- Sobre la pregunta 8: ¿con qué frecuencia le ocurre eso?
+
+#### Segmento 2: Dueños de perros y gatos
+
+**Datos de perfil (recolectados al inicio)**
+
+Nombres y apellidos, edad, distrito de residencia, estado civil,
+composición del hogar, ocupación, y cantidad y especie de sus mascotas.
+
+**Preguntas principales**
+
+1. Cuéntenos sobre su mascota. ¿Hace cuánto tiempo está con usted?
+2. ¿Cada cuánto lleva a su mascota a la veterinaria y por qué motivos?
+3. ¿Tiene la cartilla de vacunación de su mascota? ¿Dónde la guarda?
+4. ¿Sabe qué vacunas le tocan a su mascota y cuándo? ¿Cómo se entera?
+5. ¿Alguna vez perdió, dañó u olvidó llevar la cartilla? ¿Qué pasó?
+6. Después de una consulta, ¿le entregan algo por escrito? ¿Qué hace con
+   ese documento?
+7. ¿Ha cambiado de veterinaria alguna vez? ¿Cómo hizo con la información
+   de su mascota?
+8. ¿Qué aplicaciones usa a diario en su celular?
+9. ¿Qué es lo que más le preocupa respecto a la salud de su mascota?
+10. ¿Qué tendría que ofrecerle una veterinaria para que usted la prefiera
+    sobre otra?
+
+**Preguntas complementarias**
+
+- Sobre la pregunta 3: ¿le ha tomado foto alguna vez? ¿Por qué?
+- Sobre la pregunta 4: ¿la veterinaria le avisa? ¿Por qué medio?
+- Sobre la pregunta 5: ¿pudo recuperar la información? ¿Cómo lo resolvió?
+- Sobre la pregunta 8: ¿qué sistema operativo usa su celular? ¿Descarga
+  aplicaciones nuevas con frecuencia?
+- Sobre la pregunta 9: ¿esa preocupación ha cambiado su forma de cuidarla?
 
 ### 2.2.2. Registro de entrevistas
 
