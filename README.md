@@ -294,17 +294,170 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 ##### 1.1.1. Descripción de la Startup
 
-_Pendiente de completar._
+PawCode Studio es una startup de desarrollo de software conformada por
+estudiantes de la carrera de Ingeniería de Software de la Universidad
+Peruana de Ciencias Aplicadas. Nace con el propósito de llevar procesos
+administrativos y clínicos que aún dependen del papel hacia soluciones
+digitales confiables, verificables y accesibles para negocios de pequeña
+y mediana escala del Perú.
+
+Nuestro primer producto es **VetPass**, una plataforma web y móvil que
+digitaliza la cartilla de vacunación y el historial veterinario de perros
+y gatos. La plataforma permite que el personal de la clínica registre la
+información desde una aplicación web, mientras que el dueño de la mascota
+la consulta en cualquier momento desde una aplicación móvil, eliminando
+la dependencia de documentos físicos expuestos a pérdida o deterioro.
+
+**Misión:** Digitalizar la gestión de la información clínica de mascotas
+en clínicas veterinarias pequeñas y medianas del Perú, mediante productos
+de software construidos con altos estándares de calidad, verificación
+continua y diseño centrado en el usuario.
+
+**Visión:** Ser en los próximos cinco años la plataforma de referencia en
+el Perú para el registro y consulta del historial sanitario de mascotas,
+reconocida por la confiabilidad de su información y por la calidad de su
+ingeniería.
 
 ##### 1.1.2. Perfiles de integrantes del equipo
 
-_Pendiente de completar._
+A continuación se presentan los perfiles de los integrantes de PawCode
+Studio, indicando sus datos de identificación académica y los principales
+conocimientos técnicos y habilidades que cada uno aporta al equipo.
+
+| Foto | Nombres y Apellidos | Código de estudiante | Carrera | Conocimientos técnicos y habilidades |
+|------|---------------------|----------------------|---------|--------------------------------------|
+| <img src="img/cap 1/profile&solutions/Guillermo.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="img/cap 1/profile&solutions/Nelson.png" width="100"> | Apellido Apellido, Nombre | U202222745 | Ingeniería de Software | Arquitectura de Software <|
+| <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="assets/img/team/integrante-04.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="assets/img/team/integrante-05.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+
 
 #### 1.2. Solution Profile
 
 ##### 1.2.1. Antecedentes y problemática
 
-_Pendiente de completar._
+Antes de redactar los antecedentes y la problemática, el equipo aplicó la
+técnica de análisis 5W+2H sobre el dominio del problema, con el fin de
+delimitarlo de forma precisa y evitar conclusiones apresuradas.
+
+| Dimensión | Pregunta guía | Hallazgo |
+|-----------|---------------|----------|
+| **What** (Qué) | ¿Cuál es el problema? | El historial clínico de las mascotas y su cartilla de vacunación se gestionan en papel. La cartilla queda en poder del dueño y el historial queda en la clínica, de modo que ningún actor posee el registro completo del animal, y ambos documentos son susceptibles de pérdida, deterioro u olvido. |
+| **Who** (Quién) | ¿A quiénes afecta? | Al personal de clínicas veterinarias pequeñas y medianas (médico veterinario tratante y personal de recepción), responsable de registrar y consultar la información clínica; y a los dueños de perros y gatos, responsables de custodiar la cartilla física y de informar los antecedentes del animal en cada atención. |
+| **Where** (Dónde) | ¿Dónde ocurre? | En clínicas y consultorios veterinarios independientes de Lima Metropolitana, que no cuentan con sistemas de información clínica y operan con registros manuales. |
+| **When** (Cuándo) | ¿Cuándo se manifiesta? | En el momento de la atención, cuando el veterinario requiere los antecedentes del paciente y no dispone de ellos; cuando el dueño extravía o deteriora la cartilla; y cuando el dueño acude por primera vez a una clínica distinta y no puede acreditar el historial de vacunación de su mascota. |
+| **Why** (Por qué) | ¿Por qué es relevante resolverlo? | Porque la ausencia de información verificable conduce a decisiones clínicas tomadas sobre datos incompletos, a la repetición u omisión de dosis de vacunas, y a reprocesos administrativos que consumen tiempo de atención. Además, compromete la trazabilidad sanitaria del animal a lo largo de su vida. |
+| **How** (Cómo) | ¿Cómo ocurre actualmente? | La clínica registra cada atención de forma manuscrita en fichas u hojas que se archivan apiladas o en folders físicos, sin índice ni respaldo. Paralelamente, entrega al dueño una cartilla de vacunación impresa que se completa a mano en cada dosis aplicada. No existe copia de seguridad de ninguno de los dos documentos. |
+| **How much** (Cuánto) | ¿Cuál es la magnitud? | El INEI (2026) reporta que el 64,0% de los hogares peruanos tiene al menos una mascota, con un total de 17 263 000 animales de compañía a nivel nacional, de los cuales el 56,5% son perros y el 36,2% son gatos. En Lima Metropolitana, el 59,6% de los hogares cuenta con algún animal de compañía. Cada uno de esos animales requiere, como mínimo, un esquema de vacunación documentado y verificable. |
+
+#### Antecedentes
+
+La tenencia de animales de compañía en el Perú alcanza una escala
+significativa. Según el módulo "Crianza de mascotas en el hogar" de la
+Encuesta Nacional de Hogares, incorporado por el Instituto Nacional de
+Estadística e Informática (INEI) en 2025 y difundido en 2026, el 64,0% de
+los hogares del país tiene al menos una mascota, con un promedio de 2,5
+animales por hogar. El 52,2% de los hogares cuenta con al menos un perro
+y el 33,0% con al menos un gato, lo que confirma a ambas especies como
+las predominantes en el dominio del problema.
+
+Este volumen de animales sostiene una red amplia de clínicas y
+consultorios veterinarios, en su mayoría negocios independientes de
+pequeña y mediana escala. En dichos establecimientos, la gestión de la
+información clínica continúa apoyándose en instrumentos físicos: fichas
+manuscritas de atención que se archivan en folders, y una cartilla de
+vacunación impresa que se entrega al dueño de la mascota y se completa a
+mano cada vez que se aplica una dosis.
+
+Este esquema de trabajo divide el expediente del animal en dos mitades
+que nunca se encuentran. La clínica conserva el registro de las atenciones
+que ella misma brindó, pero no necesariamente el de las vacunas aplicadas
+en otros establecimientos. El dueño conserva la cartilla, pero no el
+detalle clínico de cada consulta. Cuando cualquiera de las dos mitades se
+pierde, no existe mecanismo alguno de recuperación, porque no hay copia
+de respaldo.
+
+#### Problemática
+
+La gestión en papel del historial veterinario y de la cartilla de
+vacunación de perros y gatos genera pérdida de información clínica
+irrecuperable y decisiones médicas basadas en antecedentes incompletos.
+
+Los puntos más importantes que la solución debe resolver son los
+siguientes:
+
+1. **Fragilidad del soporte físico.** La cartilla de vacunación es un
+   documento de papel que acompaña al animal durante toda su vida y que
+   se extravía, se moja o se deteriora con facilidad. Cuando esto ocurre,
+   el registro histórico de dosis aplicadas se pierde por completo.
+
+2. **Ausencia de respaldo del historial clínico.** Las fichas de atención
+   apiladas en la clínica carecen de copia de seguridad y de un criterio
+   de organización que permita recuperar con rapidez los antecedentes de
+   un paciente determinado.
+
+3. **Información dispersa entre actores.** Ni la clínica ni el dueño
+   poseen individualmente el expediente completo del animal, lo que
+   obliga al veterinario a reconstruir los antecedentes a partir de lo
+   que el dueño recuerda.
+
+4. **Falta de control sobre el esquema de vacunación.** Al registrarse
+   las dosis de forma manuscrita y sin validación, resulta difícil
+   determinar con certeza qué vacunas le corresponden a la mascota según
+   su especie y edad, cuáles ya recibió y cuáles se encuentran
+   pendientes o vencidas.
+
+5. **Imposibilidad de consulta por parte del dueño.** El dueño solo puede
+   revisar la información de su mascota si conserva físicamente la
+   cartilla, y no tiene acceso alguno al detalle de las atenciones
+   registradas por la clínica.
+
+#### Objetivos de la solución
+
+**Objetivo general**
+
+Desarrollar una plataforma de software compuesta por una aplicación web y
+una aplicación móvil que permita a las clínicas veterinarias registrar y
+mantener de forma digital la cartilla de vacunación y el historial
+veterinario de perros y gatos, y que permita a los dueños consultar dicha
+información en cualquier momento.
+
+**Objetivos específicos**
+
+- Generar automáticamente la cartilla de vacunación de una mascota a
+  partir del esquema de vacunación correspondiente a su especie, al
+  momento de su registro en la plataforma.
+- Permitir al personal veterinario registrar la aplicación de cada dosis
+  y determinar el estado de la cartilla de la mascota.
+- Permitir al personal veterinario registrar las atenciones del historial
+  veterinario mediante un formato preestablecido.
+- Permitir al dueño consultar desde su dispositivo móvil el perfil, la
+  cartilla de vacunación y el historial de cada una de sus mascotas.
+- Permitir la emisión de recetas médicas asociadas a una atención y su
+  consulta por parte del dueño.
+
+#### Restricciones y delimitación del alcance
+
+El alcance del proyecto se delimita de forma deliberada para concentrar
+el esfuerzo del equipo en la calidad de la construcción, la verificación
+y la validación del producto, que constituyen el objeto del curso. En
+consecuencia, se establecen las siguientes restricciones:
+
+- La plataforma soporta únicamente las especies **canina y felina**, por
+  ser las predominantes en la atención veterinaria de acuerdo con las
+  cifras del INEI citadas.
+- El registro y la edición de información clínica son atribución
+  exclusiva del personal de la clínica veterinaria. El dueño de la
+  mascota dispone únicamente de permisos de consulta.
+- El esquema de vacunación por especie se administra como una plantilla
+  predefinida en el sistema, y no es configurable por el usuario final
+  en esta versión del producto.
+- Quedan fuera del alcance: la reserva de citas, los módulos de pagos y
+  facturación, la gestión de inventario de medicamentos, los servicios
+  de baño y estética, la telemedicina, las notificaciones push, el
+  comercio electrónico y la administración de cadenas veterinarias con
+  múltiples sedes.
 
 ##### 1.2.2. Lean UX Process
 
