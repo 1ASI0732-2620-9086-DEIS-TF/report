@@ -294,12 +294,16 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 ##### 1.1.1. Descripción de la Startup
 
+<img src="./img/cap 1/profile&solutions/PawCode_logo.png" alt="Logo StartUp" width="500">
+
 PawCode Studio es una startup de desarrollo de software conformada por
 estudiantes de la carrera de Ingeniería de Software de la Universidad
 Peruana de Ciencias Aplicadas. Nace con el propósito de llevar procesos
 administrativos y clínicos que aún dependen del papel hacia soluciones
 digitales confiables, verificables y accesibles para negocios de pequeña
 y mediana escala del Perú.
+
+<img src="./img/cap 1/profile&solutions/VetPass_logo.png" alt="Logo Aplicacion" width="500">
 
 Nuestro primer producto es **VetPass**, una plataforma web y móvil que
 digitaliza la cartilla de vacunación y el historial veterinario de perros
@@ -336,6 +340,9 @@ conocimientos técnicos y habilidades que cada uno aporta al equipo.
 #### 1.2. Solution Profile
 
 ##### 1.2.1. Antecedentes y problemática
+
+
+#### Análisis previo: The 5 'W's and 2 'H's
 
 Antes de redactar los antecedentes y la problemática, el equipo aplicó la
 técnica de análisis 5W+2H sobre el dominio del problema, con el fin de
@@ -461,25 +468,269 @@ consecuencia, se establecen las siguientes restricciones:
 
 ##### 1.2.2. Lean UX Process
 
+El equipo aplicó el proceso Lean UX sobre el dominio del problema, con el
+propósito de partir de supuestos explícitos y convertirlos en hipótesis
+verificables, en lugar de asumir como válida la solución inicialmente
+imaginada. El resultado de este proceso se presenta a continuación en
+cuatro artefactos: los enunciados de problema, los supuestos, las
+hipótesis y el Lean UX Canvas que los consolida.
+
 ###### 1.2.2.1. Lean UX Problem Statements
 
-_Pendiente de completar._
+**Dominio**
+
+Gestión de la información clínica y sanitaria de animales de compañía en
+clínicas veterinarias de pequeña y mediana escala.
+
+**Segmentos de clientes**
+
+Personal de clínicas veterinarias independientes de Lima Metropolitana
+(médico veterinario tratante y personal de recepción), y dueños de perros
+y gatos atendidos en dichos establecimientos.
+
+**Pain points**
+
+El registro clínico manuscrito carece de respaldo y de un criterio de
+recuperación rápida; la cartilla de vacunación en papel se extravía y se
+deteriora; el expediente del animal queda dividido entre la clínica y el
+dueño, de modo que ninguno de los dos lo posee completo; y no existe un
+control confiable sobre qué dosis del esquema de vacunación corresponden
+a la mascota, cuáles ya recibió y cuáles están pendientes o vencidas.
+
+**Gap**
+
+Existen sistemas de gestión veterinaria en el mercado, pero se orientan
+principalmente a la administración comercial del negocio (citas,
+facturación, inventario) y no resuelven el acceso del dueño a la
+información sanitaria de su mascota. A la vez, las clínicas pequeñas
+carecen de una herramienta accesible que digitalice específicamente la
+cartilla de vacunación con las reglas del esquema sanitario incorporadas,
+por lo que permanecen en el papel.
+
+**Visión y estrategia**
+
+La visión es que el expediente sanitario de una mascota deje de depender
+de un documento físico y pase a residir en una plataforma en la que la
+clínica lo construye y el dueño lo consulta. La estrategia consiste en
+comenzar por el activo de información más frágil y a la vez más
+normalizado —la cartilla de vacunación de perros y gatos—, generándola de
+forma automática a partir del esquema de cada especie, y extender desde
+allí hacia el historial de atenciones.
+
+**Segmento inicial**
+
+Clínicas veterinarias independientes de Lima Metropolitana con uno a tres
+médicos veterinarios, que actualmente gestionan sus registros en papel y
+no cuentan con un sistema de información clínica.
+
+**Enunciados de problema**
+
+*Enunciado 1 — Segmento clínica veterinaria*
+
+Las clínicas veterinarias independientes registran el historial de sus
+pacientes en fichas manuscritas y entregan a sus clientes una cartilla de
+vacunación impresa. Hemos observado que este esquema no permite conservar
+un expediente sanitario completo ni verificable de cada animal, lo cual
+está causando que los veterinarios tomen decisiones clínicas sobre
+antecedentes incompletos y que se inviertan minutos de la consulta en
+reconstruir información que debería estar disponible. ¿Cómo podríamos
+digitalizar el registro clínico y la cartilla de vacunación de modo que
+el personal de la clínica disponga del expediente completo de cada
+paciente al iniciar una atención?
+
+*Enunciado 2 — Segmento dueño de mascota*
+
+Los dueños de perros y gatos custodian la cartilla de vacunación de su
+mascota en papel y desconocen el detalle de las atenciones registradas
+por la clínica. Hemos observado que este documento se extravía y se
+deteriora, y que su pérdida es irreversible, lo cual está causando que el
+dueño no pueda acreditar el estado de vacunación de su mascota ni
+determinar qué dosis le corresponden a continuación. ¿Cómo podríamos
+ofrecer al dueño acceso permanente y confiable a la cartilla y al
+historial de su mascota de modo que deje de depender de un documento
+físico?
 
 ###### 1.2.2.2. Lean UX Assumptions
 
-_Pendiente de completar._
+**Supuestos de negocio (Business Assumptions)**
+
+1. Creemos que las clínicas veterinarias independientes de Lima
+   Metropolitana gestionan mayoritariamente sus registros clínicos en
+   papel.
+2. Creemos que el personal veterinario percibe la reconstrucción de
+   antecedentes de un paciente como una pérdida de tiempo dentro de la
+   consulta.
+3. Creemos que la pérdida o el deterioro de la cartilla de vacunación es
+   un hecho frecuente y no un caso aislado.
+4. Creemos que ofrecer al cliente acceso digital a la información de su
+   mascota constituye un diferencial de servicio que la clínica valora.
+5. Creemos que el esquema de vacunación de perros y de gatos está
+   suficientemente estandarizado como para ser modelado en una plantilla
+   predefinida por especie.
+6. Creemos que las clínicas del segmento inicial disponen de una
+   computadora con acceso a internet en el área de atención.
+7. Creemos que los dueños de mascotas del segmento cuentan con un
+   teléfono inteligente y están dispuestos a instalar una aplicación para
+   consultar la información de su mascota.
+8. Creemos que la clínica no aceptaría que el dueño pudiera editar el
+   contenido clínico registrado por el veterinario.
+9. Creemos que el mercado al que nos dirigimos es suficientemente amplio
+   como para sostener el producto, considerando el volumen de tenencia de
+   mascotas reportado por el INEI.
+
+**Supuestos de usuario (User Assumptions)**
+
+| Pregunta | Supuesto del equipo |
+|----------|---------------------|
+| ¿Quién es el usuario? | Por un lado, el médico veterinario y el personal de recepción de una clínica independiente. Por otro, el dueño de un perro o un gato atendido en esa clínica. |
+| ¿Dónde encaja nuestro producto en su trabajo o vida? | En la clínica, durante el momento de la atención y el registro posterior. En el caso del dueño, en los momentos puntuales en que necesita consultar el estado sanitario de su mascota. |
+| ¿Qué problemas resuelve nuestro producto? | Elimina la dependencia del papel como único soporte del expediente sanitario y hace que la información sea recuperable y consultable por ambas partes. |
+| ¿Cuándo y cómo es usado nuestro producto? | La aplicación web se usa de forma continua durante la jornada de atención de la clínica. La aplicación móvil se usa de forma esporádica, cuando el dueño necesita verificar la cartilla o revisar una indicación. |
+| ¿Qué características son importantes? | La generación automática de la cartilla según la especie, el registro de dosis aplicadas, el estado de la cartilla, el historial de atenciones y la consulta desde el móvil. |
+| ¿Cómo debe verse y comportarse nuestro producto? | Debe replicar de forma reconocible la estructura de la cartilla de vacunación física, para que el usuario no necesite reaprender un formato que ya conoce. |
+
+**Supuestos de funcionalidad (Feature Assumptions)**
+
+1. Creemos que generar la cartilla de forma automática al registrar la
+   mascota reduce el esfuerzo de registro frente a crearla dosis por
+   dosis de manera manual.
+2. Creemos que mostrar el estado de la cartilla (al día, pendiente o
+   vencida) es más útil para el usuario que presentar únicamente la lista
+   de dosis registradas.
+3. Creemos que validar automáticamente la edad mínima y el intervalo
+   entre dosis previene errores de registro que hoy no se detectan.
+4. Creemos que un formato preestablecido de atención resulta más rápido
+   de completar para el veterinario que un campo de texto libre.
+5. Creemos que el dueño consultará la cartilla con mayor frecuencia que
+   el historial de atenciones.
 
 ###### 1.2.2.3. Lean UX Hypothesis Statements
 
-_Pendiente de completar._
+Los supuestos anteriores se convierten en las siguientes hipótesis,
+formuladas de modo que puedan ser verificadas mediante las entrevistas de
+validación y la observación del uso del producto.
+
+**Hipótesis 1**
+
+Creemos que **reduciremos el tiempo que el personal veterinario dedica a
+reconstruir los antecedentes de un paciente** si **el médico veterinario
+de una clínica independiente** obtiene **el expediente completo de la
+mascota en una sola pantalla** con **la funcionalidad de historial
+veterinario digital**. Sabremos que esto es cierto cuando **el veterinario
+localice los antecedentes de un paciente registrado sin recurrir a
+archivos físicos durante las sesiones de validación**.
+
+**Hipótesis 2**
+
+Creemos que **eliminaremos la pérdida irrecuperable del registro de
+vacunación** si **el dueño de un perro o un gato** obtiene **acceso
+permanente a la cartilla de su mascota desde su teléfono** con **la
+funcionalidad de consulta de cartilla digital en la aplicación móvil**.
+Sabremos que esto es cierto cuando **los dueños entrevistados accedan a la
+cartilla de su mascota sin requerir el documento físico**.
+
+**Hipótesis 3**
+
+Creemos que **reduciremos los errores de registro en el esquema de
+vacunación** si **el personal de la clínica** obtiene **advertencias
+automáticas ante dosis aplicadas fuera de la edad mínima o del intervalo
+establecido** con **las reglas de validación incorporadas en la cartilla
+digital**. Sabremos que esto es cierto cuando **el sistema rechace los
+registros inválidos presentados durante las pruebas de aceptación y los
+usuarios reconozcan el mensaje de advertencia como comprensible**.
+
+**Hipótesis 4**
+
+Creemos que **agilizaremos el registro de una nueva mascota** si **el
+personal de recepción** obtiene **la cartilla de vacunación ya
+estructurada según la especie** con **la funcionalidad de generación
+automática a partir de la plantilla de esquema**. Sabremos que esto es
+cierto cuando **el personal complete el registro de una mascota sin
+necesidad de definir manualmente las dosis que le corresponden**.
+
+**Hipótesis 5**
+
+Creemos que **mejoraremos la comprensión del dueño sobre el estado
+sanitario de su mascota** si **el dueño** obtiene **un indicador explícito
+del estado de la cartilla y de la próxima dosis esperada** con **la vista
+de estado de cartilla en la aplicación móvil**. Sabremos que esto es
+cierto cuando **los dueños entrevistados identifiquen correctamente la
+siguiente dosis pendiente de su mascota sin ayuda del entrevistador**.
+
+**Hipótesis 6**
+
+Creemos que **incrementaremos la percepción de calidad del servicio de la
+clínica** si **el cliente de la veterinaria** obtiene **acceso a las
+recetas e indicaciones emitidas en su consulta** con **la funcionalidad de
+recetas digitales consultables desde el móvil**. Sabremos que esto es
+cierto cuando **los dueños entrevistados manifiesten preferencia por una
+clínica que ofrezca este acceso frente a una que no lo ofrezca**.
 
 ###### 1.2.2.4. Lean UX Canvas
 
-_Pendiente de completar._
+Se presenta la primera iteración del Lean UX Canvas v2, utilizando las recomendaciones y formatos recomendados por la plantilla.
+
+![Canvas](./img/cap%201/canvas.png)
 
 #### 1.3. Segmentos objetivo
 
-_Pendiente de completar._
+## 1.3. Segmentos objetivo
+
+La solución propuesta atiende a dos segmentos objetivo con roles
+complementarios dentro del mismo dominio. El primero corresponde al lado
+de la oferta del servicio veterinario y opera la aplicación web; el
+segundo corresponde al lado de la demanda y opera la aplicación móvil.
+Ambos segmentos interactúan con la misma información clínica, pero con
+niveles de permiso distintos.
+
+### Segmento 1: Clínicas veterinarias independientes de Lima Metropolitana
+
+**Descripción**
+
+Consultorios y clínicas veterinarias de propiedad independiente, no
+pertenecientes a cadenas, que atienden principalmente animales de
+compañía de las especies canina y felina. Cuentan con uno a tres médicos
+veterinarios, atienden por consulta ambulatoria y aplican vacunas como
+parte regular de su servicio. Gestionan sus registros clínicos en papel y
+no disponen de un sistema de información clínica.
+
+**Características demográficas y del negocio**
+
+| Característica | Descripción |
+|----------------|-------------|
+| Tipo de organización | Micro y pequeña empresa de propiedad familiar o individual |
+| Personal de contacto con el sistema | Médico veterinario tratante y personal de recepción o asistencia |
+| Edad del personal usuario | Entre 25 y 55 años |
+| Nivel educativo | Superior universitario en Medicina Veterinaria en el caso del profesional tratante; técnico o superior en el caso del personal de recepción |
+| Ubicación | Distritos de Lima Metropolitana con alta densidad residencial |
+| Nivel de digitalización | Bajo. Uso de herramientas ofimáticas generales o de ninguna herramienta digital para el registro clínico |
+| Infraestructura disponible | Computadora de escritorio o laptop con acceso a internet en el área de atención |
+| Volumen de atención estimado | Entre 10 y 30 atenciones diarias |
+
+### Segmento 2: Dueños de perros y gatos en Lima Metropolitana
+
+**Descripción**
+
+Personas responsables del cuidado de al menos un perro o un gato, que
+acuden a clínicas veterinarias para la atención de su mascota y custodian
+la cartilla de vacunación física entregada por el establecimiento.
+Consideran a su mascota como parte de la familia y asumen un gasto
+recurrente en su cuidado.
+
+**Características demográficas**
+
+| Característica | Descripción |
+|----------------|-------------|
+| Edad | Entre 25 y 55 años |
+| Género | Sin distinción |
+| Ubicación | Lima Metropolitana, zona urbana |
+| Nivel socioeconómico | Sectores B y C, con capacidad de gasto recurrente en servicios veterinarios |
+| Composición del hogar | Hogares con y sin menores de edad, con mayor incidencia en los primeros |
+| Nivel educativo | Superior técnico o universitario |
+| Acceso tecnológico | Usuario de teléfono inteligente con conexión a internet y experiencia en el uso de aplicaciones móviles |
+| Relación con la mascota | Vínculo afectivo. La mascota es percibida como miembro del hogar |
+
+<div style="page-break-after: always;"></div>
 
 ### Capítulo II: Requirements Elicitation & Analysis
 
