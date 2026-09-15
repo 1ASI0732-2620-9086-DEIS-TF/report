@@ -332,7 +332,7 @@ conocimientos técnicos y habilidades que cada uno aporta al equipo.
 |------|---------------------|----------------------|---------|--------------------------------------|
 | <img src="img/cap 1/profile&solutions/Guillermo.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
 | <img src="img/cap 1/profile&solutions/Nelson.png" width="100"> | Apellido Apellido, Nombre | U202222745 | Ingeniería de Software | Arquitectura de Software <|
-| <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Saldaña De Souza, Juan David | U20221F192 | Ingeniería de Software | Desarrollo web (Angular, Spring Boot), bases de datos relacionales y no relacionales, control de versiones con Git, y conocimientos en diseño de software orientado a objetos. |
 | <img src="assets/img/team/integrante-04.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
 | <img src="assets/img/team/integrante-05.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
 
