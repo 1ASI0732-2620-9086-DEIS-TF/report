@@ -28,6 +28,10 @@
                 <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202222745</td>
                 <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Guerrero Tomas Nelson Fabrizio</td>
             </tr>
+            <tr>
+                <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U20221F192</td>
+                <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Saldaña De Souza, Juan David</td>
+            </tr>
         </tbody>
     </table>
     <div style="margin-top: 40px;">
