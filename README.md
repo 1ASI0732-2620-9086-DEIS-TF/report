@@ -909,11 +909,11 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 
 **Entrevista 1:**
 - **Nombres y apellidos:** Carlos Mendoza Farfán
-- **Edad:** 
+- **Edad:** 28 años
 - **Distrito:** Lince
 
-- **Inicio:** 
-- **Duración:**
+- **Inicio:** 00:00
+- **Duración:** 4:23
 
 **Resumen:** En la clínica MedVet se manejan fichas físicas y archivos de Excel sin centralizar, lo que genera demoras y traspapeleos durante las consultas. Por ello, se requiere contar con un historial clínico electrónico completo, un registro de signos vitales, recordatorios automáticos y una agenda organizada por veterinario. También solicitan alertas preventivas explicables y sustentadas con gráficos, garantías de protección de datos y una interfaz optimizada para ser utilizada desde una computadora o laptop.
 
