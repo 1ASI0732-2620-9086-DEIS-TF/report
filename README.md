@@ -907,6 +907,8 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 
 ---
 
+<img src="./img/cap 2/segmento1-entrevista1.png" alt="Entrevista 1 - Segmento Clínica Veterinaria" style="width: 450px;">
+
 **Entrevista 1:**
 - **Nombres y apellidos:** 
 - **Edad:** 
@@ -914,8 +916,6 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 
 - **Inicio:** 
 - **Duración:**
-
-<img src="./img/cap 2/segmento1-entrevista1.png" alt="Entrevista 1 - Segmento Clínica Veterinaria" style="width: 450px;">
 
 **Resumen:**
 
