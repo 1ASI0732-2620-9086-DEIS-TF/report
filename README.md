@@ -893,7 +893,69 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 
 ### 2.2.2. Registro de entrevistas
 
-_Pendiente de completar._
+**ENTREVISTADOS**
+
+<img src="./img/cap 2/entrevistados.png" alt="Entrevisa 1" style="width: 450px;">
+
+**Duración:** 18:27 
+
+**URL:** [Link de Entrevistas](https://1drv.ms/f/c/34b21ad4017f3031/IgBRUW0mb2ODTquKuSUtK0--AW4yzypd1S6YcP6iZf_1HuI?e=ZXiA3P)
+
+
+
+#### Segmento objetivo #1: Clínica Veterinaria
+
+---
+
+<img src="" />
+
+**Entrevista 1:**
+- **Nombres y apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+- **Inicio:** 
+- **Duración:**
+
+**Resumen:**
+
+---
+
+#### Segmento objetivo #2: Dueño de mascota
+
+---
+
+<img src="./img/cap 2/segmento2-entrevista1.png" alt="Entrevisa 1" style="width: 450px;">
+
+
+**Entrevista 1:**
+- **Nombres y apellidos:**  Diana Chumpitaz Vera
+- **Edad:** 27 años
+- **Distrito:** Comas
+
+- **Inicio:** 00:02
+- **Duración:** 07:00
+
+**Resumen:**La entrevistada es una dueña comprometida de Lima que asume los gastos de una perra Shih Tzu y un gato rescatado, pero enfrenta serios problemas de organización con el seguimiento de su salud veterinaria. Aunque prioriza la medicina preventiva para evitar gastos imprevistos por emergencias, olvida con frecuencia las cartillas físicas, extravía las recetas médicas y le cuesta distinguir o recordar los calendarios de vacunación de cada animal, problema agravado por avisos de WhatsApp que se pierden en sus chats. Como usuaria activa de Android habituada a apps móviles y billeteras digitales, muestra una alta disposición a adoptar una solución tecnológica que centralice el historial de sus mascotas y le envíe recordatorios claros, siempre y cuando no exija un registro largo y engorroso.
+
+---
+
+<img src="" />
+
+**Entrevista 2:**
+- **Nombres y apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+- **Inicio:** 
+- **Duración:** 
+
+
+**Resumen:**
+
+
+
+---
 
 ### 2.2.3. Análisis de entrevistas
 
