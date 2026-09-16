@@ -895,7 +895,6 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 
 **ENTREVISTADOS**
 
-<img src="./img/cap 2/entrevistados.png" alt="Entrevisa 1" style="width: 450px;">
 
 **Duración:** 18:27 
 
@@ -906,18 +905,17 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 #### Segmento objetivo #1: Clínica Veterinaria
 
 ---
-
-<img src="./img/cap 2/segmento1-entrevista1.png" alt="Entrevista 1 - Segmento Clínica Veterinaria" style="width: 450px;">
+<img src="./img/cap 2/segmento1-entrevista1.png" alt="Entrevista 1 - Carlos Mendoza Farfán" style="width: 450px;">
 
 **Entrevista 1:**
-- **Nombres y apellidos:** 
+- **Nombres y apellidos:** Carlos Mendoza Farfán
 - **Edad:** 
-- **Distrito:** 
+- **Distrito:** Lince
 
 - **Inicio:** 
 - **Duración:**
 
-**Resumen:**
+**Resumen:** En la clínica MedVet se manejan fichas físicas y archivos de Excel sin centralizar, lo que genera demoras y traspapeleos durante las consultas. Por ello, se requiere contar con un historial clínico electrónico completo, un registro de signos vitales, recordatorios automáticos y una agenda organizada por veterinario. También solicitan alertas preventivas explicables y sustentadas con gráficos, garantías de protección de datos y una interfaz optimizada para ser utilizada desde una computadora o laptop.
 
 ---
 
@@ -940,7 +938,8 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 
 ---
 
-<img src="" />
+<img src="./img/cap 2/entrevista%202.png" alt="Entrevisa 1" style="width: 450px;">
+
 
 **Entrevista 2:**
 - **Nombres y apellidos:** 
