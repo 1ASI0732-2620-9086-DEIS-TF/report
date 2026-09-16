@@ -942,15 +942,14 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 
 
 **Entrevista 2:**
-- **Nombres y apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+- **Nombres y apellidos:** Stephano Jose Espinoza Cueva
+- **Edad:** 21 años
+- **Distrito:** La Victoria
 
-- **Inicio:** 
-- **Duración:** 
+- **Inicio:** 00:00
+- **Duración:** 7:02
 
-
-**Resumen:**
+**Resumen:** Stephano es un estudiante universitario que tiene un perro de un año y medio llamado Kido. Suele llevarlo al veterinario aproximadamente dos veces al año para revisiones generales o urgencias. Guarda las cartillas físicas en un mueble de su casa, aunque admite que en alguna ocasión se le han perdido u olvidado. Su papá es quien tiene mayor conocimiento sobre las vacunas necesarias. Tras las consultas, recibe los reportes médicos en PDF vía WhatsApp, los cuales comparte con su grupo familiar. Le preocupan las enfermedades graves o que podrían ser prevenibles. Al evaluar una veterinaria, valora primordialmente el buen trato hacia su mascota, el orden, la precisión en los tratamientos y consideraría un enorme valor agregado que le permitieran tener acceso directo para visualizar el historial clínico de su perrito. Usa aplicaciones a diario como correo, apps bancarias (Yape), YouTube y Google Calendar.
 
 
 
