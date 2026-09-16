@@ -897,29 +897,230 @@ _Pendiente de completar._
 
 ### 2.2.3. Análisis de entrevistas
 
-_Pendiente de completar._
+Se aplicaron seis entrevistas semiestructuradas, tres por cada segmento
+objetivo. A continuación se identifican las características objetivas y
+subjetivas más comunes en cada segmento, con el sustento porcentual
+correspondiente. Estas características constituyen la base para la
+construcción de los arquetipos de la sección 2.3.
+
+#### Segmento 1: Personal de clínicas veterinarias
+
+**Características objetivas.** Los entrevistados tienen entre 26 y 47
+años (promedio de 35,7), el 66,7% es de género femenino y todos residen y
+trabajan en distritos de Lima Metropolitana. El 66,7% ejerce como médico
+veterinario tratante y el 33,3% cumple funciones de recepción y
+asistencia técnica; el 66,7% es además propietario o copropietario del
+establecimiento. El 100% trabaja en consultorios o clínicas de uno a tres
+veterinarios. La totalidad registra la información clínica en papel y
+carece de cualquier copia digital del historial, y el 100% entrega al
+cliente una cartilla de vacunación física que constituye el único
+documento con el esquema completo del animal. El 100% usa WhatsApp como
+canal con los clientes y Excel para tareas administrativas, pero ninguno
+emplea un sistema de gestión clínica. El 100% evaluó previamente
+contratar uno y desistió: el 66,7% por el precio y el 66,7% por exceso de
+funcionalidad frente a su tamaño, mientras que el 33,3% se detuvo ante la
+exigencia de migrar datos históricos. Recuperar los antecedentes de un
+paciente les toma entre 2 y 10 minutos, y el 66,7% ha perdido registros
+de forma irrecuperable por deterioro físico. El 100% recibe clientes sin
+cartilla con frecuencia semanal o diaria y el 100% ha aplicado o
+presenciado la aplicación de una dosis sin poder confirmar las
+anteriores. En cuanto a tecnología, el 100% dispone de una computadora en
+recepción y usa el smartphone de forma permanente durante la jornada,
+con Android en el 66,7% de los casos e iOS en el 33,3%. Un hallazgo
+determinante para el producto: el 100% coincide en que el esquema de
+vacunación es sustancialmente el mismo entre clínicas, definido por el
+inserto del laboratorio y las guías internacionales, y que la variación
+se limita a la marca del producto y a las vacunas no esenciales.
+
+**Características subjetivas.** El 100% identifica como principal
+frustración que la información existe pero resulta inaccesible en el
+momento en que se necesita, expresado como dependencia de la memoria del
+dueño, ausencia de trazabilidad sobre el estado de vacunación de sus
+pacientes, o incapacidad de responder consultas en el acto. El 100%
+señala que la mejora prioritaria sería acceder al historial completo del
+paciente de forma inmediata a partir de su nombre. El 100% reconoce que
+el costo de reiniciar un esquema no verificable recae en el cliente y
+deteriora la relación con él. El 33,3% establece de forma explícita que
+un registro que tome más de un minuto durante la consulta no llegará a
+usarse, criterio que condiciona el diseño de la solución.
+
+#### Segmento 2: Dueños de perros y gatos
+
+**Características objetivas.** Los entrevistados tienen entre 27 y 45
+años (promedio de 34,3), el 66,7% es de género femenino y todos residen
+en distritos de Lima Metropolitana con ocupación dependiente de nivel
+profesional o administrativo. El 66,7% convive con más de una mascota; el
+66,7% tiene al menos un perro y el 66,7% al menos un gato. El 100%
+conserva la cartilla de vacunación física y el 100% le ha tomado
+fotografía en algún momento, pero en la totalidad de los casos esa
+fotografía resultó inservible por estar desactualizada o perdida entre
+archivos del dispositivo. El 100% ha olvidado, perdido o dañado la
+cartilla, y el 66,7% sufrió por ello una pérdida definitiva de
+información clínica. El 100% ha cambiado de veterinaria al menos una vez,
+y en todos los casos la transferencia del historial se limitó a la
+cartilla y al relato de memoria. El 100% desconoce con precisión qué
+vacunas corresponden a su mascota y en qué fechas, y depende del aviso de
+la clínica por WhatsApp, canal que falló en el 66,7% de los casos. El
+100% recibe recetas manuscritas y termina extraviándolas o
+descartándolas. En cuanto a tecnología, el 100% usa smartphone con
+WhatsApp de forma diaria, con Android en el 66,7% de los casos e iOS en
+el 33,3%, y el 100% utiliza aplicaciones de pago digital.
+
+**Características subjetivas.** El 100% mantiene un vínculo afectivo
+intenso con su mascota, a la que percibe como miembro de la familia. El
+100% expresa como principal preocupación que algo prevenible se le pase
+por desconocimiento, y el 66,7% lo formula en términos de responsabilidad
+personal, atribuyéndose la falla. El 33,3% añade la preocupación por el
+impacto económico de una emergencia. De manera transversal, el 100%
+manifestó que preferiría una clínica que le otorgue acceso digital
+permanente a la información de su mascota, y el 33,3% declaró estar
+dispuesto a pagar más por ello. El 33,3% reporta confundir el estado de
+vacunación entre sus mascotas cuando tiene más de una, y el 33,3%
+rechaza explícitamente los procesos de registro que exigen muchos datos
+antes de mostrar valor.
 
 ## 2.3. Needfinding
 
 ### 2.3.1. User Personas
 
-_Pendiente de completar._
+Las fichas de User Persona sintetizan los arquetipos de cada segmento
+objetivo a partir del análisis de entrevistas de la sección 2.2.3 y del
+análisis competitivo de la sección 2.1.1. Cada característica incluida en
+las fichas proviene de las respuestas registradas: los datos demográficos
+corresponden a los promedios y valores predominantes del segmento, las
+frustraciones recogen los puntos de dolor mencionados por la totalidad de
+los entrevistados, y los canales y dispositivos replican los declarados
+durante las entrevistas. Las fichas fueron elaboradas en UXPressia.
+
+### User Persona 1 (Veterinarios)
+![User Persona Segmento 1](./img/cap%202/User%20Persona%20Segmento%201.png)
+
+### User Persona 2 (Dueño de mascota)
+![User Persona Segmento 2](./img/cap%202/User%20Persona%20Segmento%202.png)
 
 ### 2.3.2. User Task Matrix
 
-_Pendiente de completar._
+El User Task Matrix concentra las tareas que realizan los dos arquetipos
+identificados —Claudia Herrera, del segmento de personal de clínicas
+veterinarias, y Valeria Campos, del segmento de dueños de perros y
+gatos— para alcanzar sus objetivos en el dominio del problema. Las tareas
+listadas corresponden a actividades que ambos segmentos ejecutan hoy con
+independencia de la existencia de la solución propuesta, y no a
+funcionalidades del producto.
+
+| Tarea | Claudia · Frecuencia | Claudia · Importancia | Valeria · Frecuencia | Valeria · Importancia |
+|---|---|---|---|---|
+| Registrar los datos de una mascota y de su dueño | A menudo | Alta | Rara vez | Media |
+| Consultar los antecedentes de la mascota antes de una atención | Siempre | Alta | A veces | Alta |
+| Registrar por escrito la información de una atención clínica | Siempre | Alta | Nunca | Baja |
+| Determinar qué dosis del esquema corresponde y en qué fecha | Siempre | Alta | A veces | Alta |
+| Verificar qué dosis ya recibió la mascota antes de aplicar una nueva | Siempre | Alta | A veces | Media |
+| Registrar la aplicación de una dosis en la cartilla | Siempre | Alta | Nunca | Baja |
+| Custodiar y localizar la cartilla de vacunación física | Rara vez | Baja | Siempre | Alta |
+| Comunicar o enterarse de la fecha de la próxima dosis | A menudo | Media | A veces | Alta |
+| Emitir, conservar e interpretar la receta médica | A menudo | Media | A menudo | Media |
+| Trasladar los antecedentes de la mascota a otra veterinaria | A veces | Media | Rara vez | Alta |
+| Reconstruir información ausente cuando no se dispone de la cartilla | A menudo | Alta | A menudo | Media |
+
+**Análisis**
+
+Las tareas de mayor frecuencia e importancia para Claudia se concentran
+en el momento de la atención: consultar antecedentes, determinar la dosis
+correspondiente, verificar las ya aplicadas y registrarlas. Las cuatro
+son diarias y de importancia alta, lo que confirma que la solución debe
+optimizar ese bloque antes que cualquier otro.
+
+En el caso de Valeria, ninguna tarea alcanza la frecuencia diaria salvo
+la custodia de la cartilla física, que realiza de forma permanente y con
+importancia alta pese a no aportar valor por sí misma. Sus tareas
+verdaderamente relevantes —conocer la dosis que corresponde, enterarse de
+la fecha y trasladar los antecedentes— son de frecuencia baja pero de
+importancia alta, es decir, tareas poco recurrentes cuyo fallo tiene
+consecuencias significativas.
+
+La principal coincidencia entre ambos arquetipos se ubica en la tarea de
+reconstruir información ausente, que los dos ejecutan con frecuencia
+alta. Se trata de una tarea puramente reactiva, originada por la falla
+del soporte físico, y su eliminación constituye el indicador más claro
+del valor de la solución.
+
+La principal diferencia es de naturaleza asimétrica: las tareas de
+registro son exclusivas de Claudia, mientras que las de custodia y
+consulta son propias de Valeria. Esta separación sustenta la decisión de
+producto de destinar la aplicación web al registro por parte de la
+clínica y la aplicación móvil a la consulta por parte del dueño.
 
 ### 2.3.3. User Journey Mapping
 
-_Pendiente de completar._
+En esta sección se presentan los User Journey Maps en su versión As-Is,
+es decir, el recorrido que cada arquetipo realiza actualmente, sin que
+exista la solución propuesta. Se elaboró un mapa por cada User Persona en
+UXPressia, la misma herramienta en la que se construyeron las fichas de
+la sección 2.3.1, de modo que cada journey queda vinculado a su
+arquetipo.
+
+El journey de Claudia Herrera ilustra el recorrido completo de una
+atención veterinaria, desde que el paciente ingresa al consultorio hasta
+el seguimiento posterior a la consulta. El journey de Valeria Campos
+ilustra el recorrido de una visita a la veterinaria, desde que surge la
+necesidad de llevar a su mascota hasta que intenta recuperar la
+información de esa atención tiempo después.
+
+![ser Journey Mapping S1](./img/cap%202/User%20Journey%20Map%20Segmento%201.png)
+
+*Figura As-Is User Journey Map del segmento Personal de clínicas
+veterinarias. Elaborado en UXPressia.*
+
+![ser Journey Mapping S2](./img/cap%202/User%20Journey%20Map%20Segmento%202.png)
+
+*Figura As-Is User Journey Map del segmento Dueños de perros y gatos. Elaborado en UXPressia.*
 
 ### 2.3.4. Empathy Mapping
 
-_Pendiente de completar._
+Los Empathy Maps permiten profundizar en la perspectiva de cada arquetipo
+más allá de sus acciones observables. El equipo elaboró un mapa por cada
+User Persona en Miro, siguiendo el proceso de preparación, colocación del
+arquetipo al centro y registro individual de observaciones por parte de
+los integrantes, con posterior consolidación. La información utilizada
+proviene de las entrevistas registradas en la sección 2.2.2 y de su
+análisis en la sección 2.2.3.
+
+![](./img/cap%202/Empathy%20Map%201%20—%20Claudia%20Herrera.png)
+*Figura Empathy Map del segmento Personal de clínicas veterinarias. Elaborado en UXPressia.*
+
+![](./img/cap%202/Empathy%20Map%202%20—%20Valeria%20Campos.png)
+
+*Figura Empathy Map del segmento Dueños de perros y gatos. Elaborado en UXPressia.*
 
 ### 2.3.5. As-is Scenario Mapping
 
-_Pendiente de completar._
+El As-Is Scenario Mapping representa el escenario actual completo de cada
+arquetipo dentro del dominio del problema, con un alcance más amplio que
+el del User Journey Map de la sección 2.3.3: mientras aquel recorre una
+visita concreta, este abarca el ciclo completo de gestión de la
+información sanitaria de una mascota a lo largo del tiempo.
+
+El equipo siguió el proceso establecido para este artefacto. En la etapa
+de preparación se definió el escenario a mapear para cada User Persona y
+se revisaron los resúmenes de entrevistas. A continuación, cada
+integrante realizó una lluvia de ideas individual sobre las acciones,
+pensamientos y emociones del arquetipo, registrándolas de forma separada
+en el tablero. Luego se revisaron en conjunto las aportaciones, se
+identificaron las fases del escenario como columnas y se las nombró. Por
+último, se etiquetaron las áreas positivas y negativas para el usuario,
+así como las blank areas, entendidas como aquellos puntos del escenario
+sobre los que el equipo requiere aprender más antes de diseñar la
+solución. Los mapas fueron elaborados en Miro.
+
+[Insertar aquí el As-Is Scenario Map de Claudia Herrera]
+
+*Figura As-Is Scenario Map del segmento Personal de clínicas
+veterinarias. Elaborado en Miro.*
+
+[Insertar aquí el As-Is Scenario Map de Valeria Campos]
+
+*Figura As-Is Scenario Map del segmento Dueños de perros y gatos.
+Elaborado en Miro.*
 
 ## 2.4. Ubiquitous Language
 
