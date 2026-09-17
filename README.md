@@ -1912,17 +1912,139 @@ cuyo comportamiento depende de reglas externas al propio dato.
 
 ### 4.9.1. Class Diagrams
 
-_Pendiente de completar._
+![](./img/cap%203/4.9.1.%20Class%20Diagrams.png)
+
+*Figura Diagrama de clases del bounded context Vaccination. Elaborado
+en LucidChart.*
+
+El diseño orientado a objetos sigue los patrones tácticos de
+Domain-Driven Design. Cada bounded context define su aggregate root, que
+es el único punto de acceso a las entidades que contiene y el responsable
+de mantener sus invariantes.
+
+El aggregate `VaccinationCard` concentra la complejidad del diseño. No
+expone su colección de dosis para modificación directa: el registro de
+una dosis se realiza mediante su método `RegisterDose`, que consulta la
+política del esquema antes de alterar el estado interno. De este modo,
+resulta imposible construir una cartilla en un estado inválido, lo que
+convierte a cada invariante en un caso de prueba unitario directo.
 
 ### 4.9.2. Class Dictionary
 
-_Pendiente de completar._
+**Bounded Context: Vaccination**
+
+| Clase | Tipo | Descripción |
+|---|---|---|
+| `VaccinationCard` | Aggregate Root | Cartilla de vacunación de una mascota. Contiene todas las dosis de su esquema y calcula su estado global. Atributos: `Id`, `PetId`, `Species`, `PetBirthDate`, `Doses`. Métodos: `GenerateFrom(schedule, birthDate)`, `RegisterDose(doseId, applicationDate, batchCode, veterinarianId, today)`, `GetStatus(today)`. |
+| `Dose` | Entity | Cada dosis del esquema. Atributos: `Id`, `VaccineId`, `SequenceNumber`, `ExpectedDate`, `ApplicationDate`, `BatchCode`, `VeterinarianId`, `Status`. Métodos: `MarkAsApplied(date, batchCode, veterinarianId)`, `IsApplied()`, `IsOverdue(today)`. |
+| `VaccinationSchedule` | Domain Service | Plantilla del esquema de una especie. Atributos: `Species`, `Items`. Métodos: `ItemsFor(species)`, `ExpectedDateFor(item, birthDate)`. |
+| `ScheduleItem` | Value Object | Definición de una dosis dentro del esquema. Atributos: `VaccineId`, `SequenceNumber`, `MinimumAgeInWeeks`, `MinimumIntervalInWeeks`. |
+| `Vaccine` | Entity | Vacuna disponible. Atributos: `Id`, `Name`, `Species`, `IsCore`. |
+| `BatchCode` | Value Object | Código de lote del frasco aplicado. Atributo: `Value`. Valida formato no vacío. |
+| `CardStatus` | Enumeration | `UpToDate`, `Pending`, `Overdue`. |
+| `DoseStatus` | Enumeration | `Pending`, `Applied`. |
+| `MinimumAgeNotReachedException` | Domain Exception | La mascota no alcanza la edad mínima de la vacuna en la fecha indicada. |
+| `MinimumIntervalNotMetException` | Domain Exception | No transcurrió el intervalo mínimo desde la dosis anterior. |
+| `FutureApplicationDateException` | Domain Exception | La fecha de aplicación es posterior a la fecha actual. |
+| `DoseAlreadyAppliedException` | Domain Exception | La dosis ya fue registrada como aplicada. |
+
+**Bounded Context: Patients**
+
+| Clase | Tipo | Descripción |
+|---|---|---|
+| `Client` | Aggregate Root | Cliente de la clínica. Atributos: `Id`, `FullName`, `PhoneNumber`, `Email`, `ClinicId`. Métodos: `UpdateContactInfo(phone, email)`. |
+| `Pet` | Aggregate Root | Mascota registrada como paciente. Atributos: `Id`, `ClientId`, `Name`, `Species`, `Breed`, `Sex`, `BirthDate`. Métodos: `AgeInWeeks(today)`. |
+| `Species` | Enumeration | `Canine`, `Feline`. Cualquier otro valor es rechazado al registrar. |
+| `Sex` | Enumeration | `Male`, `Female`. |
+| `UnsupportedSpeciesException` | Domain Exception | La especie indicada no está soportada por la plataforma. |
+| `FutureBirthDateException` | Domain Exception | La fecha de nacimiento es posterior a la fecha actual. |
+
+**Bounded Context: Medical Records**
+
+| Clase | Tipo | Descripción |
+|---|---|---|
+| `Visit` | Aggregate Root | Atención veterinaria. Atributos: `Id`, `PetId`, `Date`, `Reason`, `Findings`, `Diagnosis`, `Treatment`, `Weight`, `VeterinarianId`, `Prescription`. Métodos: `IssuePrescription(items)`, `HasPrescription()`. |
+| `Prescription` | Entity | Receta emitida en una atención. Atributos: `Id`, `VisitId`, `IssuedAt`, `Items`. Métodos: `AddItem(item)`. Rechaza su emisión sin al menos un ítem. |
+| `PrescriptionItem` | Value Object | Medicamento indicado. Atributos: `Medication`, `Dosage`, `Duration`. |
+| `EmptyPrescriptionException` | Domain Exception | Se intentó emitir una receta sin medicamentos. |
+| `RequiredVisitFieldException` | Domain Exception | Falta el motivo de consulta o el diagnóstico. |
+
+**Bounded Context: Identity and Access**
+
+| Clase | Tipo | Descripción |
+|---|---|---|
+| `User` | Aggregate Root | Usuario de la plataforma. Atributos: `Id`, `Email`, `PasswordHash`, `Role`, `ClinicId`, `ClientId`. Métodos: `VerifyPassword(password)`, `CanRegisterClinicalData()`. |
+| `Role` | Enumeration | `ClinicStaff`, `PetOwner`. |
+| `Clinic` | Aggregate Root | Establecimiento veterinario. Atributos: `Id`, `Name`, `Address`. |
+| `InvalidCredentialsException` | Domain Exception | Las credenciales no corresponden a ningún usuario. |
+| `ForbiddenOperationException` | Domain Exception | El rol del usuario no permite la operación solicitada. |
 
 ## 4.10. Database Design
 
-### 4.10.1. Relational/Non-Relational Database Diagram
+### 4.10.1. Relational Database Diagram
 
-_Pendiente de completar._
+![](./img/cap%203/4.10.1.%20Relational%20Database%20Diagram.png)
+
+*Figura Diagrama de base de datos relacional de VetPass. Elaborado en
+Vertabelo.*
+
+Se adoptó un modelo relacional sobre PostgreSQL. La naturaleza de los
+datos lo justifica: la información es estructurada, con relaciones fijas
+y de cardinalidad conocida, y las consultas más frecuentes recorren esas
+relaciones. Además, la integridad referencial resulta aquí un requisito
+del negocio y no una preferencia técnica, dado que ninguna dosis puede
+existir sin su cartilla ni ninguna cartilla sin su mascota.
+
+**Tablas**
+
+| Tabla | Descripción | Campos principales |
+|---|---|---|
+| `clinics` | Establecimientos veterinarios. | `id` (PK), `name`, `address` |
+| `users` | Usuarios de la plataforma. | `id` (PK), `email` (UQ), `password_hash`, `role`, `clinic_id` (FK), `client_id` (FK) |
+| `clients` | Clientes de una clínica. | `id` (PK), `clinic_id` (FK), `full_name`, `phone_number`, `email` |
+| `pets` | Mascotas registradas como pacientes. | `id` (PK), `client_id` (FK), `name`, `species`, `breed`, `sex`, `birth_date` |
+| `vaccines` | Vacunas disponibles por especie. | `id` (PK), `name`, `species`, `is_core` |
+| `schedule_items` | Plantilla del esquema por especie. | `id` (PK), `vaccine_id` (FK), `species`, `sequence_number`, `minimum_age_weeks`, `minimum_interval_weeks` |
+| `vaccination_cards` | Cartilla de una mascota. | `id` (PK), `pet_id` (FK, UQ), `species`, `created_at` |
+| `doses` | Cada dosis de una cartilla. | `id` (PK), `card_id` (FK), `vaccine_id` (FK), `sequence_number`, `expected_date`, `application_date`, `batch_code`, `veterinarian_id` (FK), `status` |
+| `visits` | Atenciones veterinarias. | `id` (PK), `pet_id` (FK), `veterinarian_id` (FK), `visit_date`, `reason`, `findings`, `diagnosis`, `treatment`, `weight_kg` |
+| `prescriptions` | Receta emitida en una atención. | `id` (PK), `visit_id` (FK, UQ), `issued_at` |
+| `prescription_items` | Medicamentos de una receta. | `id` (PK), `prescription_id` (FK), `medication`, `dosage`, `duration` |
+
+**Relaciones**
+
+| Relación | Cardinalidad |
+|---|---|
+| `clinics` → `clients` | Uno a muchos |
+| `clients` → `pets` | Uno a muchos |
+| `pets` → `vaccination_cards` | Uno a uno |
+| `vaccination_cards` → `doses` | Uno a muchos |
+| `vaccines` → `doses` | Uno a muchos |
+| `vaccines` → `schedule_items` | Uno a muchos |
+| `pets` → `visits` | Uno a muchos |
+| `visits` → `prescriptions` | Uno a uno |
+| `prescriptions` → `prescription_items` | Uno a muchos |
+| `users` → `doses` (como responsable) | Uno a muchos |
+| `users` → `visits` (como responsable) | Uno a muchos |
+
+**Decisiones de diseño**
+
+La relación entre `pets` y `vaccination_cards` es de uno a uno con
+restricción de unicidad sobre `pet_id`, porque el dominio establece que
+cada mascota posee exactamente una cartilla, creada en el momento de su
+registro.
+
+La tabla `schedule_items` contiene la plantilla del esquema por especie y
+es de solo lectura para la aplicación. Al registrar una mascota, sus
+filas se materializan como registros de `doses` con estado *pendiente* y
+su fecha esperada ya calculada. Esta materialización permite que cada
+cartilla conserve el esquema vigente al momento de su creación, de modo
+que una futura modificación de la plantilla no altere las cartillas ya
+emitidas.
+
+El campo `status` de `doses` es derivable de `application_date`, pero se
+almacena de forma explícita para hacer legibles las consultas y permitir
+indexar el filtro por estado de cartilla que utiliza la aplicación web.
 
 # Capítulo V: Product Implementation
 
