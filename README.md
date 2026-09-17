@@ -1575,25 +1575,181 @@ escala tipográfica de Material adaptada a las familias del producto.
 
 ## 4.2. Information Architecture
 
+Esta sección establece cómo se organiza, etiqueta, busca y recorre el contenido en los tres productos digitales. Las decisiones se orientan a que el personal de la clínica localice el expediente de un paciente sin esfuerzo durante la consulta, y a que el dueño distinga sin ambigüedad la situación de cada una de sus mascotas.
+
 ### 4.2.1. Organization Systems
 
-_Pendiente de completar._
+**Esquemas de organización visual**
+
+| Grupo de información | Esquema | Sustento |
+|---|---|---|
+| Landing page | Jerárquico | El visitante recorre el contenido de mayor a menor relevancia: propuesta de valor, beneficios por segmento y contacto. La jerarquía visual guía esa lectura descendente. |
+| Listado de pacientes (web) | Matricial | Las mascotas se presentan en una tabla con atributos comparables entre sí, lo que permite al usuario contrastar registros en paralelo. |
+| Cartilla de vacunación | Matricial | Cada dosis constituye una fila con los mismos atributos, replicando la estructura tabular de la cartilla física que el usuario ya conoce. |
+| Registro de una dosis y de una atención | Secuencial | Son formularios con pasos definidos y validaciones encadenadas, donde el usuario completa un procedimiento hasta su confirmación. |
+| Historial veterinario | Jerárquico | Cada atención se presenta como una entrada resumida que el usuario expande para acceder a su detalle y a su receta asociada. |
+| Pantalla de mascotas (móvil) | Jerárquico | Cada mascota ocupa una tarjeta que encabeza su estado de cartilla, del cual se desprende el resto de su información. |
+
+**Esquemas de categorización de contenido**
+
+| Conjunto de información | Esquema | Sustento |
+|---|---|---|
+| Secciones de la landing page | Según audiencia | El contenido se separa en un bloque dirigido a clínicas veterinarias y otro dirigido a dueños de mascotas, dado que ambos segmentos buscan beneficios distintos. |
+| Resultados de búsqueda de pacientes | Alfabético | Permite al usuario ubicar un nombre dentro de un listado extenso sin recorrerlo por completo. |
+| Historial veterinario y recetas | Cronológico descendente | La atención más reciente es la de mayor relevancia clínica y encabeza el listado. |
+| Dosis dentro de la cartilla | Cronológico ascendente | El esquema de vacunación es una secuencia temporal, y su lectura natural va de la primera dosis a la última. |
+| Menú de la aplicación web | Por tópicos | Las opciones se agrupan según la entidad del dominio sobre la que operan: pacientes, cartilla e historial. |
 
 ### 4.2.2. Labeling Systems
 
-_Pendiente de completar._
+Las etiquetas se redactan con el mínimo número de palabras, empleando los
+términos del Ubiquitous Language de la sección 2.4, de modo que la
+interfaz hable el mismo idioma que el dominio. Se evitan tecnicismos de
+software y abreviaturas. La interfaz se implementa en español e inglés,
+por lo que cada etiqueta cuenta con su equivalente en ambos idiomas.
+
+**Etiquetas de navegación y secciones**
+
+| Etiqueta | Equivalente en inglés | Contenido asociado |
+|---|---|---|
+| Pacientes | Patients | Listado y búsqueda de mascotas registradas en la clínica |
+| Clientes | Clients | Listado de dueños y sus datos de contacto |
+| Cartilla | Vaccination Card | Esquema de vacunación de una mascota y sus dosis |
+| Historial | Record | Atenciones registradas de una mascota |
+| Atención | Visit | Detalle de una consulta y su receta asociada |
+| Receta | Prescription | Medicamentos, dosificación y duración indicados |
+| Mis mascotas | My Pets | Pantalla inicial de la aplicación móvil |
+
+**Etiquetas de estado**
+
+| Etiqueta | Equivalente en inglés | Significado |
+|---|---|---|
+| Al día | Up to date | Todas las dosis exigibles a la fecha están aplicadas |
+| Pendiente | Pending | Existen dosis no aplicadas cuya fecha esperada no ha vencido |
+| Vencida | Overdue | Existe al menos una dosis cuya fecha esperada ya transcurrió |
+| Aplicada | Applied | Dosis individual registrada como administrada |
+
+**Etiquetas de acción**
+
+| Etiqueta | Equivalente en inglés | Acción |
+|---|---|---|
+| Registrar mascota | Add Pet | Alta de una mascota asociada a un cliente |
+| Registrar dosis | Record Dose | Marcar una dosis como aplicada |
+| Nueva atención | New Visit | Alta de una entrada en el historial |
+| Emitir receta | Issue Prescription | Alta de una receta asociada a una atención |
+
+**Asociaciones.** La etiqueta *Cartilla*, presente en la ficha de un
+paciente, anticipa que el usuario encontrará allí el esquema completo con
+sus dosis aplicadas y pendientes, sin necesidad de exponer esa
+información en la pantalla previa. De igual modo, *Atención* agrupa en un
+solo lugar el diagnóstico, el tratamiento y la receta emitida ese día.
 
 ### 4.2.3. SEO Tags and Meta Tags
 
-_Pendiente de completar._
+**Landing page**
+
+| Tag | Valor |
+|---|---|
+| `title` | VetPass — Cartilla de vacunación digital e historial veterinario |
+| `meta description` | Plataforma web y móvil para clínicas veterinarias. Digitaliza la cartilla de vacunación y el historial de perros y gatos, y permite a tus clientes consultarlos desde su celular. |
+| `meta keywords` | cartilla de vacunación digital, software veterinario, historial clínico veterinario, gestión de clínicas veterinarias, vacunas perros y gatos, Perú |
+| `meta author` | PawCode Studio |
+| `meta robots` | index, follow |
+| `og:title` | VetPass — Cartilla de vacunación digital e historial veterinario |
+| `og:description` | Digitaliza la cartilla de vacunación y el historial de tus pacientes. Tus clientes los consultan desde su celular. |
+| `og:type` | website |
+
+**Aplicación web — Inicio de sesión**
+
+| Tag | Valor |
+|---|---|
+| `title` | Iniciar sesión — VetPass |
+| `meta description` | Acceso al panel de gestión de pacientes de VetPass para clínicas veterinarias. |
+| `meta keywords` | acceso VetPass, panel veterinario, inicio de sesión |
+| `meta author` | PawCode Studio |
+| `meta robots` | noindex, nofollow |
+
+**Aplicación web — Pacientes**
+
+| Tag | Valor |
+|---|---|
+| `title` | Pacientes — VetPass |
+| `meta description` | Listado y búsqueda de pacientes registrados en la clínica. |
+| `meta keywords` | pacientes, mascotas, expediente veterinario |
+| `meta author` | PawCode Studio |
+| `meta robots` | noindex, nofollow |
+
+**Aplicación web — Cartilla de vacunación**
+
+| Tag | Valor |
+|---|---|
+| `title` | Cartilla de vacunación — VetPass |
+| `meta description` | Esquema de vacunación de la mascota, dosis aplicadas y estado de la cartilla. |
+| `meta keywords` | cartilla de vacunación, dosis, esquema de vacunación |
+| `meta author` | PawCode Studio |
+| `meta robots` | noindex, nofollow |
+
+Las páginas de la aplicación web se marcan como `noindex` porque
+contienen información clínica de pacientes y no deben aparecer en
+resultados de buscadores. Solo la landing page se indexa.
 
 ### 4.2.4. Searching Systems
 
-_Pendiente de completar._
+**Aplicación web.** La búsqueda es la función de entrada al producto,
+dado que responde a la necesidad más frecuente del personal de la
+clínica. Se ubica de forma permanente en el encabezado y opera sobre un
+único campo que acepta tanto el nombre de la mascota como el del dueño,
+sin exigir al usuario elegir el criterio de antemano. Los resultados se
+presentan a medida que el usuario escribe, a partir del tercer carácter.
+
+Filtros disponibles sobre el listado de pacientes:
+
+| Filtro | Valores |
+|---|---|
+| Especie | Todas, Canina, Felina |
+| Estado de cartilla | Todos, Al día, Pendiente, Vencida |
+
+Cada resultado se presenta como una fila con el nombre de la mascota, su
+especie, el nombre de su dueño y la etiqueta de estado de su cartilla con
+su color e ícono correspondientes. Cuando no existen coincidencias, se
+presenta un mensaje que lo indica junto con la acción de registrar una
+mascota nueva, ya que un resultado vacío suele corresponder a un paciente
+que aún no ha sido registrado.
+
+El filtro por estado de cartilla resuelve además la necesidad de
+identificar a los pacientes con dosis vencidas sin revisar sus registros
+uno por uno, planteada en la sección 3.1.
+
+**Aplicación móvil.** No incorpora buscador. El dueño gestiona un número
+reducido de mascotas, por lo que el listado completo resulta abarcable en
+una sola pantalla y un campo de búsqueda constituiría un elemento
+superfluo.
 
 ### 4.2.5. Navigation Systems
 
-_Pendiente de completar._
+**Landing page.** Navegación de página única con desplazamiento vertical
+y un menú superior fijo cuyos enlaces conducen a las secciones mediante
+desplazamiento interno. El menú incluye una acción destacada de acceso a
+la aplicación web, presente también al final de la página, de modo que el
+visitante encuentre el punto de entrada tanto al inicio como al término
+de su recorrido.
+
+**Aplicación web.** Navegación lateral persistente con tres destinos
+principales: Pacientes, Clientes y Cartillas. El recorrido dominante es
+descendente y parte siempre de la búsqueda: el usuario localiza un
+paciente, ingresa a su ficha y desde allí accede a su cartilla o a su
+historial mediante pestañas internas. Se emplean migas de pan para
+señalar la posición dentro de esa jerarquía y permitir el retorno al
+nivel anterior. Las acciones de registro se presentan como botones
+primarios ubicados en el encabezado de cada sección.
+
+**Aplicación móvil.** Navegación inferior con dos destinos: Mis mascotas
+y Perfil. El recorrido parte del listado de mascotas y desciende a la
+ficha de una de ellas, dentro de la cual el usuario alterna entre Cartilla
+e Historial mediante pestañas. El retorno se resuelve con el control de
+la barra superior y con el gesto nativo de cada plataforma. La
+profundidad máxima de navegación es de tres niveles, para que el usuario
+nunca requiera más de dos retrocesos para volver al inicio.
 
 ## 4.3. Landing Page UI Design
 
