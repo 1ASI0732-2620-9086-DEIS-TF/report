@@ -307,9 +307,9 @@ administrativos y clínicos que aún dependen del papel hacia soluciones
 digitales confiables, verificables y accesibles para negocios de pequeña
 y mediana escala del Perú.
 
-<img src="./img/cap 1/profile&solutions/VetPass_logo.png" alt="Logo Aplicacion" width="500">
+<img src="./img/cap 1/profile&solutions/Petbook_logo.png" alt="Logo Petbook" width="500">
 
-Nuestro primer producto es **VetPass**, una plataforma web y móvil que
+Nuestro primer producto es **Petbook**, una plataforma web y móvil que
 digitaliza la cartilla de vacunación y el historial veterinario de perros
 y gatos. La plataforma permite que el personal de la clínica registre la
 información desde una aplicación web, mientras que el dueño de la mascota
@@ -742,9 +742,9 @@ recurrente en su cuidado.
 
 #### Competitive Analysis Landscape
 
-| | **VetPass** (Su startup) | **VetPraxis App** | **OKFAC** | **11pets** |
+| | **Petbook** (Su startup) | **VetPraxis App** | **OKFAC** | **11pets** |
 |---|---|---|---|---|
-| **Logo** | <img src="./img/cap 1/profile&solutions/VetPass_logo.png" alt="VetPass Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/vetpraix-logo.png" alt="VetPraix Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/okfac-logo.png" alt="OKFAC Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/11pets-logo.png" alt="11Pets Logo" style="width: 100px;"> |
+| **Logo** | <img src="./img/cap 1/profile&solutions/Petbook_logo.png" alt="Petbook Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/vetpraix-logo.png" alt="VetPraix Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/okfac-logo.png" alt="OKFAC Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/11pets-logo.png" alt="11Pets Logo" style="width: 100px;"> |
 | **PERFIL** | | | | |
 | Overview | Plataforma web y móvil enfocada exclusivamente en digitalizar la cartilla de vacunación y el historial veterinario de perros y gatos. La clínica registra desde la web; el dueño consulta desde el móvil. | ERP-CRM integral para clínicas y hospitales veterinarios de Latinoamérica. Nace de una empresa dedicada previamente a la capacitación profesional del sector veterinario. | Plataforma de gestión todo-en-uno para clínicas veterinarias y pet shops del Perú, con énfasis en el cumplimiento tributario local. | Plataforma de cuidado de mascotas centrada en el dueño, con aplicación móvil gratuita y un módulo web para negocios del sector. |
 | Ventaja competitiva: ¿Qué valor ofrece a los clientes? | La cartilla se genera automáticamente según la especie y valida las reglas del esquema sanitario. El dueño obtiene acceso permanente a la información de su mascota sin depender del papel. | Amplitud funcional y cobertura regional. Concentra en un solo sistema la operación administrativa y clínica del establecimiento. | Adaptación al contexto regulatorio peruano, con facturación electrónica SUNAT integrada y recordatorios por WhatsApp, canal de comunicación predominante en el país. | Gratuidad y propiedad del dato por parte del usuario. El dueño mantiene el control de la información de su mascota con independencia de la clínica. |
@@ -768,7 +768,7 @@ preliminares, cada una derivada de un cuadrante del FODA.
 
 **A. Frente a las fortalezas de los competidores**
 
-Los competidores directos superan a VetPass en amplitud funcional y
+Los competidores directos superan a Petbook en amplitud funcional y
 trayectoria. La estrategia es no competir en ese terreno, sino
 posicionarse como solución especializada.
 
@@ -1255,7 +1255,7 @@ que cada historia resulte verificable mediante pruebas automatizadas.
 
 | Epic ID | Título | Descripción |
 |---|---|---|
-| EP01 | Landing Page | Como startup, deseo contar con un sitio web estático que comunique la propuesta de valor de VetPass a sus dos segmentos objetivo, para atraer clínicas veterinarias interesadas y dar acceso a la aplicación web. |
+| EP01 | Landing Page | Como startup, deseo contar con un sitio web estático que comunique la propuesta de valor de Petbook a sus dos segmentos objetivo, para atraer clínicas veterinarias interesadas y dar acceso a la aplicación web. |
 | EP02 | Gestión de Acceso e Identidad | Como plataforma, deseo autenticar a los usuarios y diferenciar sus permisos según su rol, para garantizar que la información clínica solo sea registrada por el personal veterinario y consultada por el dueño correspondiente. |
 | EP03 | Gestión de Clientes y Mascotas | Como clínica veterinaria, deseo registrar a mis clientes y a sus mascotas y localizarlos con rapidez, para disponer del expediente del paciente al iniciar una atención. |
 | EP04 | Cartilla de Vacunación Digital | Como clínica veterinaria, deseo generar y mantener la cartilla de vacunación digital de cada mascota con las reglas de su esquema incorporadas, para registrar las dosis de forma confiable y que el dueño pueda consultarlas en cualquier momento. |
@@ -1265,7 +1265,7 @@ que cada historia resulte verificable mediante pruebas automatizadas.
 
 | Story ID | User | Priority | Epic ID | Título | Descripción | Criterios de Aceptación |
 |---|---|---|---|---|---|---|
-| US01 | Visitante | Alta | EP01 | Presentación de la propuesta de valor | Como visitante, deseo comprender en la página principal qué resuelve VetPass, para decidir si es relevante para mí. | **E1: Acceso a la página principal**<br>Dado que el visitante accede a la dirección del sitio<br>Cuando la página principal termina de cargar<br>Entonces se presenta el nombre del producto, su propuesta de valor y una acción principal de contacto. |
+| US01 | Visitante | Alta | EP01 | Presentación de la propuesta de valor | Como visitante, deseo comprender en la página principal qué resuelve Petbook, para decidir si es relevante para mí. | **E1: Acceso a la página principal**<br>Dado que el visitante accede a la dirección del sitio<br>Cuando la página principal termina de cargar<br>Entonces se presenta el nombre del producto, su propuesta de valor y una acción principal de contacto. |
 | US02 | Visitante del segmento clínica | Alta | EP01 | Información dirigida a clínicas veterinarias | Como visitante del segmento clínica veterinaria, deseo conocer los beneficios del producto para mi establecimiento, para evaluar su adopción. | **E1: Consulta de la sección de clínicas**<br>Dado que el visitante se encuentra en la página principal<br>Cuando accede a la sección dirigida a clínicas veterinarias<br>Entonces se presentan las funcionalidades disponibles para el establecimiento y el beneficio para su cliente final. |
 | US03 | Visitante | Alta | EP01 | Acceso a la aplicación web desde la landing page | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. | **E1: Redirección a la aplicación**<br>Dado que el visitante se encuentra en la landing page<br>Cuando selecciona la acción de ingreso<br>Entonces el sistema lo dirige a la aplicación web de la clínica. |
 | US04 | Personal de clínica | Media | EP02 | Autenticación del personal de la clínica | Como personal de la clínica, deseo iniciar sesión en la aplicación web, para acceder a la información de mis pacientes. | **E1: Credenciales válidas**<br>Dado que el usuario está registrado en el sistema<br>Cuando envía sus credenciales correctas<br>Entonces el sistema le concede acceso con permisos de registro y consulta.<br><br>**E2: Credenciales inválidas**<br>Dado que el usuario no está registrado o sus credenciales no coinciden<br>Cuando envía sus credenciales<br>Entonces el sistema deniega el acceso y no expone información de pacientes. |
@@ -1310,7 +1310,7 @@ El backlog totaliza 80 Story Points distribuidos en veintidós historias.
 
 | # Orden | User Story ID | Título | Descripción | Story Points |
 |---|---|---|---|---|
-| 1 | US01 | Presentación de la propuesta de valor | Como visitante, deseo comprender en la página principal qué resuelve VetPass, para decidir si es relevante para mí. | 2 |
+| 1 | US01 | Presentación de la propuesta de valor | Como visitante, deseo comprender en la página principal qué resuelve Petbook, para decidir si es relevante para mí. | 2 |
 | 2 | US02 | Información dirigida a clínicas veterinarias | Como visitante del segmento clínica veterinaria, deseo conocer los beneficios del producto para mi establecimiento, para evaluar su adopción. | 2 |
 | 3 | US03 | Acceso a la aplicación web desde la landing page | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. | 1 |
 | 4 | SP01 | Definición del esquema de vacunación canino y felino | Como desarrollador, deseo investigar y documentar el esquema de vacunación aplicable a perros y gatos, para determinar si puede modelarse como una plantilla fija por especie o requiere ser configurable. | 3 |
@@ -1350,7 +1350,7 @@ herramienta. Los mapas fueron construidos en UXPressia.
 
 [Insertar aquí la captura del Impact Map]
 
-*Figura X. Impact Map de VetPass. Elaborado en UXPressia.*
+*Figura X. Impact Map de Petbook. Elaborado en UXPressia.*
 
 ### Business Goals
 
@@ -1367,7 +1367,7 @@ herramienta. Los mapas fueron construidos en UXPressia.
 
 | Actor | Impact | Deliverable | User Stories |
 |---|---|---|---|
-| Claudia Herrera (personal de clínica) | Que conozca el producto y comprenda su beneficio sin necesidad de una demostración previa. | Sitio web estático con la propuesta de valor y contenido dirigido a su segmento. | Como visitante, deseo comprender en la página principal qué resuelve VetPass, para decidir si es relevante para mí. (US01)<br>Como visitante del segmento clínica veterinaria, deseo conocer los beneficios del producto para mi establecimiento, para evaluar su adopción. (US02) |
+| Claudia Herrera (personal de clínica) | Que conozca el producto y comprenda su beneficio sin necesidad de una demostración previa. | Sitio web estático con la propuesta de valor y contenido dirigido a su segmento. | Como visitante, deseo comprender en la página principal qué resuelve Petbook, para decidir si es relevante para mí. (US01)<br>Como visitante del segmento clínica veterinaria, deseo conocer los beneficios del producto para mi establecimiento, para evaluar su adopción. (US02) |
 | Claudia Herrera (personal de clínica) | Que inicie el uso de la plataforma sin migrar su archivo histórico ni configurar nada previamente. | Acceso directo a la aplicación web y alta de pacientes sin configuración inicial. | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. (US03)<br>Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. (US06) |
 
 **BG02 — Alcanzar 1 500 mascotas con cartilla digital activa en 12 meses**
@@ -1405,11 +1405,10 @@ móvil.
 
 #### Branding
 
-**Nombre del producto.** VetPass. Combina el prefijo *vet*, que identifica
-de inmediato el dominio, con *pass*, en alusión al pasaporte sanitario:
-un documento que acompaña a su portador, acredita su estado y no se
-pierde. El nombre comunica la propuesta de valor sin necesidad de
-explicarla.
+**Nombre del producto.** Petbook. Combina *pet*, que identifica de inmediato
+a las mascotas a las que sirve la plataforma, con *book*, en alusión al
+registro digital que reúne y conserva su información veterinaria. El nombre
+comunica la propuesta de valor sin necesidad de explicación adicional.
 
 **Isotipo.** Una huella animal cuya almohadilla central se resuelve como
 un escudo o marca de verificación, que sintetiza los dos conceptos del
@@ -1654,12 +1653,12 @@ solo lugar el diagnóstico, el tratamiento y la receta emitida ese día.
 
 | Tag | Valor |
 |---|---|
-| `title` | VetPass — Cartilla de vacunación digital e historial veterinario |
+| `title` | Petbook — Cartilla de vacunación digital e historial veterinario |
 | `meta description` | Plataforma web y móvil para clínicas veterinarias. Digitaliza la cartilla de vacunación y el historial de perros y gatos, y permite a tus clientes consultarlos desde su celular. |
 | `meta keywords` | cartilla de vacunación digital, software veterinario, historial clínico veterinario, gestión de clínicas veterinarias, vacunas perros y gatos, Perú |
 | `meta author` | PawCode Studio |
 | `meta robots` | index, follow |
-| `og:title` | VetPass — Cartilla de vacunación digital e historial veterinario |
+| `og:title` | Petbook — Cartilla de vacunación digital e historial veterinario |
 | `og:description` | Digitaliza la cartilla de vacunación y el historial de tus pacientes. Tus clientes los consultan desde su celular. |
 | `og:type` | website |
 
@@ -1667,9 +1666,9 @@ solo lugar el diagnóstico, el tratamiento y la receta emitida ese día.
 
 | Tag | Valor |
 |---|---|
-| `title` | Iniciar sesión — VetPass |
-| `meta description` | Acceso al panel de gestión de pacientes de VetPass para clínicas veterinarias. |
-| `meta keywords` | acceso VetPass, panel veterinario, inicio de sesión |
+| `title` | Iniciar sesión — Petbook |
+| `meta description` | Acceso al panel de gestión de pacientes de Petbook para clínicas veterinarias. |
+| `meta keywords` | acceso Petbook, panel veterinario, inicio de sesión |
 | `meta author` | PawCode Studio |
 | `meta robots` | noindex, nofollow |
 
@@ -1677,7 +1676,7 @@ solo lugar el diagnóstico, el tratamiento y la receta emitida ese día.
 
 | Tag | Valor |
 |---|---|
-| `title` | Pacientes — VetPass |
+| `title` | Pacientes — Petbook |
 | `meta description` | Listado y búsqueda de pacientes registrados en la clínica. |
 | `meta keywords` | pacientes, mascotas, expediente veterinario |
 | `meta author` | PawCode Studio |
@@ -1687,7 +1686,7 @@ solo lugar el diagnóstico, el tratamiento y la receta emitida ese día.
 
 | Tag | Valor |
 |---|---|
-| `title` | Cartilla de vacunación — VetPass |
+| `title` | Cartilla de vacunación — Petbook |
 | `meta description` | Esquema de vacunación de la mascota, dosis aplicadas y estado de la cartilla. |
 | `meta keywords` | cartilla de vacunación, dosis, esquema de vacunación |
 | `meta author` | PawCode Studio |
