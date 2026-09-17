@@ -286,7 +286,7 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | --- | --- | --- |
-| 4.c.1 Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software | _Pendiente de completar._ | _Pendiente de completar._ |
+| 4.c.1 Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software | AV1 - Angel Guillermo, Berrospi Marin: Fomenté comunicación con el grupo para tener un buen entendimiento del proyecto realizado, asi mismo ayude en la realización de diferentes puntos del proyecto, por ejemplo el capítulo 2 y coordinaciones que ayudaron en el avance del trabajo y su culminación. | _Pendiente de completar._ |
 | 4.c.2 Emite juicios informados considerando el impacto de las soluciones de ingeniería de software en contextos globales, económicos, ambientales y sociales | _Pendiente de completar._ | _Pendiente de completar._ |
 
 <div style="page-break-after: always;"></div>
