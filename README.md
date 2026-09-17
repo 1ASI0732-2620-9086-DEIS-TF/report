@@ -1392,23 +1392,186 @@ herramienta. Los mapas fueron construidos en UXPressia.
 
 ## 4.1. Style Guidelines
 
+Esta sección establece el repositorio común de decisiones visuales y de
+interacción que el equipo aplicará de forma consistente en los tres
+productos digitales: la landing page, la aplicación web y la aplicación
+móvil.
+
 ### 4.1.1. General Style Guidelines
 
-_Pendiente de completar._
+#### Branding
+
+**Nombre del producto.** VetPass. Combina el prefijo *vet*, que identifica
+de inmediato el dominio, con *pass*, en alusión al pasaporte sanitario:
+un documento que acompaña a su portador, acredita su estado y no se
+pierde. El nombre comunica la propuesta de valor sin necesidad de
+explicarla.
+
+**Isotipo.** Una huella animal cuya almohadilla central se resuelve como
+un escudo o marca de verificación, que sintetiza los dos conceptos del
+producto: la mascota y el registro verificado. Debe funcionar en una sola
+tinta y ser legible a 24 px, tamaño mínimo del favicon y del ícono de la
+aplicación móvil.
+
+**Logotipo.** Composición horizontal de isotipo y tipografía para la
+landing page y el encabezado de la aplicación web; versión de isotipo
+aislado para el ícono de la aplicación móvil y para espacios reducidos.
+
+**Usos incorrectos.** No se deforma la proporción, no se rota, no se
+aplica sobre fondos de bajo contraste ni se reemplazan sus colores fuera
+de la paleta establecida.
+
+#### Typography
+
+Se adoptan dos familias tipográficas de código abierto, disponibles en
+Google Fonts:
+
+| Uso | Familia | Sustento |
+|---|---|---|
+| Titulares y elementos de marca | Poppins | Geometría redondeada que aporta calidez y cercanía, alineada con el vínculo afectivo del segmento de dueños. |
+| Cuerpo de texto e interfaz | Inter | Diseñada para pantallas, con alta legibilidad en tamaños pequeños y distinción clara entre caracteres similares, característica necesaria en un producto que presenta fechas, lotes y dosificaciones. |
+
+**Escala tipográfica**
+
+| Nivel | Tamaño / Interlineado | Peso |
+|---|---|---|
+| Display | 32 / 40 px | Poppins SemiBold 600 |
+| Heading 1 | 28 / 36 px | Poppins SemiBold 600 |
+| Heading 2 | 24 / 32 px | Poppins Medium 500 |
+| Heading 3 | 20 / 28 px | Inter SemiBold 600 |
+| Body | 16 / 24 px | Inter Regular 400 |
+| Body Small | 14 / 20 px | Inter Regular 400 |
+| Caption | 12 / 16 px | Inter Medium 500 |
+
+El tamaño mínimo de texto es de 12 px y el del cuerpo principal nunca
+desciende de 16 px, por legibilidad y por diseño inclusivo.
+
+#### Colors
+
+| Rol | Token | Valor | Uso |
+|---|---|---|---|
+| Primario | `primary-700` | `#0F766E` | Acciones principales, enlaces, estados activos |
+| Primario claro | `primary-50` | `#F0FDFA` | Fondos de énfasis, superficies destacadas |
+| Secundario | `secondary-500` | `#F59E0B` | Acentos puntuales, elementos de marca |
+| Neutro oscuro | `neutral-900` | `#0F172A` | Texto principal |
+| Neutro medio | `neutral-600` | `#475569` | Texto secundario |
+| Neutro borde | `neutral-200` | `#E2E8F0` | Bordes y separadores |
+| Superficie | `surface-50` | `#F8FAFC` | Fondo general de la aplicación |
+| Éxito | `success-600` | `#16A34A` | Cartilla al día, confirmaciones |
+| Advertencia | `warning-600` | `#D97706` | Cartilla pendiente, avisos |
+| Error | `danger-600` | `#DC2626` | Cartilla vencida, validaciones incumplidas |
+
+**Sustento.** El teal como color primario asocia el producto al ámbito
+sanitario sin recurrir al azul clínico, que resulta frío para el segmento
+de dueños; el ámbar secundario aporta la calidez del vínculo con la
+mascota. Los tres colores semánticos se corresponden de forma directa con
+los estados de la cartilla definidos en el dominio, lo que convierte al
+color en un portador de significado dentro del producto.
+
+**Diseño inclusivo.** El estado de la cartilla nunca se comunica solo por
+color: cada estado se acompaña siempre de su etiqueta textual y de un
+ícono distintivo, de modo que resulte legible para usuarios con
+deficiencias en la percepción cromática. Todas las combinaciones de texto
+sobre fondo cumplen una relación de contraste mínima de 4.5:1, conforme
+al nivel AA de las WCAG 2.1.
+
+#### Spacing
+
+Se adopta una retícula base de 8 px, con una escala de espaciado de 4, 8,
+16, 24, 32, 48 y 64 px. El radio de esquina es de 8 px para contenedores
+y de 6 px para controles. La elevación se limita a tres niveles, para
+evitar jerarquías visuales ambiguas.
+
+**Sustento.** La retícula de 8 px es divisible por las densidades de
+pantalla más frecuentes en ambas plataformas móviles, lo que garantiza
+alineación sin valores fraccionarios.
+
+#### Tono de comunicación
+
+| Dimensión | Posición | Sustento |
+|---|---|---|
+| Divertido / Serio | Serio con calidez | El producto contiene información clínica, pero se dirige a personas con un vínculo afectivo con su mascota. Se evita tanto la frivolidad como la solemnidad hospitalaria. |
+| Formal / Casual | Intermedio, con inclinación formal | En la aplicación web predomina el registro formal propio del ámbito profesional; en la móvil el tono se relaja sin perder precisión. |
+| Respetuoso / Irreverente | Respetuoso | Las entrevistas evidenciaron que los dueños asocian culpa a los olvidos. Ningún mensaje del sistema reprocha, culpabiliza ni ironiza. |
+| Entusiasta / Sereno | Sereno | El producto informa estados de salud. Los mensajes de vencimiento se redactan en términos neutros y accionables, sin generar alarma. |
+
+**Principios de diseño aplicados.** Jerarquía visual, mediante la escala
+tipográfica y el contraste; consistencia, a través de tokens compartidos
+entre los tres productos; retroalimentación inmediata, ya que toda
+validación del esquema de vacunación se comunica en el punto de ingreso;
+y reconocimiento antes que recuerdo, replicando la estructura de la
+cartilla física que el usuario ya conoce.
 
 ### 4.1.2. Web Style Guidelines
 
-_Pendiente de completar._
+La aplicación web se dirige al personal de la clínica, que la opera
+durante la jornada de atención en una computadora de escritorio o laptop.
+Las decisiones responden a ese contexto de uso.
+
+**Retícula y puntos de quiebre.** Retícula de 12 columnas con canaleta de
+24 px y ancho máximo de contenido de 1200 px. Puntos de quiebre: `sm`
+576 px, `md` 768 px, `lg` 992 px y `xl` 1200 px, alineados con el
+framework de estilos adoptado. Por debajo de 768 px las tablas de
+pacientes conmutan a un formato de tarjetas apiladas.
+
+**Densidad de información.** Se aplica densidad media: altura de fila de
+48 px en tablas y de 40 px en controles. La prioridad es que el
+veterinario abarque el mayor número de registros posible sin desplazar la
+vista, dado que el tiempo de consulta es escaso.
+
+**Componentes base.** Tabla de datos con ordenamiento y paginación, campo
+de búsqueda con resultados inmediatos, formulario con validación en el
+propio campo, indicador de estado en formato de etiqueta con color
+semántico e ícono, diálogo modal para confirmaciones y notificación
+temporal para el resultado de una operación.
+
+**Interacción.** Todo control interactivo presenta estados definidos de
+reposo, hover, foco, activo y deshabilitado. El foco se señaliza con un
+contorno de 2 px en color primario, visible en navegación por teclado.
+Las validaciones del esquema de vacunación se muestran junto al campo que
+las origina y de forma simultánea al ingreso, no al confirmar el
+formulario, para evitar que el usuario descubra el error al final.
+
+**Accesibilidad.** Área mínima de clic de 32 × 32 px, navegación completa
+por teclado, etiquetas asociadas a cada campo y textos alternativos en
+todo elemento gráfico portador de información.
 
 ### 4.1.3. Mobile Style Guidelines
 
+La aplicación móvil se dirige al dueño de la mascota y cumple una función
+exclusivamente de consulta. El diseño prioriza la legibilidad y la
+lectura de un vistazo por encima de la densidad de información.
+
+Lineamientos comunes a ambas plataformas: área mínima táctil de 44 × 44
+px; margen lateral de 16 px; navegación principal de tres destinos como
+máximo; estado de la cartilla siempre visible en el nivel superior de
+cada mascota; identificación visual inequívoca de cada mascota mediante
+su nombre y su especie, para atender la confusión reportada por los
+usuarios con más de un animal; y soporte de tipografía escalable según la
+configuración del sistema operativo.
+
 #### 4.1.3.1. iOS Mobile Style Guidelines
 
-_Pendiente de completar._
+Se siguen las *Human Interface Guidelines* de Apple. La navegación
+principal se resuelve mediante una *Tab Bar* inferior, y la jerarquía
+interna mediante una *Navigation Bar* superior con título grande y
+retroceso mediante gesto lateral. Las listas adoptan el patrón de
+*Grouped List* con secciones y encabezados. Las acciones destructivas o
+de confirmación se presentan en *Action Sheets*. Se respeta el área
+segura del dispositivo y se admite *Dynamic Type*. La tipografía se
+implementa con San Francisco cuando la marca no está presente, y con las
+familias del producto en los encabezados de contenido.
 
 #### 4.1.3.2. Android Mobile Style Guidelines
 
-_Pendiente de completar._
+Se sigue Material Design 3. La navegación principal se resuelve mediante
+una *Navigation Bar* inferior y la jerarquía interna mediante una *Top
+App Bar* con botón de retroceso, complementado por el gesto de retroceso
+del sistema. El contenido se organiza en *Cards* con elevación de nivel 1.
+La retroalimentación de las operaciones se entrega mediante *Snackbars*.
+Se aplican los tokens de color del producto sobre el esquema de Material
+3, con soporte de tema claro y oscuro. La tipografía se implementa con la
+escala tipográfica de Material adaptada a las familias del producto.
 
 ## 4.2. Information Architecture
 
