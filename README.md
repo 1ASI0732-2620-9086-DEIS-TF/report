@@ -430,23 +430,24 @@ siguientes:
 
 Desarrollar una plataforma de software compuesta por una aplicación web y
 una aplicación móvil que permita a las clínicas veterinarias registrar y
-mantener de forma digital la cartilla de vacunación y el historial
-veterinario de perros y gatos, y que permita a los dueños consultar dicha
-información en cualquier momento.
+mantener un expediente clínico longitudinal y verificable para perros y
+gatos, y que permita a sus tutores consultar una proyección de solo lectura
+de los actos publicados, las recomendaciones futuras y las citas.
 
 **Objetivos específicos**
 
-- Generar automáticamente la cartilla de vacunación de una mascota a
-  partir del esquema de vacunación correspondiente a su especie, al
-  momento de su registro en la plataforma.
-- Permitir al personal veterinario registrar la aplicación de cada dosis
-  y determinar el estado de la cartilla de la mascota.
-- Permitir al personal veterinario registrar las atenciones del historial
-  veterinario mediante un formato preestablecido.
-- Permitir al dueño consultar desde su dispositivo móvil el perfil, la
-  cartilla de vacunación y el historial de cada una de sus mascotas.
-- Permitir la emisión de recetas médicas asociadas a una atención y su
-  consulta por parte del dueño.
+- Permitir que una clínica solicite acceso, sea revisada por la plataforma
+  y opere dentro de una organización y un plan aprobados.
+- Registrar de forma consistente al tutor, la mascota, la guardianship y
+  la relación de cuidado con la organización veterinaria.
+- Permitir que el personal prepare borradores de vacunación,
+  desparasitación y atención general, y que solo un veterinario autorizado
+  pueda firmarlos y publicarlos.
+- Mantener separados los actos clínicos realizados, las recomendaciones de
+  cuidado futuro y las reservas de citas.
+- Permitir al tutor activar un acceso passwordless y consultar desde su
+  dispositivo móvil las mascotas vinculadas, el historial publicado, las
+  recomendaciones y las citas.
 
 #### Restricciones y delimitación del alcance
 
@@ -458,17 +459,19 @@ consecuencia, se establecen las siguientes restricciones:
 - La plataforma soporta únicamente las especies **canina y felina**, por
   ser las predominantes en la atención veterinaria de acuerdo con las
   cifras del INEI citadas.
-- El registro y la edición de información clínica son atribución
-  exclusiva del personal de la clínica veterinaria. El dueño de la
-  mascota dispone únicamente de permisos de consulta.
-- El esquema de vacunación por especie se administra como una plantilla
-  predefinida en el sistema, y no es configurable por el usuario final
-  en esta versión del producto.
-- Quedan fuera del alcance: la reserva de citas, los módulos de pagos y
-  facturación, la gestión de inventario de medicamentos, los servicios
-  de baño y estética, la telemedicina, las notificaciones push, el
-  comercio electrónico y la administración de cadenas veterinarias con
-  múltiples sedes.
+- La preparación de información clínica corresponde al personal autorizado
+  de la clínica; únicamente un veterinario autorizado puede firmar y
+  publicar actos clínicos. El tutor dispone de acceso de solo lectura.
+- Las fechas preventivas futuras son recomendaciones configurables que
+  requieren confirmación profesional; no se generan como un esquema
+  universal fijo por especie.
+- La gestión de citas del MVP corresponde a la clínica. La reserva directa
+  por el tutor y los recordatorios automatizados quedan fuera del primer
+  incremento.
+- Quedan fuera del alcance: pagos y facturación, inventario, hospitalización,
+  flujos completos de laboratorio, baño y estética, telemedicina, seguros,
+  comercio electrónico, redes sociales y certificados veterinarios
+  oficiales.
 
 ### 1.2.2. Lean UX Process
 
@@ -507,19 +510,19 @@ Existen sistemas de gestión veterinaria en el mercado, pero se orientan
 principalmente a la administración comercial del negocio (citas,
 facturación, inventario) y no resuelven el acceso del dueño a la
 información sanitaria de su mascota. A la vez, las clínicas pequeñas
-carecen de una herramienta accesible que digitalice específicamente la
-cartilla de vacunación con las reglas del esquema sanitario incorporadas,
-por lo que permanecen en el papel.
+carecen de una herramienta accesible que preserve la autoría de los actos
+clínicos y permita compartir con el tutor una proyección confiable del
+historial, por lo que permanecen en el papel y en mensajes aislados.
 
 **Visión y estrategia**
 
 La visión es que el expediente sanitario de una mascota deje de depender
 de un documento físico y pase a residir en una plataforma en la que la
 clínica lo construye y el dueño lo consulta. La estrategia consiste en
-comenzar por el activo de información más frágil y a la vez más
-normalizado —la cartilla de vacunación de perros y gatos—, generándola de
-forma automática a partir del esquema de cada especie, y extender desde
-allí hacia el historial de atenciones.
+comenzar por los actos preventivos más frecuentes —vacunación y
+desparasitación—, documentarlos mediante borradores revisables y
+publicaciones con autoría profesional, y extender desde allí hacia el
+historial de atenciones, las recomendaciones futuras y las citas.
 
 **Segmento inicial**
 
@@ -568,9 +571,9 @@ físico?
    un hecho frecuente y no un caso aislado.
 4. Creemos que ofrecer al cliente acceso digital a la información de su
    mascota constituye un diferencial de servicio que la clínica valora.
-5. Creemos que el esquema de vacunación de perros y de gatos está
-   suficientemente estandarizado como para ser modelado en una plantilla
-   predefinida por especie.
+5. Creemos que los protocolos preventivos varían según el paciente y el
+   criterio profesional, por lo que sus próximas fechas deben conservarse
+   como recomendaciones configurables y trazables.
 6. Creemos que las clínicas del segmento inicial disponen de una
    computadora con acceso a internet en el área de atención.
 7. Creemos que los dueños de mascotas del segmento cuentan con un
@@ -590,23 +593,22 @@ físico?
 | ¿Dónde encaja nuestro producto en su trabajo o vida? | En la clínica, durante el momento de la atención y el registro posterior. En el caso del dueño, en los momentos puntuales en que necesita consultar el estado sanitario de su mascota. |
 | ¿Qué problemas resuelve nuestro producto? | Elimina la dependencia del papel como único soporte del expediente sanitario y hace que la información sea recuperable y consultable por ambas partes. |
 | ¿Cuándo y cómo es usado nuestro producto? | La aplicación web se usa de forma continua durante la jornada de atención de la clínica. La aplicación móvil se usa de forma esporádica, cuando el dueño necesita verificar la cartilla o revisar una indicación. |
-| ¿Qué características son importantes? | La generación automática de la cartilla según la especie, el registro de dosis aplicadas, el estado de la cartilla, el historial de atenciones y la consulta desde el móvil. |
-| ¿Cómo debe verse y comportarse nuestro producto? | Debe replicar de forma reconocible la estructura de la cartilla de vacunación física, para que el usuario no necesite reaprender un formato que ya conoce. |
+| ¿Qué características son importantes? | El registro atribuible de vacunaciones, desparasitaciones y atenciones; la separación entre borradores, publicaciones, recomendaciones y citas; y la consulta móvil de solo lectura. |
+| ¿Cómo debe verse y comportarse nuestro producto? | Debe presentar el historial de forma cronológica y comprensible, diferenciar claramente lo realizado de lo recomendado y mantener patrones familiares para el personal de clínica y el tutor. |
 
 **Supuestos de funcionalidad (Feature Assumptions)**
 
-1. Creemos que generar la cartilla de forma automática al registrar la
-   mascota reduce el esfuerzo de registro frente a crearla dosis por
-   dosis de manera manual.
-2. Creemos que mostrar el estado de la cartilla (al día, pendiente o
-   vencida) es más útil para el usuario que presentar únicamente la lista
-   de dosis registradas.
-3. Creemos que validar automáticamente la edad mínima y el intervalo
-   entre dosis previene errores de registro que hoy no se detectan.
-4. Creemos que un formato preestablecido de atención resulta más rápido
-   de completar para el veterinario que un campo de texto libre.
-5. Creemos que el dueño consultará la cartilla con mayor frecuencia que
-   el historial de atenciones.
+1. Creemos que separar el borrador de la publicación permite que el equipo
+   prepare la información sin atribuir un acto clínico a quien no lo firmó.
+2. Creemos que mostrar por separado los actos realizados y las
+   recomendaciones futuras reduce interpretaciones clínicas incorrectas.
+3. Creemos que validar requisitos esenciales y advertir las excepciones
+   razonables mejora la calidad del registro sin sustituir el criterio
+   profesional.
+4. Creemos que un formato estructurado de atención, complementado con
+   texto clínico, facilita el registro y la consulta posterior.
+5. Creemos que el tutor valorará una vista unificada de vacunaciones,
+   desparasitaciones, atenciones, recomendaciones y citas.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
@@ -627,47 +629,45 @@ archivos físicos durante las sesiones de validación**.
 **Hipótesis 2**
 
 Creemos que **eliminaremos la pérdida irrecuperable del registro de
-vacunación** si **el dueño de un perro o un gato** obtiene **acceso
-permanente a la cartilla de su mascota desde su teléfono** con **la
-funcionalidad de consulta de cartilla digital en la aplicación móvil**.
-Sabremos que esto es cierto cuando **los dueños entrevistados accedan a la
-cartilla de su mascota sin requerir el documento físico**.
+vacunación** si **el tutor de un perro o un gato** obtiene **acceso
+permanente al historial preventivo publicado desde su teléfono** con **la
+consulta de vacunaciones y desparasitaciones en la aplicación móvil**.
+Sabremos que esto es cierto cuando **los tutores entrevistados accedan al
+historial de su mascota sin requerir el documento físico**.
 
 **Hipótesis 3**
 
-Creemos que **reduciremos los errores de registro en el esquema de
-vacunación** si **el personal de la clínica** obtiene **advertencias
-automáticas ante dosis aplicadas fuera de la edad mínima o del intervalo
-establecido** con **las reglas de validación incorporadas en la cartilla
-digital**. Sabremos que esto es cierto cuando **el sistema rechace los
-registros inválidos presentados durante las pruebas de aceptación y los
-usuarios reconozcan el mensaje de advertencia como comprensible**.
+Creemos que **reduciremos los registros preventivos incompletos o sin
+autoría verificable** si **el personal de la clínica** obtiene **un flujo
+de borrador, revisión y publicación profesional** con **validaciones de
+campos esenciales y permisos**. Sabremos que esto es cierto cuando **los
+casos inválidos sean detectados en las pruebas de aceptación y únicamente
+un veterinario autorizado pueda publicar el acto**.
 
 **Hipótesis 4**
 
-Creemos que **agilizaremos el registro de una nueva mascota** si **el
-personal de recepción** obtiene **la cartilla de vacunación ya
-estructurada según la especie** con **la funcionalidad de generación
-automática a partir de la plantilla de esquema**. Sabremos que esto es
-cierto cuando **el personal complete el registro de una mascota sin
-necesidad de definir manualmente las dosis que le corresponden**.
+Creemos que **agilizaremos el alta de un nuevo paciente** si **el personal
+de recepción** obtiene **un único flujo para registrar tutor, mascota y
+relación de cuidado** con **la funcionalidad de registro integral de
+paciente**. Sabremos que esto es cierto cuando **el personal complete el
+alta sin crear por separado relaciones incompletas o inconsistentes**.
 
 **Hipótesis 5**
 
-Creemos que **mejoraremos la comprensión del dueño sobre el estado
-sanitario de su mascota** si **el dueño** obtiene **un indicador explícito
-del estado de la cartilla y de la próxima dosis esperada** con **la vista
-de estado de cartilla en la aplicación móvil**. Sabremos que esto es
-cierto cuando **los dueños entrevistados identifiquen correctamente la
-siguiente dosis pendiente de su mascota sin ayuda del entrevistador**.
+Creemos que **mejoraremos la comprensión del tutor sobre el cuidado de su
+mascota** si **el tutor** obtiene **una separación explícita entre actos
+publicados, recomendaciones futuras y citas** con **la vista longitudinal
+del Petbook**. Sabremos que esto es cierto cuando **los tutores
+entrevistados distingan correctamente qué atención ocurrió y cuál fue
+solo recomendada o programada**.
 
 **Hipótesis 6**
 
 Creemos que **incrementaremos la percepción de calidad del servicio de la
-clínica** si **el cliente de la veterinaria** obtiene **acceso a las
-recetas e indicaciones emitidas en su consulta** con **la funcionalidad de
-recetas digitales consultables desde el móvil**. Sabremos que esto es
-cierto cuando **los dueños entrevistados manifiesten preferencia por una
+clínica** si **el tutor de la mascota** obtiene **acceso a las atenciones,
+prescripciones e indicaciones publicadas** con **el historial clínico de
+solo lectura en el móvil**. Sabremos que esto es cierto cuando **los
+tutores entrevistados manifiesten preferencia por una
 clínica que ofrezca este acceso frente a una que no lo ofrezca**.
 
 #### 1.2.2.4. Lean UX Canvas
@@ -746,17 +746,17 @@ recurrente en su cuidado.
 |---|---|---|---|---|
 | **Logo** | <img src="./img/cap 1/profile&solutions/Petbook_logo.png" alt="Petbook Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/vetpraix-logo.png" alt="VetPraix Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/okfac-logo.png" alt="OKFAC Logo" style="width: 100px;"> | <img src="./img/cap 2/Competidores/11pets-logo.png" alt="11Pets Logo" style="width: 100px;"> |
 | **PERFIL** | | | | |
-| Overview | Plataforma web y móvil enfocada exclusivamente en digitalizar la cartilla de vacunación y el historial veterinario de perros y gatos. La clínica registra desde la web; el dueño consulta desde el móvil. | ERP-CRM integral para clínicas y hospitales veterinarios de Latinoamérica. Nace de una empresa dedicada previamente a la capacitación profesional del sector veterinario. | Plataforma de gestión todo-en-uno para clínicas veterinarias y pet shops del Perú, con énfasis en el cumplimiento tributario local. | Plataforma de cuidado de mascotas centrada en el dueño, con aplicación móvil gratuita y un módulo web para negocios del sector. |
-| Ventaja competitiva: ¿Qué valor ofrece a los clientes? | La cartilla se genera automáticamente según la especie y valida las reglas del esquema sanitario. El dueño obtiene acceso permanente a la información de su mascota sin depender del papel. | Amplitud funcional y cobertura regional. Concentra en un solo sistema la operación administrativa y clínica del establecimiento. | Adaptación al contexto regulatorio peruano, con facturación electrónica SUNAT integrada y recordatorios por WhatsApp, canal de comunicación predominante en el país. | Gratuidad y propiedad del dato por parte del usuario. El dueño mantiene el control de la información de su mascota con independencia de la clínica. |
+| Overview | Plataforma web y móvil enfocada en mantener el expediente clínico de perros y gatos y compartir con el tutor una proyección de solo lectura. La clínica registra y publica desde la web; el tutor consulta desde el móvil. | ERP-CRM integral para clínicas y hospitales veterinarios de Latinoamérica. Nace de una empresa dedicada previamente a la capacitación profesional del sector veterinario. | Plataforma de gestión todo-en-uno para clínicas veterinarias y pet shops del Perú, con énfasis en el cumplimiento tributario local. | Plataforma de cuidado de mascotas centrada en el dueño, con aplicación móvil gratuita y un módulo web para negocios del sector. |
+| Ventaja competitiva: ¿Qué valor ofrece a los clientes? | Los actos clínicos distinguen borrador y publicación, conservan autoría profesional y separan el cuidado realizado de las recomendaciones y citas futuras. El tutor obtiene acceso permanente sin depender del papel. | Amplitud funcional y cobertura regional. Concentra en un solo sistema la operación administrativa y clínica del establecimiento. | Adaptación al contexto regulatorio peruano, con facturación electrónica SUNAT integrada y recordatorios por WhatsApp, canal de comunicación predominante en el país. | Gratuidad y propiedad del dato por parte del usuario. El dueño mantiene el control de la información de su mascota con independencia de la clínica. |
 | **PERFIL DE MARKETING** | | | | |
 | Mercado objetivo | Clínicas veterinarias independientes de Lima Metropolitana con uno a tres veterinarios, y los dueños de perros y gatos atendidos en ellas. | Clínicas y hospitales veterinarios de Latinoamérica, incluyendo establecimientos de mediano y gran tamaño. | Clínicas veterinarias y pet shops formalizados del Perú, que requieren emitir comprobantes electrónicos. | Dueños de mascotas a nivel global, sin restricción de país ni de vínculo con una clínica determinada. |
 | Estrategias de marketing | Aproximación directa a clínicas del segmento inicial, apoyada en la validación con usuarios reales. Landing page orientada a comunicar el beneficio para el cliente final de la clínica. | Posicionamiento a partir de su trayectoria previa en formación profesional veterinaria. Demostración gratuita del producto como mecanismo de captación. | Posicionamiento por buscador orientado a términos locales, apoyado en testimonios de profesionales veterinarios peruanos. | Distribución masiva a través de las tiendas de aplicaciones, con modelo gratuito como mecanismo de adquisición y monetización posterior. |
 | **PERFIL DE PRODUCTO** | | | | |
-| Productos & Servicios | Cartilla de vacunación digital generada por especie, historial veterinario con formato preestablecido, recetas digitales y consulta móvil para el dueño. | Historias clínicas, agenda, facturación, inventario con control de lotes y vencimientos, hospitalización, trazabilidad de acciones por usuario. | Historial clínico digital con registro de consultas, vacunas, desparasitaciones y cirugías, carga de radiografías y análisis, agenda con recordatorios, inventario y facturación SUNAT. | Perfil de mascota, historial médico, registros de vacunación, seguimiento de peso y signos vitales, recordatorios de medicación y citas, y compartición de registros con el veterinario. |
+| Productos & Servicios | Onboarding de clínicas, registro de tutores y pacientes, vacunaciones, desparasitaciones, atenciones generales, recomendaciones futuras, agenda de citas y consulta móvil de solo lectura. | Historias clínicas, agenda, facturación, inventario con control de lotes y vencimientos, hospitalización, trazabilidad de acciones por usuario. | Historial clínico digital con registro de consultas, vacunas, desparasitaciones y cirugías, carga de radiografías y análisis, agenda con recordatorios, inventario y facturación SUNAT. | Perfil de mascota, historial médico, registros de vacunación, seguimiento de peso y signos vitales, recordatorios de medicación y citas, y compartición de registros con el veterinario. |
 | Precios & Costos | Modelo de suscripción mensual por clínica, con acceso sin costo para el dueño de la mascota. Estructura de precios por definir. | Solicita demostración gratuita. *[Verificar el esquema de precios vigente en la web oficial del proveedor.]* | *[Verificar el esquema de precios vigente en la web oficial del proveedor.]* | Descarga gratuita en App Store y Google Play, con compras dentro de la aplicación. |
 | Canales de distribución (Web y/o Móvil) | Aplicación web para la clínica, aplicación móvil nativa para el dueño y landing page informativa. | Aplicación web en la nube. | Plataforma web en la nube. | Aplicación móvil para iOS y Android, y aplicación web 11pets Business para negocios. |
 | **ANÁLISIS SWOT** | | | | |
-| Fortalezas | Alcance delimitado que permite construir con alta calidad de código y una suite de pruebas exhaustiva. Modelado explícito del esquema de vacunación por especie, con validaciones automáticas de edad e intervalo. Acceso del dueño incluido desde el diseño y no como añadido. | Amplitud funcional, madurez del producto y presencia consolidada en múltiples países de la región. Respaldo de una marca ya reconocida en la formación del gremio veterinario. | Integración con la normativa tributaria peruana y uso de WhatsApp como canal de recordatorio, ambos altamente valorados en el mercado local. Cobertura funcional completa para la operación del negocio. | Gratuidad, base de usuarios global e independencia respecto de cualquier clínica. Permite al dueño conservar el expediente aunque cambie de veterinario. |
+| Fortalezas | Alcance delimitado que permite construir con alta calidad de código y pruebas automatizadas. Modelado explícito de autoría, publicación, aislamiento por organización y recomendaciones configurables. Acceso del tutor incluido desde el diseño y no como añadido. | Amplitud funcional, madurez del producto y presencia consolidada en múltiples países de la región. Respaldo de una marca ya reconocida en la formación del gremio veterinario. | Integración con la normativa tributaria peruana y uso de WhatsApp como canal de recordatorio, ambos altamente valorados en el mercado local. Cobertura funcional completa para la operación del negocio. | Gratuidad, base de usuarios global e independencia respecto de cualquier clínica. Permite al dueño conservar el expediente aunque cambie de veterinario. |
 | Debilidades | Ausencia de trayectoria comercial y de base de usuarios. Alcance funcional reducido frente a los sistemas integrales del mercado. Equipo sin experiencia previa en el sector veterinario. | Complejidad derivada de su amplitud funcional, que puede resultar excesiva para un consultorio pequeño. La cartilla de vacunación es un módulo dentro del sistema y no un eje del producto. | Orientación centrada en la operación administrativa del establecimiento. El acceso del cliente final a su información no constituye un elemento central de la propuesta. | La información es registrada por el propio dueño y no por el profesional veterinario, por lo que carece de validez clínica verificable. No sustituye al registro oficial de la clínica. |
 | Oportunidades | Bajo nivel de digitalización de las clínicas independientes del segmento inicial. Crecimiento sostenido del gasto de los hogares peruanos en el cuidado de sus mascotas. Ausencia de una norma nacional de registro clínico veterinario que imponga barreras de entrada. | Expansión hacia establecimientos aún no digitalizados en los mercados donde ya opera. Incorporación de funcionalidades orientadas al cliente final de la clínica. | Formalización creciente de los establecimientos veterinarios peruanos y la consiguiente necesidad de facturación electrónica. | Incorporación de mecanismos de validación profesional que otorguen respaldo clínico a los registros ingresados por el dueño. |
 | Amenazas | Ingreso de los competidores establecidos al espacio de la cartilla validada y del acceso del dueño. Resistencia del personal veterinario a abandonar el registro en papel. | Aparición de soluciones especializadas más simples y económicas, orientadas a clínicas pequeñas que no requieren un ERP completo. | Competencia de plataformas regionales con mayor amplitud funcional y respaldo de marca. | Adopción por parte de las clínicas de sistemas propios que incluyan aplicación para el cliente, lo que desplazaría al registro autogestionado. |
@@ -774,7 +774,7 @@ posicionarse como solución especializada.
 
 | Estrategia | Tácticas |
 |---|---|
-| Especialización en lugar de amplitud | Comunicar el producto como cartilla de vacunación digital validada, y no como sistema de gestión veterinaria. Evitar comparaciones funcionales directas en el material de la landing page. |
+| Especialización en lugar de amplitud | Comunicar el producto como expediente veterinario confiable con acceso para el tutor, y no como un ERP veterinario completo. Evitar comparaciones funcionales directas en el material de la landing page. |
 | Reducción de la barrera de adopción | Ofrecer un proceso de registro de clínica sin instalación ni configuración inicial. Permitir el uso del producto sin migrar datos históricos. |
 
 **B. Aprovechando las debilidades de los competidores**
@@ -785,7 +785,7 @@ y el competidor indirecto carece de validez profesional en sus registros.
 | Estrategia | Tácticas |
 |---|---|
 | Convertir el acceso del cliente en argumento de venta de la clínica | Presentar la aplicación móvil como un beneficio que la clínica ofrece a sus clientes, no como un costo que asume. Incluir ese mensaje en el discurso comercial y en la landing page. |
-| Sustentar la validez del registro | Garantizar que toda información clínica provenga del profesional veterinario e identificar en la cartilla al responsable de cada dosis aplicada. |
+| Sustentar la validez del registro | Garantizar que todo acto publicado identifique al veterinario responsable y su número CMVP, manteniendo separados los borradores y las recomendaciones futuras. |
 
 **C. Aprovechando las oportunidades del entorno**
 
@@ -805,8 +805,8 @@ del papel.
 
 | Estrategia | Tácticas |
 |---|---|
-| Diferenciación sostenida por calidad del producto | Mantener la confiabilidad de las reglas del esquema de vacunación como atributo distintivo, respaldada por una cobertura de pruebas verificable. |
-| Continuidad con la práctica actual | Replicar en la interfaz la estructura visual de la cartilla física que el usuario ya conoce, de modo que la transición no exija reaprendizaje. |
+| Diferenciación sostenida por calidad del producto | Mantener la confiabilidad de la autorización, la autoría profesional, la inmutabilidad y el aislamiento por organización, respaldados por pruebas verificables. |
+| Continuidad con la práctica actual | Presentar el historial preventivo en una cronología reconocible, conservando los datos familiares del registro físico sin convertirlos en un esquema universal rígido. |
 
 ## 2.2. Entrevistas
 
@@ -1195,25 +1195,25 @@ propios del dominio del problema.
 | **Booster** (Refuerzo) | Dosis que se aplica después de completado el esquema inicial para mantener la protección del animal, habitualmente con periodicidad anual. |
 | **Core Vaccine** (Vacuna esencial) | Vacuna que corresponde a todo animal de una especie con independencia de su estilo de vida, por recomendación de las guías internacionales. |
 | **Dose** (Dosis) | Cada aplicación individual de una vacuna a un animal, identificada por su fecha, el producto empleado, su lote y el veterinario responsable. |
-| **Dose Interval** (Intervalo entre dosis) | Tiempo mínimo que debe transcurrir entre dos dosis consecutivas de una misma vacuna para que la segunda sea válida. |
-| **Due Date** (Fecha esperada) | Fecha en la que corresponde aplicar una dosis pendiente, calculada a partir de la fecha de nacimiento del animal o de la dosis anterior. |
+| **Appointment** (Cita) | Reserva de tiempo asociada a una mascota, tutor, organización, sede y motivo. No constituye evidencia de que una atención ocurrió. |
+| **Care Recommendation** (Recomendación de cuidado) | Cuidado futuro sugerido por el veterinario con una fecha o ventana estimada. Solo se activa al publicarse su registro de origen y no prueba que el cuidado se realizó. |
+| **Clinical Encounter** (Atención clínica) | Contacto clínico ocurrido que conserva motivo, evaluación, diagnóstico, tratamiento, plan y profesional responsable. |
 | **Deworming** (Desparasitación) | Tratamiento preventivo contra parásitos internos o externos, distinto de la vacunación y registrado en el historial veterinario. |
-| **Minimum Age** (Edad mínima) | Edad a partir de la cual una vacuna puede aplicarse a un animal sin comprometer su eficacia. |
+| **Guardian** (Tutor) | Persona responsable de una o más mascotas y vinculada a ellas mediante una guardianship activa. |
+| **Guardianship** (Relación de tutela) | Relación explícita entre un tutor y una mascota, con rol y periodo de vigencia, de la cual se deriva el acceso del tutor. |
 | **Non-Core Vaccine** (Vacuna no esencial) | Vacuna cuya aplicación depende del estilo de vida, la exposición al riesgo o la condición particular del animal. |
-| **Owner** (Dueño) | Persona responsable del cuidado de una o más mascotas y del vínculo con la clínica veterinaria que las atiende. |
 | **Patient** (Paciente) | Mascota considerada en su condición de receptora de atención veterinaria en un establecimiento determinado. |
-| **Pet** (Mascota) | Animal de compañía registrado en la plataforma, de especie canina o felina, perteneciente a un dueño. |
-| **Prescription** (Receta médica) | Indicación de medicamentos emitida por el veterinario como resultado de una atención, dirigida al dueño de la mascota. |
-| **Species** (Especie) | Clasificación biológica del animal que determina el esquema de vacunación que le corresponde. En el alcance del producto, canina o felina. |
-| **Vaccination Card** (Cartilla de vacunación) | Documento que consolida el esquema de vacunación de una mascota y el registro de las dosis aplicadas a lo largo de su vida. |
-| **Vaccination Card Status** (Estado de la cartilla) | Condición global del esquema de una mascota en un momento dado: al día, pendiente o vencida. |
-| **Vaccination Schedule** (Esquema de vacunación) | Secuencia de vacunas que corresponde a una especie, con sus edades mínimas e intervalos, definida por las guías internacionales y el fabricante del producto. |
+| **Pet** (Mascota) | Animal de compañía registrado en la plataforma, inicialmente de especie canina o felina. Puede estar relacionado con más de un tutor y más de una organización mediante vínculos explícitos. |
+| **Petbook Summary** (Resumen Petbook) | Proyección de solo lectura para el tutor que reúne identidad, actos publicados, recomendaciones futuras y citas; no es un agregado clínico editable ni un certificado oficial. |
+| **Prescription** (Prescripción) | Indicación terapéutica incluida en una atención clínica y atribuida al veterinario responsable. |
+| **Preventive Event** (Acto preventivo) | Vacunación o desparasitación que efectivamente ocurrió y fue publicada por un veterinario autorizado. |
+| **Published Clinical Record** (Registro clínico publicado) | Acto firmado que conserva autoría, organización, fecha y procedencia, y no puede editarse destructivamente. |
+| **Species** (Especie) | Clasificación biológica del animal. En el alcance inicial del producto se admiten perros y gatos, sin derivar de la especie un calendario preventivo universal. |
 | **Vaccine** (Vacuna) | Producto biológico que genera inmunidad frente a una enfermedad determinada, identificado por su nombre comercial y su laboratorio. |
 | **Vaccine Batch** (Lote) | Código que identifica el conjunto de producción al que pertenece el frasco de vacuna aplicado, registrado por trazabilidad sanitaria. |
 | **Veterinarian** (Médico veterinario) | Profesional habilitado para diagnosticar, tratar y aplicar vacunas, responsable de la información clínica que registra. |
 | **Veterinary Clinic** (Clínica veterinaria) | Establecimiento que presta atención a animales de compañía y que opera la plataforma para registrar la información de sus pacientes. |
-| **Veterinary Record** (Historial veterinario) | Registro cronológico de las atenciones recibidas por una mascota, con motivo de consulta, hallazgos, diagnóstico, tratamiento y observaciones. |
-| **Visit** (Atención) | Cada ocasión en que una mascota es atendida en la clínica, y que origina una entrada en su historial veterinario. |
+| **Veterinary Record** (Expediente veterinario) | Registro longitudinal de actos clínicos y preventivos que pertenece a la mascota y conserva la autoría y organización de cada evento. |
 
 # Capítulo III: Requirements Specification
 
@@ -1227,7 +1227,7 @@ En este capítulo se especifican los requisitos de los productos digitales a par
 
 | | Fase 1: Alta del paciente | Fase 2: Atención y registro | Fase 3: Vacunación y anotación | Fase 4: Conservación | Fase 5: Recuperación posterior | Fase 6: Seguimiento de pendientes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Doing** | Registra al cliente y a su mascota en la aplicación web. El sistema genera la cartilla según la especie. | Completa el formato preestablecido de atención durante o al cierre de la consulta. | Marca la dosis como aplicada e ingresa fecha, lote y responsable. El sistema valida edad e intervalo. | No realiza ninguna acción: el registro queda guardado al momento de crearse. | Busca la mascota por su nombre y abre el expediente completo. | Consulta el estado de cartilla de sus pacientes y contacta a los que tienen dosis vencidas. |
+| **Doing** | Registra al tutor, la mascota y la relación de cuidado en la aplicación web. | Prepara el borrador estructurado de la atención durante o al cierre de la consulta. | Registra los datos de la vacuna y el veterinario revisa y publica el acto. | La publicación queda preservada con autoría y auditoría. | Busca la mascota por sus datos o los de su tutor y abre el expediente completo. | Consulta recomendaciones activas y citas futuras sin confundirlas con actos ya realizados. |
 | **Thinking** | "Queda registrado desde el primer día, y el dueño también lo verá." | "Esto se llena rápido y no lo tengo que cerrar en la noche." | "Si algo no calza, el sistema me avisa antes de aplicar." | "Ya no depende de que nadie guarde un papel." | "Está todo acá, incluso lo de hace tres años." | "Ahora sí sé a quién tengo que llamar." |
 | **Feeling** | Confiada (4/5) | Aliviada (4/5) | Segura (5/5) | Tranquila (5/5) | Satisfecha (5/5) | En control (4/5) |
 
@@ -1238,55 +1238,70 @@ En este capítulo se especifican los requisitos de los productos digitales a par
 
 | | Fase 1: Enterarse de lo que toca | Fase 2: Preparar la visita | Fase 3: Atención en la clínica | Fase 4: Recibir indicaciones | Fase 5: Después de la consulta | Fase 6: Consultar tiempo después |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Doing** | Abre la aplicación móvil y ve el estado de cada mascota por separado. | No busca ningún documento: la cartilla está en su celular. | El veterinario consulta el expediente en su sistema; ella no necesita aportar antecedentes. | Ve la receta digital en la aplicación, asociada a la atención de ese día. | No guarda nada. La información queda registrada por la clínica. | Abre la aplicación y revisa la atención, la receta y la próxima dosis. |
+| **Doing** | Abre la aplicación móvil y selecciona una de sus mascotas vinculadas. | No busca ningún documento: el historial publicado está disponible en su celular. | El veterinario consulta el expediente en su sistema; ella no necesita aportar antecedentes ya registrados. | Ve la atención publicada y sus indicaciones. | No guarda papeles: la clínica conserva el acto con su autoría. | Revisa la atención, el historial preventivo, las recomendaciones y las citas próximas. |
 | **Thinking** | "Ahora sé cuál es de Kiara y cuál de Simón." | "No tengo que acordarme de llevar nada." | "Él ya sabe todo lo de mi mascota." | "Esta vez sí entiendo qué le dieron." | "No hay nada que se me pueda perder." | "Puedo verlo yo misma, sin llamar a nadie." |
 | **Feeling** | Orientada (4/5) | Tranquila (5/5) | Confiada (5/5) | Clara (5/5) | Despreocupada (5/5) | Autónoma (5/5) |
 
 ## 3.2. User Stories
 
-A partir de los To-Be Scenario Maps se identificaron los requisitos del
-producto, organizados en cinco epics. El conjunto se compone de dieciséis
-User Stories orientadas a los usuarios finales, cuatro Technical Stories
-correspondientes a la RESTful API, y dos Spike Stories de investigación
-previa. El alcance se definió de forma deliberadamente acotada, de modo
-que cada historia resulte verificable mediante pruebas automatizadas.
+A partir de los To-Be Scenario Maps y del incremento de producto implementado
+se identificaron ocho epics. El conjunto comprende veintiocho User Stories,
+siete Technical Stories para la RESTful API y la plataforma compartida, y dos
+Spike Stories. Los criterios describen resultados observables y comprobables;
+no presuponen detalles de interfaz ni presentan una recomendación futura como
+si fuera un acto clínico ya realizado.
 
-### Epics
-
-| Epic ID | Título | Descripción |
-|---|---|---|
-| EP01 | Landing Page | Como startup, deseo contar con un sitio web estático que comunique la propuesta de valor de Petbook a sus dos segmentos objetivo, para atraer clínicas veterinarias interesadas y dar acceso a la aplicación web. |
-| EP02 | Gestión de Acceso e Identidad | Como plataforma, deseo autenticar a los usuarios y diferenciar sus permisos según su rol, para garantizar que la información clínica solo sea registrada por el personal veterinario y consultada por el dueño correspondiente. |
-| EP03 | Gestión de Clientes y Mascotas | Como clínica veterinaria, deseo registrar a mis clientes y a sus mascotas y localizarlos con rapidez, para disponer del expediente del paciente al iniciar una atención. |
-| EP04 | Cartilla de Vacunación Digital | Como clínica veterinaria, deseo generar y mantener la cartilla de vacunación digital de cada mascota con las reglas de su esquema incorporadas, para registrar las dosis de forma confiable y que el dueño pueda consultarlas en cualquier momento. |
-| EP05 | Historial Veterinario y Recetas | Como clínica veterinaria, deseo registrar las atenciones y las recetas de cada paciente en un formato preestablecido, para conservar su historial clínico y ponerlo a disposición del dueño. |
-
-### User Stories, Technical Stories y Spike Stories
+En cumplimiento del Project Statement, los epics, User Stories, Technical
+Stories y Spike Stories se presentan en un único cuadro. Las filas de epic
+agrupan el alcance y no requieren criterios de aceptación propios.
 
 | Story ID | User | Priority | Epic ID | Título | Descripción | Criterios de Aceptación |
 |---|---|---|---|---|---|---|
-| US01 | Visitante | Alta | EP01 | Presentación de la propuesta de valor | Como visitante, deseo comprender en la página principal qué resuelve Petbook, para decidir si es relevante para mí. | **E1: Acceso a la página principal**<br>Dado que el visitante accede a la dirección del sitio<br>Cuando la página principal termina de cargar<br>Entonces se presenta el nombre del producto, su propuesta de valor y una acción principal de contacto. |
-| US02 | Visitante del segmento clínica | Alta | EP01 | Información dirigida a clínicas veterinarias | Como visitante del segmento clínica veterinaria, deseo conocer los beneficios del producto para mi establecimiento, para evaluar su adopción. | **E1: Consulta de la sección de clínicas**<br>Dado que el visitante se encuentra en la página principal<br>Cuando accede a la sección dirigida a clínicas veterinarias<br>Entonces se presentan las funcionalidades disponibles para el establecimiento y el beneficio para su cliente final. |
-| US03 | Visitante | Alta | EP01 | Acceso a la aplicación web desde la landing page | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. | **E1: Redirección a la aplicación**<br>Dado que el visitante se encuentra en la landing page<br>Cuando selecciona la acción de ingreso<br>Entonces el sistema lo dirige a la aplicación web de la clínica. |
-| US04 | Personal de clínica | Media | EP02 | Autenticación del personal de la clínica | Como personal de la clínica, deseo iniciar sesión en la aplicación web, para acceder a la información de mis pacientes. | **E1: Credenciales válidas**<br>Dado que el usuario está registrado en el sistema<br>Cuando envía sus credenciales correctas<br>Entonces el sistema le concede acceso con permisos de registro y consulta.<br><br>**E2: Credenciales inválidas**<br>Dado que el usuario no está registrado o sus credenciales no coinciden<br>Cuando envía sus credenciales<br>Entonces el sistema deniega el acceso y no expone información de pacientes. |
-| US05 | Dueño de mascota | Media | EP02 | Autenticación del dueño en la aplicación móvil | Como dueño de mascota, deseo iniciar sesión en la aplicación móvil, para consultar la información de mis mascotas. | **E1: Acceso concedido**<br>Dado que el dueño fue registrado por una clínica<br>Cuando envía sus credenciales correctas<br>Entonces el sistema le concede acceso con permisos de consulta únicamente.<br><br>**E2: Aislamiento de información**<br>Dado que el dueño tiene una sesión activa<br>Cuando solicita información de una mascota que no le pertenece<br>Entonces el sistema deniega la solicitud. |
-| US06 | Personal de clínica | Alta | EP03 | Registro de cliente | Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. | **E1: Registro exitoso**<br>Dado que el personal de la clínica ingresa los datos obligatorios del cliente<br>Cuando confirma el registro<br>Entonces el sistema crea el cliente y lo asocia a la clínica.<br><br>**E2: Datos incompletos**<br>Dado que el personal omite un dato obligatorio<br>Cuando intenta confirmar el registro<br>Entonces el sistema rechaza la operación e informa el dato faltante. |
-| US07 | Personal de clínica | Alta | EP03 | Registro de mascota | Como personal de la clínica, deseo registrar una mascota asociada a un cliente, indicando su especie y fecha de nacimiento, para incorporarla como paciente. | **E1: Registro exitoso**<br>Dado que existe un cliente registrado<br>Cuando se registra una mascota con especie canina o felina y fecha de nacimiento válida<br>Entonces el sistema crea la mascota y la asocia al cliente.<br><br>**E2: Especie no soportada**<br>Dado que se intenta registrar una mascota de una especie distinta de canina o felina<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación.<br><br>**E3: Fecha de nacimiento futura**<br>Dado que se ingresa una fecha de nacimiento posterior a la fecha actual<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación. |
-| US08 | Personal de clínica | Alta | EP03 | Búsqueda de paciente | Como personal de la clínica, deseo localizar a una mascota por su nombre o por el de su dueño, para acceder a su expediente al iniciar la atención. | **E1: Coincidencias encontradas**<br>Dado que existen mascotas registradas en la clínica<br>Cuando se realiza una búsqueda por nombre de mascota o de dueño<br>Entonces el sistema devuelve las coincidencias con su especie y su dueño asociado.<br><br>**E2: Sin coincidencias**<br>Dado que no existe ninguna mascota que coincida con el criterio<br>Cuando se realiza la búsqueda<br>Entonces el sistema informa que no se hallaron resultados. |
-| US09 | Personal de clínica | Alta | EP04 | Generación automática de la cartilla de vacunación | Como personal de la clínica, deseo que la cartilla de vacunación se genere automáticamente al registrar una mascota, para no tener que definir manualmente las dosis que le corresponden. | **E1: Generación según especie**<br>Dado que se registra una mascota de una especie soportada<br>Cuando el registro se completa<br>Entonces el sistema genera su cartilla con todas las dosis del esquema de su especie en estado pendiente.<br><br>**E2: Cálculo de fechas esperadas**<br>Dado que la cartilla ha sido generada<br>Cuando se consultan sus dosis pendientes<br>Entonces cada dosis presenta una fecha esperada calculada a partir de la fecha de nacimiento y la edad mínima de la vacuna. |
-| US10 | Personal de clínica | Alta | EP04 | Registro de dosis aplicada | Como personal de la clínica, deseo registrar la aplicación de una dosis indicando fecha, lote y responsable, para dejar constancia verificable en la cartilla. | **E1: Registro válido**<br>Dado que una dosis se encuentra pendiente y se cumplen las reglas del esquema<br>Cuando se registra su aplicación con fecha, lote y veterinario responsable<br>Entonces el sistema marca la dosis como aplicada y conserva esos datos.<br><br>**E2: Edad mínima no alcanzada**<br>Dado que la mascota no alcanza la edad mínima de la vacuna en la fecha indicada<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E3: Intervalo mínimo no cumplido**<br>Dado que no ha transcurrido el intervalo mínimo desde la dosis anterior<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E4: Fecha de aplicación futura**<br>Dado que la fecha de aplicación es posterior a la fecha actual<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro. |
-| US11 | Personal de clínica | Alta | EP04 | Consulta del estado de la cartilla | Como personal de la clínica, deseo conocer el estado de la cartilla de un paciente, para determinar qué le corresponde antes de atenderlo. | **E1: Cartilla al día**<br>Dado que todas las dosis exigibles a la fecha están aplicadas<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como al día.<br><br>**E2: Cartilla pendiente**<br>Dado que existen dosis no aplicadas cuya fecha esperada aún no ha vencido<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como pendiente e indica la próxima dosis.<br><br>**E3: Cartilla vencida**<br>Dado que existe al menos una dosis no aplicada cuya fecha esperada ya transcurrió<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como vencida. |
-| US12 | Dueño de mascota | Alta | EP04 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | **E1: Consulta de la cartilla**<br>Dado que el dueño tiene una sesión activa y mascotas asociadas<br>Cuando selecciona una de sus mascotas<br>Entonces el sistema presenta su cartilla con las dosis aplicadas, las pendientes y el estado general.<br><br>**E2: Diferenciación entre mascotas**<br>Dado que el dueño tiene más de una mascota asociada<br>Cuando consulta el listado de sus mascotas<br>Entonces el sistema presenta el estado de cartilla de cada una de forma individual. |
-| US13 | Personal de clínica | Alta | EP05 | Registro de atención veterinaria | Como personal de la clínica, deseo registrar una atención con motivo, hallazgos, diagnóstico y tratamiento, para conservar el historial del paciente. | **E1: Registro exitoso**<br>Dado que existe una mascota registrada<br>Cuando se registra una atención con los campos obligatorios completos<br>Entonces el sistema la incorpora al historial de la mascota con su fecha y el veterinario responsable.<br><br>**E2: Campos obligatorios incompletos**<br>Dado que se omite el motivo de consulta o el diagnóstico<br>Cuando se intenta registrar la atención<br>Entonces el sistema rechaza la operación. |
-| US14 | Personal de clínica | Alta | EP05 | Consulta del historial del paciente | Como personal de la clínica, deseo consultar las atenciones previas de un paciente ordenadas cronológicamente, para decidir con información completa. | **E1: Historial con registros**<br>Dado que la mascota tiene atenciones registradas<br>Cuando se consulta su historial<br>Entonces el sistema presenta las atenciones en orden cronológico descendente.<br><br>**E2: Historial vacío**<br>Dado que la mascota no tiene atenciones registradas<br>Cuando se consulta su historial<br>Entonces el sistema informa que no existen atenciones previas. |
-| US15 | Personal de clínica | Media | EP05 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | **E1: Emisión exitosa**<br>Dado que existe una atención registrada<br>Cuando se emite una receta con al menos un medicamento, su dosificación y su duración<br>Entonces el sistema la asocia a esa atención y la hace visible para el dueño de la mascota.<br><br>**E2: Receta sin medicamentos**<br>Dado que se intenta emitir una receta sin ningún medicamento<br>Cuando se confirma la emisión<br>Entonces el sistema rechaza la operación. |
-| US16 | Dueño de mascota | Media | EP05 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | **E1: Consulta del historial**<br>Dado que el dueño tiene una sesión activa<br>Cuando accede al historial de una de sus mascotas<br>Entonces el sistema presenta sus atenciones en orden cronológico descendente.<br><br>**E2: Consulta de una receta**<br>Dado que una atención tiene una receta asociada<br>Cuando el dueño accede a esa atención<br>Entonces el sistema presenta la receta con sus medicamentos, dosificación y duración. |
-| TS01 | Developer | Media | EP02 | Endpoints de autenticación y autorización | Como desarrollador, deseo exponer los endpoints de autenticación y autorización de la API, para que las aplicaciones web y móvil validen la identidad y el rol del usuario. | **E1: Autenticación válida**<br>Dado que se envía una solicitud POST al endpoint de autenticación con credenciales válidas<br>Cuando la API procesa la solicitud<br>Entonces responde con código 200 y un token de acceso con el rol del usuario.<br><br>**E2: Credenciales inválidas**<br>Dado que se envía una solicitud con credenciales incorrectas<br>Cuando la API procesa la solicitud<br>Entonces responde con código 401.<br><br>**E3: Acceso no autorizado**<br>Dado que se solicita un recurso que excede los permisos del rol<br>Cuando la API procesa la solicitud<br>Entonces responde con código 403. |
-| TS02 | Developer | Alta | EP03 | Endpoints de clientes y mascotas | Como desarrollador, deseo exponer los endpoints de gestión de clientes y mascotas, para que la aplicación web registre y consulte esta información. | **E1: Creación exitosa**<br>Dado que se envía una solicitud POST con los datos válidos de una mascota<br>Cuando la API procesa la solicitud<br>Entonces responde con código 201 y el recurso creado.<br><br>**E2: Datos inválidos**<br>Dado que se envía una solicitud con una especie no soportada<br>Cuando la API procesa la solicitud<br>Entonces responde con código 400 y el detalle de la validación incumplida.<br><br>**E3: Recurso inexistente**<br>Dado que se solicita una mascota que no existe<br>Cuando la API procesa la solicitud<br>Entonces responde con código 404. |
-| TS03 | Developer | Alta | EP04 | Endpoints de cartilla de vacunación | Como desarrollador, deseo exponer los endpoints de consulta de la cartilla y de registro de dosis, para que ambas aplicaciones operen sobre el esquema de vacunación. | **E1: Consulta de cartilla**<br>Dado que se envía una solicitud GET de la cartilla de una mascota existente<br>Cuando la API procesa la solicitud<br>Entonces responde con código 200, las dosis y el estado de la cartilla.<br><br>**E2: Registro de dosis válido**<br>Dado que se envía una solicitud POST de aplicación de dosis que cumple las reglas del esquema<br>Cuando la API procesa la solicitud<br>Entonces responde con código 201.<br><br>**E3: Regla del esquema incumplida**<br>Dado que la solicitud incumple la edad mínima o el intervalo entre dosis<br>Cuando la API procesa la solicitud<br>Entonces responde con código 422 y la regla incumplida. |
-| TS04 | Developer | Media | EP05 | Endpoints de historial y recetas | Como desarrollador, deseo exponer los endpoints de atenciones y recetas, para que la aplicación web las registre y la aplicación móvil las consulte. | **E1: Registro de atención**<br>Dado que se envía una solicitud POST con una atención válida<br>Cuando la API procesa la solicitud<br>Entonces responde con código 201 y el recurso creado.<br><br>**E2: Consulta de historial**<br>Dado que se envía una solicitud GET del historial de una mascota existente<br>Cuando la API procesa la solicitud<br>Entonces responde con código 200 y las atenciones en orden cronológico descendente. |
-| SP01 | Developer | Alta | EP04 | Definición del esquema de vacunación canino y felino | Como desarrollador, deseo investigar y documentar el esquema de vacunación aplicable a perros y gatos, para determinar si puede modelarse como una plantilla fija por especie o requiere ser configurable. | **E1: Investigación completada**<br>Dado que se consultan las guías internacionales de referencia y las respuestas de los veterinarios entrevistados<br>Cuando se contrastan los esquemas identificados<br>Entonces se documenta la relación de vacunas por especie con su edad mínima e intervalo entre dosis, y se concluye si el esquema es constante entre clínicas. |
-| SP02 | Developer | Alta | EP04 | Evaluación de herramientas de pruebas automatizadas y BDD | Como desarrollador, deseo evaluar las herramientas de pruebas unitarias, de integración y de BDD disponibles para la plataforma, para definir el stack de verificación del producto. | **E1: Evaluación completada**<br>Dado que se evalúan las alternativas según compatibilidad con la tecnología del backend, soporte de Gherkin e integración con el pipeline<br>Cuando se comparan sus resultados<br>Entonces se documenta la recomendación y se entrega un proyecto de prueba con al menos un test unitario y un escenario BDD en ejecución. |
+| EP01 | Startup | Alta | — | Adquisición pública | Como startup, deseo presentar Petbook, sus planes y sus canales de acceso en un sitio público bilingüe, para captar clínicas veterinarias interesadas. | — |
+| US01 | Visitante | Alta | EP01 | Presentación de la propuesta de valor | Como visitante, deseo comprender qué problema resuelve Petbook, para decidir si resulta relevante para mi clínica. | **E1: Información principal**<br>Dado que el visitante accede al sitio público<br>Cuando consulta su contenido principal<br>Entonces identifica el producto, su propuesta de valor y el flujo que conecta a la clínica con los tutores.<br><br>**E2: Acciones disponibles**<br>Dado que el visitante comprende la propuesta<br>Cuando evalúa continuar<br>Entonces dispone de acciones para registrar una clínica o iniciar sesión. |
+| US02 | Visitante del segmento clínica | Alta | EP01 | Comparación de planes | Como representante de una clínica, deseo comparar los planes disponibles, para seleccionar el que corresponde al número de pacientes que gestiono. | **E1: Catálogo disponible**<br>Dado que existen planes habilitados<br>Cuando el visitante consulta la oferta<br>Entonces recibe sus nombres, límites de pacientes y condiciones desde el catálogo compartido.<br><br>**E2: Selección de plan**<br>Dado que el visitante selecciona un plan disponible<br>Cuando inicia el registro<br>Entonces la solicitud conserva el plan seleccionado. |
+| US03 | Visitante | Media | EP01 | Consulta bilingüe e información pública | Como visitante, deseo consultar Petbook en español o inglés y acceder a su información legal y de soporte, para comprender el servicio en el idioma que prefiero. | **E1: Cambio de idioma**<br>Dado que el visitante selecciona un idioma soportado<br>Cuando continúa navegando por el área pública<br>Entonces el contenido del sistema se presenta en ese idioma.<br><br>**E2: Información complementaria**<br>Dado que el visitante necesita conocer las condiciones del servicio<br>Cuando consulta los recursos públicos<br>Entonces puede acceder al aviso de privacidad, los términos y el canal de soporte. |
+| EP02 | Plataforma | Alta | — | Registro y activación de clínicas | Como plataforma, deseo recibir y revisar solicitudes de clínicas antes de habilitar su organización, para controlar el acceso al servicio y asignar el plan correspondiente. | — |
+| US04 | Representante de clínica | Alta | EP02 | Registro y verificación de cuenta | Como representante de una clínica, deseo crear una cuenta y verificar mi correo, para presentar una solicitud asociada a una identidad confirmada. | **E1: Registro válido**<br>Dado que el representante proporciona datos válidos<br>Cuando registra su cuenta<br>Entonces el proveedor de identidad crea la cuenta y solicita la verificación del correo.<br><br>**E2: Correo no verificado**<br>Dado que el correo todavía no ha sido verificado<br>Cuando el representante intenta presentar la solicitud<br>Entonces el sistema impide el envío y mantiene el acceso clínico deshabilitado. |
+| US05 | Representante de clínica | Alta | EP02 | Presentación de solicitud de clínica | Como representante de una clínica, deseo enviar los datos de mi establecimiento y el plan solicitado, para solicitar acceso a Petbook. | **E1: Solicitud válida**<br>Dado que el representante tiene una identidad verificada y completa los datos obligatorios<br>Cuando presenta la solicitud<br>Entonces el sistema la registra en estado pendiente de revisión.<br><br>**E2: Solicitud duplicada o inválida**<br>Dado que la solicitud repite una postulación incompatible o contiene datos inválidos<br>Cuando se intenta registrar<br>Entonces el sistema la rechaza con un resultado seguro y comprobable. |
+| US06 | Representante de clínica | Media | EP02 | Consulta del estado de solicitud | Como representante de una clínica, deseo consultar el estado de mi solicitud, para saber si fue aprobada, observada o rechazada. | **E1: Consulta autorizada**<br>Dado que el representante tiene una solicitud asociada a su cuenta<br>Cuando consulta su estado<br>Entonces recibe únicamente el estado y el resumen de revisión que le corresponden.<br><br>**E2: Privacidad entre solicitudes**<br>Dado que una solicitud pertenece a otra cuenta<br>Cuando el representante intenta consultarla<br>Entonces el sistema no expone sus datos. |
+| US07 | Administrador de plataforma | Alta | EP02 | Revisión de solicitudes de clínicas | Como administrador de plataforma, deseo revisar y decidir las solicitudes pendientes, para activar únicamente organizaciones aprobadas. | **E1: Aprobación**<br>Dado que existe una solicitud pendiente válida<br>Cuando el administrador la aprueba<br>Entonces el sistema activa la organización, asigna el plan y crea la membresía inicial del representante de forma atómica.<br><br>**E2: Observación o rechazo**<br>Dado que una solicitud requiere correcciones o no resulta admisible<br>Cuando el administrador registra su decisión y motivo<br>Entonces el sistema conserva la decisión en el historial sin habilitar acceso clínico. |
+| EP03 | Organización veterinaria | Alta | — | Acceso organizacional y equipo | Como organización veterinaria, deseo controlar sus espacios de trabajo, membresías y roles, para que cada colaborador acceda solo a las operaciones autorizadas. | — |
+| US08 | Personal de clínica | Alta | EP03 | Acceso al espacio de trabajo | Como integrante de una clínica, deseo ingresar al espacio de trabajo de mi organización, para realizar las operaciones permitidas por mi rol. | **E1: Membresía activa**<br>Dado que la cuenta posee una membresía activa en una organización habilitada<br>Cuando solicita el espacio de trabajo<br>Entonces el sistema concede las capacidades correspondientes a su rol.<br><br>**E2: Acceso no autorizado**<br>Dado que la cuenta no pertenece a la organización solicitada<br>Cuando intenta acceder<br>Entonces el sistema deniega la operación sin exponer datos del tenant. |
+| US09 | Propietario de clínica | Media | EP03 | Gestión de integrantes del equipo | Como propietario de clínica, deseo consultar a los integrantes e invitar personal con un rol definido, para conformar el equipo que utilizará Petbook. | **E1: Consulta del equipo**<br>Dado que el propietario tiene acceso administrativo a la organización<br>Cuando consulta el equipo<br>Entonces obtiene las membresías e invitaciones pendientes de esa organización.<br><br>**E2: Invitación válida**<br>Dado que proporciona un correo, nombre y rol admitidos<br>Cuando envía la invitación<br>Entonces el sistema registra una invitación pendiente sin duplicar una incompatible. |
+| EP04 | Clínica veterinaria | Alta | — | Tutores, pacientes y acceso | Como clínica veterinaria, deseo registrar tutores, mascotas y relaciones verificables, para mantener un padrón de pacientes aislado por organización y habilitar su consulta al tutor. | — |
+| US10 | Personal de clínica | Alta | EP04 | Registro integral de paciente | Como personal de clínica, deseo registrar al tutor, la mascota y su relación de cuidado, para incorporar al paciente de forma consistente. | **E1: Registro atómico**<br>Dado que el personal autorizado proporciona los datos válidos del tutor, la mascota y la guardianship<br>Cuando confirma el registro<br>Entonces el sistema crea el perfil del tutor, la mascota, la guardianship y la relación clínica-paciente en una sola operación.<br><br>**E2: Datos clínicamente inválidos**<br>Dado que la especie no está soportada o la fecha de nacimiento es futura<br>Cuando se intenta registrar al paciente<br>Entonces el sistema rechaza la operación completa.<br><br>**E3: Límite del plan**<br>Dado que la organización alcanzó su límite de pacientes administrados<br>Cuando intenta incorporar una nueva relación clínica-paciente<br>Entonces el sistema impide el alta sin bloquear la consulta de pacientes existentes. |
+| US11 | Personal de clínica | Alta | EP04 | Búsqueda y filtrado de pacientes | Como personal de clínica, deseo localizar pacientes por sus datos o los de su tutor, para acceder con rapidez al expediente correcto. | **E1: Coincidencias**<br>Dado que existen pacientes en la organización<br>Cuando se busca por nombre, raza, nombre del tutor o correo, o se filtra por especie<br>Entonces el sistema devuelve únicamente las coincidencias del tenant.<br><br>**E2: Sin coincidencias**<br>Dado que ningún paciente satisface los criterios<br>Cuando se realiza la búsqueda<br>Entonces el sistema informa que no existen resultados. |
+| US12 | Personal de clínica | Alta | EP04 | Invitación de acceso al tutor | Como personal de clínica, deseo enviar o reenviar una invitación al tutor y consultar su estado, para habilitar su acceso a la mascota registrada. | **E1: Emisión segura**<br>Dado que existe una guardianship activa sin acceso habilitado<br>Cuando se solicita la invitación<br>Entonces el sistema genera un token de un solo uso, conserva únicamente su hash y registra el intento de entrega.<br><br>**E2: Reenvío**<br>Dado que una invitación puede reenviarse<br>Cuando el personal solicita el reenvío<br>Entonces el sistema invalida o reemplaza la invitación anterior según sus reglas y registra el nuevo estado.<br><br>**E3: Consulta de estado**<br>Dado que el personal tiene acceso al paciente<br>Cuando consulta el acceso del tutor<br>Entonces recibe el estado vigente sin obtener el token secreto. |
+| US13 | Personal de clínica | Alta | EP04 | Consulta del resumen del paciente | Como personal de clínica, deseo consultar el perfil y el historial de un paciente, para atenderlo con información longitudinal. | **E1: Paciente con registros**<br>Dado que el paciente pertenece a la organización y tiene registros clínicos<br>Cuando se consulta su expediente<br>Entonces el sistema presenta el resumen y los registros en orden cronológico descendente.<br><br>**E2: Paciente sin registros**<br>Dado que el paciente pertenece a la organización pero no tiene atenciones<br>Cuando se consulta su expediente<br>Entonces el sistema presenta el perfil e informa que el historial está vacío. |
+| EP05 | Equipo clínico | Alta | — | Expediente clínico y cuidado preventivo | Como equipo clínico, deseo preparar, revisar y publicar actos veterinarios con autoría profesional, para mantener un expediente confiable e informar el cuidado futuro sin confundirlo con atención realizada. | — |
+| SP01 | Developer | Alta | EP05 | Investigación de reglas preventivas | Como desarrollador, deseo investigar las reglas de vacunación y desparasitación aplicables, para distinguir obligaciones confirmadas, configuración clínica y recomendaciones futuras. | **E1: Fuentes y conclusiones**<br>Dado que se revisan fuentes primarias peruanas y referencias clínicas identificadas<br>Cuando se documentan los resultados<br>Entonces se clasifican las reglas como requisito confirmado, política de producto, configuración clínica o pregunta abierta.<br><br>**E2: Modelo resultante**<br>Dado que los esquemas pueden variar por paciente y criterio profesional<br>Cuando se define el modelo<br>Entonces las fechas futuras se representan como recomendaciones configurables y no como un calendario universal generado automáticamente. |
+| US14 | Personal clínico | Alta | EP05 | Preparación de borrador de vacunación | Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional. | **E1: Borrador válido**<br>Dado que existe un paciente accesible<br>Cuando se registran antígeno, producto, lote, vencimiento, fecha, dosis, unidad, vía y sitio válidos<br>Entonces el sistema crea un borrador editable.<br><br>**E2: Revisión del borrador**<br>Dado que el borrador todavía no ha sido publicado<br>Cuando el personal autorizado corrige su contenido<br>Entonces el sistema conserva la versión actualizada sin mostrarla como acto realizado al tutor. |
+| US15 | Veterinario | Alta | EP05 | Publicación de vacunación | Como veterinario autorizado, deseo firmar y publicar una vacunación válida, para dejar constancia verificable de su aplicación. | **E1: Publicación autorizada**<br>Dado que el borrador contiene los datos obligatorios y el lote no está vencido en la fecha de aplicación<br>Cuando el veterinario autorizado lo publica<br>Entonces el sistema registra su identidad, número CMVP, fecha de publicación y auditoría de forma atómica.<br><br>**E2: Protección del registro**<br>Dado que una vacunación ya fue publicada<br>Cuando se intenta sobrescribirla como borrador<br>Entonces el sistema rechaza la modificación destructiva.<br><br>**E3: Publicación no autorizada**<br>Dado que la cuenta no corresponde a un veterinario autorizado<br>Cuando intenta publicar<br>Entonces el sistema deniega la operación. |
+| US16 | Personal clínico | Alta | EP05 | Preparación de borrador de desparasitación | Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional. | **E1: Borrador válido**<br>Dado que existe un paciente accesible<br>Cuando se registran tipo, modalidad, producto o principio activo, dosis, unidad, vía, peso de referencia y fecha válidos<br>Entonces el sistema crea un borrador editable.<br><br>**E2: Datos incompletos**<br>Dado que falta información obligatoria del tratamiento<br>Cuando se intenta crear o actualizar el borrador<br>Entonces el sistema rechaza la operación e identifica el dato inválido. |
+| US17 | Veterinario | Alta | EP05 | Publicación de desparasitación | Como veterinario autorizado, deseo firmar y publicar una desparasitación, para incorporarla al historial preventivo del paciente. | **E1: Publicación válida**<br>Dado que el borrador cumple las reglas y la cuenta tiene autorización profesional<br>Cuando se publica<br>Entonces el sistema conserva el acto, el profesional responsable y el evento de auditoría.<br><br>**E2: Inmutabilidad**<br>Dado que el registro ya fue publicado<br>Cuando se intenta editar destructivamente<br>Entonces el sistema rechaza la operación. |
+| US18 | Personal clínico | Alta | EP05 | Preparación de atención clínica general | Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise. | **E1: Borrador de atención**<br>Dado que existe un paciente accesible y se proporciona el motivo de consulta<br>Cuando se registra la atención<br>Entonces el sistema crea un borrador con fecha, hora y los datos clínicos proporcionados.<br><br>**E2: Actualización previa a publicación**<br>Dado que la atención permanece en borrador<br>Cuando el personal corrige sus hallazgos o indicaciones<br>Entonces el sistema actualiza el borrador sin exponerlo como atención publicada. |
+| US19 | Veterinario | Alta | EP05 | Publicación de atención clínica | Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente. | **E1: Publicación válida**<br>Dado que el borrador contiene la información mínima requerida<br>Cuando el veterinario lo publica<br>Entonces el sistema registra el acto con su identidad profesional y lo hace disponible en las proyecciones autorizadas.<br><br>**E2: Publicación no autorizada**<br>Dado que la cuenta no posee autorización veterinaria activa<br>Cuando intenta publicar la atención<br>Entonces el sistema deniega la operación.<br><br>**E3: Inmutabilidad**<br>Dado que la atención fue publicada<br>Cuando se intenta reemplazar su contenido<br>Entonces el sistema preserva el registro publicado. |
+| US20 | Personal de clínica | Alta | EP05 | Consulta del historial clínico | Como personal de clínica, deseo consultar borradores y actos publicados del paciente en orden cronológico, para conocer sus antecedentes antes de atenderlo. | **E1: Historial disponible**<br>Dado que existen registros accesibles para la organización<br>Cuando se consulta el historial<br>Entonces el sistema los devuelve en orden cronológico descendente y diferencia borradores de publicaciones.<br><br>**E2: Aislamiento**<br>Dado que el paciente no tiene una relación de cuidado con la organización<br>Cuando se solicita su historial<br>Entonces el sistema deniega el acceso. |
+| US21 | Veterinario | Media | EP05 | Recomendación de cuidado futuro | Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió. | **E1: Confirmación profesional**<br>Dado que una recomendación fue ingresada manualmente o propuesta por el asistente<br>Cuando el veterinario la revisa y confirma antes de publicar el registro de origen<br>Entonces la recomendación queda vinculada al acto clínico.<br><br>**E2: Activación con la publicación**<br>Dado que la recomendación está confirmada en un borrador<br>Cuando se publica el registro de origen<br>Entonces la recomendación se activa sin crear un evento preventivo completado.<br><br>**E3: Propuesta no confirmada**<br>Dado que una propuesta del asistente no fue confirmada<br>Cuando se guarda el borrador<br>Entonces la propuesta no se presenta como recomendación activa. |
+| EP06 | Personal de clínica | Alta | — | Gestión de citas | Como clínica veterinaria, deseo administrar reservas y sus transiciones, para coordinar la atención sin confundir una cita con un acto clínico realizado. | — |
+| US22 | Personal de clínica | Alta | EP06 | Programación y consulta de citas | Como personal de clínica, deseo programar y consultar citas asociadas a un paciente y su tutor, para organizar la agenda de la organización. | **E1: Programación válida**<br>Dado que existen el paciente, tutor y sede correspondientes<br>Cuando se registra un horario válido en la zona `America/Lima`<br>Entonces el sistema crea la cita en estado solicitado.<br><br>**E2: Conflicto de recurso**<br>Dado que el profesional o recurso ya está ocupado en el intervalo solicitado<br>Cuando se intenta programar la cita<br>Entonces el sistema rechaza la reserva concurrente.<br><br>**E3: Consulta**<br>Dado que existen citas de la organización<br>Cuando el personal consulta la agenda<br>Entonces recibe únicamente las citas de su tenant. |
+| US23 | Personal de clínica | Alta | EP06 | Transición del estado de una cita | Como personal de clínica, deseo confirmar, registrar llegada, cancelar, marcar inasistencia o completar una cita, para conservar su evolución operativa. | **E1: Transición válida**<br>Dado que la cita se encuentra en un estado compatible<br>Cuando el personal registra una transición permitida<br>Entonces el sistema conserva el nuevo estado, el autor, la fecha y el motivo aplicable.<br><br>**E2: Transición inválida**<br>Dado que la transición no está permitida desde el estado actual<br>Cuando se intenta aplicarla<br>Entonces el sistema la rechaza sin alterar el historial.<br><br>**E3: Cita completada**<br>Dado que durante la cita ocurrió una atención<br>Cuando se marca como completada<br>Entonces el sistema exige la referencia explícita al encuentro correspondiente. |
+| US24 | Personal de clínica | Alta | EP06 | Reprogramación de cita | Como personal de clínica, deseo reprogramar una cita conservando el horario anterior, para mantener trazabilidad sobre el cambio. | **E1: Reprogramación válida**<br>Dado que la cita puede reprogramarse y el nuevo intervalo está disponible<br>Cuando se confirma el cambio con un motivo<br>Entonces el sistema marca la cita anterior como reemplazada y crea la nueva cita vinculada.<br><br>**E2: Nuevo horario en conflicto**<br>Dado que el intervalo propuesto entra en conflicto con un recurso reservado<br>Cuando se intenta reprogramar<br>Entonces el sistema rechaza el cambio y conserva la cita vigente. |
+| EP07 | Tutor de mascota | Alta | — | Activación y consulta del Petbook | Como tutor de mascota, deseo activar un acceso de solo lectura y consultar la información publicada de mis mascotas, para disponer de su historial sin depender del papel. | — |
+| US25 | Tutor de mascota | Alta | EP07 | Activación passwordless por invitación | Como tutor de mascota, deseo activar mi cuenta mediante una invitación y un desafío de correo, para acceder de forma segura a la mascota vinculada. | **E1: Activación válida**<br>Dado que la invitación está vigente y el desafío confirma el correo esperado<br>Cuando el tutor acepta la activación<br>Entonces el sistema vincula la cuenta con la guardianship y consume la invitación de forma atómica.<br><br>**E2: Reintento legítimo**<br>Dado que la misma cuenta ya consumió correctamente la invitación<br>Cuando repite la solicitud<br>Entonces el sistema devuelve un resultado seguro sin duplicar relaciones.<br><br>**E3: Invitación no disponible**<br>Dado que la invitación expiró, fue revocada, reemplazada o corresponde a otro correo<br>Cuando se intenta consumir<br>Entonces el sistema rechaza la activación sin revelar información protegida. |
+| US26 | Tutor de mascota | Alta | EP07 | Inicio de sesión y consulta de mascotas | Como tutor de mascota, deseo iniciar sesión mediante correo y consultar mis mascotas vinculadas, para seleccionar el Petbook que necesito revisar. | **E1: Acceso permitido**<br>Dado que el tutor controla el correo de una cuenta con guardianships activas<br>Cuando completa el inicio de sesión passwordless<br>Entonces el sistema presenta únicamente las mascotas vinculadas a esa cuenta.<br><br>**E2: Mascota no vinculada**<br>Dado que una mascota no tiene una guardianship activa con la cuenta<br>Cuando el tutor intenta consultarla<br>Entonces el sistema deniega el acceso. |
+| US27 | Tutor de mascota | Alta | EP07 | Consulta del historial publicado | Como tutor de mascota, deseo revisar vacunaciones, desparasitaciones, atenciones y recomendaciones publicadas de cada mascota, para comprender su cuidado pasado y futuro. | **E1: Historial autorizado**<br>Dado que el tutor tiene acceso activo a la mascota<br>Cuando consulta su historial<br>Entonces el sistema presenta únicamente actos publicados con fecha y profesional responsable.<br><br>**E2: Cuidado futuro**<br>Dado que existen recomendaciones activas confirmadas<br>Cuando el tutor consulta la información de la mascota<br>Entonces el sistema las presenta como cuidado recomendado y no como actos ya realizados.<br><br>**E3: Separación entre mascotas**<br>Dado que el tutor tiene más de una mascota vinculada<br>Cuando cambia de mascota<br>Entonces el sistema mantiene separado el historial de cada una. |
+| US28 | Tutor de mascota | Media | EP07 | Consulta de citas | Como tutor de mascota, deseo consultar las citas de mis mascotas, para conocer sus reservas próximas y anteriores. | **E1: Citas autorizadas**<br>Dado que el tutor tiene guardianships activas<br>Cuando consulta sus citas<br>Entonces el sistema devuelve únicamente las asociadas a esas mascotas.<br><br>**E2: Información de la reserva**<br>Dado que existe una cita accesible<br>Cuando el tutor consulta su detalle<br>Entonces recibe el horario, sede, servicio, motivo y estado correspondientes sin que la reserva se presente como atención realizada. |
+| EP08 | Developer | Alta | — | RESTful API y contratos compartidos | Como equipo de desarrollo, deseo una API documentada con contratos, autorización y aislamiento consistentes, para integrar de forma segura las experiencias web y móvil. | — |
+| TS01 | Developer | Alta | EP08 | Validación de identidad y autorización | Como desarrollador, deseo validar los Bearer tokens del proveedor de identidad y resolver roles y membresías persistidas, para proteger cada operación de la API. | **E1: Token válido y permiso suficiente**<br>Dado que la solicitud incluye un token verificable y la cuenta posee el permiso requerido<br>Cuando la API procesa el recurso protegido<br>Entonces ejecuta la operación dentro del tenant autorizado.<br><br>**E2: Ausencia de autenticación**<br>Dado que la solicitud no incluye una identidad válida<br>Cuando accede a un recurso protegido<br>Entonces la API responde con `401`.<br><br>**E3: Permiso insuficiente**<br>Dado que la identidad está autenticada pero no posee el rol o vínculo requerido<br>Cuando solicita la operación<br>Entonces la API responde con `403` o con el resultado seguro definido sin exponer datos ajenos. |
+| TS02 | Developer | Alta | EP02 | API de planes y onboarding de clínicas | Como desarrollador, deseo exponer contratos para planes, solicitudes, estados y decisiones administrativas, para soportar la activación controlada de organizaciones. | **E1: Catálogo público**<br>Dado que existen planes disponibles<br>Cuando se solicita el catálogo<br>Entonces la API responde con `200` y el conjunto compartido de planes.<br><br>**E2: Presentación de solicitud**<br>Dado que la identidad está verificada y la solicitud es válida<br>Cuando se envía a la API<br>Entonces responde con `201` y registra la postulación pendiente.<br><br>**E3: Revisión administrativa**<br>Dado que una cuenta con rol de plataforma registra una decisión válida<br>Cuando la API la procesa<br>Entonces persiste la decisión y responde sin exponer datos clínicos. |
+| TS03 | Developer | Alta | EP04 | API de pacientes e invitaciones | Como desarrollador, deseo exponer contratos para registrar pacientes y administrar invitaciones de tutores, para mantener relaciones y accesos consistentes. | **E1: Registro válido**<br>Dado que la solicitud de alta cumple el contrato y el límite del plan<br>Cuando la API la procesa<br>Entonces responde con `201` y los identificadores de la relación creada.<br><br>**E2: Invitación válida**<br>Dado que existe una guardianship accesible<br>Cuando se emite o reenvía la invitación<br>Entonces la API responde con el estado seguro de entrega sin incluir el token almacenado.<br><br>**E3: Consumo inválido**<br>Dado que el token no puede utilizarse<br>Cuando se intenta consumir<br>Entonces la API devuelve el error de dominio correspondiente sin revelar si existe otra cuenta. |
+| TS04 | Developer | Alta | EP05 | API de registros clínicos | Como desarrollador, deseo exponer contratos para borradores, publicaciones y consultas clínicas, para conservar las reglas de autoría e inmutabilidad en un único gateway. | **E1: Creación de borrador**<br>Dado que la identidad posee acceso clínico y la carga es válida<br>Cuando crea un registro de vacunación, desparasitación o atención general<br>Entonces la API responde con `201` y el borrador creado.<br><br>**E2: Publicación autorizada**<br>Dado que el borrador es válido y la cuenta corresponde a un veterinario autorizado<br>Cuando solicita la publicación<br>Entonces la API responde con el registro publicado y su autoría.<br><br>**E3: Registro inmutable o acceso ajeno**<br>Dado que el acto ya fue publicado o pertenece a otro tenant<br>Cuando se intenta modificar o consultar sin autorización<br>Entonces la API rechaza la solicitud con el error correspondiente. |
+| TS05 | Developer | Alta | EP06 | API de citas | Como desarrollador, deseo exponer contratos para crear, consultar, transicionar y reprogramar citas, para aplicar su ciclo de vida y restricciones de concurrencia. | **E1: Creación**<br>Dado que la solicitud es válida y no existe conflicto<br>Cuando la API crea la cita<br>Entonces responde con `201` y el estado solicitado.<br><br>**E2: Transición o reprogramación**<br>Dado que el cambio está permitido<br>Cuando la API lo procesa<br>Entonces responde con el estado actualizado y conserva la trazabilidad.<br><br>**E3: Conflicto o transición inválida**<br>Dado que el recurso está ocupado o el cambio no está permitido<br>Cuando se procesa la solicitud<br>Entonces la API responde con el error de conflicto o transición sin alterar la cita. |
+| TS06 | Developer | Alta | EP07 | API de proyecciones del tutor | Como desarrollador, deseo exponer proyecciones de solo lectura para el tutor, para entregar únicamente datos publicados de mascotas vinculadas. | **E1: Consulta autorizada**<br>Dado que la cuenta posee una guardianship activa<br>Cuando solicita mascotas, historial, vacunaciones, desparasitaciones o citas<br>Entonces la API responde con `200` y omite identificadores internos de autorización y tenant.<br><br>**E2: Consulta no autorizada**<br>Dado que la cuenta no tiene una guardianship activa para la mascota<br>Cuando solicita su información<br>Entonces la API deniega la consulta y registra el resultado aplicable. |
+| TS07 | Developer | Media | EP08 | Documentación OpenAPI y errores estables | Como desarrollador, deseo publicar la especificación OpenAPI y una interfaz Swagger para todos los endpoints implementados, para facilitar su verificación e integración. | **E1: Especificación disponible**<br>Dado que la API está operativa<br>Cuando se solicita `/openapi.json`<br>Entonces se obtiene la definición de los endpoints, esquemas y errores públicos implementados.<br><br>**E2: Documentación interactiva**<br>Dado que la especificación está disponible<br>Cuando se accede a `/docs`<br>Entonces se presenta la documentación Swagger basada en esa misma definición. |
+| SP02 | Developer | Media | EP08 | Evaluación del stack de pruebas automatizadas | Como desarrollador, deseo evaluar herramientas de pruebas unitarias, de integración, componentes y recorridos completos, para seleccionar una estrategia compatible con el monorepo y el pipeline. | **E1: Evaluación documentada**<br>Dado que se comparan las herramientas compatibles con TypeScript, Next.js, React Native, Hono y PostgreSQL<br>Cuando se concluye la evaluación<br>Entonces se documenta la selección de Vitest, Testing Library y Playwright con su propósito.<br><br>**E2: Viabilidad demostrada**<br>Dado que las herramientas fueron seleccionadas<br>Cuando se ejecutan las suites de referencia<br>Entonces existen pruebas automatizadas de dominio, API, componentes, integración PostgreSQL y recorridos web sin afirmar la existencia de archivos Gherkin no implementados. |
 
 ## 3.3. Product Backlog
 
@@ -1294,44 +1309,64 @@ El Product Backlog reúne la totalidad de las historias identificadas en
 la sección anterior, ordenadas según el valor que aportan al negocio y
 estimadas en Story Points mediante la escala 1, 2, 3, 5 y 8.
 
-El criterio de ordenamiento aplicado fue el siguiente. En primer lugar se
-ubicaron las historias del sitio web estático, por constituir el canal de
-captación del producto y requerir su consideración desde el primer
-sprint. A continuación se colocaron las dos Spike Stories, cuyo propósito
-es reducir la incertidumbre técnica antes de iniciar la implementación
-del dominio. Luego se ordenaron las historias del core del negocio, que
-son las de gestión de pacientes y cartilla de vacunación, seguidas por
-las del historial veterinario. Las historias de autenticación se ubicaron
-después del core, dado que habilitan el acceso al producto pero no
-constituyen por sí mismas valor para el usuario. Finalmente se situaron
-las historias de la aplicación móvil y las de recetas médicas.
+El orden sigue el recorrido de valor del MVP. Primero se ubican la
+adquisición pública y la activación de una clínica; después, el acceso al
+espacio de trabajo, el alta de pacientes y la invitación del tutor. A
+continuación se prioriza la documentación clínica publicable, seguida por
+las citas y la consulta móvil. Las Technical Stories se colocan junto al
+incremento que habilitan y no por delante del valor de negocio. Las
+historias de administración del equipo y documentación técnica se ubican
+después del flujo principal de demostración.
 
-El backlog totaliza 80 Story Points distribuidos en veintidós historias.
+El backlog totaliza 151 Story Points distribuidos en treinta y siete
+historias: veintiocho User Stories, siete Technical Stories y dos Spike
+Stories. Los epics no reciben estimación independiente para evitar contar
+dos veces el trabajo incluido en sus historias.
 
 | # Orden | User Story ID | Título | Descripción | Story Points |
 |---|---|---|---|---|
-| 1 | US01 | Presentación de la propuesta de valor | Como visitante, deseo comprender en la página principal qué resuelve Petbook, para decidir si es relevante para mí. | 2 |
-| 2 | US02 | Información dirigida a clínicas veterinarias | Como visitante del segmento clínica veterinaria, deseo conocer los beneficios del producto para mi establecimiento, para evaluar su adopción. | 2 |
-| 3 | US03 | Acceso a la aplicación web desde la landing page | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. | 1 |
-| 4 | SP01 | Definición del esquema de vacunación canino y felino | Como desarrollador, deseo investigar y documentar el esquema de vacunación aplicable a perros y gatos, para determinar si puede modelarse como una plantilla fija por especie o requiere ser configurable. | 3 |
-| 5 | SP02 | Evaluación de herramientas de pruebas automatizadas y BDD | Como desarrollador, deseo evaluar las herramientas de pruebas unitarias, de integración y de BDD disponibles para la plataforma, para definir el stack de verificación del producto. | 2 |
-| 6 | US06 | Registro de cliente | Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. | 3 |
-| 7 | US07 | Registro de mascota | Como personal de la clínica, deseo registrar una mascota asociada a un cliente, indicando su especie y fecha de nacimiento, para incorporarla como paciente. | 3 |
-| 8 | TS02 | Endpoints de clientes y mascotas | Como desarrollador, deseo exponer los endpoints de gestión de clientes y mascotas, para que la aplicación web registre y consulte esta información. | 5 |
-| 9 | US09 | Generación automática de la cartilla de vacunación | Como personal de la clínica, deseo que la cartilla de vacunación se genere automáticamente al registrar una mascota, para no tener que definir manualmente las dosis que le corresponden. | 5 |
-| 10 | US10 | Registro de dosis aplicada | Como personal de la clínica, deseo registrar la aplicación de una dosis indicando fecha, lote y responsable, para dejar constancia verificable en la cartilla. | 8 |
-| 11 | TS03 | Endpoints de cartilla de vacunación | Como desarrollador, deseo exponer los endpoints de consulta de la cartilla y de registro de dosis, para que ambas aplicaciones operen sobre el esquema de vacunación. | 5 |
-| 12 | US11 | Consulta del estado de la cartilla | Como personal de la clínica, deseo conocer el estado de la cartilla de un paciente, para determinar qué le corresponde antes de atenderlo. | 5 |
-| 13 | US08 | Búsqueda de paciente | Como personal de la clínica, deseo localizar a una mascota por su nombre o por el de su dueño, para acceder a su expediente al iniciar la atención. | 3 |
-| 14 | US13 | Registro de atención veterinaria | Como personal de la clínica, deseo registrar una atención con motivo, hallazgos, diagnóstico y tratamiento, para conservar el historial del paciente. | 3 |
-| 15 | US14 | Consulta del historial del paciente | Como personal de la clínica, deseo consultar las atenciones previas de un paciente ordenadas cronológicamente, para decidir con información completa. | 3 |
-| 16 | TS04 | Endpoints de historial y recetas | Como desarrollador, deseo exponer los endpoints de atenciones y recetas, para que la aplicación web las registre y la aplicación móvil las consulte. | 5 |
-| 17 | US04 | Autenticación del personal de la clínica | Como personal de la clínica, deseo iniciar sesión en la aplicación web, para acceder a la información de mis pacientes. | 3 |
-| 18 | TS01 | Endpoints de autenticación y autorización | Como desarrollador, deseo exponer los endpoints de autenticación y autorización de la API, para que las aplicaciones web y móvil validen la identidad y el rol del usuario. | 5 |
-| 19 | US05 | Autenticación del dueño en la aplicación móvil | Como dueño de mascota, deseo iniciar sesión en la aplicación móvil, para consultar la información de mis mascotas. | 3 |
-| 20 | US12 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | 5 |
-| 21 | US15 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | 3 |
-| 22 | US16 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | 3 |
+| 1 | US01 | Presentación de la propuesta de valor | Como visitante, deseo comprender qué problema resuelve Petbook, para decidir si resulta relevante para mi clínica. | 2 |
+| 2 | US02 | Comparación de planes | Como representante de una clínica, deseo comparar los planes disponibles, para seleccionar el que corresponde al número de pacientes que gestiono. | 3 |
+| 3 | US03 | Consulta bilingüe e información pública | Como visitante, deseo consultar Petbook en español o inglés y acceder a su información legal y de soporte, para comprender el servicio en el idioma que prefiero. | 2 |
+| 4 | US04 | Registro y verificación de cuenta | Como representante de una clínica, deseo crear una cuenta y verificar mi correo, para presentar una solicitud asociada a una identidad confirmada. | 3 |
+| 5 | US05 | Presentación de solicitud de clínica | Como representante de una clínica, deseo enviar los datos de mi establecimiento y el plan solicitado, para solicitar acceso a Petbook. | 5 |
+| 6 | TS02 | API de planes y onboarding de clínicas | Como desarrollador, deseo exponer contratos para planes, solicitudes, estados y decisiones administrativas, para soportar la activación controlada de organizaciones. | 5 |
+| 7 | US06 | Consulta del estado de solicitud | Como representante de una clínica, deseo consultar el estado de mi solicitud, para saber si fue aprobada, observada o rechazada. | 2 |
+| 8 | US07 | Revisión de solicitudes de clínicas | Como administrador de plataforma, deseo revisar y decidir las solicitudes pendientes, para activar únicamente organizaciones aprobadas. | 5 |
+| 9 | US08 | Acceso al espacio de trabajo | Como integrante de una clínica, deseo ingresar al espacio de trabajo de mi organización, para realizar las operaciones permitidas por mi rol. | 3 |
+| 10 | TS01 | Validación de identidad y autorización | Como desarrollador, deseo validar los Bearer tokens del proveedor de identidad y resolver roles y membresías persistidas, para proteger cada operación de la API. | 5 |
+| 11 | US10 | Registro integral de paciente | Como personal de clínica, deseo registrar al tutor, la mascota y su relación de cuidado, para incorporar al paciente de forma consistente. | 5 |
+| 12 | US11 | Búsqueda y filtrado de pacientes | Como personal de clínica, deseo localizar pacientes por sus datos o los de su tutor, para acceder con rapidez al expediente correcto. | 3 |
+| 13 | TS03 | API de pacientes e invitaciones | Como desarrollador, deseo exponer contratos para registrar pacientes y administrar invitaciones de tutores, para mantener relaciones y accesos consistentes. | 5 |
+| 14 | US12 | Invitación de acceso al tutor | Como personal de clínica, deseo enviar o reenviar una invitación al tutor y consultar su estado, para habilitar su acceso a la mascota registrada. | 5 |
+| 15 | US13 | Consulta del resumen del paciente | Como personal de clínica, deseo consultar el perfil y el historial de un paciente, para atenderlo con información longitudinal. | 3 |
+| 16 | SP01 | Investigación de reglas preventivas | Como desarrollador, deseo investigar las reglas de vacunación y desparasitación aplicables, para distinguir obligaciones confirmadas, configuración clínica y recomendaciones futuras. | 3 |
+| 17 | US14 | Preparación de borrador de vacunación | Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional. | 5 |
+| 18 | US15 | Publicación de vacunación | Como veterinario autorizado, deseo firmar y publicar una vacunación válida, para dejar constancia verificable de su aplicación. | 5 |
+| 19 | US16 | Preparación de borrador de desparasitación | Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional. | 5 |
+| 20 | US17 | Publicación de desparasitación | Como veterinario autorizado, deseo firmar y publicar una desparasitación, para incorporarla al historial preventivo del paciente. | 5 |
+| 21 | US18 | Preparación de atención clínica general | Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise. | 5 |
+| 22 | US19 | Publicación de atención clínica | Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente. | 5 |
+| 23 | US20 | Consulta del historial clínico | Como personal de clínica, deseo consultar borradores y actos publicados del paciente en orden cronológico, para conocer sus antecedentes antes de atenderlo. | 3 |
+| 24 | US21 | Recomendación de cuidado futuro | Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió. | 3 |
+| 25 | TS04 | API de registros clínicos | Como desarrollador, deseo exponer contratos para borradores, publicaciones y consultas clínicas, para conservar las reglas de autoría e inmutabilidad en un único gateway. | 8 |
+| 26 | US22 | Programación y consulta de citas | Como personal de clínica, deseo programar y consultar citas asociadas a un paciente y su tutor, para organizar la agenda de la organización. | 5 |
+| 27 | US23 | Transición del estado de una cita | Como personal de clínica, deseo confirmar, registrar llegada, cancelar, marcar inasistencia o completar una cita, para conservar su evolución operativa. | 3 |
+| 28 | US24 | Reprogramación de cita | Como personal de clínica, deseo reprogramar una cita conservando el horario anterior, para mantener trazabilidad sobre el cambio. | 5 |
+| 29 | TS05 | API de citas | Como desarrollador, deseo exponer contratos para crear, consultar, transicionar y reprogramar citas, para aplicar su ciclo de vida y restricciones de concurrencia. | 5 |
+| 30 | US25 | Activación passwordless por invitación | Como tutor de mascota, deseo activar mi cuenta mediante una invitación y un desafío de correo, para acceder de forma segura a la mascota vinculada. | 5 |
+| 31 | US26 | Inicio de sesión y consulta de mascotas | Como tutor de mascota, deseo iniciar sesión mediante correo y consultar mis mascotas vinculadas, para seleccionar el Petbook que necesito revisar. | 3 |
+| 32 | US27 | Consulta del historial publicado | Como tutor de mascota, deseo revisar vacunaciones, desparasitaciones, atenciones y recomendaciones publicadas de cada mascota, para comprender su cuidado pasado y futuro. | 5 |
+| 33 | US28 | Consulta de citas | Como tutor de mascota, deseo consultar las citas de mis mascotas, para conocer sus reservas próximas y anteriores. | 3 |
+| 34 | TS06 | API de proyecciones del tutor | Como desarrollador, deseo exponer proyecciones de solo lectura para el tutor, para entregar únicamente datos publicados de mascotas vinculadas. | 5 |
+| 35 | US09 | Gestión de integrantes del equipo | Como propietario de clínica, deseo consultar a los integrantes e invitar personal con un rol definido, para conformar el equipo que utilizará Petbook. | 3 |
+| 36 | TS07 | Documentación OpenAPI y errores estables | Como desarrollador, deseo publicar la especificación OpenAPI y una interfaz Swagger para todos los endpoints implementados, para facilitar su verificación e integración. | 3 |
+| 37 | SP02 | Evaluación del stack de pruebas automatizadas | Como desarrollador, deseo evaluar herramientas de pruebas unitarias, de integración, componentes y recorridos completos, para seleccionar una estrategia compatible con el monorepo y el pipeline. | 3 |
+
+> **Evidencia pendiente:** antes de la entrega debe incorporarse en esta
+> sección la captura del Product Backlog y la URL pública de la herramienta
+> indicada por el docente. No se consigna un enlace provisional porque aún
+> no existe una fuente verificable que pueda citarse.
 
 
 ## 3.4. Impact Mapping
@@ -1344,9 +1379,10 @@ debe ofrecer para provocar dichos cambios.
 
 Los Business Goals se formularon siguiendo criterios SMART, de modo que
 cada uno resulte específico, medible, alcanzable, relevante y acotado en
-el tiempo. Como Actors se consideraron los dos User Personas definidos en
-la sección 2.3.1, cuyas fichas fueron previamente elaboradas en la
-herramienta. Los mapas fueron construidos en UXPressia.
+el tiempo. Como Actors se consideraron los User Personas definidos en la
+sección 2.3.1 y los roles habilitadores de veterinario y administrador de
+plataforma que intervienen en el flujo implementado. Los mapas fueron
+construidos en UXPressia.
 
 [Insertar aquí la captura del Impact Map]
 
@@ -1357,8 +1393,8 @@ herramienta. Los mapas fueron construidos en UXPressia.
 | ID | Business Goal (SMART) |
 |---|---|
 | BG01 | Incorporar 25 clínicas veterinarias independientes de Lima Metropolitana como usuarias activas de la plataforma en un lapso de 12 meses desde el lanzamiento. |
-| BG02 | Alcanzar 1 500 mascotas con cartilla de vacunación digital activa en la plataforma en un lapso de 12 meses desde el lanzamiento. |
-| BG03 | Lograr que el 60% de los dueños registrados por las clínicas usuarias active su cuenta en la aplicación móvil dentro de los 30 días posteriores a su registro. |
+| BG02 | Alcanzar 1 500 mascotas con una relación de cuidado activa y al menos un acto clínico o preventivo publicado en un lapso de 12 meses desde el lanzamiento. |
+| BG03 | Lograr que el 60% de los tutores invitados por las clínicas usuarias active su cuenta en la aplicación móvil dentro de los 30 días posteriores al envío de la invitación. |
 | BG04 | Alcanzar una tasa de retención del 80% de las clínicas usuarias luego de tres meses de uso continuo de la plataforma. |
 
 ### Mapa de impacto
@@ -1367,30 +1403,34 @@ herramienta. Los mapas fueron construidos en UXPressia.
 
 | Actor | Impact | Deliverable | User Stories |
 |---|---|---|---|
-| Claudia Herrera (personal de clínica) | Que conozca el producto y comprenda su beneficio sin necesidad de una demostración previa. | Sitio web estático con la propuesta de valor y contenido dirigido a su segmento. | Como visitante, deseo comprender en la página principal qué resuelve Petbook, para decidir si es relevante para mí. (US01)<br>Como visitante del segmento clínica veterinaria, deseo conocer los beneficios del producto para mi establecimiento, para evaluar su adopción. (US02) |
-| Claudia Herrera (personal de clínica) | Que inicie el uso de la plataforma sin migrar su archivo histórico ni configurar nada previamente. | Acceso directo a la aplicación web y alta de pacientes sin configuración inicial. | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. (US03)<br>Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. (US06) |
+| Claudia Herrera (personal de clínica) | Que conozca el producto y comprenda su beneficio sin necesidad de una demostración previa. | Sitio público con propuesta de valor, catálogo de planes y acceso al registro. | Como visitante, deseo comprender qué problema resuelve Petbook, para decidir si resulta relevante para mi clínica. (US01)<br>Como representante de una clínica, deseo comparar los planes disponibles, para seleccionar el que corresponde al número de pacientes que gestiono. (US02) |
+| Claudia Herrera (representante de clínica) | Que seleccione un plan y complete la incorporación de su establecimiento. | Registro verificable, solicitud de clínica y consulta de estado hasta su aprobación. | Como representante de una clínica, deseo comparar los planes disponibles, para seleccionar el que corresponde al número de pacientes que gestiono. (US02)<br>Como representante de una clínica, deseo crear una cuenta y verificar mi correo, para presentar una solicitud asociada a una identidad confirmada. (US04)<br>Como representante de una clínica, deseo enviar los datos de mi establecimiento y el plan solicitado, para solicitar acceso a Petbook. (US05)<br>Como representante de una clínica, deseo consultar el estado de mi solicitud, para saber si fue aprobada, observada o rechazada. (US06) |
+| Administrador de plataforma | Que revise las solicitudes con trazabilidad y habilite únicamente organizaciones aprobadas. | Cola administrativa con decisiones de aprobación, observación o rechazo y activación atómica de organización y plan. | Como administrador de plataforma, deseo revisar y decidir las solicitudes pendientes, para activar únicamente organizaciones aprobadas. (US07) |
 
-**BG02 — Alcanzar 1 500 mascotas con cartilla digital activa en 12 meses**
-
-| Actor | Impact | Deliverable | User Stories |
-|---|---|---|---|
-| Claudia Herrera (personal de clínica) | Que registre a cada mascota que atiende en lugar de entregar una cartilla en papel. | Cartilla de vacunación generada automáticamente a partir de la especie de la mascota. | Como personal de la clínica, deseo registrar una mascota asociada a un cliente, indicando su especie y fecha de nacimiento, para incorporarla como paciente. (US07)<br>Como personal de la clínica, deseo que la cartilla de vacunación se genere automáticamente al registrar una mascota, para no tener que definir manualmente las dosis que le corresponden. (US09) |
-| Claudia Herrera (personal de clínica) | Que registre cada dosis en la plataforma durante la consulta y no en el papel. | Registro de dosis con validación automática de las reglas del esquema de vacunación. | Como personal de la clínica, deseo registrar la aplicación de una dosis indicando fecha, lote y responsable, para dejar constancia verificable en la cartilla. (US10)<br>Como desarrollador, deseo exponer los endpoints de consulta de la cartilla y de registro de dosis, para que ambas aplicaciones operen sobre el esquema de vacunación. (TS03) |
-
-**BG03 — Lograr que el 60% de los dueños active su cuenta en 30 días**
+**BG02 — Alcanzar 1 500 mascotas con expediente clínico activo en 12 meses**
 
 | Actor | Impact | Deliverable | User Stories |
 |---|---|---|---|
-| Valeria Campos (dueña de mascota) | Que descargue la aplicación e ingrese con las credenciales que le entregó su clínica. | Aplicación móvil con acceso mediante credenciales provistas por la clínica. | Como dueño de mascota, deseo iniciar sesión en la aplicación móvil, para consultar la información de mis mascotas. (US05)<br>Como desarrollador, deseo exponer los endpoints de autenticación y autorización de la API, para que las aplicaciones web y móvil validen la identidad y el rol del usuario. (TS01) |
-| Valeria Campos (dueña de mascota) | Que encuentre en la aplicación información que hoy no puede obtener por otro medio. | Consulta de la cartilla de cada mascota con su estado y su próxima dosis. | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. (US12) |
+| Claudia Herrera (personal de clínica) | Que incorpore a cada mascota mediante una relación de cuidado documentada. | Registro integral de tutor, mascota, guardianship y relación clínica-paciente, sujeto al límite del plan. | Como personal de clínica, deseo registrar al tutor, la mascota y su relación de cuidado, para incorporar al paciente de forma consistente. (US10) |
+| Claudia Herrera (personal clínico) | Que prepare los datos clínicos durante la atención y deje la publicación al profesional responsable. | Flujos de borrador y revisión para vacunaciones, desparasitaciones y atenciones generales. | Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional. (US14)<br>Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional. (US16)<br>Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise. (US18) |
+| Veterinario autorizado | Que firme los actos realizados y confirme por separado las recomendaciones futuras. | Publicación inmutable con identidad profesional, CMVP, auditoría y recomendaciones configurables. | Como veterinario autorizado, deseo firmar y publicar una vacunación válida, para dejar constancia verificable de su aplicación. (US15)<br>Como veterinario autorizado, deseo firmar y publicar una desparasitación, para incorporarla al historial preventivo del paciente. (US17)<br>Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente. (US19)<br>Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió. (US21) |
+
+**BG03 — Lograr que el 60% de los tutores invitados active su cuenta en 30 días**
+
+| Actor | Impact | Deliverable | User Stories |
+|---|---|---|---|
+| Claudia Herrera (personal de clínica) | Que invite al tutor inmediatamente después de registrar al paciente y pueda conocer el resultado de entrega. | Invitaciones de un solo uso con reenvío y estado seguro. | Como personal de clínica, deseo enviar o reenviar una invitación al tutor y consultar su estado, para habilitar su acceso a la mascota registrada. (US12) |
+| Valeria Campos (tutora de mascota) | Que active su acceso sin recibir una contraseña temporal de la clínica. | Activación passwordless mediante invitación Petbook y verificación del correo, con reintentos idempotentes. | Como tutor de mascota, deseo activar mi cuenta mediante una invitación y un desafío de correo, para acceder de forma segura a la mascota vinculada. (US25) |
+| Valeria Campos (tutora de mascota) | Que encuentre información útil y diferenciada para cada mascota después de activar su cuenta. | Consulta de mascotas vinculadas, actos publicados, recomendaciones futuras y citas. | Como tutor de mascota, deseo iniciar sesión mediante correo y consultar mis mascotas vinculadas, para seleccionar el Petbook que necesito revisar. (US26)<br>Como tutor de mascota, deseo revisar vacunaciones, desparasitaciones, atenciones y recomendaciones publicadas de cada mascota, para comprender su cuidado pasado y futuro. (US27)<br>Como tutor de mascota, deseo consultar las citas de mis mascotas, para conocer sus reservas próximas y anteriores. (US28) |
 
 **BG04 — Alcanzar una retención del 80% de clínicas a los tres meses**
 
 | Actor | Impact | Deliverable | User Stories |
 |---|---|---|---|
-| Claudia Herrera (personal de clínica) | Que recupere el expediente de un paciente de forma inmediata y deje de recurrir al archivador. | Búsqueda de pacientes e historial veterinario consolidado por mascota. | Como personal de la clínica, deseo localizar a una mascota por su nombre o por el de su dueño, para acceder a su expediente al iniciar la atención. (US08)<br>Como personal de la clínica, deseo consultar las atenciones previas de un paciente ordenadas cronológicamente, para decidir con información completa. (US14) |
-| Claudia Herrera (personal de clínica) | Que identifique a los pacientes con dosis vencidas sin revisar sus registros uno por uno. | Estado de cartilla calculado automáticamente para cada paciente. | Como personal de la clínica, deseo conocer el estado de la cartilla de un paciente, para determinar qué le corresponde antes de atenderlo. (US11) |
-| Valeria Campos (dueña de mascota) | Que perciba el acceso digital como un beneficio de su clínica y permanezca en ella. | Historial y recetas de la mascota disponibles de forma permanente en el móvil. | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. (US16)<br>Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. (US15) |
+| Claudia Herrera (personal de clínica) | Que recupere el expediente correcto de forma inmediata y deje de recurrir al archivador. | Búsqueda tenant-scoped, resumen del paciente e historial clínico cronológico. | Como personal de clínica, deseo localizar pacientes por sus datos o los de su tutor, para acceder con rapidez al expediente correcto. (US11)<br>Como personal de clínica, deseo consultar el perfil y el historial de un paciente, para atenderlo con información longitudinal. (US13)<br>Como personal de clínica, deseo consultar borradores y actos publicados del paciente en orden cronológico, para conocer sus antecedentes antes de atenderlo. (US20) |
+| Claudia Herrera (personal de clínica) | Que organice las atenciones futuras sin confundir una reserva con evidencia clínica. | Agenda con ciclo de vida explícito, prevención de conflictos y reprogramación trazable. | Como personal de clínica, deseo programar y consultar citas asociadas a un paciente y su tutor, para organizar la agenda de la organización. (US22)<br>Como personal de clínica, deseo confirmar, registrar llegada, cancelar, marcar inasistencia o completar una cita, para conservar su evolución operativa. (US23)<br>Como personal de clínica, deseo reprogramar una cita conservando el horario anterior, para mantener trazabilidad sobre el cambio. (US24) |
+| Propietario de clínica | Que incorpore colaboradores con responsabilidades explícitas. | Consulta del equipo e invitaciones con roles organizacionales. | Como propietario de clínica, deseo consultar a los integrantes e invitar personal con un rol definido, para conformar el equipo que utilizará Petbook. (US09) |
+| Valeria Campos (tutora de mascota) | Que perciba el acceso digital como un beneficio continuo de su clínica. | Historial publicado y próximas citas disponibles de forma permanente en la aplicación móvil. | Como tutor de mascota, deseo revisar vacunaciones, desparasitaciones, atenciones y recomendaciones publicadas de cada mascota, para comprender su cuidado pasado y futuro. (US27)<br>Como tutor de mascota, deseo consultar las citas de mis mascotas, para conocer sus reservas próximas y anteriores. (US28) |
 
 # Capítulo IV: Product Design
 
@@ -1460,19 +1500,19 @@ desciende de 16 px, por legibilidad y por diseño inclusivo.
 | Neutro medio | `neutral-600` | `#475569` | Texto secundario |
 | Neutro borde | `neutral-200` | `#E2E8F0` | Bordes y separadores |
 | Superficie | `surface-50` | `#F8FAFC` | Fondo general de la aplicación |
-| Éxito | `success-600` | `#16A34A` | Cartilla al día, confirmaciones |
-| Advertencia | `warning-600` | `#D97706` | Cartilla pendiente, avisos |
-| Error | `danger-600` | `#DC2626` | Cartilla vencida, validaciones incumplidas |
+| Éxito | `success-600` | `#16A34A` | Publicaciones y confirmaciones completadas |
+| Advertencia | `warning-600` | `#D97706` | Recomendaciones próximas, avisos y excepciones por revisar |
+| Error | `danger-600` | `#DC2626` | Operaciones rechazadas y validaciones incumplidas |
 
 **Sustento.** El teal como color primario asocia el producto al ámbito
 sanitario sin recurrir al azul clínico, que resulta frío para el segmento
 de dueños; el ámbar secundario aporta la calidez del vínculo con la
-mascota. Los tres colores semánticos se corresponden de forma directa con
-los estados de la cartilla definidos en el dominio, lo que convierte al
-color en un portador de significado dentro del producto.
+mascota. Los colores semánticos distinguen resultados confirmados,
+advertencias que requieren atención y errores que impiden una operación,
+sin convertir una recomendación futura en un estado clínico global.
 
-**Diseño inclusivo.** El estado de la cartilla nunca se comunica solo por
-color: cada estado se acompaña siempre de su etiqueta textual y de un
+**Diseño inclusivo.** Ningún estado se comunica solo por color: cada
+resultado se acompaña siempre de su etiqueta textual y de un
 ícono distintivo, de modo que resulte legible para usuarios con
 deficiencias en la percepción cromática. Todas las combinaciones de texto
 sobre fondo cumplen una relación de contraste mínima de 4.5:1, conforme
@@ -1541,14 +1581,14 @@ todo elemento gráfico portador de información.
 
 ### 4.1.3. Mobile Style Guidelines
 
-La aplicación móvil se dirige al dueño de la mascota y cumple una función
+La aplicación móvil se dirige al tutor de la mascota y cumple una función
 exclusivamente de consulta. El diseño prioriza la legibilidad y la
 lectura de un vistazo por encima de la densidad de información.
 
 Lineamientos comunes a ambas plataformas: área mínima táctil de 44 × 44
 px; margen lateral de 16 px; navegación principal de tres destinos como
-máximo; estado de la cartilla siempre visible en el nivel superior de
-cada mascota; identificación visual inequívoca de cada mascota mediante
+máximo; próximas recomendaciones y citas claramente separadas del
+historial publicado; identificación visual inequívoca de cada mascota mediante
 su nombre y su especie, para atender la confusión reportada por los
 usuarios con más de un animal; y soporte de tipografía escalable según la
 configuración del sistema operativo.
@@ -1578,7 +1618,7 @@ escala tipográfica de Material adaptada a las familias del producto.
 
 ## 4.2. Information Architecture
 
-Esta sección establece cómo se organiza, etiqueta, busca y recorre el contenido en los tres productos digitales. Las decisiones se orientan a que el personal de la clínica localice el expediente de un paciente sin esfuerzo durante la consulta, y a que el dueño distinga sin ambigüedad la situación de cada una de sus mascotas.
+Esta sección establece cómo se organiza, etiqueta, busca y recorre el contenido en los tres productos digitales. Las decisiones se orientan a que el personal de la clínica localice el expediente de un paciente sin esfuerzo durante la consulta, y a que el tutor distinga sin ambigüedad los actos publicados, las recomendaciones y las citas de cada mascota.
 
 ### 4.2.1. Organization Systems
 
@@ -1588,20 +1628,20 @@ Esta sección establece cómo se organiza, etiqueta, busca y recorre el contenid
 |---|---|---|
 | Landing page | Jerárquico | El visitante recorre el contenido de mayor a menor relevancia: propuesta de valor, beneficios por segmento y contacto. La jerarquía visual guía esa lectura descendente. |
 | Listado de pacientes (web) | Matricial | Las mascotas se presentan en una tabla con atributos comparables entre sí, lo que permite al usuario contrastar registros en paralelo. |
-| Cartilla de vacunación | Matricial | Cada dosis constituye una fila con los mismos atributos, replicando la estructura tabular de la cartilla física que el usuario ya conoce. |
-| Registro de una dosis y de una atención | Secuencial | Son formularios con pasos definidos y validaciones encadenadas, donde el usuario completa un procedimiento hasta su confirmación. |
-| Historial veterinario | Jerárquico | Cada atención se presenta como una entrada resumida que el usuario expande para acceder a su detalle y a su receta asociada. |
-| Pantalla de mascotas (móvil) | Jerárquico | Cada mascota ocupa una tarjeta que encabeza su estado de cartilla, del cual se desprende el resto de su información. |
+| Historial preventivo | Cronológico | Cada vacunación o desparasitación publicada constituye un evento atribuible dentro de la línea de tiempo de la mascota. |
+| Registro clínico | Secuencial | Vacunaciones, desparasitaciones y atenciones generales pasan por preparación, revisión y publicación autorizada. |
+| Historial veterinario | Jerárquico | Cada atención se presenta como una entrada resumida que permite consultar evaluación, tratamiento, prescripción y plan. |
+| Pantalla de mascotas (móvil) | Jerárquico | Cada mascota ocupa una tarjeta desde la cual el tutor accede a su historial, recomendaciones y citas sin mezclar estos conceptos. |
 
 **Esquemas de categorización de contenido**
 
 | Conjunto de información | Esquema | Sustento |
 |---|---|---|
-| Secciones de la landing page | Según audiencia | El contenido se separa en un bloque dirigido a clínicas veterinarias y otro dirigido a dueños de mascotas, dado que ambos segmentos buscan beneficios distintos. |
+| Secciones de la landing page | Según audiencia | El contenido se separa en un bloque dirigido a clínicas veterinarias y otro dirigido a tutores de mascotas, dado que ambos segmentos buscan beneficios distintos. |
 | Resultados de búsqueda de pacientes | Alfabético | Permite al usuario ubicar un nombre dentro de un listado extenso sin recorrerlo por completo. |
-| Historial veterinario y recetas | Cronológico descendente | La atención más reciente es la de mayor relevancia clínica y encabeza el listado. |
-| Dosis dentro de la cartilla | Cronológico ascendente | El esquema de vacunación es una secuencia temporal, y su lectura natural va de la primera dosis a la última. |
-| Menú de la aplicación web | Por tópicos | Las opciones se agrupan según la entidad del dominio sobre la que operan: pacientes, cartilla e historial. |
+| Historial veterinario y actos preventivos | Cronológico descendente | El acto publicado más reciente es el de mayor relevancia inmediata y encabeza el listado. |
+| Recomendaciones y citas | Cronológico ascendente | El evento futuro más próximo se presenta primero para facilitar la planificación. |
+| Menú de la aplicación web | Por tópicos | Las opciones se agrupan según las tareas operativas: inicio, pacientes, citas y equipo. |
 
 ### 4.2.2. Labeling Systems
 
@@ -1616,36 +1656,39 @@ por lo que cada etiqueta cuenta con su equivalente en ambos idiomas.
 | Etiqueta | Equivalente en inglés | Contenido asociado |
 |---|---|---|
 | Pacientes | Patients | Listado y búsqueda de mascotas registradas en la clínica |
-| Clientes | Clients | Listado de dueños y sus datos de contacto |
-| Cartilla | Vaccination Card | Esquema de vacunación de una mascota y sus dosis |
-| Historial | Record | Atenciones registradas de una mascota |
-| Atención | Visit | Detalle de una consulta y su receta asociada |
-| Receta | Prescription | Medicamentos, dosificación y duración indicados |
+| Tutores | Guardians | Personas vinculadas a las mascotas mediante guardianships activas |
+| Vacunaciones | Vaccinations | Actos de vacunación publicados y sus datos de trazabilidad |
+| Desparasitaciones | Deworming | Tratamientos internos o externos publicados |
+| Historial | Record | Atenciones y actos preventivos de una mascota |
+| Atención | Encounter | Detalle de una consulta, evaluación, tratamiento, prescripción y plan |
+| Citas | Appointments | Reservas próximas y anteriores, separadas de los actos clínicos |
 | Mis mascotas | My Pets | Pantalla inicial de la aplicación móvil |
 
 **Etiquetas de estado**
 
 | Etiqueta | Equivalente en inglés | Significado |
 |---|---|---|
-| Al día | Up to date | Todas las dosis exigibles a la fecha están aplicadas |
-| Pendiente | Pending | Existen dosis no aplicadas cuya fecha esperada no ha vencido |
-| Vencida | Overdue | Existe al menos una dosis cuya fecha esperada ya transcurrió |
-| Aplicada | Applied | Dosis individual registrada como administrada |
+| Borrador | Draft | Registro clínico editable que todavía no constituye un acto publicado |
+| Publicado | Published | Acto firmado por un veterinario autorizado e incorporado al expediente |
+| Recomendado | Recommended | Cuidado futuro confirmado que todavía no constituye un acto realizado |
+| Solicitada | Requested | Cita registrada que aún no ha sido confirmada |
+| Confirmada | Confirmed | Cita aceptada por la clínica |
 
 **Etiquetas de acción**
 
 | Etiqueta | Equivalente en inglés | Acción |
 |---|---|---|
-| Registrar mascota | Add Pet | Alta de una mascota asociada a un cliente |
-| Registrar dosis | Record Dose | Marcar una dosis como aplicada |
-| Nueva atención | New Visit | Alta de una entrada en el historial |
-| Emitir receta | Issue Prescription | Alta de una receta asociada a una atención |
+| Registrar paciente | Add Patient | Alta atómica de tutor, mascota y relaciones de cuidado |
+| Registrar vacunación | Record Vaccination | Preparar un borrador con los datos del acto preventivo |
+| Registrar desparasitación | Record Deworming | Preparar un borrador del tratamiento preventivo |
+| Nueva atención | New Encounter | Preparar una entrada clínica para revisión profesional |
+| Publicar | Publish | Firmar el acto e incorporarlo al expediente longitudinal |
 
-**Asociaciones.** La etiqueta *Cartilla*, presente en la ficha de un
-paciente, anticipa que el usuario encontrará allí el esquema completo con
-sus dosis aplicadas y pendientes, sin necesidad de exponer esa
-información en la pantalla previa. De igual modo, *Atención* agrupa en un
-solo lugar el diagnóstico, el tratamiento y la receta emitida ese día.
+**Asociaciones.** Las etiquetas *Vacunaciones* y *Desparasitaciones*
+identifican hechos preventivos publicados, mientras que *Próximo cuidado*
+agrupa recomendaciones futuras sin presentarlas como actos completados.
+De igual modo, *Atención* reúne el diagnóstico, el tratamiento, la
+prescripción y el plan documentados para ese encuentro.
 
 ### 4.2.3. SEO Tags and Meta Tags
 
@@ -1682,13 +1725,13 @@ solo lugar el diagnóstico, el tratamiento y la receta emitida ese día.
 | `meta author` | PawCode Studio |
 | `meta robots` | noindex, nofollow |
 
-**Aplicación web — Cartilla de vacunación**
+**Aplicación web — Historial preventivo**
 
 | Tag | Valor |
 |---|---|
-| `title` | Cartilla de vacunación — Petbook |
-| `meta description` | Esquema de vacunación de la mascota, dosis aplicadas y estado de la cartilla. |
-| `meta keywords` | cartilla de vacunación, dosis, esquema de vacunación |
+| `title` | Historial preventivo — Petbook |
+| `meta description` | Vacunaciones y desparasitaciones publicadas de la mascota, con autoría profesional y recomendaciones futuras separadas. |
+| `meta keywords` | vacunaciones, desparasitación, historial preventivo veterinario |
 | `meta author` | PawCode Studio |
 | `meta robots` | noindex, nofollow |
 
@@ -1700,30 +1743,25 @@ resultados de buscadores. Solo la landing page se indexa.
 
 **Aplicación web.** La búsqueda es la función de entrada al producto,
 dado que responde a la necesidad más frecuente del personal de la
-clínica. Se ubica de forma permanente en el encabezado y opera sobre un
-único campo que acepta tanto el nombre de la mascota como el del dueño,
-sin exigir al usuario elegir el criterio de antemano. Los resultados se
-presentan a medida que el usuario escribe, a partir del tercer carácter.
+clínica. Opera sobre un único campo que acepta el nombre o raza de la
+mascota y el nombre o correo del tutor, sin exigir al usuario elegir el
+criterio de antemano. Los resultados se actualizan conforme cambia la
+consulta.
 
 Filtros disponibles sobre el listado de pacientes:
 
 | Filtro | Valores |
 |---|---|
 | Especie | Todas, Canina, Felina |
-| Estado de cartilla | Todos, Al día, Pendiente, Vencida |
 
 Cada resultado se presenta como una fila con el nombre de la mascota, su
-especie, el nombre de su dueño y la etiqueta de estado de su cartilla con
-su color e ícono correspondientes. Cuando no existen coincidencias, se
+especie, raza, edad, el nombre de su tutor y la próxima cita disponible.
+Cuando no existen coincidencias, se
 presenta un mensaje que lo indica junto con la acción de registrar una
 mascota nueva, ya que un resultado vacío suele corresponder a un paciente
 que aún no ha sido registrado.
 
-El filtro por estado de cartilla resuelve además la necesidad de
-identificar a los pacientes con dosis vencidas sin revisar sus registros
-uno por uno, planteada en la sección 3.1.
-
-**Aplicación móvil.** No incorpora buscador. El dueño gestiona un número
+**Aplicación móvil.** No incorpora buscador. El tutor gestiona un número
 reducido de mascotas, por lo que el listado completo resulta abarcable en
 una sola pantalla y un campo de búsqueda constituiría un elemento
 superfluo.
@@ -1737,22 +1775,19 @@ la aplicación web, presente también al final de la página, de modo que el
 visitante encuentre el punto de entrada tanto al inicio como al término
 de su recorrido.
 
-**Aplicación web.** Navegación lateral persistente con tres destinos
-principales: Pacientes, Clientes y Cartillas. El recorrido dominante es
-descendente y parte siempre de la búsqueda: el usuario localiza un
-paciente, ingresa a su ficha y desde allí accede a su cartilla o a su
-historial mediante pestañas internas. Se emplean migas de pan para
-señalar la posición dentro de esa jerarquía y permitir el retorno al
-nivel anterior. Las acciones de registro se presentan como botones
-primarios ubicados en el encabezado de cada sección.
+**Aplicación web.** Navegación lateral persistente con destinos para el
+inicio de la organización, pacientes, citas y equipo, según las
+capacidades del usuario. Desde el listado de pacientes, el personal abre
+el expediente y accede a su resumen, historial y acciones para preparar
+vacunaciones, desparasitaciones o atenciones generales. Las acciones de
+registro se presentan en el contexto de la entidad correspondiente y la
+autorización se vuelve a comprobar en la API.
 
-**Aplicación móvil.** Navegación inferior con dos destinos: Mis mascotas
-y Perfil. El recorrido parte del listado de mascotas y desciende a la
-ficha de una de ellas, dentro de la cual el usuario alterna entre Cartilla
-e Historial mediante pestañas. El retorno se resuelve con el control de
-la barra superior y con el gesto nativo de cada plataforma. La
-profundidad máxima de navegación es de tres niveles, para que el usuario
-nunca requiera más de dos retrocesos para volver al inicio.
+**Aplicación móvil.** La navegación parte del listado de mascotas y de la
+agenda del tutor. Dentro de cada mascota se accede al historial clínico,
+las vacunaciones y las desparasitaciones, manteniendo las recomendaciones
+y citas diferenciadas de los actos realizados. El retorno se resuelve con
+el control superior y con el gesto nativo de cada plataforma.
 
 ## 4.3. Landing Page UI Design
 
