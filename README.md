@@ -1791,37 +1791,122 @@ nunca requiera más de dos retrocesos para volver al inicio.
 
 ### 4.6.1. Web Applications Wireframes
 
-_Pendiente de completar._
+![](./img/cap%203/4.6.1%20Web%20Applications%20Wireframes.png)
 
 ### 4.6.2. Web Applications Wireflow Diagrams
 
-_Pendiente de completar._
+![](./img/cap%203/4.6.2%20Web%20Applications%20Wireflow%20Diagrams.png)
 
 ### 4.6.3. Web Applications Mock-ups
 
-_Pendiente de completar._
+![](./img/cap%203/4.6.3%20Mock-ups%20·%204.7%20Prototyping.png)
 
 ### 4.6.4. Web Applications User Flow Diagrams
 
-_Pendiente de completar._
+![](./img/cap%203/4.6.4%20Web%20Applications%20User%20Flow%20Diagrams.png)
 
 ## 4.7. Web Applications Prototyping
 
-_Pendiente de completar._
+![](./img/cap%203/4.6.3%20Mock-ups%20·%204.7%20Prototyping.png)
 
 ## 4.8. Domain-Driven Software Architecture
 
+La arquitectura de VetPass se organiza siguiendo Domain-Driven Design. A
+partir del Ubiquitous Language de la sección 2.4 y de los epics de la
+sección 3.2, el equipo identificó cuatro bounded contexts:
+
+| Bounded Context | Tipo | Responsabilidad |
+|---|---|---|
+| Identity and Access | Soporte | Autenticación de usuarios y control de permisos según rol. |
+| Patients | Core | Registro de clientes y de sus mascotas, y su localización dentro de la clínica. |
+| Vaccination | Core | Generación de la cartilla según la especie, registro de dosis con las reglas del esquema y cálculo del estado. |
+| Medical Records | Core | Registro de atenciones veterinarias y emisión de recetas. |
+
+**Relaciones entre contextos**
+
+Vaccination y Medical Records mantienen una relación *Customer/Supplier*
+con Patients: consumen el identificador, la especie y la fecha de
+nacimiento de la mascota, pero no modifican su información. Los tres
+contextos de negocio mantienen una relación *Conformist* con Identity and
+Access, del que reciben la identidad y el rol del usuario sin poder
+alterar su modelo.
+
+Vaccination concentra la complejidad del dominio y es el contexto donde
+se sitúan las reglas que la suite de pruebas del capítulo VI verifica de
+forma prioritaria.
+
 ### 4.8.1. Software Architecture Context Diagram
 
-_Pendiente de completar._
+![](./img/cap%203/4.8.1.%20Software%20Architecture%20Context%20Diagram.png)
+
+*Figura C4 Model — Nivel 1: System Context Diagram de VetPass.
+Elaborado en Structurizr.*
+
+El diagrama de contexto sitúa a VetPass frente a sus tres tipos de
+usuario: el visitante que llega al sitio web, el personal de la clínica
+que registra la información clínica, y el dueño de la mascota que la
+consulta.
+
+La solución no integra sistemas externos. Esta ausencia es una decisión
+de alcance declarada en la sección 1.2.1: quedan fuera del producto la
+facturación electrónica, la mensajería por canales de terceros y las
+pasarelas de pago, que son precisamente los puntos donde los sistemas
+veterinarios del mercado establecen sus integraciones.
 
 ### 4.8.2. Software Architecture Container Diagrams
 
-_Pendiente de completar._
+![](./img/cap%203/4.8.2.%20Software%20Architecture%20Container%20Diagrams.png)
+
+*Figura C4 Model — Nivel 2: Container Diagram de VetPass. Elaborado en
+Structurizr.*
+
+| Container | Tecnología | Responsabilidad |
+|---|---|---|
+| Landing Page | HTML5, CSS3, JavaScript | Comunicar la propuesta de valor a ambos segmentos y dar acceso a la aplicación web. |
+| Web Application | Vue, PrimeVue | Interfaz de registro y consulta para el personal de la clínica. |
+| Mobile Application | Flutter | Interfaz de consulta para el dueño de la mascota, en Android e iOS. |
+| RESTful API | ASP.NET Core, C# | Exponer los servicios del dominio y concentrar todas las reglas de negocio. |
+| Database | PostgreSQL | Persistir la información de clientes, mascotas, cartillas, dosis, atenciones y recetas. |
+
+Las tres interfaces de usuario no contienen reglas de negocio: toda
+validación del esquema de vacunación reside en la RESTful API. Esta
+decisión es deliberada y responde al objeto del curso, porque concentra
+la lógica verificable en un único container y permite que las pruebas
+unitarias y de integración cubran el comportamiento del producto sin
+depender de la interfaz.
 
 ### 4.8.3. Software Architecture Components Diagrams
 
-_Pendiente de completar._
+![](./img/cap%203/4.8.3.%20Software%20Architecture%20Components%20Diagrams.png)
+
+*Figura C4 Model — Nivel 3: Component Diagram del container RESTful
+API. Elaborado en Structurizr.*
+
+La RESTful API se organiza en cuatro módulos, uno por bounded context,
+cada uno con la misma estructura de cuatro capas:
+
+| Capa | Responsabilidad |
+|---|---|
+| Interface | Controllers REST, transformación de recursos y códigos de respuesta HTTP. |
+| Application | Command y Query Handlers, coordinación de casos de uso y transacciones. |
+| Domain | Aggregates, entidades, value objects, servicios de dominio y reglas del negocio. |
+| Infrastructure | Repositorios y persistencia mediante Entity Framework Core. |
+
+**Componentes del módulo Vaccination**
+
+| Componente | Capa | Responsabilidad |
+|---|---|---|
+| Vaccination Cards Controller | Interface | Expone la consulta de la cartilla y el registro de dosis. |
+| Vaccination Command Service | Application | Orquesta la generación de la cartilla y el registro de una dosis. |
+| Vaccination Query Service | Application | Resuelve la consulta de la cartilla y de su estado. |
+| Vaccination Card Aggregate | Domain | Mantiene la coherencia del conjunto de dosis y calcula el estado de la cartilla. |
+| Vaccination Schedule Policy | Domain | Provee el esquema de la especie y valida edad mínima e intervalo entre dosis. |
+| Vaccination Card Repository | Infrastructure | Persiste y recupera la cartilla y sus dosis. |
+
+Los módulos Patients, Medical Records e Identity and Access replican esta
+estructura con sus propios aggregates. El módulo Vaccination es el único
+que incorpora un componente de política de dominio, porque es el único
+cuyo comportamiento depende de reglas externas al propio dato.
 
 ## 4.9. Software Object-Oriented Design
 
