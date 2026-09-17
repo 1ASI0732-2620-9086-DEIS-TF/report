@@ -1172,15 +1172,9 @@ así como las blank areas, entendidas como aquellos puntos del escenario
 sobre los que el equipo requiere aprender más antes de diseñar la
 solución. Los mapas fueron elaborados en Miro.
 
-[Insertar aquí el As-Is Scenario Map de Claudia Herrera]
+<img src="./img/cap 2/as-is-claudia,herrera.png" alt="As-Is - Claudia Herrera" style="width: 450px;">
 
-*Figura As-Is Scenario Map del segmento Personal de clínicas
-veterinarias. Elaborado en Miro.*
-
-[Insertar aquí el As-Is Scenario Map de Valeria Campos]
-
-*Figura As-Is Scenario Map del segmento Dueños de perros y gatos.
-Elaborado en Miro.*
+<img src="./img/cap 2/as-is-valeria-campos.png" alt="As-Is - Valeria Campos" style="width: 450px;">
 
 ## 2.4. Ubiquitous Language
 
