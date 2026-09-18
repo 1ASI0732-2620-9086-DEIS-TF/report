@@ -1871,7 +1871,15 @@ _Pendiente de completar._
 
 ### 4.10.1. Relational/Non-Relational Database Diagram
 
-_Pendiente de completar._
+Petbook utiliza una base de datos relacional PostgreSQL administrada mediante
+Supabase. El siguiente diagrama representa el esquema implementado y las
+relaciones entre las tablas que soportan el catálogo de planes, las
+solicitudes de clínicas, el historial de revisión, las asignaciones de roles
+y planes, las organizaciones y sus sedes.
+
+<img src="./img/cap 3/database-diagram.png" alt="Diagrama relacional de la base de datos de Petbook en Supabase" style="width: 100%;">
+
+*Figura X. Diagrama relacional de la base de datos de Petbook. Elaborado en Supabase.*
 
 # Capítulo V: Product Implementation
 
