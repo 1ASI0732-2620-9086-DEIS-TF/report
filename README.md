@@ -1245,7 +1245,7 @@ En este capítulo se especifican los requisitos de los productos digitales a par
 ## 3.2. User Stories
 
 A partir de los To-Be Scenario Maps y del incremento de producto implementado
-se identificaron ocho epics. El conjunto comprende veintiocho User Stories,
+se identificaron ocho epics. El conjunto comprende veintinueve User Stories,
 siete Technical Stories para la RESTful API y la plataforma compartida, y dos
 Spike Stories. Los criterios describen resultados observables y comprobables;
 no presuponen detalles de interfaz ni presentan una recomendación futura como
@@ -1284,6 +1284,7 @@ agrupan el alcance y no requieren criterios de aceptación propios.
 | US19 | Veterinario | Alta | EP05 | Publicación de atención clínica | Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente. | **E1: Publicación válida**<br>Dado que el borrador contiene la información mínima requerida<br>Cuando el veterinario lo publica<br>Entonces el sistema registra el acto con su identidad profesional y lo hace disponible en las proyecciones autorizadas.<br><br>**E2: Publicación no autorizada**<br>Dado que la cuenta no posee autorización veterinaria activa<br>Cuando intenta publicar la atención<br>Entonces el sistema deniega la operación.<br><br>**E3: Inmutabilidad**<br>Dado que la atención fue publicada<br>Cuando se intenta reemplazar su contenido<br>Entonces el sistema preserva el registro publicado. |
 | US20 | Personal de clínica | Alta | EP05 | Consulta del historial clínico | Como personal de clínica, deseo consultar borradores y actos publicados del paciente en orden cronológico, para conocer sus antecedentes antes de atenderlo. | **E1: Historial disponible**<br>Dado que existen registros accesibles para la organización<br>Cuando se consulta el historial<br>Entonces el sistema los devuelve en orden cronológico descendente y diferencia borradores de publicaciones.<br><br>**E2: Aislamiento**<br>Dado que el paciente no tiene una relación de cuidado con la organización<br>Cuando se solicita su historial<br>Entonces el sistema deniega el acceso. |
 | US21 | Veterinario | Media | EP05 | Recomendación de cuidado futuro | Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió. | **E1: Confirmación profesional**<br>Dado que una recomendación fue ingresada manualmente o propuesta por el asistente<br>Cuando el veterinario la revisa y confirma antes de publicar el registro de origen<br>Entonces la recomendación queda vinculada al acto clínico.<br><br>**E2: Activación con la publicación**<br>Dado que la recomendación está confirmada en un borrador<br>Cuando se publica el registro de origen<br>Entonces la recomendación se activa sin crear un evento preventivo completado.<br><br>**E3: Propuesta no confirmada**<br>Dado que una propuesta del asistente no fue confirmada<br>Cuando se guarda el borrador<br>Entonces la propuesta no se presenta como recomendación activa. |
+| US29 | Veterinario o asistente veterinario | Alta | EP05 | Asistencia de IA para completar la consulta | Como veterinario o asistente veterinario, deseo interactuar con un asistente de inteligencia artificial durante el registro de una consulta médica veterinaria, para recibir propuestas que me ayuden a completar el formulario antes de revisarlo y guardarlo. | **E1: Propuesta a partir de la conversación**<br>Dado que el usuario se encuentra registrando una consulta de un paciente accesible<br>Cuando describe mediante el asistente la información obtenida durante la atención<br>Entonces el sistema genera una propuesta editable, completa los campos identificados y formula preguntas sobre la información faltante.<br><br>**E2: Control del usuario**<br>Dado que el asistente generó una propuesta<br>Cuando el veterinario o asistente veterinario la revisa<br>Entonces puede corregir, completar o descartar el contenido antes de incorporarlo al formulario.<br><br>**E3: Sin publicación automática**<br>Dado que el contenido fue propuesto por inteligencia artificial<br>Cuando se incorpora al formulario<br>Entonces permanece como un borrador editable y no se publica como acto clínico sin la revisión y autorización correspondientes. |
 | EP06 | Personal de clínica | Alta | — | Gestión de citas | Como clínica veterinaria, deseo administrar reservas y sus transiciones, para coordinar la atención sin confundir una cita con un acto clínico realizado. | — |
 | US22 | Personal de clínica | Alta | EP06 | Programación y consulta de citas | Como personal de clínica, deseo programar y consultar citas asociadas a un paciente y su tutor, para organizar la agenda de la organización. | **E1: Programación válida**<br>Dado que existen el paciente, tutor y sede correspondientes<br>Cuando se registra un horario válido en la zona `America/Lima`<br>Entonces el sistema crea la cita en estado solicitado.<br><br>**E2: Conflicto de recurso**<br>Dado que el profesional o recurso ya está ocupado en el intervalo solicitado<br>Cuando se intenta programar la cita<br>Entonces el sistema rechaza la reserva concurrente.<br><br>**E3: Consulta**<br>Dado que existen citas de la organización<br>Cuando el personal consulta la agenda<br>Entonces recibe únicamente las citas de su tenant. |
 | US23 | Personal de clínica | Alta | EP06 | Transición del estado de una cita | Como personal de clínica, deseo confirmar, registrar llegada, cancelar, marcar inasistencia o completar una cita, para conservar su evolución operativa. | **E1: Transición válida**<br>Dado que la cita se encuentra en un estado compatible<br>Cuando el personal registra una transición permitida<br>Entonces el sistema conserva el nuevo estado, el autor, la fecha y el motivo aplicable.<br><br>**E2: Transición inválida**<br>Dado que la transición no está permitida desde el estado actual<br>Cuando se intenta aplicarla<br>Entonces el sistema la rechaza sin alterar el historial.<br><br>**E3: Cita completada**<br>Dado que durante la cita ocurrió una atención<br>Cuando se marca como completada<br>Entonces el sistema exige la referencia explícita al encuentro correspondiente. |
@@ -1306,20 +1307,14 @@ agrupan el alcance y no requieren criterios de aceptación propios.
 ## 3.3. Product Backlog
 
 El Product Backlog reúne la totalidad de las historias identificadas en
-la sección anterior, ordenadas según el valor que aportan al negocio y
-estimadas en Story Points mediante la escala 1, 2, 3, 5 y 8.
+la sección anterior y las estima en Story Points mediante la escala 1, 2,
+3, 5 y 8. Para facilitar su localización y comparación con los Sprint
+Backlogs, los ítems se presentan por tipo y en orden numérico: primero las
+User Stories (`US01–US29`), después las Technical Stories (`TS01–TS07`) y,
+finalmente, las Spike Stories (`SP01–SP02`).
 
-El orden sigue el recorrido de valor del MVP. Primero se ubican la
-adquisición pública y la activación de una clínica; después, el acceso al
-espacio de trabajo, el alta de pacientes y la invitación del tutor. A
-continuación se prioriza la documentación clínica publicable, seguida por
-las citas y la consulta móvil. Las Technical Stories se colocan junto al
-incremento que habilitan y no por delante del valor de negocio. Las
-historias de administración del equipo y documentación técnica se ubican
-después del flujo principal de demostración.
-
-El backlog totaliza 151 Story Points distribuidos en treinta y siete
-historias: veintiocho User Stories, siete Technical Stories y dos Spike
+El backlog totaliza 156 Story Points distribuidos en treinta y ocho
+historias: veintinueve User Stories, siete Technical Stories y dos Spike
 Stories. Los epics no reciben estimación independiente para evitar contar
 dos veces el trabajo incluido en sus historias.
 
@@ -1330,38 +1325,39 @@ dos veces el trabajo incluido en sus historias.
 | 3 | US03 | Consulta bilingüe e información pública | Como visitante, deseo consultar Petbook en español o inglés y acceder a su información legal y de soporte, para comprender el servicio en el idioma que prefiero. | 2 |
 | 4 | US04 | Registro y verificación de cuenta | Como representante de una clínica, deseo crear una cuenta y verificar mi correo, para presentar una solicitud asociada a una identidad confirmada. | 3 |
 | 5 | US05 | Presentación de solicitud de clínica | Como representante de una clínica, deseo enviar los datos de mi establecimiento y el plan solicitado, para solicitar acceso a Petbook. | 5 |
-| 6 | TS02 | API de planes y onboarding de clínicas | Como desarrollador, deseo exponer contratos para planes, solicitudes, estados y decisiones administrativas, para soportar la activación controlada de organizaciones. | 5 |
-| 7 | US06 | Consulta del estado de solicitud | Como representante de una clínica, deseo consultar el estado de mi solicitud, para saber si fue aprobada, observada o rechazada. | 2 |
-| 8 | US07 | Revisión de solicitudes de clínicas | Como administrador de plataforma, deseo revisar y decidir las solicitudes pendientes, para activar únicamente organizaciones aprobadas. | 5 |
-| 9 | US08 | Acceso al espacio de trabajo | Como integrante de una clínica, deseo ingresar al espacio de trabajo de mi organización, para realizar las operaciones permitidas por mi rol. | 3 |
-| 10 | TS01 | Validación de identidad y autorización | Como desarrollador, deseo validar los Bearer tokens del proveedor de identidad y resolver roles y membresías persistidas, para proteger cada operación de la API. | 5 |
-| 11 | US10 | Registro integral de paciente | Como personal de clínica, deseo registrar al tutor, la mascota y su relación de cuidado, para incorporar al paciente de forma consistente. | 5 |
-| 12 | US11 | Búsqueda y filtrado de pacientes | Como personal de clínica, deseo localizar pacientes por sus datos o los de su tutor, para acceder con rapidez al expediente correcto. | 3 |
-| 13 | TS03 | API de pacientes e invitaciones | Como desarrollador, deseo exponer contratos para registrar pacientes y administrar invitaciones de tutores, para mantener relaciones y accesos consistentes. | 5 |
-| 14 | US12 | Invitación de acceso al tutor | Como personal de clínica, deseo enviar o reenviar una invitación al tutor y consultar su estado, para habilitar su acceso a la mascota registrada. | 5 |
-| 15 | US13 | Consulta del resumen del paciente | Como personal de clínica, deseo consultar el perfil y el historial de un paciente, para atenderlo con información longitudinal. | 3 |
-| 16 | SP01 | Investigación de reglas preventivas | Como desarrollador, deseo investigar las reglas de vacunación y desparasitación aplicables, para distinguir obligaciones confirmadas, configuración clínica y recomendaciones futuras. | 3 |
-| 17 | US14 | Preparación de borrador de vacunación | Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional. | 5 |
-| 18 | US15 | Publicación de vacunación | Como veterinario autorizado, deseo firmar y publicar una vacunación válida, para dejar constancia verificable de su aplicación. | 5 |
-| 19 | US16 | Preparación de borrador de desparasitación | Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional. | 5 |
-| 20 | US17 | Publicación de desparasitación | Como veterinario autorizado, deseo firmar y publicar una desparasitación, para incorporarla al historial preventivo del paciente. | 5 |
-| 21 | US18 | Preparación de atención clínica general | Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise. | 5 |
-| 22 | US19 | Publicación de atención clínica | Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente. | 5 |
-| 23 | US20 | Consulta del historial clínico | Como personal de clínica, deseo consultar borradores y actos publicados del paciente en orden cronológico, para conocer sus antecedentes antes de atenderlo. | 3 |
-| 24 | US21 | Recomendación de cuidado futuro | Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió. | 3 |
-| 25 | TS04 | API de registros clínicos | Como desarrollador, deseo exponer contratos para borradores, publicaciones y consultas clínicas, para conservar las reglas de autoría e inmutabilidad en un único gateway. | 8 |
-| 26 | US22 | Programación y consulta de citas | Como personal de clínica, deseo programar y consultar citas asociadas a un paciente y su tutor, para organizar la agenda de la organización. | 5 |
-| 27 | US23 | Transición del estado de una cita | Como personal de clínica, deseo confirmar, registrar llegada, cancelar, marcar inasistencia o completar una cita, para conservar su evolución operativa. | 3 |
-| 28 | US24 | Reprogramación de cita | Como personal de clínica, deseo reprogramar una cita conservando el horario anterior, para mantener trazabilidad sobre el cambio. | 5 |
-| 29 | TS05 | API de citas | Como desarrollador, deseo exponer contratos para crear, consultar, transicionar y reprogramar citas, para aplicar su ciclo de vida y restricciones de concurrencia. | 5 |
-| 30 | US25 | Activación passwordless por invitación | Como tutor de mascota, deseo activar mi cuenta mediante una invitación y un desafío de correo, para acceder de forma segura a la mascota vinculada. | 5 |
-| 31 | US26 | Inicio de sesión y consulta de mascotas | Como tutor de mascota, deseo iniciar sesión mediante correo y consultar mis mascotas vinculadas, para seleccionar el Petbook que necesito revisar. | 3 |
-| 32 | US27 | Consulta del historial publicado | Como tutor de mascota, deseo revisar vacunaciones, desparasitaciones, atenciones y recomendaciones publicadas de cada mascota, para comprender su cuidado pasado y futuro. | 5 |
-| 33 | US28 | Consulta de citas | Como tutor de mascota, deseo consultar las citas de mis mascotas, para conocer sus reservas próximas y anteriores. | 3 |
-| 34 | TS06 | API de proyecciones del tutor | Como desarrollador, deseo exponer proyecciones de solo lectura para el tutor, para entregar únicamente datos publicados de mascotas vinculadas. | 5 |
-| 35 | US09 | Gestión de integrantes del equipo | Como propietario de clínica, deseo consultar a los integrantes e invitar personal con un rol definido, para conformar el equipo que utilizará Petbook. | 3 |
+| 6 | US06 | Consulta del estado de solicitud | Como representante de una clínica, deseo consultar el estado de mi solicitud, para saber si fue aprobada, observada o rechazada. | 2 |
+| 7 | US07 | Revisión de solicitudes de clínicas | Como administrador de plataforma, deseo revisar y decidir las solicitudes pendientes, para activar únicamente organizaciones aprobadas. | 5 |
+| 8 | US08 | Acceso al espacio de trabajo | Como integrante de una clínica, deseo ingresar al espacio de trabajo de mi organización, para realizar las operaciones permitidas por mi rol. | 3 |
+| 9 | US09 | Gestión de integrantes del equipo | Como propietario de clínica, deseo consultar a los integrantes e invitar personal con un rol definido, para conformar el equipo que utilizará Petbook. | 3 |
+| 10 | US10 | Registro integral de paciente | Como personal de clínica, deseo registrar al tutor, la mascota y su relación de cuidado, para incorporar al paciente de forma consistente. | 5 |
+| 11 | US11 | Búsqueda y filtrado de pacientes | Como personal de clínica, deseo localizar pacientes por sus datos o los de su tutor, para acceder con rapidez al expediente correcto. | 3 |
+| 12 | US12 | Invitación de acceso al tutor | Como personal de clínica, deseo enviar o reenviar una invitación al tutor y consultar su estado, para habilitar su acceso a la mascota registrada. | 5 |
+| 13 | US13 | Consulta del resumen del paciente | Como personal de clínica, deseo consultar el perfil y el historial de un paciente, para atenderlo con información longitudinal. | 3 |
+| 14 | US14 | Preparación de borrador de vacunación | Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional. | 5 |
+| 15 | US15 | Publicación de vacunación | Como veterinario autorizado, deseo firmar y publicar una vacunación válida, para dejar constancia verificable de su aplicación. | 5 |
+| 16 | US16 | Preparación de borrador de desparasitación | Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional. | 5 |
+| 17 | US17 | Publicación de desparasitación | Como veterinario autorizado, deseo firmar y publicar una desparasitación, para incorporarla al historial preventivo del paciente. | 5 |
+| 18 | US18 | Preparación de atención clínica general | Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise. | 5 |
+| 19 | US19 | Publicación de atención clínica | Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente. | 5 |
+| 20 | US20 | Consulta del historial clínico | Como personal de clínica, deseo consultar borradores y actos publicados del paciente en orden cronológico, para conocer sus antecedentes antes de atenderlo. | 3 |
+| 21 | US21 | Recomendación de cuidado futuro | Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió. | 3 |
+| 22 | US22 | Programación y consulta de citas | Como personal de clínica, deseo programar y consultar citas asociadas a un paciente y su tutor, para organizar la agenda de la organización. | 5 |
+| 23 | US23 | Transición del estado de una cita | Como personal de clínica, deseo confirmar, registrar llegada, cancelar, marcar inasistencia o completar una cita, para conservar su evolución operativa. | 3 |
+| 24 | US24 | Reprogramación de cita | Como personal de clínica, deseo reprogramar una cita conservando el horario anterior, para mantener trazabilidad sobre el cambio. | 5 |
+| 25 | US25 | Activación passwordless por invitación | Como tutor de mascota, deseo activar mi cuenta mediante una invitación y un desafío de correo, para acceder de forma segura a la mascota vinculada. | 5 |
+| 26 | US26 | Inicio de sesión y consulta de mascotas | Como tutor de mascota, deseo iniciar sesión mediante correo y consultar mis mascotas vinculadas, para seleccionar el Petbook que necesito revisar. | 3 |
+| 27 | US27 | Consulta del historial publicado | Como tutor de mascota, deseo revisar vacunaciones, desparasitaciones, atenciones y recomendaciones publicadas de cada mascota, para comprender su cuidado pasado y futuro. | 5 |
+| 28 | US28 | Consulta de citas | Como tutor de mascota, deseo consultar las citas de mis mascotas, para conocer sus reservas próximas y anteriores. | 3 |
+| 29 | US29 | Asistencia de IA para completar la consulta | Como veterinario o asistente veterinario, deseo interactuar con un asistente de inteligencia artificial durante el registro de una consulta médica veterinaria, para recibir propuestas que me ayuden a completar el formulario antes de revisarlo y guardarlo. | 5 |
+| 30 | TS01 | Validación de identidad y autorización | Como desarrollador, deseo validar los Bearer tokens del proveedor de identidad y resolver roles y membresías persistidas, para proteger cada operación de la API. | 5 |
+| 31 | TS02 | API de planes y onboarding de clínicas | Como desarrollador, deseo exponer contratos para planes, solicitudes, estados y decisiones administrativas, para soportar la activación controlada de organizaciones. | 5 |
+| 32 | TS03 | API de pacientes e invitaciones | Como desarrollador, deseo exponer contratos para registrar pacientes y administrar invitaciones de tutores, para mantener relaciones y accesos consistentes. | 5 |
+| 33 | TS04 | API de registros clínicos | Como desarrollador, deseo exponer contratos para borradores, publicaciones y consultas clínicas, para conservar las reglas de autoría e inmutabilidad en un único gateway. | 8 |
+| 34 | TS05 | API de citas | Como desarrollador, deseo exponer contratos para crear, consultar, transicionar y reprogramar citas, para aplicar su ciclo de vida y restricciones de concurrencia. | 5 |
+| 35 | TS06 | API de proyecciones del tutor | Como desarrollador, deseo exponer proyecciones de solo lectura para el tutor, para entregar únicamente datos publicados de mascotas vinculadas. | 5 |
 | 36 | TS07 | Documentación OpenAPI y errores estables | Como desarrollador, deseo publicar la especificación OpenAPI y una interfaz Swagger para todos los endpoints implementados, para facilitar su verificación e integración. | 3 |
-| 37 | SP02 | Evaluación del stack de pruebas automatizadas | Como desarrollador, deseo evaluar herramientas de pruebas unitarias, de integración, componentes y recorridos completos, para seleccionar una estrategia compatible con el monorepo y el pipeline. | 3 |
+| 37 | SP01 | Investigación de reglas preventivas | Como desarrollador, deseo investigar las reglas de vacunación y desparasitación aplicables, para distinguir obligaciones confirmadas, configuración clínica y recomendaciones futuras. | 3 |
+| 38 | SP02 | Evaluación del stack de pruebas automatizadas | Como desarrollador, deseo evaluar herramientas de pruebas unitarias, de integración, componentes y recorridos completos, para seleccionar una estrategia compatible con el monorepo y el pipeline. | 3 |
 
 > **Evidencia pendiente:** antes de la entrega debe incorporarse en esta
 > sección la captura del Product Backlog y la URL pública de la herramienta
@@ -1412,7 +1408,7 @@ construidos en UXPressia.
 | Actor | Impact | Deliverable | User Stories |
 |---|---|---|---|
 | Claudia Herrera (personal de clínica) | Que incorpore a cada mascota mediante una relación de cuidado documentada. | Registro integral de tutor, mascota, guardianship y relación clínica-paciente, sujeto al límite del plan. | Como personal de clínica, deseo registrar al tutor, la mascota y su relación de cuidado, para incorporar al paciente de forma consistente. (US10) |
-| Claudia Herrera (personal clínico) | Que prepare los datos clínicos durante la atención y deje la publicación al profesional responsable. | Flujos de borrador y revisión para vacunaciones, desparasitaciones y atenciones generales. | Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional. (US14)<br>Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional. (US16)<br>Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise. (US18) |
+| Claudia Herrera (personal clínico) | Que prepare los datos clínicos durante la atención y deje la publicación al profesional responsable. | Flujos de borrador y revisión para vacunaciones, desparasitaciones y atenciones generales, con asistencia de IA sujeta a revisión humana. | Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional. (US14)<br>Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional. (US16)<br>Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise. (US18)<br>Como veterinario o asistente veterinario, deseo interactuar con un asistente de inteligencia artificial durante el registro de una consulta médica veterinaria, para recibir propuestas que me ayuden a completar el formulario antes de revisarlo y guardarlo. (US29) |
 | Veterinario autorizado | Que firme los actos realizados y confirme por separado las recomendaciones futuras. | Publicación inmutable con identidad profesional, CMVP, auditoría y recomendaciones configurables. | Como veterinario autorizado, deseo firmar y publicar una vacunación válida, para dejar constancia verificable de su aplicación. (US15)<br>Como veterinario autorizado, deseo firmar y publicar una desparasitación, para incorporarla al historial preventivo del paciente. (US17)<br>Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente. (US19)<br>Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió. (US21) |
 
 **BG03 — Lograr que el 60% de los tutores invitados active su cuenta en 30 días**
@@ -1901,7 +1897,607 @@ _Pendiente de completar._
 
 ### 5.2.1. Sprint Backlogs
 
-_Pendiente de completar._
+Esta sección distribuye en los Sprint Backlogs los treinta y ocho ítems
+del Product Backlog de la sección 3.3. Se conservan exactamente sus
+identificadores, títulos y descripciones. Dentro de cada Sprint aparecen
+primero las User Stories en orden numérico, después las Technical Stories
+y finalmente las Spike Stories. El estado `Done` identifica el trabajo
+confirmado como implementado; el estado `To-do` conserva en un Sprint
+posterior las historias que todavía no están listas.
+
+La secuencia se organiza en cinco incrementos verticales coherentes con el
+historial de commits disponible entre el 10 y el 17 de septiembre de 2026.
+Las estimaciones en horas representan el esfuerzo del Work Item completo y
+los Story Points conservan la estimación del Product Backlog. Los Work Items
+se distribuyen de forma equilibrada entre Juan David Saldaña De Souza, Angel
+Guillermo Berrospi Marin, Cuba Pareja Joaquin Antonio y Guerrero Tomas
+Nelson Fabrizio.
+
+> **Evidencia de gestión pendiente:** el Project Statement solicita una
+> captura y la URL pública del board de cada Sprint. Esos enlaces no se
+> inventan en este informe; deben incorporarse cuando el equipo publique los
+> boards en la herramienta indicada por el docente.
+
+#### Sprint 1 — Funcionalidades implementadas confirmadas
+
+El primer incremento reúne todas las funcionalidades confirmadas como
+implementadas: experiencia pública, acceso al espacio de trabajo, equipo,
+pacientes, invitaciones, atención clínica, recomendaciones, citas y
+proyecciones para el tutor.
+
+| Sprint Planning 1 | Detalle |
+|---|---|
+| Sprint 0 Review Summary | No aplica; es el primer incremento del producto. |
+| Sprint 0 Retrospective Summary | No aplica. |
+| Sprint Goal | Consolidar en un incremento verificable todas las User Stories y Technical Stories confirmadas como implementadas. |
+| Sprint Velocity | 102 Story Points |
+| Sum of Story Points | 102 Story Points |
+
+<table>
+  <thead>
+    <tr>
+      <th>Sprint #</th>
+      <th colspan="7">Sprint 1 — Funcionalidades implementadas confirmadas</th>
+    </tr>
+    <tr>
+      <th colspan="2">User Story</th>
+      <th colspan="6">Work-Item / Task</th>
+    </tr>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Estimation<br>(Hours)</th>
+      <th>Assigned To</th>
+      <th>Status<br>(To-do / In-Process / To-Review / Done)</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>US01</td>
+    <td>Presentación de la propuesta de valor</td>
+    <td>WI01-01</td>
+    <td>Implementar la landing page</td>
+    <td>Como visitante, deseo comprender qué problema resuelve Petbook, para decidir si resulta relevante para mi clínica.</td>
+    <td>6</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US02</td>
+    <td>Comparación de planes</td>
+    <td>WI01-02</td>
+    <td>Integrar el catálogo de planes</td>
+    <td>Como representante de una clínica, deseo comparar los planes disponibles, para seleccionar el que corresponde al número de pacientes que gestiono.</td>
+    <td>10</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US03</td>
+    <td>Consulta bilingüe e información pública</td>
+    <td>WI01-03</td>
+    <td>Implementar localización y páginas públicas</td>
+    <td>Como visitante, deseo consultar Petbook en español o inglés y acceder a su información legal y de soporte, para comprender el servicio en el idioma que prefiero.</td>
+    <td>6</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US08</td>
+    <td>Acceso al espacio de trabajo</td>
+    <td>WI02-01</td>
+    <td>Resolver workspaces y capacidades</td>
+    <td>Como integrante de una clínica, deseo ingresar al espacio de trabajo de mi organización, para realizar las operaciones permitidas por mi rol.</td>
+    <td>10</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US09</td>
+    <td>Gestión de integrantes del equipo</td>
+    <td>WI02-02</td>
+    <td>Implementar equipo e invitaciones internas</td>
+    <td>Como propietario de clínica, deseo consultar a los integrantes e invitar personal con un rol definido, para conformar el equipo que utilizará Petbook.</td>
+    <td>10</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US10</td>
+    <td>Registro integral de paciente</td>
+    <td>WI02-03</td>
+    <td>Implementar el alta transaccional</td>
+    <td>Como personal de clínica, deseo registrar al tutor, la mascota y su relación de cuidado, para incorporar al paciente de forma consistente.</td>
+    <td>18</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US11</td>
+    <td>Búsqueda y filtrado de pacientes</td>
+    <td>WI02-04</td>
+    <td>Implementar el listado consultable</td>
+    <td>Como personal de clínica, deseo localizar pacientes por sus datos o los de su tutor, para acceder con rapidez al expediente correcto.</td>
+    <td>10</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US12</td>
+    <td>Invitación de acceso al tutor</td>
+    <td>WI02-06</td>
+    <td>Implementar emisión, reenvío y seguimiento</td>
+    <td>Como personal de clínica, deseo enviar o reenviar una invitación al tutor y consultar su estado, para habilitar su acceso a la mascota registrada.</td>
+    <td>18</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US13</td>
+    <td>Consulta del resumen del paciente</td>
+    <td>WI02-07</td>
+    <td>Implementar el expediente del paciente</td>
+    <td>Como personal de clínica, deseo consultar el perfil y el historial de un paciente, para atenderlo con información longitudinal.</td>
+    <td>10</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US18</td>
+    <td>Preparación de atención clínica general</td>
+    <td>WI05-01</td>
+    <td>Implementar borrador clínico y asistencia</td>
+    <td>Como personal clínico autorizado, deseo preparar una atención con antecedentes, mediciones, evaluación, diagnóstico, tratamiento, prescripción y plan, para que el veterinario la revise.</td>
+    <td>18</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US19</td>
+    <td>Publicación de atención clínica</td>
+    <td>WI05-02</td>
+    <td>Implementar publicación autorizada</td>
+    <td>Como veterinario autorizado, deseo revisar, firmar y publicar una atención clínica, para incorporarla al expediente longitudinal del paciente.</td>
+    <td>18</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US20</td>
+    <td>Consulta del historial clínico</td>
+    <td>WI05-03</td>
+    <td>Implementar historial de clínica</td>
+    <td>Como personal de clínica, deseo consultar borradores y actos publicados del paciente en orden cronológico, para conocer sus antecedentes antes de atenderlo.</td>
+    <td>10</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US21</td>
+    <td>Recomendación de cuidado futuro</td>
+    <td>WI03-04</td>
+    <td>Implementar propuesta, confirmación y activación</td>
+    <td>Como veterinario, deseo registrar o revisar una recomendación futura dentro de un borrador clínico, para orientar el próximo cuidado sin declarar que ya ocurrió.</td>
+    <td>10</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US22</td>
+    <td>Programación y consulta de citas</td>
+    <td>WI04-03</td>
+    <td>Implementar creación y agenda</td>
+    <td>Como personal de clínica, deseo programar y consultar citas asociadas a un paciente y su tutor, para organizar la agenda de la organización.</td>
+    <td>18</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US23</td>
+    <td>Transición del estado de una cita</td>
+    <td>WI04-04</td>
+    <td>Implementar el ciclo de vida</td>
+    <td>Como personal de clínica, deseo confirmar, registrar llegada, cancelar, marcar inasistencia o completar una cita, para conservar su evolución operativa.</td>
+    <td>10</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US24</td>
+    <td>Reprogramación de cita</td>
+    <td>WI04-05</td>
+    <td>Implementar reemplazo trazable</td>
+    <td>Como personal de clínica, deseo reprogramar una cita conservando el horario anterior, para mantener trazabilidad sobre el cambio.</td>
+    <td>18</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US25</td>
+    <td>Activación passwordless por invitación</td>
+    <td>WI02-08</td>
+    <td>Implementar consumo idempotente de invitación</td>
+    <td>Como tutor de mascota, deseo activar mi cuenta mediante una invitación y un desafío de correo, para acceder de forma segura a la mascota vinculada.</td>
+    <td>18</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US26</td>
+    <td>Inicio de sesión y consulta de mascotas</td>
+    <td>WI02-09</td>
+    <td>Implementar sesión y listado de mascotas</td>
+    <td>Como tutor de mascota, deseo iniciar sesión mediante correo y consultar mis mascotas vinculadas, para seleccionar el Petbook que necesito revisar.</td>
+    <td>10</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US27</td>
+    <td>Consulta del historial publicado</td>
+    <td>WI05-04</td>
+    <td>Implementar Petbook móvil de solo lectura</td>
+    <td>Como tutor de mascota, deseo revisar vacunaciones, desparasitaciones, atenciones y recomendaciones publicadas de cada mascota, para comprender su cuidado pasado y futuro.</td>
+    <td>18</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US28</td>
+    <td>Consulta de citas</td>
+    <td>WI04-07</td>
+    <td>Implementar agenda móvil del tutor</td>
+    <td>Como tutor de mascota, deseo consultar las citas de mis mascotas, para conocer sus reservas próximas y anteriores.</td>
+    <td>10</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>US29</td>
+    <td>Asistencia de IA para completar la consulta</td>
+    <td>WI01-12</td>
+    <td>Integrar el asistente de IA al formulario clínico</td>
+    <td>Como veterinario o asistente veterinario, deseo interactuar con un asistente de inteligencia artificial durante el registro de una consulta médica veterinaria, para recibir propuestas que me ayuden a completar el formulario antes de revisarlo y guardarlo.</td>
+    <td>18</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>TS03</td>
+    <td>API de pacientes e invitaciones</td>
+    <td>WI02-05</td>
+    <td>Exponer contratos de alta e invitación</td>
+    <td>Como desarrollador, deseo exponer contratos para registrar pacientes y administrar invitaciones de tutores, para mantener relaciones y accesos consistentes.</td>
+    <td>18</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>TS04</td>
+    <td>API de registros clínicos</td>
+    <td>WI05-05</td>
+    <td>Completar el gateway clínico</td>
+    <td>Como desarrollador, deseo exponer contratos para borradores, publicaciones y consultas clínicas, para conservar las reglas de autoría e inmutabilidad en un único gateway.</td>
+    <td>28</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>TS05</td>
+    <td>API de citas</td>
+    <td>WI04-06</td>
+    <td>Exponer contratos y restricciones de agenda</td>
+    <td>Como desarrollador, deseo exponer contratos para crear, consultar, transicionar y reprogramar citas, para aplicar su ciclo de vida y restricciones de concurrencia.</td>
+    <td>18</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>Done</td>
+  </tr>
+<tr>
+    <td>TS06</td>
+    <td>API de proyecciones del tutor</td>
+    <td>WI05-06</td>
+    <td>Minimizar y proteger respuestas móviles</td>
+    <td>Como desarrollador, deseo exponer proyecciones de solo lectura para el tutor, para entregar únicamente datos publicados de mascotas vinculadas.</td>
+    <td>18</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>Done</td>
+  </tr>
+  </tbody>
+</table>
+
+#### Sprint 2 — Onboarding de clínicas pendiente
+
+El segundo incremento planifica las funciones pendientes de registro,
+solicitud, seguimiento y revisión administrativa de clínicas, junto con
+los contratos de API necesarios para completar ese recorrido.
+
+| Sprint Planning 2 | Detalle |
+|---|---|
+| Sprint 1 Review Summary | Se reunieron en el Sprint 1 todos los ítems confirmados como implementados. |
+| Sprint 1 Retrospective Summary | Se acordó no declarar una historia como terminada sin confirmación del equipo. |
+| Sprint Goal | Completar el registro, la solicitud, el seguimiento y la revisión administrativa de clínicas. |
+| Sprint Velocity | 0 Story Points |
+| Sum of Story Points | 20 Story Points |
+
+<table>
+  <thead>
+    <tr>
+      <th>Sprint #</th>
+      <th colspan="7">Sprint 2 — Onboarding de clínicas pendiente</th>
+    </tr>
+    <tr>
+      <th colspan="2">User Story</th>
+      <th colspan="6">Work-Item / Task</th>
+    </tr>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Estimation<br>(Hours)</th>
+      <th>Assigned To</th>
+      <th>Status<br>(To-do / In-Process / To-Review / Done)</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>US04</td>
+    <td>Registro y verificación de cuenta</td>
+    <td>WI01-04</td>
+    <td>Implementar registro y confirmación de correo</td>
+    <td>Como representante de una clínica, deseo crear una cuenta y verificar mi correo, para presentar una solicitud asociada a una identidad confirmada.</td>
+    <td>10</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>US05</td>
+    <td>Presentación de solicitud de clínica</td>
+    <td>WI01-05</td>
+    <td>Implementar el formulario y envío de solicitud</td>
+    <td>Como representante de una clínica, deseo enviar los datos de mi establecimiento y el plan solicitado, para solicitar acceso a Petbook.</td>
+    <td>18</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>US06</td>
+    <td>Consulta del estado de solicitud</td>
+    <td>WI01-07</td>
+    <td>Implementar el seguimiento de la solicitud</td>
+    <td>Como representante de una clínica, deseo consultar el estado de mi solicitud, para saber si fue aprobada, observada o rechazada.</td>
+    <td>6</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>US07</td>
+    <td>Revisión de solicitudes de clínicas</td>
+    <td>WI01-08</td>
+    <td>Implementar la cola y decisión administrativa</td>
+    <td>Como administrador de plataforma, deseo revisar y decidir las solicitudes pendientes, para activar únicamente organizaciones aprobadas.</td>
+    <td>18</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>TS02</td>
+    <td>API de planes y onboarding de clínicas</td>
+    <td>WI01-06</td>
+    <td>Implementar contratos y persistencia de onboarding</td>
+    <td>Como desarrollador, deseo exponer contratos para planes, solicitudes, estados y decisiones administrativas, para soportar la activación controlada de organizaciones.</td>
+    <td>18</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>To-do</td>
+  </tr>
+  </tbody>
+</table>
+
+#### Sprint 3 — Seguridad y calidad técnica pendientes
+
+El tercer incremento agrupa el trabajo técnico pendiente de autorización,
+documentación de la API y consolidación del stack de pruebas.
+
+| Sprint Planning 3 | Detalle |
+|---|---|
+| Sprint 2 Review Summary | Los ítems del Sprint 2 permanecen planificados y no se consideran terminados. |
+| Sprint 2 Retrospective Summary | La seguridad y la verificación técnica se separaron en un incremento propio para facilitar su validación. |
+| Sprint Goal | Completar la autorización de la API, su documentación interactiva y la evaluación del stack de pruebas. |
+| Sprint Velocity | 0 Story Points |
+| Sum of Story Points | 11 Story Points |
+
+<table>
+  <thead>
+    <tr>
+      <th>Sprint #</th>
+      <th colspan="7">Sprint 3 — Seguridad y calidad técnica pendientes</th>
+    </tr>
+    <tr>
+      <th colspan="2">User Story</th>
+      <th colspan="6">Work-Item / Task</th>
+    </tr>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Estimation<br>(Hours)</th>
+      <th>Assigned To</th>
+      <th>Status<br>(To-do / In-Process / To-Review / Done)</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>TS01</td>
+    <td>Validación de identidad y autorización</td>
+    <td>WI01-09</td>
+    <td>Proteger la API con identidad y roles persistidos</td>
+    <td>Como desarrollador, deseo validar los Bearer tokens del proveedor de identidad y resolver roles y membresías persistidas, para proteger cada operación de la API.</td>
+    <td>18</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>TS07</td>
+    <td>Documentación OpenAPI y errores estables</td>
+    <td>WI01-10</td>
+    <td>Publicar OpenAPI y Swagger</td>
+    <td>Como desarrollador, deseo publicar la especificación OpenAPI y una interfaz Swagger para todos los endpoints implementados, para facilitar su verificación e integración.</td>
+    <td>10</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>SP02</td>
+    <td>Evaluación del stack de pruebas automatizadas</td>
+    <td>WI01-11</td>
+    <td>Validar la estrategia de pruebas</td>
+    <td>Como desarrollador, deseo evaluar herramientas de pruebas unitarias, de integración, componentes y recorridos completos, para seleccionar una estrategia compatible con el monorepo y el pipeline.</td>
+    <td>10</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>To-do</td>
+  </tr>
+  </tbody>
+</table>
+
+#### Sprint 4 — Vacunación pendiente
+
+El cuarto incremento planifica la investigación preventiva y el flujo de
+preparación y publicación de vacunaciones que todavía no está implementado.
+
+| Sprint Planning 4 | Detalle |
+|---|---|
+| Sprint 3 Review Summary | Los ítems técnicos del Sprint 3 permanecen pendientes de implementación. |
+| Sprint 3 Retrospective Summary | Se decidió validar las reglas preventivas antes de implementar y publicar vacunaciones. |
+| Sprint Goal | Investigar las reglas preventivas e implementar el borrador y la publicación profesional de vacunaciones. |
+| Sprint Velocity | 0 Story Points |
+| Sum of Story Points | 13 Story Points |
+
+<table>
+  <thead>
+    <tr>
+      <th>Sprint #</th>
+      <th colspan="7">Sprint 4 — Vacunación pendiente</th>
+    </tr>
+    <tr>
+      <th colspan="2">User Story</th>
+      <th colspan="6">Work-Item / Task</th>
+    </tr>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Estimation<br>(Hours)</th>
+      <th>Assigned To</th>
+      <th>Status<br>(To-do / In-Process / To-Review / Done)</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>US14</td>
+    <td>Preparación de borrador de vacunación</td>
+    <td>WI03-02</td>
+    <td>Implementar creación y revisión del borrador</td>
+    <td>Como personal clínico autorizado, deseo preparar y revisar un borrador de vacunación, para documentar el acto antes de su publicación profesional.</td>
+    <td>18</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>US15</td>
+    <td>Publicación de vacunación</td>
+    <td>WI03-03</td>
+    <td>Implementar firma, publicación e inmutabilidad</td>
+    <td>Como veterinario autorizado, deseo firmar y publicar una vacunación válida, para dejar constancia verificable de su aplicación.</td>
+    <td>18</td>
+    <td>Angel Guillermo Berrospi Marin</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>SP01</td>
+    <td>Investigación de reglas preventivas</td>
+    <td>WI03-01</td>
+    <td>Modelar reglas y recomendaciones</td>
+    <td>Como desarrollador, deseo investigar las reglas de vacunación y desparasitación aplicables, para distinguir obligaciones confirmadas, configuración clínica y recomendaciones futuras.</td>
+    <td>10</td>
+    <td>Guerrero Tomas Nelson Fabrizio</td>
+    <td>To-do</td>
+  </tr>
+  </tbody>
+</table>
+
+#### Sprint 5 — Desparasitación pendiente
+
+El quinto incremento conserva como trabajo futuro la preparación y
+publicación profesional de desparasitaciones.
+
+| Sprint Planning 5 | Detalle |
+|---|---|
+| Sprint 4 Review Summary | El flujo de vacunación del Sprint 4 permanece pendiente de implementación. |
+| Sprint 4 Retrospective Summary | Se mantuvo la separación entre vacunación y desparasitación para validar cada flujo de forma independiente. |
+| Sprint Goal | Implementar el borrador y la publicación profesional de desparasitaciones. |
+| Sprint Velocity | 0 Story Points |
+| Sum of Story Points | 10 Story Points |
+
+<table>
+  <thead>
+    <tr>
+      <th>Sprint #</th>
+      <th colspan="7">Sprint 5 — Desparasitación pendiente</th>
+    </tr>
+    <tr>
+      <th colspan="2">User Story</th>
+      <th colspan="6">Work-Item / Task</th>
+    </tr>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Estimation<br>(Hours)</th>
+      <th>Assigned To</th>
+      <th>Status<br>(To-do / In-Process / To-Review / Done)</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>US16</td>
+    <td>Preparación de borrador de desparasitación</td>
+    <td>WI04-01</td>
+    <td>Implementar el borrador de tratamiento</td>
+    <td>Como personal clínico autorizado, deseo preparar y revisar un borrador de desparasitación, para documentar el tratamiento antes de su publicación profesional.</td>
+    <td>18</td>
+    <td>Cuba Pareja Joaquin Antonio</td>
+    <td>To-do</td>
+  </tr>
+<tr>
+    <td>US17</td>
+    <td>Publicación de desparasitación</td>
+    <td>WI04-02</td>
+    <td>Implementar publicación profesional</td>
+    <td>Como veterinario autorizado, deseo firmar y publicar una desparasitación, para incorporarla al historial preventivo del paciente.</td>
+    <td>18</td>
+    <td>Juan David Saldaña De Souza</td>
+    <td>To-do</td>
+  </tr>
+  </tbody>
+</table>
+
+La suma de los treinta y ocho ítems incluidos en los cinco Sprint Backlogs
+es de **156 Story Points**, igual al total del Product Backlog: veintinueve
+User Stories, siete Technical Stories y dos Spike Stories. El Sprint 1
+contiene exclusivamente los 25 ítems confirmados como implementados, con
+102 Story Points. Los 13 ítems restantes se distribuyen entre los Sprints
+2–5 con estado `To-do` y suman 54 Story Points. US17 se mantiene pendiente
+porque su implementación todavía no ha sido confirmada por el equipo.
 
 ### 5.2.2. Implemented Landing Page Evidence
 
