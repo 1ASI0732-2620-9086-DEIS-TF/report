@@ -12,9 +12,9 @@
     <p style="margin: 10px 0 5px 0;">Docente</p>
     <h2 style="font-size: 18px; margin: 5px 0 40px 0;">Noriega Melendez, Julio Manuel</h2>
     <p style="margin: 10px 0 5px 0;">Equipo</p>
-    <h2 style="font-size: 18px; margin: 0px 0 40px 0;">Nombre de Equipo</h2>
+    <h2 style="font-size: 18px; margin: 0px 0 40px 0;">DarkCode</h2>
     <p style="margin: 5px;">Proyecto</p>
-    <h2 style="font-size: 18px; margin: 0px 0 30px 0;">Nombre de Proyecto</h2>
+    <h2 style="font-size: 18px; margin: 0px 0 30px 0;">PetBook</h2>
     <p style="margin: 5px;"><strong>Integrantes:</strong></p>
     <table style="width: max-content; border-collapse: collapse; margin: 0 auto 50px auto;">
         <thead>
@@ -32,6 +32,14 @@
                 <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U201621281</td>
                 <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Cuba Pareja Joaquin Antonio</td>
             </tr>
+                        <tr>
+                <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202114701</td>
+                <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Berrospi Marin Angel Guillermo</td>
+            </tr>
+                        <tr>
+                <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U20221F192</td>
+                <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Juan David Saldaña de Souza</td>
+            </tr>
         </tbody>
     </table>
     <div style="margin-top: 40px;">
@@ -46,6 +54,13 @@
 | Versión | Fecha | Autor | Descripción de modificación |
 | --- | --- | --- | --- |
 | 1.0 | 2026-09-11 | Guerrero Tomas Nelson Fabrizio | Creación de la estructura inicial del informe (carátula, tabla de contenidos y secciones) siguiendo el enunciado del trabajo final. |
+| 1.1 | 2026-09-12 | Cuba Pareja Joaquin Antonio | Redacción del contexto general del proyecto, antecedentes del mercado veterinario nacional según datos del INEI y planteamiento de la problemática del soporte físico. |
+| 1.2 | 2026-09-13 | Berrospi Marin Angel Guillermo | Definición de los objetivos del proyecto (general y específicos), delimitación del alcance y restricciones del software para la plataforma clínica y app móvil. |
+| 1.3 | 2026-09-14 | Juan David de Souza | Elaboración de los artefactos del proceso Lean UX: redacción de supuestos de negocio y funcionalidad, enunciados de problemas y formulación de hipótesis iniciales. |
+| 1.4 | 2026-09-15 | Cuba Pareja Joaquin Antonio | Caracterización y documentación de los dos segmentos objetivo del producto: clínicas veterinarias independientes y dueños de perros y gatos. |
+| 1.5 | 2026-09-16 | Berrospi Marin Angel Guillermo | Especificación de los requerimientos funcionales para la generación automática de la cartilla sanitaria y las reglas de validación de dosis según especie. |
+| 1.6 | 2026-09-17 | Juan David de Souza | Documentación técnica de los módulos de emisión de recetas médicas, historial de atenciones clínicas y permisos de acceso por rol (RBAC). |
+| 1.7 | 2026-09-17 | Guerrero Tomas Nelson Fabrizio | Consolidación final del documento, revisión de ortografía, estandarización de formatos de tablas y verificación de trazabilidad general de la entrega. |
 
 <div style="page-break-after: always;"></div>
 
@@ -262,31 +277,21 @@ _Pendiente de completar._
 
 <div style="page-break-after: always;"></div>
 
-## Student Outcome
+# Student Outcome
 
-Cada participante del equipo debe colaborar a fin de que se redacte como grupo los sustentos y evidencias de las actividades realizadas en el trabajo final han ayudado a desarrollar cómo las dimensiones del student outcome. Por ello en esta sección debe quedar descrito por escrito, la relación entre el outcome, sus dimensiones y el trabajo que han realizado. Esto se complementa con lo reflejado en los testimonios expuestos que forman parte del video *About The Team*.
+Cada participante del equipo debe sustentar evidencia de cómo las actividades realizadas en el trabajo final han ayudado a desarrollar las dimensiones del student outcome. Por ello en esta sección debe haber una subsección por cada alumno donde éste describa por escrito la relación entre el outcome, sus dimensiones y el trabajo que ha realizado. Esto se complementa con lo reflejado en los testimonios expuestos que forman parte del video About The Team.
 
 El curso contribuye al cumplimiento del Student Outcome ABET:
 
-**ABET – EAC - Student Outcome 4**
-**Criterio**: La capacidad de reconocer responsabilidades éticas y profesionales en situaciones de ingeniería y hacer juicios informados, que deben considerar el impacto de las soluciones de ingeniería en contextos globales, económicos, ambientales y sociales.
+**ABET-EAC - Student Outcome 4**  
+*Criterio: La capacidad de reconocer responsabilidades éticas y profesionales en situaciones de ingeniería y hacer juicios informados, que deben considerar el impacto de las soluciones de ingeniería en contextos globales, económicos, ambientales y sociales.*
 
-### Subsección por integrante
-
-> Debe existir una subsección con este formato por cada integrante del equipo.
-
-#### Guerrero Tomas Nelson Fabrizio
-
-_Pendiente de completar: descripción por escrito de la relación entre el outcome, sus dimensiones y el trabajo realizado por este integrante._
-
-### Cuadro de Student Outcome
-
-En el siguiente cuadro se describen las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 4.
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET EAC - Student Outcome 4.
 
 | Criterio específico | Acciones realizadas | Conclusiones |
-| --- | --- | --- |
-| 4.c.1 Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software | _Pendiente de completar._ | _Pendiente de completar._ |
-| 4.c.2 Emite juicios informados considerando el impacto de las soluciones de ingeniería de software en contextos globales, económicos, ambientales y sociales | _Pendiente de completar._ | _Pendiente de completar._ |
+| :--- | :--- | :--- |
+| **4.c.1 Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software** | **Guerrero Tomas, Nelson Fabrizio**<br>**AV1:** Participé en la estructuración y definición de las historias de usuario y criterios de aceptación técnicos para el módulo de gestión y control, asegurando que las especificaciones no induzcan a sesgos en la recopilación de información de transporte y garanticen la veracidad de los datos operados en la solución.<br><br>**Berrospi Marin, Angel Guillermo**<br>**AV1:** Contribuí en la definición y modelado de las políticas de acceso, autenticación y roles de seguridad del sistema (IAM), garantizando el principio de menor privilegio, la estricta protección de credenciales y la confidencialidad de la información de los operadores y usuarios finales.<br><br>**Cuba Pareja, Joaquin Antonio**<br>**AV1:** Elaboré la propuesta de arquitectura de software y el diseño orientado al dominio, asegurando el cumplimiento de los estándares de desarrollo seguro, trazabilidad en el repositorio mediante GitFlow y conventional commits, y evitando el uso de componentes o dependencias con licencias restrictivas o vulnerabilidades conocidas.<br><br>**Saldaña de Souza, Juan David**<br>**AV1:** Diseñé los lineamientos de interfaz de usuario y arquitectura de información considerando normativas de accesibilidad web (a11y) e internacionalización (i18n), asegurando que la plataforma sea inclusiva, transparente y no discriminatoria para diversos perfiles de usuarios. | En esta primera etapa del proyecto (AV1), el equipo reconoció que el ejercicio ético de la ingeniería de software inicia desde la concepción del producto, el modelado del dominio y la especificación de requisitos. Se evidenció un compromiso profesional mediante la adopción de buenas prácticas de versionado, la protección estricta de la privacidad en la gestión de identidad, el diseño de arquitecturas confiables y el cumplimiento de principios de inclusión y accesibilidad en el diseño de interfaces. Esto garantiza que el desarrollo técnico responda a estándares profesionales que anteponen la seguridad, transparencia e integridad del software ante los usuarios y organizaciones. |
+| **4.c.2 Emite juicios informados considerando el impacto de las soluciones de ingeniería de software en contextos globales, económicos, ambientales y sociales** | **Guerrero Tomas, Nelson Fabrizio**<br>**AV1:** Analicé el impacto económico y operativo del transporte y trazabilidad de rutas, evaluando cómo la digitalización de paradas y recorridos reduce sobrecostos de operación y tiempos de traslado innecesarios para el sector comercial y los ciudadanos.<br><br>**Berrospi Marin, Angel Guillermo**<br>**AV1:** Evalué las repercusiones globales de la seguridad digital y la gobernanza de datos en plataformas conectadas, estableciendo requisitos no funcionales que mitiguen riesgos de filtración de información y pérdidas financieras para las empresas de transporte asociadas.<br><br>**Cuba Pareja, Joaquin Antonio**<br>**AV1:** Evalué el impacto ambiental del software analizando la eficiencia de la arquitectura de backend y base de datos, buscando minimizar el procesamiento redundante y la sobrecarga en servidores en la nube para reducir la huella de carbono digital.<br><br>**Saldaña de Souza, Juan David**<br>**AV1:** Evalué el impacto social a través del needfinding, entrevistas y mapeo de empatía con los usuarios, determinando cómo la solución digital disminuye la brecha de acceso al servicio y mejora la calidad de vida urbana de la comunidad. | Durante el AV1, el equipo formuló juicios sustentados en el análisis del entorno donde operará el sistema. Comprendimos que una plataforma de gestión y transporte no es únicamente una pieza de código, sino un ecosistema con impacto social directo en la movilidad ciudadana, impacto económico en la rentabilidad de las empresas prestadoras de servicio, e impacto ambiental derivado del consumo energético de la infraestructura de cómputo. Estas consideraciones sustentan técnicamente las decisiones tomadas en el diseño inicial del software. |
 
 <div style="page-break-after: always;"></div>
 
