@@ -2721,7 +2721,7 @@ Verifican el sistema completo: la web y la app móvil reales contra la API y Sup
 | Web (Playwright, escritorio y celular) | Pacientes con estado y edad; registro de cliente y mascota adulta, con la cartilla desde hoy; dosis bloqueadas; dosis válida; atención con receta; documento repetido; acceso móvil y restablecimiento de contraseña; cambio de idioma. |
 | App móvil (emulador Android) | Cartilla, historial y receta del dueño; cambio obligatorio de la contraseña temporal; cambio de idioma y cierre de sesión. |
 
-Resultado: en la última ejecución completa del pipeline pasaron 8 de las 9 pruebas web y 1 de las 3 móviles. Los fallos restantes eran de las propias pruebas (selectores y esperas), no de la aplicación; sus ajustes están en curso en la rama `feature/pruebas-ci`.
+Resultado: las 9 pruebas web pasan en el pipeline. Las 3 pruebas móviles se estaban estabilizando al cierre de esta versión: sus fallos venían de las esperas de la propia prueba, no de la aplicación.
 
 ## 6.2. Static testing & Verification
 
