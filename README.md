@@ -29,6 +29,10 @@
                 <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Berrospi Marin Angel Guillermo</td>
             </tr>
             <tr>
+                <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U201621281</td>
+                <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Cuba Pareja Joaquin</td>
+            </tr>
+            <tr>
                 <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202222745</td>
                 <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Guerrero Tomas Nelson Fabrizio</td>
             </tr>
@@ -346,7 +350,7 @@ conocimientos técnicos y habilidades que cada uno aporta al equipo.
 | <img src="img/cap 1/profile&solutions/Guillermo.png" width="100"> | Berrospi Marin, Angel Guillermo | U202114701 | Ingeniería de Software |Soy estudiante de la carrera de Ingeniería de Software. Tendre el compromiso con mi equipo en ser proactivo, productivo, siempre apoyar en lo que se necesite y mantener una comunicación fluida. Cuento con conocimientos en html, css, javascript, Java y SQL, lo cual puede ser de ayuda en el desarrollo del proyecto. |
 | <img src="img/cap 1/profile&solutions/Nelson.png" width="100"> | Apellido Apellido, Nombre | U202222745 | Ingeniería de Software | Arquitectura de Software <|
 | <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Saldaña De Souza, Juan David | U20221F192 | Ingeniería de Software | Desarrollo web (Angular, Spring Boot), bases de datos relacionales y no relacionales, control de versiones con Git, y conocimientos en diseño de software orientado a objetos. |
-| <img src="assets/img/team/integrante-04.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="assets/img/team/integrante-04.png" width="100"> | Cuba Pareja, Joaquin | U201621281 | Ingeniería de Software | |
 | <img src="assets/img/team/integrante-05.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
 
 
