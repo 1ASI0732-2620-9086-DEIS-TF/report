@@ -42,6 +42,7 @@
 | Versión | Fecha | Autor | Descripción de modificación |
 | --- | --- | --- | --- |
 | 1.0 | 2026-09-11 | Guerrero Tomas Nelson Fabrizio | Creación de la estructura inicial del informe (carátula, tabla de contenidos y secciones) siguiendo el enunciado del trabajo final. |
+| 1.1 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Capítulo V: Product Implementation (configuración, sprints 1 y 2, evidencias de los productos desplegados y acuerdo de servicio SaaS). |
 
 <div style="page-break-after: always;"></div>
 
@@ -161,6 +162,8 @@ _Pendiente de completar._
       - [5.1.4. Software Deployment Configuration](#514-software-deployment-configuration)
     - [5.2. Product Implementation & Deployment](#52-product-implementation--deployment)
       - [5.2.1. Sprint Backlogs](#521-sprint-backlogs)
+        - [Sprint 1](#sprint-1)
+        - [Sprint 2](#sprint-2)
       - [5.2.2. Implemented Landing Page Evidence](#522-implemented-landing-page-evidence)
       - [5.2.3. Implemented Frontend-Web Application Evidence](#523-implemented-frontend-web-application-evidence)
       - [5.2.4. Acuerdo de Servicio - SaaS](#524-acuerdo-de-servicio---saas)
@@ -2048,61 +2051,558 @@ indexar el filtro por estado de cartilla que utiliza la aplicación web.
 
 # Capítulo V: Product Implementation
 
+En este capítulo se muestra cómo se implementó y desplegó VetPass.
+
+| Producto | URL |
+|---|---|
+| Landing Page | https://vetpass-landing.vercel.app |
+| Aplicación web de la clínica | https://vetpass-web.vercel.app |
+| RESTful API | https://vetpass-api.vercel.app/api/v1 |
+| Documentación de la API | https://vetpass-api.vercel.app/swagger |
+| Aplicación móvil (APK) | https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/releases/latest/download/vetpass.apk |
+| Repositorio | https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass |
+
 ## 5.1. Software Configuration Management
+
+Decisiones y convenciones que mantienen la consistencia del producto durante su ciclo de vida.
 
 ### 5.1.1. Software Development Environment Configuration
 
-_Pendiente de completar._
+Herramientas que usa el equipo, por tipo de actividad.
+
+| Actividad | Producto | Uso en el proyecto | Ruta |
+|---|---|---|---|
+| Project Management | _Pendiente de completar (Trello, Jira, YouTrack o Pivotal Tracker)_ | Tablero de cada sprint | _Pendiente de completar._ |
+| Project Management | GitHub | Repositorio, releases y analíticos de colaboración | https://github.com/1ASI0732-2620-9086-DEIS-TF |
+| Requirements Management | UXPressia | User Personas, Journey Maps, Empathy Maps e Impact Map | https://uxpressia.com |
+| Requirements Management | Miro | Sesiones de Empathy Mapping | https://miro.com |
+| Product UX/UI Design | Claude Design | Wireframes, mock-ups y prototipos | https://claude.ai |
+| Software Architecture | Structurizr, LucidChart y Vertabelo | C4 Model, diagramas UML y base de datos | https://structurizr.com · https://www.lucidchart.com · https://vertabelo.com |
+| Software Development | Visual Studio Code | Editor de código | https://code.visualstudio.com/download |
+| Software Development | .NET 10 SDK (ASP.NET Core, EF Core, Npgsql) | RESTful API | https://dotnet.microsoft.com/download/dotnet/10.0 |
+| Software Development | Node.js 26, Vite 8, Vue 3.5 y PrimeVue 4.5 | Aplicación web | https://nodejs.org/en/download · https://primevue.org |
+| Software Development | Flutter 3.47 y Android Studio | Aplicación móvil y emulador | https://docs.flutter.dev/get-started/install · https://developer.android.com/studio |
+| Software Development | Supabase | Base de datos PostgreSQL y autenticación | https://supabase.com |
+| Software Development | Git y GitHub CLI | Control de versiones | https://git-scm.com/downloads · https://cli.github.com |
+| Software Development | Claude Code | Asistente de programación con IA; figura como coautor en los commits | https://claude.com/claude-code |
+| Software Testing | Swagger UI, curl y Puppeteer | Pruebas manuales y scripts de verificación | https://pptr.dev |
+| Software Testing | xUnit y Reqnroll | Pruebas unitarias, de integración y BDD (capítulo VI) | https://xunit.net · https://reqnroll.net |
+| Software Deployment | Vercel y Docker | Publicación de la landing, la web y la API | https://vercel.com |
+| Software Deployment | GitHub Releases | Distribución del APK | https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/releases |
+| Software Documentation | Swagger (OpenAPI 3.0) y Markdown | Documentación de la API, informe y guías | https://vetpass-api.vercel.app/swagger |
 
 ### 5.1.2. Source Code Management
 
-_Pendiente de completar._
+El código se versiona con Git en GitHub. Los productos comparten un solo repositorio, cada uno en su carpeta, porque usan el mismo modelo de dominio y un cambio de negocio suele tocar varios a la vez.
+
+| Producto | Repositorio |
+|---|---|
+| Landing Page | https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/tree/main/landing-page |
+| RESTful API (incluye sus pruebas en `backend/tests/`) | https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/tree/main/backend |
+| Aplicación web | https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/tree/main/web-application |
+| Aplicación móvil | https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/tree/main/mobile-application |
+
+![Repositorio de VetPass](./img/cap%205/5.1.2-github-repositorio.png)
+
+*Figura 5.1. Repositorio de VetPass en la organización del curso.*
+
+**GitFlow.** Se aplica el modelo de ramas de Vincent Driessen:
+
+| Rama | Uso | Nombre |
+|---|---|---|
+| `main` | Producción. Cada push se despliega. | `main` |
+| `develop` | Integración del sprint. | `develop` |
+| Feature | Una historia de usuario. Nace de `develop` y vuelve a ella por pull request. | `feature/US17-cambio-de-contrasena` |
+| Release | Preparación de una versión. Se integra en `main` y `develop`. | `release/1.1.0` |
+| Hotfix | Corrección urgente en producción. Nace de `main`. | `hotfix/1.0.1` |
+
+Hasta la versión 1.0.0 se trabajó directamente en `main`. Desde el siguiente sprint se usa el flujo completo.
+
+**Semantic Versioning.** Las versiones siguen el formato `vMAJOR.MINOR.PATCH`: MAJOR para cambios incompatibles de la API, MINOR para funcionalidades nuevas y PATCH para correcciones. La primera release es [v1.0.0](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/releases/tag/v1.0.0), del 7 de octubre de 2026.
+
+**Conventional Commits.** Los mensajes siguen el formato `tipo(ámbito): descripción`, por ejemplo `feat(web): dar acceso a la aplicacion movil desde la vista de clientes`.
+
+| Tipo | Uso |
+|---|---|
+| `feat` | Funcionalidad nueva |
+| `fix` | Corrección |
+| `docs` | Documentación |
+| `chore` | Configuración |
+| `test` | Pruebas |
+
+| Ámbito | Producto |
+|---|---|
+| `backend`, `api` | RESTful API |
+| `web` | Aplicación web |
+| `mobile` | Aplicación móvil |
+| `landing` | Landing page |
+| `informe` | Informe |
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-_Pendiente de completar._
+Los identificadores se escriben en inglés en todos los lenguajes. El backend ya cumple esta regla; la web y la app móvil aún tienen identificadores en español, que se migrarán en el próximo sprint.
+
+| Lenguaje | Guía de referencia | Reglas principales |
+|---|---|---|
+| HTML | Google HTML/CSS Style Guide | Minúsculas, etiquetas semánticas, `alt` en imágenes y atributos ARIA. |
+| CSS | Google HTML/CSS Style Guide | Clases en kebab-case (`bloque__elemento--modificador`) y variables en `:root`. |
+| JavaScript | Google JavaScript Style Guide y MDN | `const`/`let`, camelCase, comillas simples y módulos ES. |
+| Vue | Vue Style Guide | `<script setup>`, componentes de varias palabras en PascalCase y `:key` en cada `v-for`. |
+| C# y ASP.NET Core | C# Coding Conventions y ASP.NET Core Coding Guidelines | PascalCase en tipos y miembros, sufijo `Async`, rutas `api/v1` en plural y errores como ProblemDetails. |
+| Dart | Effective Dart | Archivos en snake_case y análisis con `flutter_lints`. |
+| Gherkin | Gherkin Conventions for Readable Specifications | Un `.feature` por historia, un escenario por criterio de aceptación y pasos Given/When/Then. |
 
 ### 5.1.4. Software Deployment Configuration
 
-_Pendiente de completar._
+La landing, la web y la API se publican en Vercel desde GitHub: cada push a `main` despliega, y cada proyecto se reconstruye solo si cambió su carpeta. La base de datos y la autenticación están en Supabase. El APK se publica en GitHub Releases. La guía completa está en [`docs/despliegue.md`](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/blob/main/docs/despliegue.md).
+
+| Producto | Proyecto de Vercel | Carpeta | Construcción |
+|---|---|---|---|
+| Landing Page | `vetpass-landing` | `landing-page/` | Sitio estático |
+| Aplicación web | `vetpass-web` | `web-application/` | Vite (`npm run build`) |
+| RESTful API | `vetpass-api` | `backend/` | Contenedor Docker (`Dockerfile.vercel`) |
+
+Pasos para desplegar desde cero:
+
+1. Crear el proyecto en Supabase y aplicar el esquema con `dotnet ef database update`.
+2. Iniciar sesión en Vercel con GitHub e instalar la app de Vercel en la organización.
+3. Crear los tres proyectos, cada uno con su carpeta raíz, y enlazarlos al repositorio.
+4. Configurar las variables de entorno de la tabla siguiente.
+5. Hacer push a `main` y comprobar `GET /api/v1/health`.
+6. Compilar el APK con la URL de la API y publicarlo en una release:
+   `flutter build apk --release --dart-define=VETPASS_API=https://vetpass-api.vercel.app/api/v1`
+
+| Proyecto | Variable | Valor |
+|---|---|---|
+| `vetpass-api` | `ConnectionStrings__VetPassDb` | Cadena de conexión de Supabase (secreta) |
+| `vetpass-api` | `Supabase__Url`, `Supabase__AnonKey`, `Supabase__ServiceRoleKey` | Datos del proyecto de Supabase (claves secretas) |
+| `vetpass-api` | `Database__AutoMigrate` | `false` |
+| `vetpass-api` | `Cors__AllowedOrigins` | `https://vetpass-web.vercel.app` |
+| `vetpass-api` | `PORT` | `8080` |
+| `vetpass-web` | `VITE_API_URL` | `https://vetpass-api.vercel.app/api/v1` |
+
+Tres decisiones a tener en cuenta:
+
+- La imagen de la API usa la variante `chiseled-extra`, que incluye las zonas horarias. Sin ella, la API calcularía «hoy» en UTC y no en la hora de Lima.
+- En producción la API no migra la base al arrancar. Las migraciones se aplican una vez, antes de publicar.
+- La API se apaga tras 5 minutos sin uso. La primera petición después tarda unos 2 segundos.
 
 ## 5.2. Product Implementation & Deployment
 
 ### 5.2.1. Sprint Backlogs
 
-_Pendiente de completar._
+La implementación se hizo en dos sprints. El primero construyó los cuatro productos y el segundo los mejoró y los desplegó.
+
+#### Sprint 1
+
+**Sprint Planning 1**
+
+| Sprint # | Sprint 1 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | _Pendiente de completar._ |
+| Time | _Pendiente de completar._ |
+| Location | _Pendiente de completar._ |
+| Prepared By | Guerrero Tomas, Nelson Fabrizio |
+| Attendees (to planning meeting) | _Pendiente de completar._ |
+| Sprint 0 Review Summary | No aplica: es el primer sprint de implementación. |
+| Sprint 0 Retrospective Summary | No aplica. |
+| **Sprint Goal & User Stories** | |
+| Sprint 1 Goal | Nuestro foco está en que la clínica registre a sus pacientes y su vacunación, y que el dueño la consulte desde su celular. Creemos que entrega a la clínica una cartilla que valida sola las reglas del esquema y al dueño acceso permanente a esa información. Se confirmará cuando la clínica registre una dosis válida, vea rechazada una inválida y el dueño vea la cartilla actualizada en la app móvil. |
+| Sprint 1 Velocity | 78 Story Points |
+| Sum of Story Points | 78 Story Points |
+
+**Aspect Leaders and Collaborators**
+
+| Team Member | GitHub Username | Landing Page | RESTful API | Aplicación web | Aplicación móvil |
+|---|---|---|---|---|---|
+| Guerrero Tomas, Nelson Fabrizio | Nelsoondev | L | L | L | L |
+| _Pendiente de completar._ | | | | | |
+
+**Sprint Backlog 1**
+
+Objetivo: tener los cuatro productos funcionando contra la base de datos real.
+
+_Pendiente de completar: captura y URL público del tablero del sprint._
+
+| User Story Id | User Story Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+|---|---|---|---|---|---|---|---|
+| US01 | Presentación de la propuesta de valor | T01 | Maquetar la landing page | Secciones de la landing según el mock-up y las Style Guidelines. | 4 | Nelson Guerrero | Done |
+| US02 | Información dirigida a clínicas | T02 | Sección de clínicas e i18n | Beneficios para clínicas y textos en español e inglés. | 3 | Nelson Guerrero | Done |
+| US03 | Acceso a la aplicación web | T03 | Botón de acceso | Enlace de la landing a la aplicación web. | 1 | Nelson Guerrero | Done |
+| SP01 | Esquema de vacunación | T04 | Investigar y documentar el esquema | Esquema canino y felino según WSAVA (`docs/spikes/SP01`). | 6 | Nelson Guerrero | Done |
+| TS01 | Endpoints de autenticación | T05 | Autenticación con Supabase Auth | Inicio de sesión, refresco de sesión, perfil y permisos por rol. | 8 | Nelson Guerrero | Done |
+| US04 | Autenticación del personal | T06 | Pantalla de acceso de la web | Formulario de acceso y sesión del personal. | 3 | Nelson Guerrero | Done |
+| US05 | Autenticación del dueño | T07 | Acceso del dueño a la app móvil | Inicio de sesión móvil y alta del acceso desde la vista de clientes. | 5 | Nelson Guerrero | Done |
+| TS02 | Endpoints de clientes y mascotas | T08 | Módulo Patients | Agregados, repositorios y endpoints de clientes y mascotas. | 6 | Nelson Guerrero | Done |
+| US06 | Registro de cliente | T09 | Formulario de cliente | Alta del cliente desde el registro de paciente. | 2 | Nelson Guerrero | Done |
+| US07 | Registro de mascota | T10 | Formulario de mascota | Alta de la mascota con validación de especie y fecha. | 2 | Nelson Guerrero | Done |
+| US08 | Búsqueda de paciente | T11 | Búsqueda y filtros | Búsqueda por nombre y filtros por especie y estado. | 2 | Nelson Guerrero | Done |
+| US09 | Generación de la cartilla | T12 | Generar la cartilla | Catálogo de vacunas y cartilla creada al registrar la mascota. | 5 | Nelson Guerrero | Done |
+| US10 | Registro de dosis | T13 | Reglas y registro de dosis | Edad mínima, intervalo y diálogo de registro con validación. | 7 | Nelson Guerrero | Done |
+| TS03 | Endpoints de cartilla | T14 | Endpoints de la cartilla | Consulta de la cartilla y registro de dosis. | 3 | Nelson Guerrero | Done |
+| US11 | Estado de la cartilla | T15 | Estado y vista de la cartilla | Al día, pendiente o vencida, con su vista en la web. | 4 | Nelson Guerrero | Done |
+| TS04 | Endpoints de historial | T16 | Módulo Medical Records | Atenciones y recetas con sus endpoints. | 5 | Nelson Guerrero | Done |
+| US13 | Registro de atención | T17 | Formulario de atención | Nueva atención con motivo, hallazgos, diagnóstico y tratamiento. | 3 | Nelson Guerrero | Done |
+| US14 | Historial del paciente | T18 | Vista del historial | Atenciones ordenadas de la más reciente a la más antigua. | 2 | Nelson Guerrero | Done |
+| US15 | Emisión de receta | T19 | Receta en la atención | Medicamentos, dosificación y duración. | 2 | Nelson Guerrero | Done |
+| US12 | Cartilla en la app móvil | T20 | Cartilla móvil | Mis mascotas y cartilla de cada una. | 4 | Nelson Guerrero | Done |
+| US16 | Historial en la app móvil | T21 | Historial móvil | Atenciones y detalle con receta. | 3 | Nelson Guerrero | Done |
+
+**Development Evidence for Sprint Review**
+
+Se construyeron la API con sus cuatro bounded contexts, la landing, la aplicación web y la aplicación móvil.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 165823b | chore: bootstrap VetPass monorepo | Estructura de carpetas por container. | 18/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | d03c5b3 | feat(backend): modelo de dominio de los cuatro bounded contexts | Aggregates, entidades, value objects y excepciones. | 18/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | ed6c6f2 | docs(informe): reflejar Supabase Auth en las secciones 4.8, 4.9 y 4.10 | La identidad se delega en Supabase Auth. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | d676d57 | feat(backend): capas de aplicacion, infraestructura e interfaz de los cuatro modulos | Servicios, repositorios y controladores. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 7172162 | fix(backend): configurar las navegaciones por campo despues de declararlas | Corrección del mapeo de colecciones en EF Core. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 27b88de | feat(backend): solucion, paquetes y migracion inicial del esquema vetpass | Solución sobre .NET 10 y migración inicial. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | e118dc3 | chore(backend): tolerar la ausencia del proveedor de identidad en desarrollo | La API arranca sin Supabase configurado. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | de2789d | fix(backend): dos defectos encontrados al verificar contra la base real | Búsqueda de pacientes y registro de recetas. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 197e68d | feat(landing): sitio estatico de la landing page (US01-US03) | Implementa el mock-up de la landing. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 9ecaa6d | feat(landing): internacionalizacion en espanol e ingles | Textos de la landing en dos idiomas. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 7a9f0da | feat(web): aplicacion web de la clinica con Vue y PrimeVue | Las ocho pantallas de la sección 4.6. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | bf90fe5 | feat(mobile): aplicacion movil del dueno con Flutter y Material Design 3 | Las seis pantallas de la sección 4.4. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 9cfd381 | fix(mobile): empaquetar las tipografias en vez de descargarlas al arrancar | Los títulos no cargaban sin conexión a Google Fonts. | 19/09/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | aa450d8 | feat(web): dar acceso a la aplicacion movil desde la vista de clientes | La clínica crea el acceso del dueño (US05). | 19/09/2026 |
+
+**Testing Suite Evidence for Sprint Review**
+
+Aún no hay pruebas automatizadas en el repositorio. Los criterios de aceptación se verificaron con scripts contra la API y la base real, y con la app en el emulador. La suite automatizada se desarrolla en el capítulo VI.
+
+**Execution, Documentation y Deployment Evidence for Sprint Review**
+
+Las vistas implementadas se muestran en las secciones 5.2.2, 5.2.3 y 5.2.5, y los endpoints en la sección 5.2.7. En este sprint los productos se ejecutaron en local; el despliegue se hizo en el Sprint 2.
+
+#### Sprint 2
+
+**Sprint Planning 2**
+
+| Sprint # | Sprint 2 |
+|---|---|
+| **Sprint Planning Background** | |
+| Date | _Pendiente de completar._ |
+| Time | _Pendiente de completar._ |
+| Location | _Pendiente de completar._ |
+| Prepared By | Guerrero Tomas, Nelson Fabrizio |
+| Attendees (to planning meeting) | _Pendiente de completar._ |
+| Sprint 1 Review Summary | Se entregaron los cuatro productos con las 21 historias del sprint. Al probarlos, el Product Owner pidió: evitar clientes duplicados, que la cartilla de una mascota adulta empiece desde hoy, impedir dosis fuera de orden, mostrar la edad del paciente y permitir cambiar y restablecer contraseñas. |
+| Sprint 1 Retrospective Summary | Acierto: verificar contra la base real encontró dos defectos antes de entregar. Mejora: automatizar esas verificaciones como pruebas. _Pendiente de completar: opiniones de los integrantes._ |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | Nuestro foco está en que la información de VetPass sea confiable desde el registro y que la plataforma esté en internet. Creemos que entrega a la clínica clientes sin duplicados y cartillas que indican qué aplicar desde hoy, y al dueño control de su contraseña. Se confirmará cuando la clínica no pueda registrar dos veces un documento, una mascota adulta reciba su esquema desde el día de registro, el dueño cambie su contraseña en el celular y los productos respondan en sus URL públicas. |
+| Sprint 2 Velocity | 6 Story Points, más la mejora de cuatro historias ya entregadas y el despliegue |
+| Sum of Story Points | 6 Story Points (US17 y US18) |
+
+**Aspect Leaders and Collaborators**
+
+| Team Member | GitHub Username | RESTful API | Aplicación web | Aplicación móvil | Despliegue |
+|---|---|---|---|---|---|
+| Guerrero Tomas, Nelson Fabrizio | Nelsoondev | L | L | L | L |
+| _Pendiente de completar._ | | | | | |
+
+**Sprint Backlog 2**
+
+Objetivo: reglas de negocio más estrictas, gestión de contraseñas y despliegue en producción.
+
+_Pendiente de completar: captura y URL público del tablero del sprint._
+
+| User Story Id | User Story Title | Task Id | Task Title | Description | Estimation (Hours) | Assigned To | Status |
+|---|---|---|---|---|---|---|---|
+| US06 | Registro de cliente | T01 | Teléfono peruano | Solo celulares y fijos del Perú, guardados en formato E.164. | 2 | Nelson Guerrero | Done |
+| US06 | Registro de cliente | T02 | Documento único | DNI o carné de extranjería, único por clínica. | 4 | Nelson Guerrero | Done |
+| US07 | Registro de mascota | T03 | Fecha de nacimiento plausible | Edad máxima por especie. | 1 | Nelson Guerrero | Done |
+| US09 | Generación de la cartilla | T04 | Cartilla desde hoy | Fechas esperadas que nunca son anteriores al registro. | 3 | Nelson Guerrero | Done |
+| US10 | Registro de dosis | T05 | Dosis en orden | Cada vacuna se registra en orden; se admiten dosis antiguas con su fecha real. | 4 | Nelson Guerrero | Done |
+| US08 | Búsqueda de paciente | T06 | Columna Edad | Edad en meses y días en la lista de pacientes. | 1 | Nelson Guerrero | Done |
+| US17 | Cambio de contraseña del dueño | T07 | Cambio de contraseña | Endpoint, pantalla en el Perfil y cambio obligatorio tras una contraseña temporal. | 6 | Nelson Guerrero | Done |
+| US18 | Restablecimiento por la clínica | T08 | Restablecer contraseña | Endpoint y columna Contraseña en la vista de clientes. | 4 | Nelson Guerrero | Done |
+| — | Despliegue | T09 | Contenedor de la API | Dockerfile, puerto, CORS y endpoint de salud. | 3 | Nelson Guerrero | Done |
+| — | Despliegue | T10 | Publicación en Vercel | Repositorio en GitHub, proyectos de Vercel y variables de entorno. | 3 | Nelson Guerrero | Done |
+| — | Despliegue | T11 | Release de la app móvil | APK de release publicado en GitHub (v1.0.0). | 1 | Nelson Guerrero | Done |
+| — | Términos y condiciones | T12 | Acuerdo de servicio SaaS | Publicado en la landing y enlazado desde la web. | 2 | Nelson Guerrero | Done |
+
+**Development Evidence for Sprint Review**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 69c7815 | feat: telefonos solo del Peru y fechas de nacimiento plausibles | Dos reglas nuevas del contexto Patients. | 06/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 9e5b570 | feat: cliente unico por documento, cartilla al dia, edad y contrasenas | Documento único, cartilla desde hoy, dosis en orden, edad y contraseñas. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 4fcb827 | chore: preparar el despliegue en Vercel | Contenedor de la API y configuración de Vercel. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 15e0d57 | docs: la contrasena de las cuentas de demostracion no esta en el repositorio | — | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 756600c | docs: enlaces del despliegue en el README | — | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 05bf43c | docs: despliegue automatico por carpeta y arranque en frio medido | — | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 61361df | feat: acuerdo de servicio SaaS publicado y documentacion de la API en produccion | Términos en la landing y Swagger en producción. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | main | 4d00c89 | docs(api): declarar en OpenAPI el 409 por documento de cliente repetido | — | 07/10/2026 |
+
+**Testing Suite Evidence for Sprint Review**
+
+Aún no hay pruebas automatizadas en el repositorio. Antes de cada commit se verificaron los criterios con scripts: 61 comprobaciones contra la API, 31 en el navegador sobre la aplicación web y pruebas de la app móvil en el emulador. Esos scripts se convertirán en la suite del capítulo VI.
+
+**Software Deployment Evidence for Sprint Review**
+
+En este sprint se publicaron los cuatro productos:
+
+1. Se creó el repositorio en la organización de GitHub.
+2. Se crearon en Vercel los proyectos `vetpass-landing`, `vetpass-web` y `vetpass-api`, enlazados al repositorio.
+3. Se configuraron las variables de entorno y se cambió la contraseña de las cuentas de demostración, que estaba en el código.
+4. Se publicó el APK en la release v1.0.0.
+
+Desde entonces, cada push a `main` despliega solo los productos que cambiaron. La configuración se detalla en la sección 5.1.4.
+
+_Pendiente de completar: capturas del panel de Vercel._
 
 ### 5.2.2. Implemented Landing Page Evidence
 
-_Pendiente de completar._
+La landing presenta VetPass a clínicas y dueños de mascotas, en español e inglés y con diseño responsive. Su botón de acceso lleva a la aplicación web y su pie enlaza a los términos y a la política de privacidad.
+
+URL: https://vetpass-landing.vercel.app
+
+![Landing page en escritorio](./img/cap%205/5.2.2-landing-escritorio-es.png)
+
+*Figura 5.2. Landing page en escritorio.*
+
+![Landing page en inglés](./img/cap%205/5.2.2-landing-escritorio-en.png)
+
+*Figura 5.3. Landing page en inglés.*
+
+<p align="center"><img src="./img/cap%205/5.2.2-landing-movil.png" alt="Landing page en celular" width="300"></p>
+
+*Figura 5.4. Landing page en un celular.*
 
 ### 5.2.3. Implemented Frontend-Web Application Evidence
 
-_Pendiente de completar._
+La aplicación web es la herramienta del personal de la clínica. Permite:
+
+- Iniciar sesión.
+- Buscar pacientes por nombre y filtrarlos por especie y estado de cartilla, con su edad.
+- Registrar clientes, validando el documento y el teléfono, y registrar mascotas.
+- Ver la cartilla y registrar dosis, con validación de edad mínima, intervalo y orden.
+- Registrar atenciones y recetas, y consultar el historial.
+- Dar acceso a la app móvil y restablecer contraseñas.
+
+URL: https://vetpass-web.vercel.app
+
+![Acceso](./img/cap%205/5.2.3-web-acceso.png)
+
+*Figura 5.5. Acceso del personal de la clínica.*
+
+![Pacientes](./img/cap%205/5.2.3-web-pacientes.png)
+
+*Figura 5.6. Lista de pacientes con estado de cartilla y edad.*
+
+![Registro de paciente](./img/cap%205/5.2.3-web-registro-paciente.png)
+
+*Figura 5.7. Registro de un cliente nuevo y su mascota.*
+
+![Cartilla](./img/cap%205/5.2.3-web-cartilla.png)
+
+*Figura 5.8. Cartilla de vacunación. Las dosis que esperan a otra muestran cuál va primero.*
+
+![Registro de dosis](./img/cap%205/5.2.3-web-registro-dosis-validacion.png)
+
+*Figura 5.9. Registro de dosis: la regla de edad mínima avisa antes de enviar.*
+
+![Historial](./img/cap%205/5.2.3-web-historial.png)
+
+*Figura 5.10. Historial de atenciones con receta.*
+
+![Clientes](./img/cap%205/5.2.3-web-clientes.png)
+
+*Figura 5.11. Clientes con su documento, acceso a la app y restablecimiento de contraseña.*
+
+<p align="center"><img src="./img/cap%205/5.2.3-web-pacientes-movil.png" alt="Aplicación web en celular" width="300"></p>
+
+*Figura 5.12. La aplicación web en un celular.*
 
 ### 5.2.4. Acuerdo de Servicio - SaaS
 
-_Pendiente de completar._
+El acuerdo establece los derechos, obligaciones y restricciones de quienes usan VetPass. Está publicado en español e inglés en la página de términos y condiciones, enlazada desde el pie de la landing y desde la aplicación web.
+
+URL: https://vetpass-landing.vercel.app/terminos.html
+
+| # | Cláusula | Contenido |
+|---|---|---|
+| 1 | Partes | PawCode Studio provee la plataforma; la clínica la contrata; el personal registra y el dueño consulta. |
+| 2 | Alcance del servicio | Registro de clientes, mascotas, cartillas, dosis, atenciones y recetas. No reemplaza al veterinario. |
+| 3 | Cuentas y credenciales | Son personales. La clínica entrega una contraseña temporal que el dueño cambia al ingresar; puede restablecerla, pero no verla. |
+| 4 | Derechos de los usuarios | El dueño consulta la información de sus mascotas y pide correcciones. Derechos de acceso, rectificación, cancelación y oposición según la Ley N.° 29733. |
+| 5 | Obligaciones de la clínica | Registrar información veraz, obtener el consentimiento de sus clientes y cuidar las credenciales de su personal. |
+| 6 | Obligaciones del dueño | Cuidar su contraseña y avisar a la clínica de cualquier error. |
+| 7 | Restricciones de uso | No acceder a datos ajenos, no registrar información falsa, no eludir la seguridad, no extraer datos de forma automatizada. |
+| 8 | Reglas del esquema | La plataforma valida las dosis según WSAVA; la decisión clínica es del veterinario. |
+| 9 | Datos personales | La clínica es titular de los datos y PawCode Studio, encargado del tratamiento. Los datos se alojan en Supabase y Vercel, en Estados Unidos. No se venden ni se ceden. |
+| 10 | Disponibilidad | Servicio en etapa piloto, sin nivel de servicio garantizado. |
+| 11 | Propiedad intelectual | El software es de PawCode Studio; la información clínica, de la clínica y sus clientes. |
+| 12 | Suspensión y terminación | Se suspende a quien incumpla. La clínica puede terminar el servicio y pedir una copia de su información. |
+| 13 | Limitación de responsabilidad | PawCode Studio no responde por decisiones clínicas ni por datos mal registrados. |
+| 14 | Modificaciones | Se publican en la misma página con su fecha. |
+| 15 | Ley aplicable y consultas | Leyes del Perú y Código de Protección y Defensa del Consumidor. El dueño consulta a su clínica y la clínica a PawCode Studio. |
+
+![Términos y condiciones](./img/cap%205/5.2.4-terminos-saas.png)
+
+*Figura 5.13. Acuerdo de servicio publicado en la landing.*
 
 ### 5.2.5. Implemented Native-Mobile Application Evidence
 
-_Pendiente de completar._
+La aplicación móvil es para el dueño de la mascota. Permite ver la cartilla y el historial de cada mascota, revisar las recetas, cambiar la contraseña y elegir el idioma. Es solo de consulta: la información la registra la clínica.
+
+Descarga para Android: https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/releases/latest/download/vetpass.apk
+
+<p align="center">
+<img src="./img/cap%205/5.2.5-movil-mis-mascotas.png" alt="Mis mascotas" width="200">
+<img src="./img/cap%205/5.2.5-movil-cartilla.png" alt="Cartilla" width="200">
+<img src="./img/cap%205/5.2.5-movil-historial.png" alt="Historial" width="200">
+</p>
+
+*Figura 5.14. Mis mascotas, cartilla vencida e historial.*
+
+<p align="center">
+<img src="./img/cap%205/5.2.5-movil-atencion-receta.png" alt="Atención con receta" width="200">
+<img src="./img/cap%205/5.2.5-movil-perfil.png" alt="Perfil" width="200">
+<img src="./img/cap%205/5.2.5-movil-cambiar-contrasena.png" alt="Cambiar contraseña" width="200">
+</p>
+
+*Figura 5.15. Detalle de una atención con receta, perfil y cambio de contraseña.*
+
+![Release v1.0.0](./img/cap%205/5.2.5-github-release-apk.png)
+
+*Figura 5.16. Release v1.0.0 con el APK.*
 
 ### 5.2.6. Implemented RESTful API and/or Serverless Backend Evidence
 
-_Pendiente de completar._
+La RESTful API concentra las reglas del negocio: las aplicaciones solo presentan lo que ella valida. Está hecha en ASP.NET Core con C#, organizada en cuatro bounded contexts, y corre como contenedor en Vercel. Usa PostgreSQL y Supabase Auth.
+
+URL base: https://vetpass-api.vercel.app/api/v1
+
+| Bounded Context | Responsabilidad | Endpoints |
+|---|---|---|
+| IAM | Inicio de sesión, cuentas y contraseñas | 7 |
+| Patients | Clientes, mascotas y búsqueda | 7 |
+| Vaccination | Cartilla y registro de dosis | 2 |
+| Medical Records | Atenciones y recetas | 4 |
+
+Cada error responde con ProblemDetails y un código estable que las aplicaciones traducen: por ejemplo, `minimum-age-not-reached`, `dose-out-of-order` o `duplicate-client`.
+
+El endpoint de salud confirma que la API está en línea y que calcula las fechas con la hora de Lima:
+
+![Health](./img/cap%205/5.2.6-api-health.png)
+
+*Figura 5.17. Respuesta de `GET /api/v1/health` en producción.*
 
 ### 5.2.7. RESTful API documentation
 
-_Pendiente de completar._
+La API se documenta con OpenAPI 3.0 y Swagger UI. La documentación está publicada en producción.
+
+- Swagger UI: https://vetpass-api.vercel.app/swagger
+- OpenAPI: https://vetpass-api.vercel.app/swagger/v1/swagger.json
+
+Todas las rutas parten de `https://vetpass-api.vercel.app/api/v1` y, salvo el inicio de sesión, exigen el token en la cabecera `Authorization: Bearer <token>`.
+
+| Endpoint | Verbo | Acción | Parámetros | Respuesta |
+|---|---|---|---|---|
+| `/authentication/sign-in` | POST | Iniciar sesión | Cuerpo: `email`, `password` | 200 con el token y el usuario · 401 |
+| `/authentication/refresh` | POST | Renovar la sesión | Cuerpo: `refreshToken` | 200 · 401 |
+| `/authentication/me` | GET | Usuario de la sesión | — | 200 |
+| `/authentication/staff-accounts` | POST | Crear cuenta de personal | Cuerpo: `email`, `fullName` | 201 con contraseña temporal · 403 |
+| `/authentication/owner-accounts` | POST | Dar acceso móvil a un cliente | Cuerpo: `email`, `fullName`, `clientId` | 201 con contraseña temporal · 403 |
+| `/authentication/password` | POST | Cambiar la propia contraseña | Cuerpo: `currentPassword`, `newPassword` | 204 · 400 |
+| `/authentication/owner-accounts/{clientId}/password-reset` | POST | Restablecer la contraseña de un dueño | Ruta: `clientId` | 200 con contraseña temporal · 404 |
+| `/clients` | POST | Registrar cliente | Cuerpo: `fullName`, `documentType`, `documentNumber`, `phoneNumber`, `email` | 201 · 400 · 409 si el documento existe |
+| `/clients` | GET | Listar clientes | — | 200 |
+| `/clients/{id}` | GET | Ver un cliente | Ruta: `id` | 200 · 404 |
+| `/pets` | POST | Registrar mascota y generar su cartilla | Cuerpo: `clientId`, `name`, `species`, `breed`, `sex`, `birthDate` | 201 · 400 · 404 |
+| `/pets` | GET | Buscar pacientes | Consulta: `search`, `species`, `cardStatus` | 200 |
+| `/pets/{id}` | GET | Ver un paciente | Ruta: `id` | 200 · 403 · 404 |
+| `/me/pets` | GET | Mascotas del dueño | — | 200 · 403 |
+| `/pets/{petId}/vaccination-card` | GET | Ver la cartilla | Ruta: `petId` | 200 · 403 · 404 |
+| `/pets/{petId}/vaccination-card/doses/{doseId}/application` | POST | Registrar una dosis | Ruta: `petId`, `doseId` · Cuerpo: `applicationDate`, `batchCode` y `veterinarianId` opcional | 201 · 400 · 422 si incumple una regla |
+| `/pets/{petId}/visits` | GET | Historial del paciente | Ruta: `petId` | 200 · 403 · 404 |
+| `/pets/{petId}/visits` | POST | Registrar atención | Ruta: `petId` · Cuerpo: `visitDate`, `reason`, `findings`, `diagnosis`, `treatment`, `weightKg` y `prescription` opcional | 201 · 400 · 404 |
+| `/visits/{id}` | GET | Ver una atención | Ruta: `id` | 200 · 403 · 404 |
+| `/visits/{id}/prescription` | POST | Emitir receta | Ruta: `id` · Cuerpo: `items` (medicamento, dosificación, duración) | 201 · 400 · 404 |
+
+Ejemplo real: registrar hoy la antirrábica de Rocky, que tiene 9 semanas, responde 422 e indica desde cuándo se admite.
+
+```http
+POST /api/v1/pets/{petId}/vaccination-card/doses/{doseId}/application
+{ "applicationDate": "2026-10-07", "batchCode": "R-1300" }
+```
+
+```json
+{
+  "status": 422,
+  "title": "Regla del esquema incumplida",
+  "detail": "Edad mínima no alcanzada. La mascota tiene 9 semanas y la vacuna exige un mínimo de 12 semanas. La fecha más temprana admisible es el 28/10/2026.",
+  "code": "minimum-age-not-reached",
+  "ageInWeeks": 9,
+  "requiredWeeks": 12,
+  "earliestAdmissibleDate": "2026-10-28"
+}
+```
+
+Ejemplo real: registrar un cliente con un DNI que ya existe responde 409 y nombra al cliente registrado.
+
+```json
+{
+  "status": 409,
+  "title": "Registro duplicado",
+  "detail": "Ya existe un cliente con el documento 45879123: Valeria Campos.",
+  "code": "duplicate-client",
+  "existingClientName": "Valeria Campos"
+}
+```
+
+![Swagger UI](./img/cap%205/5.2.7-swagger-ui.png)
+
+*Figura 5.18. Swagger UI de la API en producción.*
+
+Commits relacionados con la documentación: `d676d57`, `61361df` y `4d00c89`.
 
 ### 5.2.8. Team Collaboration Insights
 
-_Pendiente de completar._
+A la fecha, el repositorio tiene 22 commits en dos tramos: la construcción de los productos (18 y 19 de septiembre) y las mejoras con el despliegue (6 y 7 de octubre). GitHub atribuye los commits a la cuenta GuerreroPR, y muestra a Claude como coautor porque el desarrollo se hizo con ese asistente de IA.
+
+_Pendiente de completar: aporte de cada integrante del equipo en cada producto._
+
+![Contribuidores](./img/cap%205/5.2.8-github-contributors.png)
+
+*Figura 5.19. Contribuidores del repositorio.*
+
+![Actividad de commits](./img/cap%205/5.2.8-github-commit-activity.png)
+
+*Figura 5.20. Commits por semana.*
+
+![Frecuencia de código](./img/cap%205/5.2.8-github-code-frequency.png)
+
+*Figura 5.21. Líneas añadidas y eliminadas por semana.*
+
+![Historial de commits](./img/cap%205/5.2.8-github-commits.png)
+
+*Figura 5.22. Historial de commits en `main`.*
 
 ## 5.3. Video About-the-Product
 
-_Pendiente de completar._
+El video presenta VetPass a los visitantes de la landing y a los usuarios de las aplicaciones. Debe incluir al menos un testimonio de un participante de las entrevistas de validación (sección 6.3).
+
+Contenido sugerido:
+
+1. El problema: la cartilla de papel que se pierde.
+2. La solución: la clínica registra y el dueño consulta.
+3. Demostración de la aplicación web: registrar una mascota y una dosis.
+4. Demostración de la app móvil: cartilla, historial y receta.
+5. Testimonio de un usuario.
+6. Cierre e invitación a la landing.
+
+| Elemento | Valor |
+|---|---|
+| Captura del video | _Pendiente de completar._ |
+| URL en OneDrive | _Pendiente de completar._ |
+| URL en YouTube (para la landing) | _Pendiente de completar._ |
+| Duración | _Pendiente de completar._ |
 
 <div style="page-break-after: always;"></div>
 
