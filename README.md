@@ -52,6 +52,7 @@
 | 1.0 | 2026-09-11 | Guerrero Tomas Nelson Fabrizio | Creación de la estructura inicial del informe (carátula, tabla de contenidos y secciones) siguiendo el enunciado del trabajo final. |
 | 1.0 | 2026-09-16 | Berrospi Marin Angel Guillermo | Desarrollo de Entrevistas en base a los requerimientos para el avance del proyecto. |
 | 1.1 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Capítulo V: Product Implementation (configuración, sprints 1 y 2, evidencias de los productos desplegados y acuerdo de servicio SaaS). |
+| 1.2 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Secciones 6.1 Testing Suites & Validation y 7.1 Continuous Integration; historias US17 y US18 y criterios actualizados en 3.2 y 3.3. |
 
 <div style="page-break-after: always;"></div>
 
@@ -1253,7 +1254,7 @@ En este capítulo se especifican los requisitos de los productos digitales a par
 ## 3.2. User Stories
 
 A partir de los To-Be Scenario Maps se identificaron los requisitos del
-producto, organizados en cinco epics. El conjunto se compone de dieciséis
+producto, organizados en cinco epics. El conjunto se compone de dieciocho
 User Stories orientadas a los usuarios finales, cuatro Technical Stories
 correspondientes a la RESTful API, y dos Spike Stories de investigación
 previa. El alcance se definió de forma deliberadamente acotada, de modo
@@ -1278,17 +1279,19 @@ que cada historia resulte verificable mediante pruebas automatizadas.
 | US03 | Visitante | Alta | EP01 | Acceso a la aplicación web desde la landing page | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. | **E1: Redirección a la aplicación**<br>Dado que el visitante se encuentra en la landing page<br>Cuando selecciona la acción de ingreso<br>Entonces el sistema lo dirige a la aplicación web de la clínica. |
 | US04 | Personal de clínica | Media | EP02 | Autenticación del personal de la clínica | Como personal de la clínica, deseo iniciar sesión en la aplicación web, para acceder a la información de mis pacientes. | **E1: Credenciales válidas**<br>Dado que el usuario está registrado en el sistema<br>Cuando envía sus credenciales correctas<br>Entonces el sistema le concede acceso con permisos de registro y consulta.<br><br>**E2: Credenciales inválidas**<br>Dado que el usuario no está registrado o sus credenciales no coinciden<br>Cuando envía sus credenciales<br>Entonces el sistema deniega el acceso y no expone información de pacientes. |
 | US05 | Dueño de mascota | Media | EP02 | Autenticación del dueño en la aplicación móvil | Como dueño de mascota, deseo iniciar sesión en la aplicación móvil, para consultar la información de mis mascotas. | **E1: Acceso concedido**<br>Dado que el dueño fue registrado por una clínica<br>Cuando envía sus credenciales correctas<br>Entonces el sistema le concede acceso con permisos de consulta únicamente.<br><br>**E2: Aislamiento de información**<br>Dado que el dueño tiene una sesión activa<br>Cuando solicita información de una mascota que no le pertenece<br>Entonces el sistema deniega la solicitud. |
-| US06 | Personal de clínica | Alta | EP03 | Registro de cliente | Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. | **E1: Registro exitoso**<br>Dado que el personal de la clínica ingresa los datos obligatorios del cliente<br>Cuando confirma el registro<br>Entonces el sistema crea el cliente y lo asocia a la clínica.<br><br>**E2: Datos incompletos**<br>Dado que el personal omite un dato obligatorio<br>Cuando intenta confirmar el registro<br>Entonces el sistema rechaza la operación e informa el dato faltante. |
+| US06 | Personal de clínica | Alta | EP03 | Registro de cliente | Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. | **E1: Registro exitoso**<br>Dado que el personal de la clínica ingresa los datos obligatorios del cliente, incluido su DNI o carné de extranjería<br>Cuando confirma el registro<br>Entonces el sistema crea el cliente y lo asocia a la clínica.<br><br>**E2: Datos incompletos**<br>Dado que el personal omite un dato obligatorio<br>Cuando intenta confirmar el registro<br>Entonces el sistema rechaza la operación e informa el dato faltante.<br><br>**E3: Teléfono no peruano**<br>Dado que el personal ingresa un teléfono que no corresponde a un número peruano válido<br>Cuando intenta confirmar el registro<br>Entonces el sistema rechaza la operación e indica el formato admitido.<br><br>**E4: Documento ya registrado**<br>Dado que el documento de identidad ingresado pertenece a un cliente de la clínica<br>Cuando el personal intenta confirmar el registro<br>Entonces el sistema rechaza la operación, identifica al cliente existente y permite continuar con él. |
 | US07 | Personal de clínica | Alta | EP03 | Registro de mascota | Como personal de la clínica, deseo registrar una mascota asociada a un cliente, indicando su especie y fecha de nacimiento, para incorporarla como paciente. | **E1: Registro exitoso**<br>Dado que existe un cliente registrado<br>Cuando se registra una mascota con especie canina o felina y fecha de nacimiento válida<br>Entonces el sistema crea la mascota y la asocia al cliente.<br><br>**E2: Especie no soportada**<br>Dado que se intenta registrar una mascota de una especie distinta de canina o felina<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación.<br><br>**E3: Fecha de nacimiento futura**<br>Dado que se ingresa una fecha de nacimiento posterior a la fecha actual<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación. |
 | US08 | Personal de clínica | Alta | EP03 | Búsqueda de paciente | Como personal de la clínica, deseo localizar a una mascota por su nombre o por el de su dueño, para acceder a su expediente al iniciar la atención. | **E1: Coincidencias encontradas**<br>Dado que existen mascotas registradas en la clínica<br>Cuando se realiza una búsqueda por nombre de mascota o de dueño<br>Entonces el sistema devuelve las coincidencias con su especie y su dueño asociado.<br><br>**E2: Sin coincidencias**<br>Dado que no existe ninguna mascota que coincida con el criterio<br>Cuando se realiza la búsqueda<br>Entonces el sistema informa que no se hallaron resultados. |
-| US09 | Personal de clínica | Alta | EP04 | Generación automática de la cartilla de vacunación | Como personal de la clínica, deseo que la cartilla de vacunación se genere automáticamente al registrar una mascota, para no tener que definir manualmente las dosis que le corresponden. | **E1: Generación según especie**<br>Dado que se registra una mascota de una especie soportada<br>Cuando el registro se completa<br>Entonces el sistema genera su cartilla con todas las dosis del esquema de su especie en estado pendiente.<br><br>**E2: Cálculo de fechas esperadas**<br>Dado que la cartilla ha sido generada<br>Cuando se consultan sus dosis pendientes<br>Entonces cada dosis presenta una fecha esperada calculada a partir de la fecha de nacimiento y la edad mínima de la vacuna. |
-| US10 | Personal de clínica | Alta | EP04 | Registro de dosis aplicada | Como personal de la clínica, deseo registrar la aplicación de una dosis indicando fecha, lote y responsable, para dejar constancia verificable en la cartilla. | **E1: Registro válido**<br>Dado que una dosis se encuentra pendiente y se cumplen las reglas del esquema<br>Cuando se registra su aplicación con fecha, lote y veterinario responsable<br>Entonces el sistema marca la dosis como aplicada y conserva esos datos.<br><br>**E2: Edad mínima no alcanzada**<br>Dado que la mascota no alcanza la edad mínima de la vacuna en la fecha indicada<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E3: Intervalo mínimo no cumplido**<br>Dado que no ha transcurrido el intervalo mínimo desde la dosis anterior<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E4: Fecha de aplicación futura**<br>Dado que la fecha de aplicación es posterior a la fecha actual<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro. |
+| US09 | Personal de clínica | Alta | EP04 | Generación automática de la cartilla de vacunación | Como personal de la clínica, deseo que la cartilla de vacunación se genere automáticamente al registrar una mascota, para no tener que definir manualmente las dosis que le corresponden. | **E1: Generación según especie**<br>Dado que se registra una mascota de una especie soportada<br>Cuando el registro se completa<br>Entonces el sistema genera su cartilla con todas las dosis del esquema de su especie en estado pendiente.<br><br>**E2: Cálculo de fechas esperadas**<br>Dado que la cartilla ha sido generada<br>Cuando se consultan sus dosis pendientes<br>Entonces cada dosis presenta una fecha esperada calculada a partir de la fecha de nacimiento, la edad mínima de la vacuna y el intervalo desde la dosis anterior de la misma vacuna, nunca anterior a la fecha de registro.<br><br>**E3: Mascota que ya superó la edad de las primeras dosis**<br>Dado que se registra una mascota adulta o cuyo historial de vacunación se desconoce<br>Cuando se genera su cartilla<br>Entonces la primera dosis de cada vacuna se espera en la fecha de registro y las siguientes conservan sus intervalos a partir de ella. |
+| US10 | Personal de clínica | Alta | EP04 | Registro de dosis aplicada | Como personal de la clínica, deseo registrar la aplicación de una dosis indicando fecha, lote y responsable, para dejar constancia verificable en la cartilla. | **E1: Registro válido**<br>Dado que una dosis se encuentra pendiente y se cumplen las reglas del esquema<br>Cuando se registra su aplicación con fecha, lote y veterinario responsable<br>Entonces el sistema marca la dosis como aplicada y conserva esos datos.<br><br>**E2: Edad mínima no alcanzada**<br>Dado que la mascota no alcanza la edad mínima de la vacuna en la fecha indicada<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E3: Intervalo mínimo no cumplido**<br>Dado que no ha transcurrido el intervalo mínimo desde la dosis anterior<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E4: Fecha de aplicación futura**<br>Dado que la fecha de aplicación es posterior a la fecha actual<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro.<br><br>**E5: Dosis fuera de orden**<br>Dado que una dosis anterior de la misma vacuna aún no ha sido aplicada<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la dosis que debe registrarse primero. Dosis de vacunas distintas pueden registrarse el mismo día.<br><br>**E6: Dosis aplicada antes del registro**<br>Dado que la dosis se aplicó antes de que la mascota fuera registrada en la plataforma<br>Cuando se registra con su fecha real y esta cumple la edad mínima y el intervalo<br>Entonces el sistema la acepta y programa las siguientes dosis de esa vacuna a partir de la fecha actual. |
 | US11 | Personal de clínica | Alta | EP04 | Consulta del estado de la cartilla | Como personal de la clínica, deseo conocer el estado de la cartilla de un paciente, para determinar qué le corresponde antes de atenderlo. | **E1: Cartilla al día**<br>Dado que todas las dosis exigibles a la fecha están aplicadas<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como al día.<br><br>**E2: Cartilla pendiente**<br>Dado que existen dosis no aplicadas cuya fecha esperada aún no ha vencido<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como pendiente e indica la próxima dosis.<br><br>**E3: Cartilla vencida**<br>Dado que existe al menos una dosis no aplicada cuya fecha esperada ya transcurrió<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como vencida. |
 | US12 | Dueño de mascota | Alta | EP04 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | **E1: Consulta de la cartilla**<br>Dado que el dueño tiene una sesión activa y mascotas asociadas<br>Cuando selecciona una de sus mascotas<br>Entonces el sistema presenta su cartilla con las dosis aplicadas, las pendientes y el estado general.<br><br>**E2: Diferenciación entre mascotas**<br>Dado que el dueño tiene más de una mascota asociada<br>Cuando consulta el listado de sus mascotas<br>Entonces el sistema presenta el estado de cartilla de cada una de forma individual. |
 | US13 | Personal de clínica | Alta | EP05 | Registro de atención veterinaria | Como personal de la clínica, deseo registrar una atención con motivo, hallazgos, diagnóstico y tratamiento, para conservar el historial del paciente. | **E1: Registro exitoso**<br>Dado que existe una mascota registrada<br>Cuando se registra una atención con los campos obligatorios completos<br>Entonces el sistema la incorpora al historial de la mascota con su fecha y el veterinario responsable.<br><br>**E2: Campos obligatorios incompletos**<br>Dado que se omite el motivo de consulta o el diagnóstico<br>Cuando se intenta registrar la atención<br>Entonces el sistema rechaza la operación. |
 | US14 | Personal de clínica | Alta | EP05 | Consulta del historial del paciente | Como personal de la clínica, deseo consultar las atenciones previas de un paciente ordenadas cronológicamente, para decidir con información completa. | **E1: Historial con registros**<br>Dado que la mascota tiene atenciones registradas<br>Cuando se consulta su historial<br>Entonces el sistema presenta las atenciones en orden cronológico descendente.<br><br>**E2: Historial vacío**<br>Dado que la mascota no tiene atenciones registradas<br>Cuando se consulta su historial<br>Entonces el sistema informa que no existen atenciones previas. |
 | US15 | Personal de clínica | Media | EP05 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | **E1: Emisión exitosa**<br>Dado que existe una atención registrada<br>Cuando se emite una receta con al menos un medicamento, su dosificación y su duración<br>Entonces el sistema la asocia a esa atención y la hace visible para el dueño de la mascota.<br><br>**E2: Receta sin medicamentos**<br>Dado que se intenta emitir una receta sin ningún medicamento<br>Cuando se confirma la emisión<br>Entonces el sistema rechaza la operación. |
 | US16 | Dueño de mascota | Media | EP05 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | **E1: Consulta del historial**<br>Dado que el dueño tiene una sesión activa<br>Cuando accede al historial de una de sus mascotas<br>Entonces el sistema presenta sus atenciones en orden cronológico descendente.<br><br>**E2: Consulta de una receta**<br>Dado que una atención tiene una receta asociada<br>Cuando el dueño accede a esa atención<br>Entonces el sistema presenta la receta con sus medicamentos, dosificación y duración. |
+| US17 | Dueño de mascota | Media | EP02 | Cambio de contraseña del dueño | Como dueño de mascota, deseo cambiar mi contraseña desde la aplicación móvil, para que solo yo conozca la clave de acceso a la información de mis mascotas. | **E1: Cambio exitoso**<br>Dado que el dueño tiene una sesión activa<br>Cuando ingresa su contraseña actual y una nueva que cumple la política de contraseñas<br>Entonces el sistema reemplaza la contraseña y la anterior deja de ser válida.<br><br>**E2: Contraseña actual incorrecta**<br>Dado que el dueño ingresa una contraseña actual que no coincide<br>Cuando solicita el cambio<br>Entonces el sistema rechaza la operación sin cerrar su sesión.<br><br>**E3: Contraseña débil**<br>Dado que la contraseña nueva tiene menos de ocho caracteres, no combina letras y números o es igual a la actual<br>Cuando el dueño solicita el cambio<br>Entonces el sistema rechaza la operación e indica la política incumplida.<br><br>**E4: Contraseña temporal**<br>Dado que el dueño ingresa con una contraseña temporal entregada por la clínica<br>Cuando inicia sesión<br>Entonces la aplicación le exige elegir una contraseña propia antes de mostrar sus mascotas. |
+| US18 | Personal de clínica | Media | EP02 | Restablecimiento de contraseña por la clínica | Como personal de la clínica, deseo restablecer la contraseña de un cliente que la olvidó, para que recupere el acceso a la aplicación móvil sin que la clínica llegue a conocer la contraseña que elija. | **E1: Restablecimiento exitoso**<br>Dado que el cliente tiene acceso a la aplicación móvil<br>Cuando el personal solicita restablecer su contraseña<br>Entonces el sistema genera una contraseña temporal, la muestra una sola vez y la anterior deja de ser válida.<br><br>**E2: Contraseña no visible**<br>Dado que el personal consulta la lista de clientes<br>Cuando revisa el acceso de un cliente<br>Entonces el sistema no muestra su contraseña, porque no la conserva de forma legible.<br><br>**E3: Cliente sin acceso**<br>Dado que el cliente no tiene acceso a la aplicación móvil<br>Cuando se solicita restablecer su contraseña<br>Entonces el sistema rechaza la operación e indica que el cliente no tiene acceso.<br><br>**E4: Cliente de otra clínica**<br>Dado que el cliente pertenece a otra clínica<br>Cuando el personal solicita restablecer su contraseña<br>Entonces el sistema deniega la operación. |
 | TS01 | Developer | Media | EP02 | Endpoints de autenticación y autorización | Como desarrollador, deseo exponer los endpoints de autenticación y autorización de la API, para que las aplicaciones web y móvil validen la identidad y el rol del usuario. | **E1: Autenticación válida**<br>Dado que se envía una solicitud POST al endpoint de autenticación con credenciales válidas<br>Cuando la API procesa la solicitud<br>Entonces responde con código 200 y un token de acceso con el rol del usuario.<br><br>**E2: Credenciales inválidas**<br>Dado que se envía una solicitud con credenciales incorrectas<br>Cuando la API procesa la solicitud<br>Entonces responde con código 401.<br><br>**E3: Acceso no autorizado**<br>Dado que se solicita un recurso que excede los permisos del rol<br>Cuando la API procesa la solicitud<br>Entonces responde con código 403. |
 | TS02 | Developer | Alta | EP03 | Endpoints de clientes y mascotas | Como desarrollador, deseo exponer los endpoints de gestión de clientes y mascotas, para que la aplicación web registre y consulte esta información. | **E1: Creación exitosa**<br>Dado que se envía una solicitud POST con los datos válidos de una mascota<br>Cuando la API procesa la solicitud<br>Entonces responde con código 201 y el recurso creado.<br><br>**E2: Datos inválidos**<br>Dado que se envía una solicitud con una especie no soportada<br>Cuando la API procesa la solicitud<br>Entonces responde con código 400 y el detalle de la validación incumplida.<br><br>**E3: Recurso inexistente**<br>Dado que se solicita una mascota que no existe<br>Cuando la API procesa la solicitud<br>Entonces responde con código 404. |
 | TS03 | Developer | Alta | EP04 | Endpoints de cartilla de vacunación | Como desarrollador, deseo exponer los endpoints de consulta de la cartilla y de registro de dosis, para que ambas aplicaciones operen sobre el esquema de vacunación. | **E1: Consulta de cartilla**<br>Dado que se envía una solicitud GET de la cartilla de una mascota existente<br>Cuando la API procesa la solicitud<br>Entonces responde con código 200, las dosis y el estado de la cartilla.<br><br>**E2: Registro de dosis válido**<br>Dado que se envía una solicitud POST de aplicación de dosis que cumple las reglas del esquema<br>Cuando la API procesa la solicitud<br>Entonces responde con código 201.<br><br>**E3: Regla del esquema incumplida**<br>Dado que la solicitud incumple la edad mínima o el intervalo entre dosis<br>Cuando la API procesa la solicitud<br>Entonces responde con código 422 y la regla incumplida. |
@@ -1314,7 +1317,7 @@ después del core, dado que habilitan el acceso al producto pero no
 constituyen por sí mismas valor para el usuario. Finalmente se situaron
 las historias de la aplicación móvil y las de recetas médicas.
 
-El backlog totaliza 80 Story Points distribuidos en veintidós historias.
+El backlog totaliza 86 Story Points distribuidos en veinticuatro historias.
 
 | # Orden | User Story ID | Título | Descripción | Story Points |
 |---|---|---|---|---|
@@ -1337,9 +1340,11 @@ El backlog totaliza 80 Story Points distribuidos en veintidós historias.
 | 17 | US04 | Autenticación del personal de la clínica | Como personal de la clínica, deseo iniciar sesión en la aplicación web, para acceder a la información de mis pacientes. | 3 |
 | 18 | TS01 | Endpoints de autenticación y autorización | Como desarrollador, deseo exponer los endpoints de autenticación y autorización de la API, para que las aplicaciones web y móvil validen la identidad y el rol del usuario. | 5 |
 | 19 | US05 | Autenticación del dueño en la aplicación móvil | Como dueño de mascota, deseo iniciar sesión en la aplicación móvil, para consultar la información de mis mascotas. | 3 |
-| 20 | US12 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | 5 |
-| 21 | US15 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | 3 |
-| 22 | US16 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | 3 |
+| 20 | US17 | Cambio de contraseña del dueño | Como dueño de mascota, deseo cambiar mi contraseña desde la aplicación móvil, para que solo yo conozca la clave de acceso a la información de mis mascotas. | 3 |
+| 21 | US18 | Restablecimiento de contraseña por la clínica | Como personal de la clínica, deseo restablecer la contraseña de un cliente que la olvidó, para que recupere el acceso a la aplicación móvil sin que la clínica llegue a conocer la contraseña que elija. | 3 |
+| 22 | US12 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | 5 |
+| 23 | US15 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | 3 |
+| 24 | US16 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | 3 |
 
 
 ## 3.4. Impact Mapping
@@ -2621,21 +2626,102 @@ Contenido sugerido:
 
 ## 6.1. Testing Suites & Validation
 
+Las pruebas viven en el repositorio, junto al código que verifican, y se ejecutan en cada push con GitHub Actions (sección 7.1). Ninguna usa la base de datos ni la autenticación de producción.
+
+| Nivel | Herramientas | Ubicación | Pruebas |
+|---|---|---|---|
+| Unitarias | xUnit v3 y Shouldly · Vitest · flutter_test | `backend/tests/VetPass.UnitTests` · `web-application/src/**/*.test.js` · `mobile-application/test` | 83 · 21 · 8 |
+| Integración | xUnit v3, Testcontainers (PostgreSQL) y Respawn | `backend/tests/VetPass.IntegrationTests` | 25 |
+| BDD | Reqnroll (Gherkin) | `backend/tests/VetPass.AcceptanceTests` | 32 escenarios |
+| Sistema | Playwright · integration_test de Flutter | `web-application/e2e` · `mobile-application/integration_test` | 9 · 3 |
+
+Repositorio: https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass (rama `feature/pruebas-ci`).
+
+```bash
+dotnet test --solution backend/VetPass.slnx     # unitarias, integración y BDD
+cd web-application && npm test && npx playwright test
+cd mobile-application && flutter test && flutter test integration_test
+```
+
 ### 6.1.1. Core Entities Unit Tests
 
-_Pendiente de completar._
+Verifican cada entidad del dominio de forma aislada, sin base de datos ni red. La fecha actual entra como parámetro, así que el resultado no depende del día en que se ejecutan.
+
+| Clase de prueba | Clase verificada | Comportamientos |
+|---|---|---|
+| `VaccinationCardTests` | `VaccinationCard` | Cartilla planificada desde la fecha de registro; rechazo de dosis ya aplicadas, futuras, fuera de orden, sin edad mínima o sin intervalo; dosis histórica que replanifica solo su serie; estado y próxima dosis. |
+| `VaccinationScheduleTests` | `VaccinationSchedule`, `BatchCode` | Fecha esperada por edad mínima; lote normalizado y obligatorio. |
+| `PhoneNumberTests` | `PhoneNumber` | Teléfonos peruanos guardados en E.164; rechazo de números extranjeros o inválidos. |
+| `IdentityDocumentTests` | `IdentityDocument` | DNI y carné de extranjería; normalización; tipo desconocido. |
+| `PetTests` | `Pet`, `Species` | Fecha de nacimiento futura o implausible; especie no soportada. |
+| `VisitTests` | `Visit`, `Prescription`, `PrescriptionItem` | Campos obligatorios; receta vacía o repetida. |
+| `UserProfileTests` | `UserProfile`, `Role`, `PasswordPolicy` | Permisos por rol; contraseña temporal; política de contraseñas. |
+| `AuthenticationCommandServiceTests` | `AuthenticationCommandService` | Cambio y restablecimiento de contraseña, con dobles en memoria. |
+
+En la web se prueban los formatos de edad, fecha, teléfono, documento y dosis, y la lectura de errores de la API. En la app móvil, la renovación automática de la sesión y la lectura de los recursos de la API.
+
+Resultado: las 112 pruebas unitarias pasan. Cobertura de líneas del backend (unitarias, integración y BDD): **88.5 %**.
 
 ### 6.1.2. Core Integration Tests
 
-_Pendiente de completar._
+Prueban la RESTful API completa, en memoria, contra un PostgreSQL real en Docker (Testcontainers). Antes de cada prueba se restaura el caso de demostración. La identidad se simula con tokens firmados igual que los de Supabase y el reloj queda fijo en el 7 de octubre de 2026.
+
+| Clase de prueba | Qué verifica |
+|---|---|
+| `PersistenceTests` | Migraciones y catálogo de vacunas; búsqueda sin distinguir mayúsculas; documento único (409), incluso con dos registros simultáneos; borrado en cascada. |
+| `SecurityTests` | 401 sin token o con token falso; el dueño solo ve sus mascotas; el personal de otra clínica no lee ni modifica datos ajenos en 11 endpoints. |
+| `ContractTests` | Los campos de error y de la cartilla que usan la web y la app móvil. |
+| `FlowTests` | Cliente → mascota → dosis → atención con receta; acceso móvil y cambio de contraseña; restablecimiento; renovación de la sesión. |
+| `ConfigurationTests` | `/health` con la hora de Lima; CORS; documento OpenAPI. |
+
+Resultado: las 25 pasan. Estas pruebas encontraron un defecto de seguridad: el personal de otra clínica podía leer y modificar pacientes ajenos. Se corrigió en el commit `00df413`.
 
 ### 6.1.3. Core Behavior-Driven Development
 
-_Pendiente de completar._
+Cada historia core tiene un archivo `.feature` en Gherkin, y cada escenario corresponde a un criterio de aceptación de la sección 3.2, con el mismo identificador. Los pasos (`Steps/`) llaman a la API por HTTP sobre el entorno de las pruebas de integración.
+
+| Feature | Historia | Escenarios |
+|---|---|---|
+| `US05-owner-access.feature` | Acceso del dueño a la app móvil | 2 |
+| `US06-register-client.feature` | Registro de cliente | 4 |
+| `US07-register-pet.feature` | Registro de mascota | 4 |
+| `US09-generate-vaccination-card.feature` | Generación de la cartilla | 4 |
+| `US10-register-applied-dose.feature` | Registro de dosis aplicada | 7 |
+| `US11-card-status.feature` | Estado de la cartilla | 3 |
+| `US17-change-password.feature` | Cambio de contraseña | 4 |
+| `US18-reset-password.feature` | Restablecimiento de contraseña | 4 |
+
+Extracto de `US10-register-applied-dose.feature`:
+
+```gherkin
+Feature: US10 - Registration of an applied dose
+
+  Background:
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+
+  Scenario: E2 - Minimum age not reached
+    When the staff registers dose 1 of "Antirrábica" for "Rocky" applied on "2026-10-07" with batch "R-1300"
+    Then the request is rejected with the code "minimum-age-not-reached"
+    And the earliest admissible date is "2026-10-28"
+
+  Scenario: E5 - Dose out of order
+    When the staff registers dose 3 of "Quíntuple" for "Rocky" applied on "2026-10-07" with batch "A-1"
+    Then the request is rejected with the code "dose-out-of-order"
+```
+
+Resultado: los 32 escenarios pasan.
 
 ### 6.1.4. Core System Tests
 
-_Pendiente de completar._
+Verifican el sistema completo: la web y la app móvil reales contra la API y Supabase local, con una base de datos y una autenticación reales, y con el caso de demostración.
+
+| Producto | Escenarios |
+|---|---|
+| Web (Playwright, escritorio y celular) | Pacientes con estado y edad; registro de cliente y mascota adulta, con la cartilla desde hoy; dosis bloqueadas; dosis válida; atención con receta; documento repetido; acceso móvil y restablecimiento de contraseña; cambio de idioma. |
+| App móvil (emulador Android) | Cartilla, historial y receta del dueño; cambio obligatorio de la contraseña temporal; cambio de idioma y cierre de sesión. |
+
+Resultado: en la última ejecución completa del pipeline pasaron 8 de las 9 pruebas web y 1 de las 3 móviles. Los fallos restantes eran de las propias pruebas (selectores y esperas), no de la aplicación; sus ajustes están en curso en la rama `feature/pruebas-ci`.
 
 ## 6.2. Static testing & Verification
 
@@ -2707,11 +2793,55 @@ _Pendiente de completar._
 
 ### 7.1.1. Tools and Practices
 
-_Pendiente de completar._
+| Herramienta | Uso |
+|---|---|
+| GitHub Actions | Ejecuta el pipeline en cada push y pull request. |
+| `setup-dotnet`, `setup-node`, `setup-java`, `flutter-action` | Preparan .NET 10, Node 24, Java 21 y Flutter 3.47. |
+| Testcontainers | PostgreSQL desechable para las pruebas de integración y BDD. |
+| Supabase CLI | Base de datos y autenticación locales para las pruebas de sistema. |
+| Playwright · `android-emulator-runner` | Navegador y emulador Android para las pruebas de sistema. |
+| `dorny/test-reporter` · ReportGenerator | Resultados de las pruebas y cobertura en cada ejecución. |
+
+Prácticas:
+
+- Cada push a `feature/**`, `develop` o `main`, y cada pull request, ejecuta el pipeline.
+- Los productos se construyen y prueban en paralelo. Las pruebas de sistema empiezan solo si pasaron las anteriores.
+- El job `ci` resume el resultado: es el check que se exige antes de integrar.
+- Las pruebas no tocan producción: usan Testcontainers y Supabase local.
+- Las dependencias se guardan en caché, y un push nuevo cancela la ejecución anterior de la misma rama.
+- Cada ejecución publica sus resultados, la cobertura, el informe de Playwright y el APK.
+- Se aplican GitFlow y Conventional Commits (sección 5.1.2).
 
 ### 7.1.2. Build & Test Suite Pipeline Components
 
-_Pendiente de completar._
+El pipeline está en `.github/workflows/ci.yml`.
+
+```mermaid
+flowchart LR
+    push([push o pull request]) --> backend & web & mobile
+    backend[backend: build · unitarias · integración · BDD] --> sweb[system-web: Playwright]
+    web[web: Vitest · build] --> sweb
+    backend --> smob[system-mobile: emulador]
+    mobile[mobile: analyze · test · APK] --> smob
+    sweb --> ci{{ci}}
+    smob --> ci
+    backend --> ci
+    web --> ci
+    mobile --> ci
+```
+
+| Job | Cuándo corre | Pasos | Salida |
+|---|---|---|---|
+| `backend` | Siempre | .NET 10 → restore → build → unitarias, integración y BDD → resultados y cobertura | TRX e informe de cobertura |
+| `web` | Siempre | Node 24 → `npm ci` → Vitest → build | — |
+| `mobile` | Siempre | Flutter → analyze → test → APK | APK |
+| `system-web` | Si pasan `backend` y `web` | Supabase local → API con el caso de demostración → Playwright | Informe de Playwright |
+| `system-mobile` | A pedido: «Run workflow» o `[mobile-e2e]` en el commit | Supabase local → API → emulador Android → `integration_test` | — |
+| `ci` | Siempre, al final | Falla si algún job falló | — |
+
+Supabase local y la API se levantan con una acción compuesta propia, `.github/actions/start-backend`, que comparten los dos jobs de sistema.
+
+Ejecuciones del pipeline: https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions?query=branch%3Afeature%2Fpruebas-ci
 
 ## 7.2. Continuous Delivery
 
