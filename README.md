@@ -19,11 +19,15 @@
     <table style="width: max-content; border-collapse: collapse; margin: 0 auto 50px auto;">
         <thead>
             <tr>
-                <th style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202114701</th>
-                <th style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Berrospi Marin Angel Guillermo</th>
+                <th style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">Código</th>
+                <th style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Apellidos y Nombres</th>
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202114701</td>
+                <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Berrospi Marin Angel Guillermo</td>
+            </tr>
             <tr>
                 <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202222745</td>
                 <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Guerrero Tomas Nelson Fabrizio</td>
