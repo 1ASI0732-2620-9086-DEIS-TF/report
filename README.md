@@ -19,14 +19,18 @@
     <table style="width: max-content; border-collapse: collapse; margin: 0 auto 50px auto;">
         <thead>
             <tr>
-                <th style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">Código</th>
-                <th style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Apellidos y Nombres</th>
+                <th style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202114701</th>
+                <th style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Berrospi Marin Angel Guillermo</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202222745</td>
                 <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Guerrero Tomas Nelson Fabrizio</td>
+            </tr>
+            <tr>
+                <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U20221F192</td>
+                <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Saldaña De Souza, Juan David</td>
             </tr>
         </tbody>
     </table>
@@ -42,6 +46,7 @@
 | Versión | Fecha | Autor | Descripción de modificación |
 | --- | --- | --- | --- |
 | 1.0 | 2026-09-11 | Guerrero Tomas Nelson Fabrizio | Creación de la estructura inicial del informe (carátula, tabla de contenidos y secciones) siguiendo el enunciado del trabajo final. |
+| 1.0 | 2026-09-16 | Berrospi Marin Angel Guillermo | Desarrollo de Entrevistas en base a los requerimientos para el avance del proyecto. |
 | 1.1 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Capítulo V: Product Implementation (configuración, sprints 1 y 2, evidencias de los productos desplegados y acuerdo de servicio SaaS). |
 
 <div style="page-break-after: always;"></div>
@@ -333,9 +338,9 @@ conocimientos técnicos y habilidades que cada uno aporta al equipo.
 
 | Foto | Nombres y Apellidos | Código de estudiante | Carrera | Conocimientos técnicos y habilidades |
 |------|---------------------|----------------------|---------|--------------------------------------|
-| <img src="img/cap 1/profile&solutions/Guillermo.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="img/cap 1/profile&solutions/Guillermo.png" width="100"> | Berrospi Marin, Angel Guillermo | U202114701 | Ingeniería de Software |Soy estudiante de la carrera de Ingeniería de Software. Tendre el compromiso con mi equipo en ser proactivo, productivo, siempre apoyar en lo que se necesite y mantener una comunicación fluida. Cuento con conocimientos en html, css, javascript, Java y SQL, lo cual puede ser de ayuda en el desarrollo del proyecto. |
 | <img src="img/cap 1/profile&solutions/Nelson.png" width="100"> | Apellido Apellido, Nombre | U202222745 | Ingeniería de Software | Arquitectura de Software <|
-| <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Saldaña De Souza, Juan David | U20221F192 | Ingeniería de Software | Desarrollo web (Angular, Spring Boot), bases de datos relacionales y no relacionales, control de versiones con Git, y conocimientos en diseño de software orientado a objetos. |
 | <img src="assets/img/team/integrante-04.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
 | <img src="assets/img/team/integrante-05.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
 
