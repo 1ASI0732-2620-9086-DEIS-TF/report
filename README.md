@@ -3029,9 +3029,7 @@ flowchart LR
 | Comprobación de la web y la landing | `.github/workflows/post-deploy.yml` | Despliegue de producción | La página responde 200. |
 | APK final | `.github/workflows/release.yml` | Etiqueta `vX.Y.Z` | Publica `vetpass.apk` como última versión. |
 
-![Despliegues](./img/cap%207/7.3-despliegues.png)
-
-*Figura 7.2. Historial de despliegues de producción y de vista previa en GitHub.*
+_Pendiente de completar: captura del panel de despliegues de Vercel._
 
 _Pendiente de completar: enlace y captura de la primera ejecución de `post-deploy.yml`, que corre al fusionar la versión 1.1.0 en `main`._
 
