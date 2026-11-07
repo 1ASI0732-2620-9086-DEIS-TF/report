@@ -58,6 +58,7 @@
 | 1.1 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Capítulo V: Product Implementation (configuración, sprints 1 y 2, evidencias de los productos desplegados y acuerdo de servicio SaaS). |
 | 1.2 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Secciones 6.1 Testing Suites & Validation y 7.1 Continuous Integration; historias US17 y US18 y criterios actualizados en 3.2 y 3.3. |
 | 1.3 | 2026-11-06 | Guerrero Tomas Nelson Fabrizio | Corrección de 6.1 y 7.1 según el pipeline en verde; secciones 7.2 Continuous Delivery y 7.3 Continuous deployment; US07-E4 en 3.2; carátula, Student Outcome, Collaboration Insights, avance de conclusiones, bibliografía y anexos. |
+| 1.4 | 2026-11-07 | Guerrero Tomas Nelson Fabrizio | Evidencias de la primera entrega y el primer despliegue por el pipeline (versión 1.1.0) en 7.2 y 7.3. |
 
 <div style="page-break-after: always;"></div>
 
@@ -2736,7 +2737,7 @@ Prueban la RESTful API completa, en memoria, contra un PostgreSQL real en Docker
 
 La comunicación entre el frontend y el backend se verifica en dos niveles. `ContractTests` protege los campos de la API de los que dependen los clientes, y las pruebas de sistema (sección 6.1.4) ejercitan la web y la app móvil reales contra la API.
 
-Resultado: las 25 pasan. Estas pruebas encontraron un defecto de seguridad: el personal de otra clínica podía leer y modificar pacientes ajenos. Se corrigió en el commit `00df413`, y la corrección llega a producción con el hotfix 1.0.2 ([PR #1](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/pull/1)).
+Resultado: las 25 pasan. Estas pruebas encontraron un defecto de seguridad: el personal de otra clínica podía leer y modificar pacientes ajenos. Se corrigió en el commit `00df413`, y la corrección llegó a producción el 7 de noviembre de 2026 con el hotfix 1.0.2 ([PR #1](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/pull/1)).
 
 ### 6.1.3. Core Behavior-Driven Development
 
@@ -2976,11 +2977,19 @@ flowchart LR
 | Vista previa | Vercel, entorno Preview | Push a cualquier rama | URL por despliegue |
 | Release candidate | `.github/workflows/release.yml` | Etiqueta `vX.Y.Z-rc.N` | APK como pre-release |
 
-_Pendiente de completar: enlace y captura de la release candidate `v1.1.0-rc.1`, la primera entrega por este pipeline._
+La primera entrega por este pipeline fue la versión 1.1.0, el 7 de noviembre de 2026:
+
+1. La rama [`release/1.1.0`](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/pull/3) pasó el pipeline completo, con el [Stage y el emulador en verde](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/42344802458).
+2. La etiqueta `v1.1.0-rc.1` publicó el APK como [pre-release](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/releases/tag/v1.1.0-rc.1) ([ejecución](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/42346858208)), sin cambiar la última versión publicada.
+3. Una persona autorizó la publicación al fusionar el pull request hacia `main` (sección 7.3.2).
+
+![Release candidate v1.1.0-rc.1](./img/cap%207/7.2-release-candidate.png)
+
+*Figura 7.1. APK publicado como pre-release por el pipeline.*
 
 ![Pull request hacia develop](./img/cap%207/7.2-pull-request.png)
 
-*Figura 7.1. Pull request de la rama de pruebas hacia `develop`, con sus checks.*
+*Figura 7.2. Pull request de la rama de pruebas hacia `develop`, con sus checks.*
 
 ## 7.3. Continuous deployment
 
@@ -2997,7 +3006,7 @@ Cada fusión en `main` llega a producción sin más pasos manuales.
 
 Prácticas:
 
-- **Protección de `main`.** Vercel no consulta el resultado del CI: publica lo que entra a `main`. Por eso la barrera está antes, en la rama. Los administradores pueden saltarla para una emergencia, como el hotfix 1.0.2.
+- **Protección de `main`.** Vercel no consulta el resultado del CI: publica lo que entra a `main`. Por eso la barrera está antes, en la rama. Los administradores pueden saltarla en una emergencia.
 - **Despliegue por producto.** Un cambio en `backend/` reconstruye solo la API, y uno en `docs/` no reconstruye nada.
 - **Comprobación posterior.** Tras cada despliegue, `post-deploy.yml` revisa el producto publicado. Si falla, la ejecución queda en rojo en GitHub.
 - **Vuelta atrás.** *Instant Rollback* de Vercel restaura el último despliegue correcto; luego un `hotfix/` revierte el commit para que `main` coincida con lo publicado.
@@ -3029,9 +3038,22 @@ flowchart LR
 | Comprobación de la web y la landing | `.github/workflows/post-deploy.yml` | Despliegue de producción | La página responde 200. |
 | APK final | `.github/workflows/release.yml` | Etiqueta `vX.Y.Z` | Publica `vetpass.apk` como última versión. |
 
-_Pendiente de completar: captura del panel de despliegues de Vercel._
+El primer despliegue por este pipeline fue la fusión del [PR #3](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/pull/3), el 7 de noviembre de 2026:
 
-_Pendiente de completar: enlace y captura de la primera ejecución de `post-deploy.yml`, que corre al fusionar la versión 1.1.0 en `main`._
+| Producto | Qué ocurrió | Comprobación posterior |
+|---|---|---|
+| API | Vercel publicó el commit `5f35f0c`. | [`post-deploy.yml` en verde](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/42347897420) |
+| Web | Vercel publicó el commit `5f35f0c`. | [`post-deploy.yml` en verde](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/42347858635) |
+| Landing | Vercel omitió la construcción, porque su carpeta no cambió. | No corresponde: no hubo despliegue. |
+| App móvil | La etiqueta `v1.1.0` publicó el APK como [última versión](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/releases/tag/v1.1.0). | — |
+
+La comprobación de la landing aún no se ha ejecutado en el pipeline: correrá en su próximo despliegue.
+
+![Ejecución de post-deploy en producción](./img/cap%207/7.3-post-deploy.png)
+
+*Figura 7.3. Comprobación posterior disparada por el despliegue de producción de la API.*
+
+_Pendiente de completar: captura del panel de despliegues de Vercel._
 
 ## 7.4. Continuous Monitoring
 
@@ -3201,7 +3223,7 @@ Avance al Trabajo Parcial:
 
 - **Producto.** La landing, la web, la API y la app móvil cubren las 18 historias de usuario del backlog, y están desplegadas o distribuidas.
 - **Verificación.** Las 202 pruebas automatizadas pasan, con 88.9 % de cobertura de líneas en el backend. Encontraron un defecto de seguridad real que la revisión manual no había detectado, lo que justifica su costo.
-- **Pipeline.** Un cambio llega a producción solo por pull request y con el pipeline en verde. La entrega es desechable y reproducible, con las limitaciones descritas en las secciones 7.2.1 y 7.3.1.
+- **Pipeline.** Desde la versión 1.1.0, un cambio llega a producción por pull request y con el pipeline en verde, salvo que un administrador salte esa barrera en una emergencia. La entrega es desechable y reproducible, con las limitaciones descritas en las secciones 7.2.1 y 7.3.1.
 - **Validación pendiente.** Estas conclusiones cubren la verificación técnica. Los Problem Statements, Assumptions e Hypothesis Statements de la sección 1.2.2 aún no se contrastan con usuarios reales: eso corresponde a las entrevistas de validación (sección 6.3) y a los experimentos (capítulo VIII).
 
 Recomendaciones para las siguientes etapas:
