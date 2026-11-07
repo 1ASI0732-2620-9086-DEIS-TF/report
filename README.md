@@ -12,9 +12,9 @@
     <p style="margin: 10px 0 5px 0;">Docente</p>
     <h2 style="font-size: 18px; margin: 5px 0 40px 0;">Noriega Melendez, Julio Manuel</h2>
     <p style="margin: 10px 0 5px 0;">Equipo</p>
-    <h2 style="font-size: 18px; margin: 0px 0 40px 0;">Nombre de Equipo</h2>
+    <h2 style="font-size: 18px; margin: 0px 0 40px 0;">PawCode Studio</h2>
     <p style="margin: 5px;">Proyecto</p>
-    <h2 style="font-size: 18px; margin: 0px 0 30px 0;">Nombre de Proyecto</h2>
+    <h2 style="font-size: 18px; margin: 0px 0 30px 0;">VetPass</h2>
     <p style="margin: 5px;"><strong>Integrantes:</strong></p>
     <table style="width: max-content; border-collapse: collapse; margin: 0 auto 50px auto;">
         <thead>
@@ -27,6 +27,10 @@
             <tr>
                 <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202114701</td>
                 <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Berrospi Marin Angel Guillermo</td>
+            </tr>
+            <tr>
+                <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U201621281</td>
+                <td style="border: 0px; text-align: left; padding: 5px 0 5px 15px;">Cuba Pareja Joaquin</td>
             </tr>
             <tr>
                 <td style="border: 0px; text-align: left; padding: 5px 15px 5px 0;">U202222745</td>
@@ -52,12 +56,14 @@
 | 1.0 | 2026-09-11 | Guerrero Tomas Nelson Fabrizio | Creación de la estructura inicial del informe (carátula, tabla de contenidos y secciones) siguiendo el enunciado del trabajo final. |
 | 1.0 | 2026-09-16 | Berrospi Marin Angel Guillermo | Desarrollo de Entrevistas en base a los requerimientos para el avance del proyecto. |
 | 1.1 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Capítulo V: Product Implementation (configuración, sprints 1 y 2, evidencias de los productos desplegados y acuerdo de servicio SaaS). |
+| 1.2 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Secciones 6.1 Testing Suites & Validation y 7.1 Continuous Integration; historias US17 y US18 y criterios actualizados en 3.2 y 3.3. |
+| 1.3 | 2026-11-06 | Guerrero Tomas Nelson Fabrizio | Corrección de 6.1 y 7.1 según el pipeline en verde; secciones 7.2 Continuous Delivery y 7.3 Continuous deployment; US07-E4 en 3.2; carátula, Student Outcome, Collaboration Insights, avance de conclusiones, bibliografía y anexos. |
 
 <div style="page-break-after: always;"></div>
 
 ## Project Report Collaboration Insights
 
-> URL del repositorio (organización de GitHub del equipo): _Pendiente de completar._
+> URL del repositorio (organización de GitHub del equipo): https://github.com/1ASI0732-2620-9086-DEIS-TF/report
 
 Para cada entrega se debe explicar cómo se han desarrollado las actividades de elaboración del informe y presentar capturas de los analíticos de colaboración y commits en GitHub, realizados por los miembros del equipo. Debe tener coherencia con el [Registro de Versiones del Informe](#registro-de-versiones-del-informe).
 
@@ -71,7 +77,19 @@ _Pendiente de completar._
 
 ### Trabajo Parcial
 
-_Pendiente de completar._
+El informe se redacta en Markdown en el repositorio `report`, con una rama por capítulo o tema que se integra en `develop` y luego en `main`. La elaboración tuvo dos tramos: los capítulos I al IV, del 10 al 17 de septiembre, y los capítulos V al VII, del 7 de octubre al 6 de noviembre.
+
+A la fecha de esta versión, los commits del repositorio corresponden a tres cuentas:
+
+| Integrante (cuenta de GitHub) | Commits | Aportes principales |
+|---|---|---|
+| Guerrero Tomas, Nelson Fabrizio (Nelsoondev) | 25 | Estructura del informe y capítulos I, III, IV, V, VI y VII. |
+| Saldaña De Souza, Juan David | 8 | Datos propios y registro de entrevistas del capítulo II. |
+| Berrospi Marin, Angel Guillermo (Guiller-berrs) | 6 | Perfil, análisis competitivo, entrevistas y As-Is Scenario Mapping del capítulo II. |
+
+![Commits del informe](./img/cap%207/insights-report-commits.png)
+
+*Commits del repositorio del informe.*
 
 ### Trabajo Final
 
@@ -267,6 +285,8 @@ _Pendiente de completar._
   - [Video About-the-Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
+  - [Anexo A. Videos de Exposiciones](#anexo-a-videos-de-exposiciones)
+  - [Anexo B. Archivos .feature](#anexo-b-archivos-feature)
 
 <div style="page-break-after: always;"></div>
 
@@ -281,20 +301,30 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 
 ### Subsección por integrante
 
-> Debe existir una subsección con este formato por cada integrante del equipo.
-
 #### Guerrero Tomas Nelson Fabrizio
 
-_Pendiente de completar: descripción por escrito de la relación entre el outcome, sus dimensiones y el trabajo realizado por este integrante._
+Las pruebas de integración que escribí encontraron que el personal de una clínica podía leer y modificar datos de pacientes de otra. Al tratarse de información de personas y de mascotas, lo traté como una responsabilidad profesional: lo corregí, publiqué un hotfix antes que cualquier otra tarea y dejé la prueba en el pipeline para que no se repita. También corregí en este informe afirmaciones sobre el pipeline que aún no eran ciertas, y declaré el uso de un asistente de IA en el desarrollo (sección 5.1.1).
+
+#### Berrospi Marin Angel Guillermo
+
+_Pendiente de completar por el integrante._
+
+#### Cuba Pareja Joaquin
+
+_Pendiente de completar por el integrante._
+
+#### Saldaña De Souza Juan David
+
+_Pendiente de completar por el integrante._
 
 ### Cuadro de Student Outcome
 
-En el siguiente cuadro se describen las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 4.
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 4.
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | --- | --- | --- |
-| 4.c.1 Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software | _Pendiente de completar._ | _Pendiente de completar._ |
-| 4.c.2 Emite juicios informados considerando el impacto de las soluciones de ingeniería de software en contextos globales, económicos, ambientales y sociales | _Pendiente de completar._ | _Pendiente de completar._ |
+| 4.c.1 Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software | **Guerrero Tomas, Nelson Fabrizio**<br>**TB1:** Corrigió el acceso entre clínicas hallado por las pruebas y lo publicó como hotfix. Mantuvo los secretos fuera del repositorio público y usó datos ficticios en los casos de demostración y en las pruebas. Redactó los términos del servicio con base en la Ley N.° 29733.<br><br>**Berrospi Marin, Angel Guillermo**<br>**TB1:** _Pendiente de completar._<br><br>**Cuba Pareja, Joaquin**<br>**TB1:** _Pendiente de completar._<br><br>**Saldaña De Souza, Juan David**<br>**TB1:** _Pendiente de completar._ | Probar la seguridad entre clínicas evitó que un defecto siguiera oculto: la responsabilidad profesional incluye buscar los fallos propios. Un informe técnico debe decir lo que el sistema hace hoy, incluidas sus limitaciones (secciones 7.2.1 y 7.3.1). |
+| 4.c.2 Emite juicios informados considerando el impacto de las soluciones de ingeniería de software en contextos globales, económicos, ambientales y sociales | **Guerrero Tomas, Nelson Fabrizio**<br>**TB1:** Eligió un entorno de pruebas desechable en vez de un entorno permanente, por costo y riesgo para los datos. Usó servicios que se apagan sin tráfico. Implementó español e inglés, y validó las dosis con las guías de la WSAVA, dejando la decisión clínica en manos del veterinario.<br><br>**Berrospi Marin, Angel Guillermo**<br>**TB1:** _Pendiente de completar._<br><br>**Cuba Pareja, Joaquin**<br>**TB1:** _Pendiente de completar._<br><br>**Saldaña De Souza, Juan David**<br>**TB1:** _Pendiente de completar._ | Las decisiones de infraestructura tienen un costo económico y un consumo que deben justificarse para un negocio pequeño. Un sistema que valida reglas sanitarias apoya el criterio del profesional, pero no lo reemplaza. |
 
 <div style="page-break-after: always;"></div>
 
@@ -343,10 +373,9 @@ conocimientos técnicos y habilidades que cada uno aporta al equipo.
 | Foto | Nombres y Apellidos | Código de estudiante | Carrera | Conocimientos técnicos y habilidades |
 |------|---------------------|----------------------|---------|--------------------------------------|
 | <img src="img/cap 1/profile&solutions/Guillermo.png" width="100"> | Berrospi Marin, Angel Guillermo | U202114701 | Ingeniería de Software |Soy estudiante de la carrera de Ingeniería de Software. Tendre el compromiso con mi equipo en ser proactivo, productivo, siempre apoyar en lo que se necesite y mantener una comunicación fluida. Cuento con conocimientos en html, css, javascript, Java y SQL, lo cual puede ser de ayuda en el desarrollo del proyecto. |
-| <img src="img/cap 1/profile&solutions/Nelson.png" width="100"> | Apellido Apellido, Nombre | U202222745 | Ingeniería de Software | Arquitectura de Software <|
+| <img src="img/cap 1/profile&solutions/Nelson.png" width="100"> | Guerrero Tomas, Nelson Fabrizio | U202222745 | Ingeniería de Software | Arquitectura de software, desarrollo de APIs con .NET, aplicaciones web con Vue, aplicaciones móviles con Flutter, pruebas automatizadas e integración continua. |
 | <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Saldaña De Souza, Juan David | U20221F192 | Ingeniería de Software | Desarrollo web (Angular, Spring Boot), bases de datos relacionales y no relacionales, control de versiones con Git, y conocimientos en diseño de software orientado a objetos. |
-| <img src="assets/img/team/integrante-04.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
-| <img src="assets/img/team/integrante-05.png" width="100"> | Apellido Apellido, Nombre | U20XXXXXX | Ingeniería de Software | |
+| <img src="assets/img/team/integrante-04.png" width="100"> | Cuba Pareja, Joaquin | U201621281 | Ingeniería de Software | |
 
 
 ## 1.2. Solution Profile
@@ -1253,7 +1282,7 @@ En este capítulo se especifican los requisitos de los productos digitales a par
 ## 3.2. User Stories
 
 A partir de los To-Be Scenario Maps se identificaron los requisitos del
-producto, organizados en cinco epics. El conjunto se compone de dieciséis
+producto, organizados en cinco epics. El conjunto se compone de dieciocho
 User Stories orientadas a los usuarios finales, cuatro Technical Stories
 correspondientes a la RESTful API, y dos Spike Stories de investigación
 previa. El alcance se definió de forma deliberadamente acotada, de modo
@@ -1278,17 +1307,19 @@ que cada historia resulte verificable mediante pruebas automatizadas.
 | US03 | Visitante | Alta | EP01 | Acceso a la aplicación web desde la landing page | Como visitante registrado, deseo ingresar a la aplicación web desde la landing page, para iniciar mi sesión de trabajo. | **E1: Redirección a la aplicación**<br>Dado que el visitante se encuentra en la landing page<br>Cuando selecciona la acción de ingreso<br>Entonces el sistema lo dirige a la aplicación web de la clínica. |
 | US04 | Personal de clínica | Media | EP02 | Autenticación del personal de la clínica | Como personal de la clínica, deseo iniciar sesión en la aplicación web, para acceder a la información de mis pacientes. | **E1: Credenciales válidas**<br>Dado que el usuario está registrado en el sistema<br>Cuando envía sus credenciales correctas<br>Entonces el sistema le concede acceso con permisos de registro y consulta.<br><br>**E2: Credenciales inválidas**<br>Dado que el usuario no está registrado o sus credenciales no coinciden<br>Cuando envía sus credenciales<br>Entonces el sistema deniega el acceso y no expone información de pacientes. |
 | US05 | Dueño de mascota | Media | EP02 | Autenticación del dueño en la aplicación móvil | Como dueño de mascota, deseo iniciar sesión en la aplicación móvil, para consultar la información de mis mascotas. | **E1: Acceso concedido**<br>Dado que el dueño fue registrado por una clínica<br>Cuando envía sus credenciales correctas<br>Entonces el sistema le concede acceso con permisos de consulta únicamente.<br><br>**E2: Aislamiento de información**<br>Dado que el dueño tiene una sesión activa<br>Cuando solicita información de una mascota que no le pertenece<br>Entonces el sistema deniega la solicitud. |
-| US06 | Personal de clínica | Alta | EP03 | Registro de cliente | Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. | **E1: Registro exitoso**<br>Dado que el personal de la clínica ingresa los datos obligatorios del cliente<br>Cuando confirma el registro<br>Entonces el sistema crea el cliente y lo asocia a la clínica.<br><br>**E2: Datos incompletos**<br>Dado que el personal omite un dato obligatorio<br>Cuando intenta confirmar el registro<br>Entonces el sistema rechaza la operación e informa el dato faltante. |
-| US07 | Personal de clínica | Alta | EP03 | Registro de mascota | Como personal de la clínica, deseo registrar una mascota asociada a un cliente, indicando su especie y fecha de nacimiento, para incorporarla como paciente. | **E1: Registro exitoso**<br>Dado que existe un cliente registrado<br>Cuando se registra una mascota con especie canina o felina y fecha de nacimiento válida<br>Entonces el sistema crea la mascota y la asocia al cliente.<br><br>**E2: Especie no soportada**<br>Dado que se intenta registrar una mascota de una especie distinta de canina o felina<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación.<br><br>**E3: Fecha de nacimiento futura**<br>Dado que se ingresa una fecha de nacimiento posterior a la fecha actual<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación. |
+| US06 | Personal de clínica | Alta | EP03 | Registro de cliente | Como personal de la clínica, deseo registrar a un cliente con sus datos de contacto, para vincularlo posteriormente con sus mascotas. | **E1: Registro exitoso**<br>Dado que el personal de la clínica ingresa los datos obligatorios del cliente, incluido su DNI o carné de extranjería<br>Cuando confirma el registro<br>Entonces el sistema crea el cliente y lo asocia a la clínica.<br><br>**E2: Datos incompletos**<br>Dado que el personal omite un dato obligatorio<br>Cuando intenta confirmar el registro<br>Entonces el sistema rechaza la operación e informa el dato faltante.<br><br>**E3: Teléfono no peruano**<br>Dado que el personal ingresa un teléfono que no corresponde a un número peruano válido<br>Cuando intenta confirmar el registro<br>Entonces el sistema rechaza la operación e indica el formato admitido.<br><br>**E4: Documento ya registrado**<br>Dado que el documento de identidad ingresado pertenece a un cliente de la clínica<br>Cuando el personal intenta confirmar el registro<br>Entonces el sistema rechaza la operación, identifica al cliente existente y permite continuar con él. |
+| US07 | Personal de clínica | Alta | EP03 | Registro de mascota | Como personal de la clínica, deseo registrar una mascota asociada a un cliente, indicando su especie y fecha de nacimiento, para incorporarla como paciente. | **E1: Registro exitoso**<br>Dado que existe un cliente registrado<br>Cuando se registra una mascota con especie canina o felina y fecha de nacimiento válida<br>Entonces el sistema crea la mascota y la asocia al cliente.<br><br>**E2: Especie no soportada**<br>Dado que se intenta registrar una mascota de una especie distinta de canina o felina<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación.<br><br>**E3: Fecha de nacimiento futura**<br>Dado que se ingresa una fecha de nacimiento posterior a la fecha actual<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación.<br><br>**E4: Fecha de nacimiento implausible**<br>Dado que la fecha de nacimiento supera la edad máxima de la especie<br>Cuando se confirma el registro<br>Entonces el sistema rechaza la operación. |
 | US08 | Personal de clínica | Alta | EP03 | Búsqueda de paciente | Como personal de la clínica, deseo localizar a una mascota por su nombre o por el de su dueño, para acceder a su expediente al iniciar la atención. | **E1: Coincidencias encontradas**<br>Dado que existen mascotas registradas en la clínica<br>Cuando se realiza una búsqueda por nombre de mascota o de dueño<br>Entonces el sistema devuelve las coincidencias con su especie y su dueño asociado.<br><br>**E2: Sin coincidencias**<br>Dado que no existe ninguna mascota que coincida con el criterio<br>Cuando se realiza la búsqueda<br>Entonces el sistema informa que no se hallaron resultados. |
-| US09 | Personal de clínica | Alta | EP04 | Generación automática de la cartilla de vacunación | Como personal de la clínica, deseo que la cartilla de vacunación se genere automáticamente al registrar una mascota, para no tener que definir manualmente las dosis que le corresponden. | **E1: Generación según especie**<br>Dado que se registra una mascota de una especie soportada<br>Cuando el registro se completa<br>Entonces el sistema genera su cartilla con todas las dosis del esquema de su especie en estado pendiente.<br><br>**E2: Cálculo de fechas esperadas**<br>Dado que la cartilla ha sido generada<br>Cuando se consultan sus dosis pendientes<br>Entonces cada dosis presenta una fecha esperada calculada a partir de la fecha de nacimiento y la edad mínima de la vacuna. |
-| US10 | Personal de clínica | Alta | EP04 | Registro de dosis aplicada | Como personal de la clínica, deseo registrar la aplicación de una dosis indicando fecha, lote y responsable, para dejar constancia verificable en la cartilla. | **E1: Registro válido**<br>Dado que una dosis se encuentra pendiente y se cumplen las reglas del esquema<br>Cuando se registra su aplicación con fecha, lote y veterinario responsable<br>Entonces el sistema marca la dosis como aplicada y conserva esos datos.<br><br>**E2: Edad mínima no alcanzada**<br>Dado que la mascota no alcanza la edad mínima de la vacuna en la fecha indicada<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E3: Intervalo mínimo no cumplido**<br>Dado que no ha transcurrido el intervalo mínimo desde la dosis anterior<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E4: Fecha de aplicación futura**<br>Dado que la fecha de aplicación es posterior a la fecha actual<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro. |
+| US09 | Personal de clínica | Alta | EP04 | Generación automática de la cartilla de vacunación | Como personal de la clínica, deseo que la cartilla de vacunación se genere automáticamente al registrar una mascota, para no tener que definir manualmente las dosis que le corresponden. | **E1: Generación según especie**<br>Dado que se registra una mascota de una especie soportada<br>Cuando el registro se completa<br>Entonces el sistema genera su cartilla con todas las dosis del esquema de su especie en estado pendiente.<br><br>**E2: Cálculo de fechas esperadas**<br>Dado que la cartilla ha sido generada<br>Cuando se consultan sus dosis pendientes<br>Entonces cada dosis presenta una fecha esperada calculada a partir de la fecha de nacimiento, la edad mínima de la vacuna y el intervalo desde la dosis anterior de la misma vacuna, nunca anterior a la fecha de registro.<br><br>**E3: Mascota que ya superó la edad de las primeras dosis**<br>Dado que se registra una mascota adulta o cuyo historial de vacunación se desconoce<br>Cuando se genera su cartilla<br>Entonces la primera dosis de cada vacuna se espera en la fecha de registro y las siguientes conservan sus intervalos a partir de ella. |
+| US10 | Personal de clínica | Alta | EP04 | Registro de dosis aplicada | Como personal de la clínica, deseo registrar la aplicación de una dosis indicando fecha, lote y responsable, para dejar constancia verificable en la cartilla. | **E1: Registro válido**<br>Dado que una dosis se encuentra pendiente y se cumplen las reglas del esquema<br>Cuando se registra su aplicación con fecha, lote y veterinario responsable<br>Entonces el sistema marca la dosis como aplicada y conserva esos datos.<br><br>**E2: Edad mínima no alcanzada**<br>Dado que la mascota no alcanza la edad mínima de la vacuna en la fecha indicada<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E3: Intervalo mínimo no cumplido**<br>Dado que no ha transcurrido el intervalo mínimo desde la dosis anterior<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la restricción incumplida.<br><br>**E4: Fecha de aplicación futura**<br>Dado que la fecha de aplicación es posterior a la fecha actual<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro.<br><br>**E5: Dosis fuera de orden**<br>Dado que una dosis anterior de la misma vacuna aún no ha sido aplicada<br>Cuando se intenta registrar la dosis<br>Entonces el sistema rechaza el registro e indica la dosis que debe registrarse primero. Dosis de vacunas distintas pueden registrarse el mismo día.<br><br>**E6: Dosis aplicada antes del registro**<br>Dado que la dosis se aplicó antes de que la mascota fuera registrada en la plataforma<br>Cuando se registra con su fecha real y esta cumple la edad mínima y el intervalo<br>Entonces el sistema la acepta y programa las siguientes dosis de esa vacuna a partir de la fecha actual. |
 | US11 | Personal de clínica | Alta | EP04 | Consulta del estado de la cartilla | Como personal de la clínica, deseo conocer el estado de la cartilla de un paciente, para determinar qué le corresponde antes de atenderlo. | **E1: Cartilla al día**<br>Dado que todas las dosis exigibles a la fecha están aplicadas<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como al día.<br><br>**E2: Cartilla pendiente**<br>Dado que existen dosis no aplicadas cuya fecha esperada aún no ha vencido<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como pendiente e indica la próxima dosis.<br><br>**E3: Cartilla vencida**<br>Dado que existe al menos una dosis no aplicada cuya fecha esperada ya transcurrió<br>Cuando se consulta la cartilla<br>Entonces el sistema reporta el estado como vencida. |
 | US12 | Dueño de mascota | Alta | EP04 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | **E1: Consulta de la cartilla**<br>Dado que el dueño tiene una sesión activa y mascotas asociadas<br>Cuando selecciona una de sus mascotas<br>Entonces el sistema presenta su cartilla con las dosis aplicadas, las pendientes y el estado general.<br><br>**E2: Diferenciación entre mascotas**<br>Dado que el dueño tiene más de una mascota asociada<br>Cuando consulta el listado de sus mascotas<br>Entonces el sistema presenta el estado de cartilla de cada una de forma individual. |
 | US13 | Personal de clínica | Alta | EP05 | Registro de atención veterinaria | Como personal de la clínica, deseo registrar una atención con motivo, hallazgos, diagnóstico y tratamiento, para conservar el historial del paciente. | **E1: Registro exitoso**<br>Dado que existe una mascota registrada<br>Cuando se registra una atención con los campos obligatorios completos<br>Entonces el sistema la incorpora al historial de la mascota con su fecha y el veterinario responsable.<br><br>**E2: Campos obligatorios incompletos**<br>Dado que se omite el motivo de consulta o el diagnóstico<br>Cuando se intenta registrar la atención<br>Entonces el sistema rechaza la operación. |
 | US14 | Personal de clínica | Alta | EP05 | Consulta del historial del paciente | Como personal de la clínica, deseo consultar las atenciones previas de un paciente ordenadas cronológicamente, para decidir con información completa. | **E1: Historial con registros**<br>Dado que la mascota tiene atenciones registradas<br>Cuando se consulta su historial<br>Entonces el sistema presenta las atenciones en orden cronológico descendente.<br><br>**E2: Historial vacío**<br>Dado que la mascota no tiene atenciones registradas<br>Cuando se consulta su historial<br>Entonces el sistema informa que no existen atenciones previas. |
 | US15 | Personal de clínica | Media | EP05 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | **E1: Emisión exitosa**<br>Dado que existe una atención registrada<br>Cuando se emite una receta con al menos un medicamento, su dosificación y su duración<br>Entonces el sistema la asocia a esa atención y la hace visible para el dueño de la mascota.<br><br>**E2: Receta sin medicamentos**<br>Dado que se intenta emitir una receta sin ningún medicamento<br>Cuando se confirma la emisión<br>Entonces el sistema rechaza la operación. |
 | US16 | Dueño de mascota | Media | EP05 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | **E1: Consulta del historial**<br>Dado que el dueño tiene una sesión activa<br>Cuando accede al historial de una de sus mascotas<br>Entonces el sistema presenta sus atenciones en orden cronológico descendente.<br><br>**E2: Consulta de una receta**<br>Dado que una atención tiene una receta asociada<br>Cuando el dueño accede a esa atención<br>Entonces el sistema presenta la receta con sus medicamentos, dosificación y duración. |
+| US17 | Dueño de mascota | Media | EP02 | Cambio de contraseña del dueño | Como dueño de mascota, deseo cambiar mi contraseña desde la aplicación móvil, para que solo yo conozca la clave de acceso a la información de mis mascotas. | **E1: Cambio exitoso**<br>Dado que el dueño tiene una sesión activa<br>Cuando ingresa su contraseña actual y una nueva que cumple la política de contraseñas<br>Entonces el sistema reemplaza la contraseña y la anterior deja de ser válida.<br><br>**E2: Contraseña actual incorrecta**<br>Dado que el dueño ingresa una contraseña actual que no coincide<br>Cuando solicita el cambio<br>Entonces el sistema rechaza la operación sin cerrar su sesión.<br><br>**E3: Contraseña débil**<br>Dado que la contraseña nueva tiene menos de ocho caracteres, no combina letras y números o es igual a la actual<br>Cuando el dueño solicita el cambio<br>Entonces el sistema rechaza la operación e indica la política incumplida.<br><br>**E4: Contraseña temporal**<br>Dado que el dueño ingresa con una contraseña temporal entregada por la clínica<br>Cuando inicia sesión<br>Entonces la aplicación le exige elegir una contraseña propia antes de mostrar sus mascotas. |
+| US18 | Personal de clínica | Media | EP02 | Restablecimiento de contraseña por la clínica | Como personal de la clínica, deseo restablecer la contraseña de un cliente que la olvidó, para que recupere el acceso a la aplicación móvil sin que la clínica llegue a conocer la contraseña que elija. | **E1: Restablecimiento exitoso**<br>Dado que el cliente tiene acceso a la aplicación móvil<br>Cuando el personal solicita restablecer su contraseña<br>Entonces el sistema genera una contraseña temporal, la muestra una sola vez y la anterior deja de ser válida.<br><br>**E2: Contraseña no visible**<br>Dado que el personal consulta la lista de clientes<br>Cuando revisa el acceso de un cliente<br>Entonces el sistema no muestra su contraseña, porque no la conserva de forma legible.<br><br>**E3: Cliente sin acceso**<br>Dado que el cliente no tiene acceso a la aplicación móvil<br>Cuando se solicita restablecer su contraseña<br>Entonces el sistema rechaza la operación e indica que el cliente no tiene acceso.<br><br>**E4: Cliente de otra clínica**<br>Dado que el cliente pertenece a otra clínica<br>Cuando el personal solicita restablecer su contraseña<br>Entonces el sistema deniega la operación. |
 | TS01 | Developer | Media | EP02 | Endpoints de autenticación y autorización | Como desarrollador, deseo exponer los endpoints de autenticación y autorización de la API, para que las aplicaciones web y móvil validen la identidad y el rol del usuario. | **E1: Autenticación válida**<br>Dado que se envía una solicitud POST al endpoint de autenticación con credenciales válidas<br>Cuando la API procesa la solicitud<br>Entonces responde con código 200 y un token de acceso con el rol del usuario.<br><br>**E2: Credenciales inválidas**<br>Dado que se envía una solicitud con credenciales incorrectas<br>Cuando la API procesa la solicitud<br>Entonces responde con código 401.<br><br>**E3: Acceso no autorizado**<br>Dado que se solicita un recurso que excede los permisos del rol<br>Cuando la API procesa la solicitud<br>Entonces responde con código 403. |
 | TS02 | Developer | Alta | EP03 | Endpoints de clientes y mascotas | Como desarrollador, deseo exponer los endpoints de gestión de clientes y mascotas, para que la aplicación web registre y consulte esta información. | **E1: Creación exitosa**<br>Dado que se envía una solicitud POST con los datos válidos de una mascota<br>Cuando la API procesa la solicitud<br>Entonces responde con código 201 y el recurso creado.<br><br>**E2: Datos inválidos**<br>Dado que se envía una solicitud con una especie no soportada<br>Cuando la API procesa la solicitud<br>Entonces responde con código 400 y el detalle de la validación incumplida.<br><br>**E3: Recurso inexistente**<br>Dado que se solicita una mascota que no existe<br>Cuando la API procesa la solicitud<br>Entonces responde con código 404. |
 | TS03 | Developer | Alta | EP04 | Endpoints de cartilla de vacunación | Como desarrollador, deseo exponer los endpoints de consulta de la cartilla y de registro de dosis, para que ambas aplicaciones operen sobre el esquema de vacunación. | **E1: Consulta de cartilla**<br>Dado que se envía una solicitud GET de la cartilla de una mascota existente<br>Cuando la API procesa la solicitud<br>Entonces responde con código 200, las dosis y el estado de la cartilla.<br><br>**E2: Registro de dosis válido**<br>Dado que se envía una solicitud POST de aplicación de dosis que cumple las reglas del esquema<br>Cuando la API procesa la solicitud<br>Entonces responde con código 201.<br><br>**E3: Regla del esquema incumplida**<br>Dado que la solicitud incumple la edad mínima o el intervalo entre dosis<br>Cuando la API procesa la solicitud<br>Entonces responde con código 422 y la regla incumplida. |
@@ -1314,7 +1345,7 @@ después del core, dado que habilitan el acceso al producto pero no
 constituyen por sí mismas valor para el usuario. Finalmente se situaron
 las historias de la aplicación móvil y las de recetas médicas.
 
-El backlog totaliza 80 Story Points distribuidos en veintidós historias.
+El backlog totaliza 86 Story Points distribuidos en veinticuatro historias.
 
 | # Orden | User Story ID | Título | Descripción | Story Points |
 |---|---|---|---|---|
@@ -1337,9 +1368,11 @@ El backlog totaliza 80 Story Points distribuidos en veintidós historias.
 | 17 | US04 | Autenticación del personal de la clínica | Como personal de la clínica, deseo iniciar sesión en la aplicación web, para acceder a la información de mis pacientes. | 3 |
 | 18 | TS01 | Endpoints de autenticación y autorización | Como desarrollador, deseo exponer los endpoints de autenticación y autorización de la API, para que las aplicaciones web y móvil validen la identidad y el rol del usuario. | 5 |
 | 19 | US05 | Autenticación del dueño en la aplicación móvil | Como dueño de mascota, deseo iniciar sesión en la aplicación móvil, para consultar la información de mis mascotas. | 3 |
-| 20 | US12 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | 5 |
-| 21 | US15 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | 3 |
-| 22 | US16 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | 3 |
+| 20 | US17 | Cambio de contraseña del dueño | Como dueño de mascota, deseo cambiar mi contraseña desde la aplicación móvil, para que solo yo conozca la clave de acceso a la información de mis mascotas. | 3 |
+| 21 | US18 | Restablecimiento de contraseña por la clínica | Como personal de la clínica, deseo restablecer la contraseña de un cliente que la olvidó, para que recupere el acceso a la aplicación móvil sin que la clínica llegue a conocer la contraseña que elija. | 3 |
+| 22 | US12 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | 5 |
+| 23 | US15 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | 3 |
+| 24 | US16 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | 3 |
 
 
 ## 3.4. Impact Mapping
@@ -2621,21 +2654,152 @@ Contenido sugerido:
 
 ## 6.1. Testing Suites & Validation
 
+Las pruebas viven en el repositorio, junto al código que verifican, y se ejecutan con GitHub Actions (sección 7.1). Ninguna usa la base de datos ni la autenticación de producción.
+
+| Nivel | Herramientas | Ubicación | Pruebas |
+|---|---|---|---|
+| Unitarias | xUnit v3 y Shouldly · Vitest · flutter_test | `backend/tests/VetPass.UnitTests` · `web-application/src/**/*.test.js` · `mobile-application/test` | 83 · 21 · 8 |
+| Integración | xUnit v3, Testcontainers (PostgreSQL) y Respawn | `backend/tests/VetPass.IntegrationTests` | 25 |
+| BDD | Reqnroll (Gherkin) | `backend/tests/VetPass.AcceptanceTests` | 49 casos |
+| Sistema | Playwright · integration_test de Flutter | `web-application/e2e` · `mobile-application/integration_test` | 13 · 3 |
+
+Repositorio: https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass (proyectos de prueba en la rama `develop`).
+
+```bash
+dotnet test --solution backend/VetPass.slnx     # unitarias, integración y BDD
+cd web-application && npm test && npx playwright test
+cd mobile-application && flutter test && flutter test integration_test
+```
+
+Resultado de la [ejecución 42310376626](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/42310376626) del pipeline, del 6 de noviembre de 2026: las 202 pruebas pasan. Cobertura del backend (unitarias, integración y BDD): **88.9 %** de líneas y **71 %** de ramas.
+
+![Pipeline en verde](./img/cap%206/6.1-pipeline-verde.png)
+
+*Figura 6.1. Ejecución del pipeline con todos sus jobs en verde.*
+
+![Cobertura del backend](./img/cap%206/6.1-cobertura.png)
+
+*Figura 6.2. Resumen de cobertura del backend publicado por la misma ejecución.*
+
+**Testing Suite Evidence.** Commits relacionados con las pruebas:
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | ffe4cab | test: pruebas unitarias del backend, la web y la app movil | Entidades del dominio, formatos de la web y sesión móvil. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | 8fe4c13 | test(backend): pruebas de integracion contra PostgreSQL | API completa contra un PostgreSQL real con Testcontainers. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | 00df413 | fix(api): el personal solo accede a los datos de su propia clinica | Defecto de seguridad hallado por las pruebas de integración. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | 2de0d88 | test(backend): pruebas de aceptacion BDD con Reqnroll | Primeros 8 archivos `.feature` y sus pasos. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | e550bf6 | test: pruebas de sistema de la web y la app movil, y jobs de sistema en CI | Playwright e integration_test contra Supabase local. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | c54c09e | test: ajustar selectores e interacciones de las pruebas de sistema | Selectores e interacciones de las pruebas de sistema. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | 3866db1 | test: estabilizar las pruebas de sistema de historial y contrasena | Web en verde; la receta móvil seguía fallando. | 07/10/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | 3805c32 | test(mobile): desplazar la lista hasta la receta en la prueba de sistema | Corrige el fallo: la receta queda fuera de pantalla. | 06/11/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | d96a5f8 | test(backend): escenarios BDD de US04, US08 y US12 a US16 | Agrega 7 archivos `.feature` y 17 casos. | 06/11/2026 |
+| 1ASI0732-2620-9086-DEIS-TF/vetpass | feature/pruebas-ci | fd2307a | test(landing): pruebas de sistema de US01, US02 y US03 | Agrega 4 pruebas de la landing. | 06/11/2026 |
+
 ### 6.1.1. Core Entities Unit Tests
 
-_Pendiente de completar._
+Verifican cada entidad del dominio de forma aislada, sin base de datos ni red. La fecha actual entra como parámetro, así que el resultado no depende del día en que se ejecutan.
+
+| Clase de prueba | Clase verificada | Comportamientos |
+|---|---|---|
+| `VaccinationCardTests` | `VaccinationCard` | Cartilla planificada desde la fecha de registro; rechazo de dosis ya aplicadas, futuras, fuera de orden, sin edad mínima o sin intervalo; dosis histórica que replanifica solo su serie; estado y próxima dosis. |
+| `VaccinationScheduleTests` | `VaccinationSchedule`, `BatchCode` | Fecha esperada por edad mínima; lote normalizado y obligatorio. |
+| `PhoneNumberTests` | `PhoneNumber` | Teléfonos peruanos guardados en E.164; rechazo de números extranjeros o inválidos. |
+| `IdentityDocumentTests` | `IdentityDocument` | DNI y carné de extranjería; normalización; tipo desconocido. |
+| `PetTests` | `Pet`, `Species` | Fecha de nacimiento futura o implausible; especie no soportada. |
+| `VisitTests` | `Visit`, `Prescription`, `PrescriptionItem` | Campos obligatorios; receta vacía o repetida. |
+| `UserProfileTests` | `UserProfile`, `Role`, `PasswordPolicy` | Permisos por rol; contraseña temporal; política de contraseñas. |
+| `AuthenticationCommandServiceTests` | `AuthenticationCommandService` | Cambio y restablecimiento de contraseña, con dobles en memoria. |
+
+La web y la app móvil también prueban su lógica propia:
+
+| Producto | Archivo de prueba | Qué verifica |
+|---|---|---|
+| Web (21 pruebas) | `src/shared/i18n/index.test.js` | Formatos de edad, fecha, teléfono, documento y dosis |
+| Web | `src/shared/infrastructure/http.test.js` | Lectura de los errores de la API |
+| App móvil (8 pruebas) | `test/session_test.dart` | Renovación automática de la sesión |
+| App móvil | `test/models_test.dart` | Lectura de los recursos de la API |
+
+Resultado: las 112 pruebas unitarias pasan.
 
 ### 6.1.2. Core Integration Tests
 
-_Pendiente de completar._
+Prueban la RESTful API completa, en memoria, contra un PostgreSQL real en Docker (Testcontainers). Antes de cada prueba se restaura el caso de demostración. La identidad se simula con tokens firmados igual que los de Supabase y el reloj queda fijo en el 7 de octubre de 2026.
+
+| Clase de prueba | Qué verifica |
+|---|---|
+| `PersistenceTests` | Migraciones y catálogo de vacunas; búsqueda sin distinguir mayúsculas; documento único (409), incluso con dos registros simultáneos; borrado en cascada. |
+| `SecurityTests` | 401 sin token o con token falso; el dueño solo ve sus mascotas; el personal de otra clínica no lee ni modifica datos ajenos en 11 endpoints. |
+| `ContractTests` | Los campos de error y de la cartilla que usan la web y la app móvil. |
+| `FlowTests` | Cliente → mascota → dosis → atención con receta; acceso móvil y cambio de contraseña; restablecimiento; renovación de la sesión. |
+| `ConfigurationTests` | `/health` con la hora de Lima; CORS; documento OpenAPI. |
+
+La comunicación entre el frontend y el backend se verifica en dos niveles. `ContractTests` protege los campos de la API de los que dependen los clientes, y las pruebas de sistema (sección 6.1.4) ejercitan la web y la app móvil reales contra la API.
+
+Resultado: las 25 pasan. Estas pruebas encontraron un defecto de seguridad: el personal de otra clínica podía leer y modificar pacientes ajenos. Se corrigió en el commit `00df413`, y la corrección llega a producción con el hotfix 1.0.2 ([PR #1](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/pull/1)).
 
 ### 6.1.3. Core Behavior-Driven Development
 
-_Pendiente de completar._
+15 de las 18 historias de usuario tienen un archivo `.feature` en Gherkin. Cada escenario lleva el identificador de su criterio de aceptación de la sección 3.2. Los pasos (`Steps/`) llaman a la API por HTTP sobre el entorno de las pruebas de integración. US01, US02 y US03 no pasan por la API: se verifican con las pruebas de sistema de la landing (sección 6.1.4).
+
+| Feature | Historia | Casos |
+|---|---|---|
+| `US04-staff-access.feature` | Autenticación del personal | 3 |
+| `US05-owner-access.feature` | Acceso del dueño a la app móvil | 2 |
+| `US06-register-client.feature` | Registro de cliente | 4 |
+| `US07-register-pet.feature` | Registro de mascota | 4 |
+| `US08-search-patient.feature` | Búsqueda de paciente | 3 |
+| `US09-generate-vaccination-card.feature` | Generación de la cartilla | 4 |
+| `US10-register-applied-dose.feature` | Registro de dosis aplicada | 7 |
+| `US11-card-status.feature` | Estado de la cartilla | 3 |
+| `US12-owner-card.feature` | Cartilla desde la app móvil | 2 |
+| `US13-register-visit.feature` | Registro de atención | 3 |
+| `US14-patient-history.feature` | Historial del paciente | 2 |
+| `US15-issue-prescription.feature` | Emisión de receta | 2 |
+| `US16-owner-history.feature` | Historial y recetas desde la app móvil | 2 |
+| `US17-change-password.feature` | Cambio de contraseña | 4 |
+| `US18-reset-password.feature` | Restablecimiento de contraseña | 4 |
+
+| Archivo de pasos | Qué cubre |
+|---|---|
+| `AccessSteps.cs` | Sesiones, roles y rechazos de la API |
+| `PatientSteps.cs` | Clientes, mascotas, búsqueda y estado por mascota |
+| `VaccinationSteps.cs` | Cartilla, dosis y próxima dosis |
+| `MedicalRecordSteps.cs` | Atenciones, historial y recetas |
+| `PasswordSteps.cs` | Cambio y restablecimiento de contraseña |
+
+Un caso es una ejecución: un `Scenario Outline` corre una vez por cada fila de sus ejemplos. El código de todos los `.feature` está en el [Anexo B](#anexo-b-archivos-feature). Extracto de `US10-register-applied-dose.feature`:
+
+```gherkin
+Feature: US10 - Registration of an applied dose
+
+  Background:
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+
+  Scenario: E2 - Minimum age not reached
+    When the staff registers dose 1 of "Antirrábica" for "Rocky" applied on "2026-10-07" with batch "R-1300"
+    Then the request is rejected with the code "minimum-age-not-reached"
+    And the earliest admissible date is "2026-10-28"
+
+  Scenario: E5 - Dose out of order
+    When the staff registers dose 3 of "Quíntuple" for "Rocky" applied on "2026-10-07" with batch "A-1"
+    Then the request is rejected with the code "dose-out-of-order"
+```
+
+Resultado: los 49 casos pasan.
 
 ### 6.1.4. Core System Tests
 
-_Pendiente de completar._
+Verifican el sistema completo: la web, la landing y la app móvil reales. La web y la app móvil usan la API y Supabase local, con una base de datos y una autenticación reales, y con el caso de demostración.
+
+| Producto | Escenarios | Pruebas |
+|---|---|---|
+| Web (Playwright, escritorio y celular) | Pacientes con estado y edad; registro de cliente y mascota adulta, con la cartilla desde hoy; dosis bloqueadas; dosis válida; atención con receta; documento repetido; acceso móvil y restablecimiento de contraseña; cambio de idioma. | 9 |
+| Landing (Playwright) | Propuesta de valor (US01); información para clínicas (US02); acceso a la aplicación web (US03); cambio de idioma. | 4 |
+| App móvil (emulador Android) | Cartilla, historial y receta del dueño; cambio obligatorio de la contraseña temporal; cambio de idioma y cierre de sesión. | 3 |
+
+Resultado: las 16 pasan. La prueba móvil de la receta todavía fallaba al cierre del 7 de octubre, porque la receta queda al final de una lista que solo construye lo visible. Se corrigió en la prueba, desplazando la lista hasta la receta (`3805c32`); la aplicación no cambió.
 
 ## 6.2. Static testing & Verification
 
@@ -2707,31 +2871,167 @@ _Pendiente de completar._
 
 ### 7.1.1. Tools and Practices
 
-_Pendiente de completar._
+| Herramienta | Uso |
+|---|---|
+| GitHub Actions | Ejecuta el pipeline en cada push y pull request. |
+| `setup-dotnet`, `setup-node`, `setup-java`, `flutter-action` | Preparan .NET 10, Node 24, Java 21 y Flutter 3.47. |
+| Testcontainers | PostgreSQL desechable para las pruebas de integración y BDD. |
+| Supabase CLI | Base de datos y autenticación locales para las pruebas de sistema. |
+| Playwright · `android-emulator-runner` | Navegador y emulador Android para las pruebas de sistema. |
+| `dorny/test-reporter` · ReportGenerator | Resultados de las pruebas y cobertura en cada ejecución. |
+
+Prácticas:
+
+- Cada push a `feature/**`, `hotfix/**`, `release/**`, `develop` o `main`, y cada pull request, ejecuta el pipeline.
+- Los productos se construyen y prueban en paralelo. Las pruebas de sistema empiezan solo si pasaron las anteriores.
+- El job `CI` resume el resultado. Es el check que `main` exige antes de integrar.
+- Las pruebas no tocan producción: usan Testcontainers y Supabase local.
+- Las dependencias se guardan en caché, y un push nuevo cancela la ejecución anterior de la misma rama.
+- Cada ejecución publica sus resultados, la cobertura, el informe de Playwright y el APK.
+- Se aplica GitFlow con pull requests desde esta etapa, y Conventional Commits (sección 5.1.2).
 
 ### 7.1.2. Build & Test Suite Pipeline Components
 
-_Pendiente de completar._
+El pipeline está en `.github/workflows/ci.yml`.
+
+```mermaid
+flowchart LR
+    push([push o pull request]) --> backend & web & mobile
+    backend[backend: build · unitarias · integración · BDD] --> sweb[system-web: Playwright]
+    web[web: Vitest · build] --> sweb
+    backend --> smob[system-mobile: emulador]
+    mobile[mobile: analyze · test · APK] --> smob
+    sweb --> ci{{CI}}
+    smob --> ci
+    backend --> ci
+    web --> ci
+    mobile --> ci
+```
+
+| Job | Cuándo corre | Pasos | Salida |
+|---|---|---|---|
+| `backend` | Siempre | .NET 10 → restore → build → unitarias, integración y BDD → resultados y cobertura | TRX e informe de cobertura |
+| `web` | Siempre | Node 24 → `npm ci` → Vitest → build | — |
+| `mobile` | Siempre | Flutter → analyze → test → APK | APK |
+| `system-web` | Si pasan `backend` y `web` | Supabase local → API con el caso de demostración → Playwright (web y landing) | Informe de Playwright |
+| `system-mobile` | En los PR hacia `main`, con «Run workflow» o con `[mobile-e2e]` en el commit | Supabase local → API → emulador Android → `integration_test` | — |
+| `CI` | Siempre, al final | Falla si algún job falló | — |
+
+El emulador tarda unos 10 minutos, así que `system-mobile` no corre en cada push. Cuando no corre, el job `CI` puede pasar sin él; por eso es obligatorio en los PR hacia `main`, que son el paso a producción.
+
+Supabase local y la API se levantan con una acción compuesta propia, `.github/actions/start-backend`, que comparten los dos jobs de sistema.
+
+**Evolución.** Las 7 primeras ejecuciones, del 7 de octubre, fallaron o se cancelaron. La primera completa en verde es la [42310376626](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/42310376626), del 6 de noviembre (figura 6.1).
+
+Ejecuciones del pipeline: https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/workflows/ci.yml
 
 ## 7.2. Continuous Delivery
 
 ### 7.2.1. Tools and Practices
 
-_Pendiente de completar._
+La entrega continua deja cada cambio listo para publicarse. La decisión de publicar sigue siendo de una persona, al fusionar el pull request hacia `main`.
+
+| Herramienta | Uso |
+|---|---|
+| GitHub Actions | Ejecuta el Stage y publica los APK. |
+| Supabase CLI y Docker | Levantan el Stage dentro del pipeline. |
+| GitHub Releases | Distribuye los release candidates y las versiones finales del APK. |
+| Vercel | Publica cada rama en una URL de vista previa. |
+| Git (GitFlow) y Semantic Versioning | Ramas `release/*` y etiquetas `vX.Y.Z-rc.N`. |
+
+Prácticas:
+
+- **Stage desechable.** Cada ejecución levanta un entorno completo y nuevo, con datos de demostración, y lo destruye al terminar. No hay datos que mantener ni riesgo para producción.
+- **Un solo pipeline.** Lo que llega a producción es lo que pasó las mismas pruebas.
+- **Release candidates.** Una etiqueta `vX.Y.Z-rc.N` publica el APK como pre-release, sin cambiar la descarga de la última versión.
+- **Aprobación manual.** El pull request hacia `main` es el punto en que una persona autoriza la publicación.
+
+Limitaciones actuales:
+
+- El Stage no es un entorno permanente: no se puede abrir para una demostración.
+- Las vistas previas de Vercel solo sirven para revisar la landing y la web por dentro del equipo. Están protegidas con la autenticación de Vercel y comparten las variables de producción, por lo que no se usan para probar datos.
+- El APK se firma con la clave de depuración: sirve para instalarlo a mano, no para Google Play.
 
 ### 7.2.2. Stages Deployment Pipeline Components
 
-_Pendiente de completar._
+```mermaid
+flowchart LR
+    f[feature/*] -->|PR y CI| d[develop]
+    d --> r[release/x.y.z]
+    r -->|etiqueta -rc.N| rc[(APK pre-release)]
+    r -->|PR, CI y emulador| m{{aprobación: fusionar en main}}
+    subgraph stage [Stage desechable en el pipeline]
+      s1[Supabase local] --> s2[API con datos de demostración]
+      s2 --> s3[Web y landing con Playwright]
+      s2 --> s4[App móvil en emulador]
+    end
+    r -.-> stage
+```
+
+| Componente | Archivo o servicio | Entrada | Salida |
+|---|---|---|---|
+| Stage: entorno | `.github/actions/start-backend` | Código de la rama | Supabase local y API en el runner |
+| Stage: web y landing | Job `system-web` | Stage levantado | Informe de Playwright |
+| Stage: móvil | Job `system-mobile` | Stage levantado | Resultado en el emulador |
+| Vista previa | Vercel, entorno Preview | Push a cualquier rama | URL por despliegue |
+| Release candidate | `.github/workflows/release.yml` | Etiqueta `vX.Y.Z-rc.N` | APK como pre-release |
+
+_Pendiente de completar: enlace y captura de la release candidate `v1.1.0-rc.1`, la primera entrega por este pipeline._
+
+![Pull request hacia develop](./img/cap%207/7.2-pull-request.png)
+
+*Figura 7.1. Pull request de la rama de pruebas hacia `develop`, con sus checks.*
 
 ## 7.3. Continuous deployment
 
 ### 7.3.1. Tools and Practices
 
-_Pendiente de completar._
+Cada fusión en `main` llega a producción sin más pasos manuales.
+
+| Herramienta | Uso |
+|---|---|
+| Vercel | Construye y publica la landing, la web y la API en cada push a `main`. |
+| Protección de ramas de GitHub | Solo deja entrar a `main` por pull request y con el check `CI` en verde. |
+| GitHub Actions | Comprueba cada producto tras su despliegue y publica el APK final. |
+| Ignored Build Step de Vercel | Reconstruye solo el producto cuya carpeta cambió. |
+
+Prácticas:
+
+- **Protección de `main`.** Vercel no consulta el resultado del CI: publica lo que entra a `main`. Por eso la barrera está antes, en la rama. Los administradores pueden saltarla para una emergencia, como el hotfix 1.0.2.
+- **Despliegue por producto.** Un cambio en `backend/` reconstruye solo la API, y uno en `docs/` no reconstruye nada.
+- **Comprobación posterior.** Tras cada despliegue, `post-deploy.yml` revisa el producto publicado. Si falla, la ejecución queda en rojo en GitHub.
+- **Vuelta atrás.** *Instant Rollback* de Vercel restaura el último despliegue correcto; luego un `hotfix/` revierte el commit para que `main` coincida con lo publicado.
+
+Limitaciones actuales:
+
+- Las migraciones de base de datos no están en el pipeline. Se aplican a mano con `dotnet ef database update`, antes de fusionar el código que las necesita.
+- La comprobación posterior avisa, pero no revierte el despliegue por sí sola.
 
 ### 7.3.2. Production Deployment Pipeline Components
 
-_Pendiente de completar._
+```mermaid
+flowchart LR
+    pr[PR hacia main] --> c{{check CI y emulador}}
+    c -->|verde y fusionado| m[main]
+    m --> v[Vercel: despliega la carpeta que cambió]
+    v --> l[landing]
+    v --> w[web]
+    v --> a[API]
+    l & w & a --> s[post-deploy: comprobación]
+    m -->|etiqueta vX.Y.Z| rel[release.yml: APK final]
+```
+
+| Componente | Archivo o servicio | Disparador | Qué hace |
+|---|---|---|---|
+| Barrera | Protección de `main` | Pull request | Exige el check `CI`. |
+| Despliegue | Proyectos `vetpass-landing`, `vetpass-web` y `vetpass-api` | Push a `main` | Publica el producto cuya carpeta cambió. |
+| Comprobación de la API | `.github/workflows/post-deploy.yml` | Despliegue de producción | `/health` responde `ok` con la zona `America/Lima`, y una ruta protegida responde 401. |
+| Comprobación de la web y la landing | `.github/workflows/post-deploy.yml` | Despliegue de producción | La página responde 200. |
+| APK final | `.github/workflows/release.yml` | Etiqueta `vX.Y.Z` | Publica `vetpass.apk` como última versión. |
+
+_Pendiente de completar: captura del panel de despliegues de Vercel._
+
+_Pendiente de completar: enlace y captura de la primera ejecución de `post-deploy.yml`, que corre al fusionar la versión 1.1.0 en `main`._
 
 ## 7.4. Continuous Monitoring
 
@@ -2897,7 +3197,20 @@ _Pendiente de completar._
 
 ### Conclusiones y recomendaciones
 
-_Pendiente de completar._
+Avance al Trabajo Parcial:
+
+- **Producto.** La landing, la web, la API y la app móvil cubren las 18 historias de usuario del backlog, y están desplegadas o distribuidas.
+- **Verificación.** Las 202 pruebas automatizadas pasan, con 88.9 % de cobertura de líneas en el backend. Encontraron un defecto de seguridad real que la revisión manual no había detectado, lo que justifica su costo.
+- **Pipeline.** Un cambio llega a producción solo por pull request y con el pipeline en verde. La entrega es desechable y reproducible, con las limitaciones descritas en las secciones 7.2.1 y 7.3.1.
+- **Validación pendiente.** Estas conclusiones cubren la verificación técnica. Los Problem Statements, Assumptions e Hypothesis Statements de la sección 1.2.2 aún no se contrastan con usuarios reales: eso corresponde a las entrevistas de validación (sección 6.3) y a los experimentos (capítulo VIII).
+
+Recomendaciones para las siguientes etapas:
+
+1. Agregar análisis estático y de seguridad al pipeline (sección 6.2).
+2. Instrumentar la recolección de datos en los productos, necesaria para los experimentos del capítulo VIII.
+3. Agregar monitoreo y alertas (sección 7.4).
+4. Llevar las migraciones de base de datos al pipeline.
+5. Evaluar un entorno Stage permanente si las validaciones con usuarios lo necesitan.
 
 ### Video App Validation
 
@@ -2909,8 +3222,467 @@ _Pendiente de completar._
 
 ## Bibliografía
 
-_Pendiente de completar._
+Adzic, G. (2012). *Impact mapping: Making a big impact with software products and projects*. Provoking Thoughts.
+
+Association for Computing Machinery & IEEE Computer Society. (1999). *Software engineering code of ethics and professional practice* (versión 5.2). https://www.acm.org/code-of-ethics/software-engineering-code
+
+Brown, S. (s. f.). *The C4 model for visualising software architecture*. https://c4model.com/
+
+Cohn, M. (2004). *User stories applied: For agile software development*. Addison-Wesley.
+
+Conventional Commits. (s. f.). *Conventional Commits 1.0.0*. https://www.conventionalcommits.org/en/v1.0.0/
+
+Driessen, V. (2010, 5 de enero). *A successful Git branching model*. https://nvie.com/posts/a-successful-git-branching-model/
+
+Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley.
+
+GitHub. (s. f.). *GitHub Actions documentation*. https://docs.github.com/en/actions
+
+Gothelf, J., & Seiden, J. (2021). *Lean UX: Creating great products with agile teams* (3.ª ed.). O'Reilly Media.
+
+Humble, J., & Farley, D. (2010). *Continuous delivery: Reliable software releases through build, test, and deployment automation*. Addison-Wesley.
+
+Instituto Nacional de Estadística e Informática. (2026). *Crianza de mascotas en el hogar: módulo de la Encuesta Nacional de Hogares*. INEI.
+
+Ley N.° 29733, Ley de Protección de Datos Personales. (2011). Congreso de la República del Perú.
+
+Microsoft. (s. f.). *Playwright documentation*. https://playwright.dev/docs/intro
+
+Preston-Werner, T. (s. f.). *Semantic Versioning 2.0.0*. https://semver.org/
+
+Reqnroll. (s. f.). *Reqnroll documentation*. https://docs.reqnroll.net/
+
+Testcontainers. (s. f.). *Testcontainers*. https://testcontainers.com/
+
+Vercel. (s. f.). *Vercel documentation*. https://vercel.com/docs
+
+WSAVA Vaccination Guidelines Group. (s. f.). *Guidelines for the vaccination of dogs and cats*. World Small Animal Veterinary Association.
+
+<div style="page-break-after: always;"></div>
 
 ## Anexos
 
-_Pendiente de completar (adjuntar aquí anexos adicionales del equipo, de ser necesario)._
+### Anexo A. Videos de Exposiciones
+
+| Entrega | Título | Enlace |
+|---|---|---|
+| Avance 1 | _Pendiente de completar._ | _Pendiente de completar._ |
+| Trabajo Parcial | _Pendiente de completar._ | _Pendiente de completar._ |
+
+<div style="page-break-after: always;"></div>
+
+### Anexo B. Archivos .feature
+
+Código de las pruebas BDD de la sección 6.1.3, en `backend/tests/VetPass.AcceptanceTests/Features`.
+
+**US04-staff-access.feature**
+
+```gherkin
+Feature: US04 - Authentication of the clinic staff
+  As clinic staff, I want to sign in to the web application,
+  so that I can reach the information of my patients.
+
+  Scenario: E1 - Valid credentials
+    When the user "andrea.quispe@vetsanmiguel.pe" signs in with the demonstration password
+    Then the session has the role "ClinicStaff"
+
+  Scenario Outline: E2 - Invalid credentials
+    When the user "<email>" signs in with the password "Incorrecta.2026"
+    Then the request is rejected with status 401
+    And the answer opens no session
+
+    Examples:
+      | email                         |
+      | andrea.quispe@vetsanmiguel.pe |
+      | nadie@vetsanmiguel.pe         |
+```
+
+**US05-owner-access.feature**
+
+```gherkin
+Feature: US05 - Pet owner access to the mobile application
+  As a pet owner, I want to sign in to the mobile application,
+  so that I can consult the information of my pets.
+
+  Scenario: E1 - Access granted
+    When the owner "valeria.campos@correo.com" signs in with the password given by the clinic
+    Then the session has the role "PetOwner"
+    And the owner sees the pets "Kiara, Simón"
+
+  Scenario: E2 - Isolation of information
+    Given the owner "valeria.campos@correo.com" is signed in
+    When the user requests the vaccination card of "Rocky"
+    Then the request is denied
+```
+
+**US06-register-client.feature**
+
+```gherkin
+Feature: US06 - Client registration
+  As clinic staff, I want to register a client with their contact details,
+  so that I can link them to their pets later.
+
+  Background:
+    Given the clinic staff is signed in
+
+  Scenario: E1 - Successful registration
+    When the staff registers the client "Ana Torres" with DNI "71234567" and phone "912 345 678"
+    Then the client is registered
+    And the phone of the client is stored as "+51912345678"
+
+  Scenario: E2 - Missing data
+    When the staff registers the client "" with DNI "71234567" and phone "912 345 678"
+    Then the request is rejected with status 400
+
+  Scenario: E3 - Non-Peruvian phone
+    When the staff registers the client "Ana Torres" with DNI "71234567" and phone "+1 202 555 0100"
+    Then the request is rejected with the code "invalid-phone-number"
+
+  Scenario: E4 - Document already registered
+    When the staff registers the client "Valeria C." with DNI "45879123" and phone "912 345 678"
+    Then the request is rejected as a duplicate of the client "Valeria Campos"
+```
+
+**US07-register-pet.feature**
+
+```gherkin
+Feature: US07 - Pet registration
+  As clinic staff, I want to register a pet linked to a client, with its species and birth date,
+  so that it becomes a patient of the clinic.
+
+  Background:
+    Given the clinic staff is signed in
+
+  Scenario: E1 - Successful registration
+    When the staff registers the "Canine" "Bolt" born on "2026-06-01" for "Jorge Aliaga"
+    Then the pet is registered with its vaccination card
+
+  Scenario: E2 - Unsupported species
+    When the staff registers the "Rabbit" "Bolt" born on "2026-06-01" for "Jorge Aliaga"
+    Then the request is rejected with the code "unsupported-species"
+
+  Scenario: E3 - Future birth date
+    When the staff registers the "Canine" "Bolt" born on "2026-10-08" for "Jorge Aliaga"
+    Then the request is rejected with the code "future-birth-date"
+
+  Scenario: E4 - Implausible birth date
+    When the staff registers the "Canine" "Bolt" born on "1990-01-01" for "Jorge Aliaga"
+    Then the request is rejected with the code "implausible-birth-date"
+```
+
+**US08-search-patient.feature**
+
+```gherkin
+Feature: US08 - Patient search
+  As clinic staff, I want to locate a pet by its name or by the name of its owner,
+  so that I can reach its record when an appointment starts.
+
+  Background:
+    Given the clinic staff is signed in
+
+  Scenario Outline: E1 - Matches found
+    When the staff searches for patients with "<criterion>"
+    Then the patients found are "<pets>"
+    And every patient found shows its species and the owner "<owner>"
+
+    Examples:
+      | criterion | pets         | owner          |
+      | kiara     | Kiara        | Valeria Campos |
+      | Valeria   | Kiara, Simón | Valeria Campos |
+
+  Scenario: E2 - No matches
+    When the staff searches for patients with "Inexistente"
+    Then no patient is found
+```
+
+**US09-generate-vaccination-card.feature**
+
+```gherkin
+Feature: US09 - Automatic generation of the vaccination card
+  As clinic staff, I want the vaccination card to be generated when a pet is registered,
+  so that I do not have to define the doses it needs.
+
+  Background:
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+
+  Scenario Outline: E1 - Generation by species
+    When the staff registers the "<species>" "Bolt" born on "2026-08-26" for "Jorge Aliaga"
+    Then the card of "Bolt" has <doses> pending doses
+
+    Examples:
+      | species | doses |
+      | Canine  | 6     |
+      | Feline  | 9     |
+
+  Scenario: E2 - Expected dates
+    When the staff registers the "Canine" "Bolt" born on "2026-09-09" for "Jorge Aliaga"
+    Then the doses of "Bolt" are expected on
+      | vaccine     | dose | date       |
+      | Quíntuple   | 1    | 2026-10-21 |
+      | Quíntuple   | 2    | 2026-11-11 |
+      | Antirrábica | 1    | 2026-12-02 |
+
+  Scenario: E3 - Pet older than the first doses
+    When the staff registers the "Canine" "Max" born on "2022-10-07" for "Jorge Aliaga"
+    Then the doses of "Max" are expected on
+      | vaccine     | dose | date       |
+      | Quíntuple   | 1    | 2026-10-07 |
+      | Antirrábica | 1    | 2026-10-07 |
+      | Quíntuple   | 2    | 2026-10-28 |
+      | Quíntuple   | 3    | 2026-11-18 |
+```
+
+**US10-register-applied-dose.feature**
+
+```gherkin
+Feature: US10 - Registration of an applied dose
+  As clinic staff, I want to register the application of a dose with its date, batch and veterinarian,
+  so that the card keeps verifiable evidence.
+
+  Background:
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+
+  Scenario: E1 - Valid registration
+    When the staff registers dose 2 of "Quíntuple" for "Rocky" applied on "2026-10-07" with batch "a-4521"
+    Then the dose is registered as applied with batch "A-4521"
+
+  Scenario: E2 - Minimum age not reached
+    When the staff registers dose 1 of "Antirrábica" for "Rocky" applied on "2026-10-07" with batch "R-1300"
+    Then the request is rejected with the code "minimum-age-not-reached"
+    And the earliest admissible date is "2026-10-28"
+
+  Scenario: E3 - Minimum interval not met
+    Given the "Canine" "Bolt" born on "2026-06-01" is registered for "Jorge Aliaga"
+    And dose 1 of "Quíntuple" for "Bolt" was applied on "2026-09-01"
+    When the staff registers dose 2 of "Quíntuple" for "Bolt" applied on "2026-09-15" with batch "A-1"
+    Then the request is rejected with the code "minimum-interval-not-met"
+    And the earliest admissible date is "2026-09-22"
+
+  Scenario: E4 - Future application date
+    When the staff registers dose 2 of "Quíntuple" for "Rocky" applied on "2026-10-08" with batch "A-1"
+    Then the request is rejected with the code "future-application-date"
+
+  Scenario: E5 - Dose out of order
+    When the staff registers dose 3 of "Quíntuple" for "Rocky" applied on "2026-10-07" with batch "A-1"
+    Then the request is rejected with the code "dose-out-of-order"
+
+  Scenario: E5 - Doses of different vaccines on the same day
+    Given the "Canine" "Bolt" born on "2026-06-01" is registered for "Jorge Aliaga"
+    When the staff registers dose 1 of "Quíntuple" for "Bolt" applied on "2026-10-07" with batch "A-1"
+    And the staff registers dose 1 of "Antirrábica" for "Bolt" applied on "2026-10-07" with batch "R-1"
+    Then the dose is registered as applied with batch "R-1"
+
+  Scenario: E6 - Dose applied before the registration
+    Given the "Canine" "Max" born on "2022-10-07" is registered for "Jorge Aliaga"
+    When the staff registers dose 1 of "Quíntuple" for "Max" applied on "2022-11-25" with batch "H-2022"
+    Then the dose is registered as applied with batch "H-2022"
+    And the doses of "Max" are expected on
+      | vaccine   | dose | date       |
+      | Quíntuple | 2    | 2026-10-07 |
+```
+
+**US11-card-status.feature**
+
+```gherkin
+Feature: US11 - Status of the vaccination card
+  As clinic staff, I want to know the status of the card of a patient,
+  so that I can decide what it needs before attending it.
+
+  Background:
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+
+  Scenario: E1 - Card up to date
+    When the user requests the vaccination card of "Kiara"
+    Then the status of the card is "UpToDate"
+
+  Scenario: E2 - Card pending
+    When the user requests the vaccination card of "Rocky"
+    Then the status of the card is "Pending"
+    And the next dose is dose 2 of "Quíntuple"
+
+  Scenario: E3 - Card overdue
+    When the user requests the vaccination card of "Toby"
+    Then the status of the card is "Overdue"
+```
+
+**US12-owner-card.feature**
+
+```gherkin
+Feature: US12 - Vaccination card from the mobile application
+  As a pet owner, I want to check the vaccination card of each of my pets from my phone,
+  so that I know what each one needs without depending on the paper document.
+
+  Background:
+    Given the owner "valeria.campos@correo.com" is signed in
+    And today is "2026-10-07"
+
+  Scenario: E1 - Card of a pet
+    When the user requests the vaccination card of "Kiara"
+    Then the status of the card is "UpToDate"
+    And the card shows applied doses and pending doses
+
+  Scenario: E2 - Each pet has its own status
+    When the owner lists their pets
+    Then the status of each pet is
+      | pet   | status   |
+      | Kiara | UpToDate |
+      | Simón | Overdue  |
+```
+
+**US13-register-visit.feature**
+
+```gherkin
+Feature: US13 - Registration of a veterinary visit
+  As clinic staff, I want to register a visit with its reason, findings, diagnosis and treatment,
+  so that the history of the patient is kept.
+
+  Background:
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+
+  Scenario: E1 - Successful registration
+    When the staff registers a visit for "Rocky" on "2026-10-07" with reason "Control" and diagnosis "Sano"
+    Then the visit is in the history of "Rocky" on "2026-10-07" with the staff as responsible
+
+  Scenario Outline: E2 - Required fields missing
+    When the staff registers a visit for "Rocky" on "2026-10-07" with reason "<reason>" and diagnosis "<diagnosis>"
+    Then the request is rejected with status 400
+
+    Examples:
+      | reason  | diagnosis |
+      |         | Sano      |
+      | Control |           |
+```
+
+**US14-patient-history.feature**
+
+```gherkin
+Feature: US14 - History of the patient
+  As clinic staff, I want to check the previous visits of a patient in chronological order,
+  so that I can decide with complete information.
+
+  Background:
+    Given the clinic staff is signed in
+
+  Scenario: E1 - History with visits
+    When the user requests the history of "Rocky"
+    Then the visits are, from the most recent
+      | reason                                       |
+      | Primera consulta y primera dosis del esquema |
+      | Control de ingreso                           |
+
+  Scenario: E2 - Empty history
+    When the user requests the history of "Luna"
+    Then the history has no visits
+```
+
+**US15-issue-prescription.feature**
+
+```gherkin
+Feature: US15 - Issue of a prescription
+  As clinic staff, I want to issue a prescription linked to a visit,
+  so that the owner has the indication in writing.
+
+  Background:
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+    And the staff registered a visit for "Kiara" on "2026-10-07" with reason "Control" and diagnosis "Sano"
+
+  Scenario: E1 - Successful issue
+    When the staff issues a prescription of "Amoxicilina 250 mg" with dosage "Una tableta cada 12 horas" for "7 días"
+    Then the prescription is issued
+    And the owner "valeria.campos@correo.com" sees "Amoxicilina 250 mg" in the prescription of the visit
+
+  Scenario: E2 - Prescription without medications
+    When the staff issues a prescription without medications
+    Then the request is rejected with status 400
+```
+
+**US16-owner-history.feature**
+
+```gherkin
+Feature: US16 - History and prescriptions from the mobile application
+  As a pet owner, I want to review the visits and prescriptions of my pets from my phone,
+  so that I remember what was indicated and when.
+
+  Scenario: E1 - History of a pet
+    Given the clinic staff is signed in
+    And today is "2026-10-07"
+    And the staff registered a visit for "Kiara" on "2026-10-01" with reason "Control de peso" and diagnosis "Sano"
+    And the owner "valeria.campos@correo.com" is signed in
+    When the user requests the history of "Kiara"
+    Then the visits are, from the most recent
+      | reason                                        |
+      | Control de peso                               |
+      | Enrojecimiento y rascado en el pliegue facial |
+
+  Scenario: E2 - Prescription of a visit
+    Given the owner "valeria.campos@correo.com" is signed in
+    When the user opens the visit of "Kiara" with reason "Enrojecimiento y rascado en el pliegue facial"
+    Then the prescription contains
+      | medication               | dosage                                  | duration |
+      | Clorhexidina 2% solución | Aplicar en el pliegue dos veces al día. | 10 días  |
+      | Cefalexina 250 mg        | Media tableta cada 12 horas.            | 7 días   |
+```
+
+**US17-change-password.feature**
+
+```gherkin
+Feature: US17 - Password change by the pet owner
+  As a pet owner, I want to change my password from the mobile application,
+  so that only I know the key to the information of my pets.
+
+  Scenario: E1 - Successful change
+    Given the owner "valeria.campos@correo.com" is signed in
+    When the owner changes the password to "Perrito2026"
+    Then the change is accepted
+    And the owner signs in with "Perrito2026" but not with the previous password
+
+  Scenario: E2 - Wrong current password
+    Given the owner "valeria.campos@correo.com" is signed in
+    When the owner changes the password to "Perrito2026" giving "NoEsLaClave1" as the current one
+    Then the request is rejected with the code "invalid-current-password"
+    And the session is still open
+
+  Scenario: E3 - Weak password
+    Given the owner "valeria.campos@correo.com" is signed in
+    When the owner changes the password to "perrito"
+    Then the request is rejected with the code "weak-password"
+
+  Scenario: E4 - Temporary password
+    Given the clinic gives mobile access to "Jorge Aliaga" with the email "jorge.aliaga@correo.com"
+    When the owner "jorge.aliaga@correo.com" signs in with the temporary password
+    Then the session requires a password change
+```
+
+**US18-reset-password.feature**
+
+```gherkin
+Feature: US18 - Password reset by the clinic
+  As clinic staff, I want to reset the password of a client who forgot it,
+  so that they recover access to the mobile application without the clinic knowing the password they choose.
+
+  Scenario: E1 - Successful reset
+    Given the clinic staff is signed in
+    When the staff resets the password of "Valeria Campos"
+    Then a temporary password of 12 characters is issued
+    And the owner "valeria.campos@correo.com" signs in with the temporary password but not with the previous one
+
+  Scenario: E2 - Password not visible
+    Given the clinic staff is signed in
+    When the staff lists the clients
+    Then no client shows a password
+
+  Scenario: E3 - Client without access
+    Given the clinic staff is signed in
+    When the staff resets the password of "Carlos Ramos"
+    Then the request is rejected with the code "client-without-account"
+
+  Scenario: E4 - Client of another clinic
+    Given the staff of another clinic is signed in
+    When the staff resets the password of "Valeria Campos"
+    Then the request is denied
+```
