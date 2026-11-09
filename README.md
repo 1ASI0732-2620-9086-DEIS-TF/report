@@ -3401,7 +3401,7 @@ La prioridad es **(6 − Confianza) + Riesgo + Impacto + Interés**. En caso de 
 | 6 | Q7 | Los recordatorios pueden mover la retención, pero dependen de que Q1 y Q5 tengan respuesta. | 2 | 2 | 4 | 3 | 13 |
 | 7 | Q6 | El registro de mascota ya se verificó con pruebas de aceptación (US07 y US09). | 4 | 2 | 3 | 2 | 9 |
 
-Q5 y Q7 empatan en 13 puntos con Q4; Q4 queda antes por su mayor Riesgo. Las cinco primeras preguntas pasan a experimentos. Q6 y Q7 se cubren, por ahora, con las entrevistas de validación (sección 6.3).
+Q4 y Q7 empatan en 13 puntos; Q4 queda antes por su mayor Riesgo. Las cinco primeras preguntas pasan a experimentos. Q6 y Q7 se cubren, por ahora, con las entrevistas de validación (sección 6.3).
 
 ### 8.1.5. Experiment Cards
 
