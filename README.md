@@ -59,6 +59,7 @@
 | 1.2 | 2026-10-07 | Guerrero Tomas Nelson Fabrizio | Secciones 6.1 Testing Suites & Validation y 7.1 Continuous Integration; historias US17 y US18 y criterios actualizados en 3.2 y 3.3. |
 | 1.3 | 2026-11-06 | Guerrero Tomas Nelson Fabrizio | Corrección de 6.1 y 7.1 según el pipeline en verde; secciones 7.2 Continuous Delivery y 7.3 Continuous deployment; US07-E4 en 3.2; carátula, Student Outcome, Collaboration Insights, avance de conclusiones, bibliografía y anexos. |
 | 1.4 | 2026-11-07 | Guerrero Tomas Nelson Fabrizio | Evidencias de la primera entrega y el primer despliegue por el pipeline (versión 1.1.0) en 7.2 y 7.3. |
+| 1.5 | 2026-11-09 | Guerrero Tomas Nelson Fabrizio | Avance 2: secciones 6.2 Static testing & Verification, 6.3 Validation Interviews (diseño), 6.4 (estructura), 7.4 Continuous Monitoring y 8.1 a 8.3.2 Experiment-Driven Development; 5.1.3 actualizada; Collaboration Insights del Avance 1; Anexo C. |
 
 <div style="page-break-after: always;"></div>
 
@@ -70,11 +71,22 @@ Para cada entrega se debe explicar cómo se han desarrollado las actividades de 
 
 ### Avance 1
 
-_Pendiente de completar._
+El Avance 1 se elaboró del 10 al 17 de septiembre de 2026, con ramas por capítulo (`chapter-1` y `chapter-3`) que luego se integraron en `develop`. En ese período el repositorio registró 29 commits:
+
+| Integrante (cuenta de GitHub) | Commits | Aportes principales |
+|---|---|---|
+| Guerrero Tomas, Nelson Fabrizio (Nelsoondev) | 15 | Estructura del informe y capítulos I, III y IV. |
+| Saldaña De Souza, Juan David | 8 | Datos propios y registro de entrevistas del capítulo II. |
+| Berrospi Marin, Angel Guillermo (Guiller-berrs) | 6 | Perfil, análisis competitivo, entrevistas y As-Is Scenario Mapping del capítulo II. |
+| Cuba Pareja, Joaquin | 0 | Se incorporó al equipo después de esta entrega. |
+
+Los commits de esa etapa aún no seguían Conventional Commits de forma uniforme («complete Chapter 3», «Developing Chapter 2»). La convención se aplica desde el capítulo V (sección 5.1.2).
 
 ### Avance 2
 
-_Pendiente de completar._
+El Avance 2 se elabora en la rama `feature/avance-2`, que se integra en `develop` por pull request. Los cambios del producto que documenta (secciones 6.2 y 7.4) están en los pull requests #5, #6 y #7 del repositorio `vetpass`.
+
+_Pendiente de completar al cierre de la entrega: commits de cada integrante en este período y captura de los analíticos._
 
 ### Trabajo Parcial
 
@@ -288,6 +300,7 @@ _Pendiente de completar._
 - [Anexos](#anexos)
   - [Anexo A. Videos de Exposiciones](#anexo-a-videos-de-exposiciones)
   - [Anexo B. Archivos .feature](#anexo-b-archivos-feature)
+  - [Anexo C. Cálculo de escala de los experimentos](#anexo-c-cálculo-de-escala-de-los-experimentos)
 
 <div style="page-break-after: always;"></div>
 
@@ -378,11 +391,9 @@ conocimientos técnicos y habilidades que cada uno aporta al equipo.
 | <img src="img/cap 1/profile&solutions/Juan.png" width="100"> | Saldaña De Souza, Juan David | U20221F192 | Ingeniería de Software | Desarrollo web (Angular, Spring Boot), bases de datos relacionales y no relacionales, control de versiones con Git, y conocimientos en diseño de software orientado a objetos. |
 | <img src="assets/img/team/integrante-04.png" width="100"> | Cuba Pareja, Joaquin | U201621281 | Ingeniería de Software | |
 
-
 ## 1.2. Solution Profile
 
 ### 1.2.1. Antecedentes y problemática
-
 
 #### Análisis previo: The 5 'W's and 2 'H's
 
@@ -944,7 +955,6 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 **URL:** [Link de Entrevistas](https://upcedupe-my.sharepoint.com/:f:/g/personal/u202114701_upc_edu_pe/IgCpUCBa26nOQJjyG6R79yXLAUD05YPdm1K8yQrOTXoUvHc?e=w1cUXf)
 
 
-
 #### Segmento objetivo #1: Clínica Veterinaria
 
 ---
@@ -991,7 +1001,6 @@ composición del hogar, ocupación, y cantidad y especie de sus mascotas.
 - **Duración:** 7:02
 
 **Resumen:** Stephano es un estudiante universitario que tiene un perro de un año y medio llamado Kido. Suele llevarlo al veterinario aproximadamente dos veces al año para revisiones generales o urgencias. Guarda las cartillas físicas en un mueble de su casa, aunque admite que en alguna ocasión se le han perdido u olvidado. Su papá es quien tiene mayor conocimiento sobre las vacunas necesarias. Tras las consultas, recibe los reportes médicos en PDF vía WhatsApp, los cuales comparte con su grupo familiar. Le preocupan las enfermedades graves o que podrían ser prevenibles. Al evaluar una veterinaria, valora primordialmente el buen trato hacia su mascota, el orden, la precisión en los tratamientos y consideraría un enorme valor agregado que le permitieran tener acceso directo para visualizar el historial clínico de su perrito. Usa aplicaciones a diario como correo, apps bancarias (Yape), YouTube y Google Calendar.
-
 
 
 ---
@@ -1205,7 +1214,6 @@ análisis en la sección 2.2.3.
 | **Thinking** | "Este documento se va a ir con él y no me queda copia." | "Esto lo cierro después, ahora no hay tiempo." | "Si esta cartilla se pierde, este registro deja de existir." | "Espero que quede donde debe quedar." | "Ojalá esté acá; si no, empiezo de cero." | "No sé cuántos pacientes míos tienen la rabia vencida." |
 | **Feeling** | Neutral (3/5) | Apurada (2/5) | Cumplida pero expuesta (3/5) | Insegura (2/5) | Tensa (2/5) | Frustrada (1/5) |
 
-
 #### As-Is Scenario Map 2 — Valeria Campos 
 
 **Escenario:** mantener al día la salud y el esquema de vacunación de sus dos mascotas.
@@ -1256,7 +1264,6 @@ propios del dominio del problema.
 # Capítulo III: Requirements Specification
 
 En este capítulo se especifican los requisitos de los productos digitales a partir del análisis realizado en el capítulo anterior. La especificación parte de la visión del estado futuro de la experiencia de cada arquetipo, expresada en los To-Be Scenario Maps, y se traduce luego en User Stories, en el Product Backlog priorizado y en el Impact Mapping que vincula dichas historias con los objetivos de negocio.
-
 
 ## 3.1. To-Be Scenario Mapping
 
@@ -1374,7 +1381,6 @@ El backlog totaliza 86 Story Points distribuidos en veinticuatro historias.
 | 22 | US12 | Consulta de la cartilla desde la aplicación móvil | Como dueño de mascota, deseo consultar la cartilla de vacunación de cada una de mis mascotas desde mi celular, para saber qué le toca a cada una sin depender del documento físico. | 5 |
 | 23 | US15 | Emisión de receta médica | Como personal de la clínica, deseo emitir una receta asociada a una atención, para que el dueño disponga de la indicación por escrito. | 3 |
 | 24 | US16 | Consulta del historial y recetas desde la aplicación móvil | Como dueño de mascota, deseo revisar las atenciones y recetas de mis mascotas desde mi celular, para recordar qué le indicaron y cuándo. | 3 |
-
 
 ## 3.4. Impact Mapping
 
@@ -2183,7 +2189,7 @@ Hasta la versión 1.0.0 se trabajó directamente en `main`. Desde el siguiente s
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-Los identificadores se escriben en inglés en todos los lenguajes. El backend ya cumple esta regla; la web y la app móvil aún tienen identificadores en español, que se migrarán en el próximo sprint.
+Los identificadores se escriben en inglés en todos los lenguajes; los textos visibles, en el idioma del usuario mediante i18n. La web y la app móvil se migraron al inglés en la versión 1.2.0, y el pipeline verifica estas convenciones (sección 6.2.1.1).
 
 | Lenguaje | Guía de referencia | Reglas principales |
 |---|---|---|
@@ -2804,67 +2810,212 @@ Resultado: las 16 pasan. La prueba móvil de la receta todavía fallaba al cierr
 
 ## 6.2. Static testing & Verification
 
+El análisis estático revisa el código sin ejecutarlo. Corre en el pipeline de la sección 7.1 en cada push y en cada pull request: un hallazgo detiene la integración, igual que una prueba fallida.
+
+| Producto | Herramienta | Qué revisa | Dónde corre |
+|---|---|---|---|
+| RESTful API (C#) | Analizadores de .NET (`AnalysisLevel` latest-recommended) y `dotnet format` | Calidad, rendimiento, globalización, estilo y formato | Job `backend`, con `-warnaserror` |
+| Aplicación web (Vue y JS) | ESLint con las reglas recomendadas de JavaScript y de Vue | Errores probables, buenas prácticas de Vue y complejidad | Job `web`, con `--max-warnings 0` |
+| Aplicación móvil (Dart) | `flutter analyze` con `flutter_lints` | Errores probables y Effective Dart | Job `mobile` |
+| Todo el código | jscpd | Código duplicado | Job `duplication` |
+| C#, JavaScript y workflows | CodeQL | Vulnerabilidades y calidad | Workflow `codeql.yml` |
+| Dependencias | Dependabot | Versiones con vulnerabilidades conocidas y actualizaciones | Semanal, con pull requests hacia `develop` |
+
 ### 6.2.1. Static Code Analysis
 
 #### 6.2.1.1. Coding standard & Code conventions
 
-_Pendiente de completar._
+Las convenciones son las de la sección 5.1.3. El archivo `.editorconfig` de la raíz fija el formato común (UTF-8, saltos de línea LF, sangría de 2 espacios y de 4 en C#) y la severidad de cada regla de .NET. Cada regla relajada lleva su motivo escrito en el mismo archivo.
+
+| Lenguaje | Estándar | Cómo se verifica |
+|---|---|---|
+| C# | C# Coding Conventions y reglas CA de .NET | La compilación trata cada aviso como error, y `dotnet format --verify-no-changes` rechaza el código sin formato. |
+| JavaScript y Vue | Reglas recomendadas de ESLint y de `eslint-plugin-vue` | `npm run lint` en el job `web`. |
+| Dart | Effective Dart y `flutter_lints`, más comillas simples y tipos de retorno explícitos | `flutter analyze` en el job `mobile`. |
+| Gherkin | Un `.feature` por historia, un escenario por criterio | Revisión en el pull request (sección 6.2.2). |
+
+**Primera ejecución.** Al activar las herramientas, el código tenía estos hallazgos:
+
+| Producto | Hallazgos | Tratamiento |
+|---|---|---|
+| API, código de producción | 29 | Se corrigieron 11: fechas formateadas con la cultura del servidor (CA1305), correos normalizados con `ToLower()` dependiente de la cultura (CA1304, CA1311 y CA1862), un campo visible en `BaseRepository` (CA1051) y nombres de parámetro distintos de los de la clase base (CA1725). Los otros 18 se relajaron con motivo: 8 por un choque con una palabra reservada de Visual Basic (CA1716), 7 de rendimiento del registro, que solo ocurre al arrancar y ante errores (CA1848 y CA1873), y 3 en migraciones generadas por EF Core (CA1861). |
+| API, pruebas | 135 | 77 nombres con guiones bajos, que son la convención de xUnit (CA1707), y 8 reglas que no aplican a pruebas: se relajaron solo en `backend/tests`. Las 50 llamadas sin el token de cancelación de xUnit (xUnit1051) se corrigieron. |
+| Aplicación web | 240 | 1 error (una variable sin usar) y 10 atributos fuera de orden, corregidos. Los 229 restantes eran reglas de maquetación, como un atributo por línea, que contradicen el estilo compacto de la sección 5.1.3; se desactivaron. |
+| Aplicación móvil | 0 | `flutter analyze` ya corría en el pipeline desde la sección 7.1. |
+
+Además, la guía de la sección 5.1.3 exige identificadores en inglés, y la web y la app móvil aún los tenían en español. Se migraron 52 archivos: funciones, variables, claves de i18n, clases CSS, `id` de formulario y nombres de ruta. Los textos visibles, las rutas de la URL y las claves guardadas en el navegador y en el teléfono no cambiaron, así que nadie perdió su sesión ni su idioma. Las pruebas de los cuatro niveles pasaron sin cambiar ninguna aserción.
+
+_Pendiente de completar: enlace a la ejecución del pipeline con el análisis estático en verde._
 
 #### 6.2.1.2. Code Quality & Code Security
 
-_Pendiente de completar._
+**Complejidad.** ESLint limita cada función de la web a una complejidad ciclomática de 10, a 3 niveles de anidamiento y a 4 parámetros. Ninguna función supera esos límites.
+
+**Duplicación.** jscpd busca bloques repetidos de al menos 50 tokens, y el pipeline falla si superan el 5 % del código. Las migraciones y los textos de i18n se excluyen porque son código generado o datos.
+
+| Formato | Archivos | Líneas | Clones | Líneas duplicadas |
+|---|---|---|---|---|
+| C# | 72 | 4 525 | 5 | 39 (0.86 %) |
+| Dart | 22 | 2 200 | 2 | 21 (0.95 %) |
+| JavaScript | 29 | 1 829 | 1 | 9 (0.49 %) |
+| Marcado (HTML y plantillas Vue) | 18 | 1 198 | 11 | 106 (8.85 %) |
+| CSS | 16 | 925 | 1 | 5 (0.54 %) |
+| **Total** | **159** | **10 705** | **20** | **180 (1.68 %)** |
+
+La mayor parte del marcado duplicado es la cabecera y el pie, que se repiten en las tres páginas de la landing. Es aceptable en un sitio estático sin plantillas, y se revisará si la landing crece.
+
+**Seguridad.** CodeQL analiza el C#, el JavaScript y los workflows de GitHub Actions con el conjunto de consultas `security-and-quality`. Corre en cada pull request hacia `develop` y `main`, y cada lunes. Busca, entre otras, las vulnerabilidades que pide el enunciado:
+
+| Riesgo | Cómo lo previene el código | Qué verifica CodeQL |
+|---|---|---|
+| Inyección SQL | EF Core parametriza las consultas. La única consulta escrita a mano es el `SELECT 1` constante de `/health/ready`. | Datos del usuario que llegan a una consulta sin parámetros. |
+| Cross-Site Scripting | Vue escapa todo lo que muestra, y la web no usa `v-html`. | Datos del usuario que llegan al DOM sin escapar. |
+| Datos sensibles | Los secretos viven en `dotnet user-secrets` y en Vercel, nunca en el repositorio público (sección 5.1.4). Cada dato clínico exige un token y pertenecer a la clínica (sección 6.1.2). | Secretos en el código y registros con datos sensibles. |
+| Workflows inseguros | Los workflows piden solo los permisos que necesitan. | Inyección de expresiones y permisos excesivos. |
+
+Dart no está soportado por CodeQL; la app móvil se cubre con `flutter analyze`. Dependabot revisa cada semana las dependencias de NuGet, npm, pub y GitHub Actions, y propone las actualizaciones agrupadas en pull requests que pasan por el mismo pipeline.
+
+_Pendiente de completar: resultado y captura de la primera ejecución de CodeQL._
 
 ### 6.2.2. Reviews
 
-_Pendiente de completar._
+Cada cambio entra a `develop` y a `main` por pull request (sección 5.1.2), y la protección de `main` exige el check `CI` (sección 7.3). Desde esta versión, cada pull request incluye la lista de revisión de `.github/pull_request_template.md`:
+
+- [ ] El CI está en verde: compilación, lint, formato, pruebas y duplicación.
+- [ ] Los nombres siguen la guía de la sección 5.1.3.
+- [ ] Cada regla nueva tiene su prueba.
+- [ ] No hay secretos, contraseñas reales ni datos personales en el código.
+- [ ] Los errores de la API responden con ProblemDetails y el código correcto.
+- [ ] Si hay una migración, se aplica antes de publicar el código que la necesita.
+
+Hasta la versión 1.1.0, los pull requests se integraron sin la revisión de otro integrante: la protección de `main` exige el CI, pero no aprobaciones. Es una brecha del proceso. Desde esta entrega, cada pull request debe revisarlo un integrante distinto de su autor, que deja su revisión en GitHub.
+
+| Pull request | Autor | Revisor | Hallazgos de la revisión |
+|---|---|---|---|
+| _Pendiente de completar por el equipo._ | | | |
 
 ## 6.3. Validation Interviews
 
+Las entrevistas de validación contrastan el producto terminado con usuarios reales de los dos segmentos. Responden a las hipótesis de la sección 1.2.2.3 y alimentan el Question Backlog del capítulo VIII.
+
 ### 6.3.1. Diseño de Entrevistas
 
-_Pendiente de completar._
+**Formato.** Las sesiones son individuales y moderadas, de 30 a 40 minutos, presenciales o por videollamada con pantalla compartida, y se graban con el consentimiento del participante. Cada participante usa los productos desplegados en producción, con cuentas y pacientes de demostración, nunca con datos clínicos reales. El moderador pide que piense en voz alta y no le ayuda a completar las tareas.
+
+**Participantes.** Se entrevista a 3 a 5 personas por segmento, con el mismo perfil de la sección 2.2.1:
+
+- **Personal de clínica:** veterinarios o recepcionistas de clínicas independientes de Lima Metropolitana con uno a tres veterinarios.
+- **Dueños:** personas que llevan a su perro o gato a una de esas clínicas y usan smartphone a diario.
+
+**Guion.**
+
+1. Presentación, consentimiento de grabación y dos preguntas de contexto: cómo registran o guardan hoy la información de la mascota.
+2. Landing page: qué entiende que resuelve VetPass en 10 segundos, y cómo entraría a la aplicación.
+3. Tareas del segmento, sin ayuda del moderador.
+4. Preguntas de cierre: qué le sobró, qué le faltó, y si lo recomendaría o adoptaría.
+
+**Tareas y user flows por segmento.**
+
+| Segmento | Producto | Tarea | User flow | Hipótesis que contrasta |
+|---|---|---|---|---|
+| Ambos | Landing | Explicar qué resuelve VetPass e ingresar a la aplicación | Inicio → «Ingresar» | — |
+| Personal de clínica | Web | Iniciar sesión | Acceso → Pacientes | — |
+| Personal de clínica | Web | Encontrar a Kiara por el nombre de su dueña y decir qué vacuna le toca | Buscador → ficha → Cartilla | H1 |
+| Personal de clínica | Web | Registrar una mascota nueva con su cliente | Pacientes → Registrar mascota | H4 |
+| Personal de clínica | Web | Registrar una dosis antes de la fecha permitida y explicar el mensaje | Cartilla → Registrar dosis | H3 |
+| Personal de clínica | Web | Registrar una atención con receta, cronometrada | Historial → Nueva atención | H1 y supuesto de funcionalidad 4 |
+| Personal de clínica | Web | Dar acceso a la app a un cliente | Clientes → Dar acceso | — |
+| Dueño | Móvil | Ingresar con la contraseña temporal y cambiarla | Acceso → Cambio de contraseña | — |
+| Dueño | Móvil | Decir cuándo le toca la próxima vacuna a su mascota | Mis mascotas → Cartilla | H2 y H5 |
+| Dueño | Móvil | Encontrar qué medicamento le recetaron en la última atención | Historial → Atención | H6 |
+
+**Qué se registra.** De cada tarea: si se completó sin ayuda, el tiempo y los errores. Al final, los problemas observados se califican con las heurísticas de la sección 6.3.3.
 
 ### 6.3.2. Registro de Entrevistas
 
-_Pendiente de completar._
+_Pendiente de completar por el equipo tras realizar y grabar las entrevistas. Por cada una: nombres y apellidos, edad, distrito, captura del video, enlace en Microsoft Stream con el minuto de inicio y la duración, y un resumen de sus apreciaciones sobre las tareas._
+
+| # | Segmento | Nombres y apellidos | Edad | Distrito | Inicio en el video | Duración | Enlace |
+|---|---|---|---|---|---|---|---|
+| 1 | Personal de clínica | | | | | | |
+| 2 | Personal de clínica | | | | | | |
+| 3 | Personal de clínica | | | | | | |
+| 4 | Dueño de mascota | | | | | | |
+| 5 | Dueño de mascota | | | | | | |
+| 6 | Dueño de mascota | | | | | | |
 
 ### 6.3.3. Evaluaciones según heurísticas
 
-_Pendiente de completar._
+La evaluación sigue el formato del Anexo D del enunciado, con las heurísticas de usabilidad de Nielsen, los principios de arquitectura de información y de diseño inclusivo.
+
+| | |
+|---|---|
+| Carrera | Ingeniería de Software |
+| Curso | Diseño de Experimentos de Ingeniería de Software |
+| NRC | 9086 |
+| Profesores | Todos |
+| Auditor | PawCode Studio |
+| Clientes | _Pendiente: participantes de la sección 6.3.2._ |
+| Sitio o app a evaluar | VetPass: landing page, aplicación web y aplicación móvil |
+
+**Tareas evaluadas:** las diez tareas de la sección 6.3.1.
+
+**Tareas no incluidas en esta versión:** recordatorios de la próxima dosis, invitación al dueño con código QR y plantillas de motivos frecuentes, que se diseñan en el capítulo VIII y aún no están implementadas.
+
+**Escala de severidad.**
+
+| Nivel | Descripción |
+|---|---|
+| 1 | Problema superficial: el usuario lo supera con facilidad o ocurre muy pocas veces. Se corrige si hay tiempo. |
+| 2 | Problema menor: ocurre con más frecuencia o cuesta un poco más superarlo. Prioridad baja para la siguiente versión. |
+| 3 | Problema mayor: ocurre con frecuencia o el usuario no logra resolverlo. Prioridad alta. |
+| 4 | Problema muy grave: impide continuar. Debe corregirse antes del lanzamiento. |
+
+**Tabla resumen.**
+
+| # | Problema | Escala de severidad | Heurística o principio violado |
+|---|---|---|---|
+| _Pendiente de completar con los problemas observados en las entrevistas._ | | | |
+
+Cada problema se describe después con su severidad, la heurística, la descripción con captura y la recomendación.
 
 ## 6.4. Auditoría de Experiencias de Usuario
+
+La auditoría es cruzada: PawCode Studio evalúa el producto de otro equipo del curso y otro equipo evalúa VetPass, con el formato de la sección 6.3.3.
 
 ### 6.4.1. Auditoría realizada
 
 #### 6.4.1.1. Información del grupo auditado
 
-_Pendiente de completar._
+_Pendiente de completar por el equipo: nombre del grupo y del producto auditado, segmento objetivo y URL de sus aplicaciones._
 
 #### 6.4.1.2. Cronograma de auditoría realizada
 
-_Pendiente de completar._
+_Pendiente de completar por el equipo: fecha, hora, lugar o canal y participantes de cada sesión._
 
 #### 6.4.1.3. Contenido de auditoría realizada
 
-_Pendiente de completar._
+_Pendiente de completar por el equipo: tareas evaluadas, tabla resumen y detalle de cada problema, con el formato de la sección 6.3.3._
 
 ### 6.4.2. Auditoría recibida
 
 #### 6.4.2.1. Información del grupo auditor
 
-_Pendiente de completar._
+_Pendiente de completar por el equipo: nombre del grupo auditor y sus integrantes._
 
 #### 6.4.2.2. Cronograma de auditoría recibida
 
-_Pendiente de completar._
+_Pendiente de completar por el equipo: fecha, hora, lugar o canal y participantes de cada sesión._
 
 #### 6.4.2.3. Contenido de auditoría recibida
 
-_Pendiente de completar._
+_Pendiente de completar por el equipo: el informe que entregue el grupo auditor._
 
 #### 6.4.2.4. Resumen de modificaciones para subsanar hallazgos
 
-_Pendiente de completar._
+_Pendiente de completar: cada hallazgo de severidad 3 o 4, el cambio que lo corrige y el pull request que lo implementa._
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo VII: DevOps Practices
 
@@ -3059,19 +3210,91 @@ _Pendiente de completar: captura del panel de despliegues de Vercel._
 
 ### 7.4.1. Tools and Practices
 
-_Pendiente de completar._
+El monitoreo continuo vigila los productos ya publicados: si dejan de responder, el equipo se entera antes que los usuarios.
+
+| Herramienta | Uso |
+|---|---|
+| GitHub Actions (`monitor.yml`) | Comprueba cada 30 minutos la API, la base de datos, la web y la landing, y registra el tiempo de respuesta. |
+| Endpoint `/api/v1/health/ready` | Confirma que la API alcanza la base de datos; responde 503 si no puede. |
+| GitHub Issues | Cada incidente queda registrado como un issue con la etiqueta `incident`. |
+| Notificaciones de GitHub | Avisan a los integrantes asignados por correo y en la aplicación móvil de GitHub. |
+| Vercel Web Analytics y Speed Insights | Miden las visitas y los tiempos de carga reales de la web y la landing, sin cookies. |
+| Runtime Logs de Vercel | Registran los errores de la API en producción. |
+
+Prácticas:
+
+- **Comprobaciones sintéticas.** El monitor hace las mismas peticiones que un usuario, desde fuera de Vercel.
+- **Disponibilidad con la base.** `/health` confirma que la API responde, y `/health/ready` que además alcanza la base. Así se distingue una API caída de una base caída.
+- **Un incidente, un issue.** Mientras el problema sigue, cada ejecución comenta en el mismo issue en lugar de abrir otro.
+- **Cierre automático.** La primera comprobación correcta cierra el incidente y deja constancia.
+- **Sin datos personales.** Las comprobaciones no inician sesión, y la analítica de uso no usa cookies ni identifica a quien visita. La política de privacidad de la landing lo declara.
+
+Limitaciones actuales:
+
+- `schedule` corre solo en la rama `main`, y con unos minutos de retraso cuando GitHub tiene carga. Entre dos comprobaciones pueden pasar hasta 30 minutos.
+- GitHub desactiva los workflows programados tras 60 días sin actividad en el repositorio.
+- No se monitorea la app móvil instalada: depende de la API, que sí se monitorea.
 
 ### 7.4.2. Monitoring Pipeline Components
 
-_Pendiente de completar._
+```mermaid
+flowchart LR
+    cron([cada 30 minutos]) --> mon[monitor.yml]
+    dep([despliegue de producción]) --> pd[post-deploy.yml]
+    mon --> api[API: /health y /health/ready]
+    mon --> web[Web]
+    mon --> land[Landing]
+    api --> db[(Supabase)]
+    pd --> api
+    pd --> web
+    pd --> land
+    mon --> res[Resumen con códigos y tiempos]
+    usuarios([usuarios]) --> va[Vercel Analytics y Speed Insights]
+```
+
+| Componente | Archivo o servicio | Frecuencia | Qué mide |
+|---|---|---|---|
+| Disponibilidad de la API | `monitor.yml` → `/api/v1/health` | Cada 30 minutos | Responde 200 con la zona `America/Lima`. |
+| Disponibilidad de la base | `monitor.yml` → `/api/v1/health/ready` | Cada 30 minutos | La API ejecuta `SELECT 1` en la base. |
+| Seguridad básica | `monitor.yml` → `/api/v1/clients` | Cada 30 minutos | Una ruta protegida sigue respondiendo 401 sin token. |
+| Web y landing | `monitor.yml` | Cada 30 minutos | Responden 200. |
+| Tiempo de respuesta | `monitor.yml` | Cada 30 minutos | Segundos de cada petición, en el resumen de la ejecución. |
+| Producto recién publicado | `post-deploy.yml` | En cada despliegue de producción | Las mismas comprobaciones, para el producto desplegado. |
+| Uso real | Vercel Web Analytics y Speed Insights | Continuo | Visitas, páginas y Core Web Vitals. |
+
+La consulta a la base cada 30 minutos tiene además un efecto práctico: evita que el proyecto gratuito de Supabase se pause tras 7 días sin actividad, lo que en noviembre dejó a la API sin base de datos.
 
 ### 7.4.3. Alerting Pipeline Components
 
-_Pendiente de completar._
+```mermaid
+flowchart LR
+    chk{¿Falla alguna comprobación?} -->|sí| abierto{¿Hay un incidente abierto?}
+    abierto -->|no| crear[Abre el issue «incident» y lo asigna al equipo]
+    abierto -->|sí| comentar[Comenta en el mismo issue]
+    chk -->|no| cerrar[Cierra el incidente abierto, si lo hay]
+```
+
+| Componente | Archivo | Disparador | Qué hace |
+|---|---|---|---|
+| Acción de incidentes | `.github/actions/incident` | Resultado de `monitor.yml` o de `post-deploy.yml` | Abre, comenta o cierra el issue `incident`. |
+| Regla de alerta | `monitor.yml` | Cualquier comprobación con un código distinto del esperado | Abre o actualiza el incidente con la lista de lo que falló. |
+| Alerta de despliegue | `post-deploy.yml` | Un despliegue que no pasa la comprobación posterior | Abre el incidente y sugiere el Instant Rollback de Vercel. |
+| Prueba de la alerta | `monitor.yml` con *simulate-failure* | Ejecución manual | Agrega una comprobación que falla a propósito. |
+
+_Pendiente de completar: captura del incidente abierto por la prueba de la alerta y de su cierre automático._
 
 ### 7.4.4. Notification Pipeline Components
 
-_Pendiente de completar._
+| Componente | Canal | Destinatarios | Contenido |
+|---|---|---|---|
+| Asignación del issue | Correo y aplicación móvil de GitHub | Los cuatro integrantes del equipo | Qué falló, con el código y la URL, y el enlace a la ejecución. |
+| Comentarios del incidente | Correo y aplicación móvil de GitHub | Quienes siguen el issue | Cada nueva comprobación fallida. |
+| Cierre del incidente | Correo y aplicación móvil de GitHub | Quienes siguen el issue | Que producción volvió a responder. |
+| Ejecución fallida | Correo de GitHub Actions | Quien hizo el último cambio en el workflow | El fallo de `monitor.yml` o de `post-deploy.yml`. |
+
+Cada integrante debe tener activadas las notificaciones de los issues asignados en su cuenta de GitHub (**Settings → Notifications**).
+
+_Pendiente de completar: captura de la notificación recibida._
 
 <div style="page-break-after: always;"></div>
 
@@ -3081,69 +3304,360 @@ _Pendiente de completar._
 
 ## 8.1. Experiment Planning
 
+La planificación parte de lo que el equipo cree, sabe y no sabe sobre VetPass, y lo convierte en preguntas que un experimento puede responder. Sigue el proceso de Experiment-Driven Product Development (Rissen, 2019): primero preguntas, después soluciones.
+
 ### 8.1.1. As-Is Summary
 
-_Pendiente de completar._
+**El producto hoy.** VetPass 1.1.0 está en producción. La clínica registra clientes, mascotas, dosis, atenciones y recetas en la aplicación web; la cartilla se genera sola según la especie y rechaza las dosis que violan el esquema. El dueño consulta la cartilla, el historial y las recetas en la aplicación móvil. Las 18 historias del backlog están implementadas y verificadas por 202 pruebas automatizadas (capítulo VI).
+
+**Lo que sabemos.** Las seis entrevistas del capítulo II mostraron que:
+
+- Todas las clínicas entrevistadas registran en papel.
+- Recuperar los antecedentes de un paciente les toma de 2 a 10 minutos.
+- Todos los dueños han perdido o dañado la cartilla.
+- Todos dijeron que preferirían una clínica que les dé acceso digital.
+
+**Lo que no sabemos.** Aún no hay datos de uso real:
+
+- **Activación:** ninguna clínica ajena al equipo ha usado el producto, así que no sabemos si los dueños activan su cuenta.
+- **Uso:** tampoco sabemos cuánto tarda el personal en registrar una atención ni qué consulta el dueño.
+- **Evidencia disponible:** las hipótesis de la sección 1.2.2.3 descansan en lo que los entrevistados dijeron, no en lo que hicieron.
+- **Instrumentación:** la analítica de uso empieza con la versión 1.2.0 (sección 7.4), y solo cuenta visitas.
+
+**Los objetivos.** Los objetivos de negocio de la sección 3.4 fijan qué importa: 25 clínicas activas (BG01), 1 500 cartillas activas (BG02), 60 % de dueños con la cuenta activada en 30 días (BG03) y 80 % de clínicas retenidas a tres meses (BG04).
+
+El objetivo de esta etapa no es proponer funciones nuevas, sino ordenar las preguntas cuya respuesta más reduce el riesgo de no alcanzar esos objetivos.
 
 ### 8.1.2. Raw Material: Assumptions, Knowledge Gaps, Ideas, Claims
 
-_Pendiente de completar._
+| ID | Tipo | Enunciado | Fuente |
+|---|---|---|---|
+| A1 | Assumption | Los dueños del segmento tienen smartphone y están dispuestos a instalar una aplicación para consultar a su mascota. | Supuesto de negocio 7 (1.2.2.2) |
+| A2 | Assumption | Dar acceso digital al cliente es un diferencial que la clínica valora. | Supuesto de negocio 4 |
+| A3 | Assumption | Un formato preestablecido de atención es más rápido de completar que un campo de texto libre. | Supuesto de funcionalidad 4 |
+| A4 | Assumption | Mostrar el estado de la cartilla es más útil que listar las dosis. | Supuesto de funcionalidad 2 |
+| A5 | Assumption | El dueño consulta la cartilla más que el historial. | Supuesto de funcionalidad 5 |
+| K1 | Knowledge gap | No sabemos qué proporción de los dueños con acceso creado llega a iniciar sesión, ni qué los detiene. | As-Is Summary |
+| K2 | Knowledge gap | No sabemos con qué frecuencia ni en qué momentos abre el dueño la aplicación. | As-Is Summary |
+| K3 | Knowledge gap | No sabemos cuánto tarda el personal en registrar una atención en la aplicación web. | As-Is Summary |
+| K4 | Knowledge gap | No sabemos si los visitantes de la landing que son clínicas llegan a pedir una demostración. | As-Is Summary |
+| I1 | Idea | Entregar al dueño, en la consulta, una invitación impresa con un código QR que abre la descarga y su usuario. | Equipo |
+| I2 | Idea | Mostrar la próxima dosis como cuenta regresiva («en 12 días») además de la fecha. | Equipo |
+| I3 | Idea | Ofrecer plantillas con los motivos de atención más frecuentes. | Equipo |
+| I4 | Idea | Dirigir el mensaje principal de la landing a las clínicas, que son quienes contratan. | Equipo |
+| I5 | Idea | Recordar al dueño, por notificación, la próxima dosis días antes de su fecha. | Entrevistas a dueños (2.2.3) |
+| C1 | Claim | «Un registro que tome más de un minuto durante la consulta no llegará a usarse.» | Personal de clínica entrevistado (2.2.3) |
+| C2 | Claim | El 100 % de los dueños preferiría una clínica que le dé acceso digital permanente. | Entrevistas a dueños (2.2.3) |
+| C3 | Claim | El aviso por WhatsApp de la clínica falló en el 66,7 % de los casos. | Entrevistas a dueños (2.2.3) |
+
+Las ideas no se prueban directamente. Lo que se prueba son las premisas que hay debajo. Por ejemplo, I1 descansa en que el dueño no activa su cuenta porque la entrega verbal de credenciales se olvida, no porque no le interese.
 
 ### 8.1.3. Experiment-Ready Questions
 
-_Pendiente de completar._
+Cada pregunta se depuró con las cinco W y una H. Por ejemplo, K1 se descompone así:
+
+- **Who:** los dueños con acceso creado.
+- **What:** si inician sesión.
+- **When:** en los 30 días posteriores a la creación.
+- **Where:** en la aplicación móvil.
+- **Why:** BG03 depende de ello.
+- **How:** midiendo el primer inicio de sesión.
+
+**Preguntas que prueban una creencia (belief-led).**
+
+| ID | Pregunta | Material de origen |
+|---|---|---|
+| Q1 | ¿Entregar una invitación con código QR en la consulta aumenta la proporción de dueños que inician sesión en 30 días, frente a entregar las credenciales de palabra? | A1, K1, I1 |
+| Q2 | ¿Mostrar la próxima dosis como cuenta regresiva aumenta la proporción de dueños que saben cuándo volver, frente a mostrar solo la fecha? | A4, I2, H5 |
+| Q3 | ¿Las plantillas de motivos frecuentes reducen el tiempo de registro de una atención por debajo de 60 segundos? | A3, K3, I3, C1 |
+| Q4 | ¿Un mensaje principal dirigido a clínicas aumenta los clics en «Solicitar una demostración» frente al mensaje actual? | K4, I4 |
+
+**Preguntas exploratorias.**
+
+| ID | Pregunta | Material de origen |
+|---|---|---|
+| Q5 | ¿Con qué frecuencia y en qué momentos abre el dueño la aplicación, y qué consulta primero: la cartilla o el historial? | K2, A5 |
+| Q6 | ¿En qué paso del registro de una mascota nueva se detiene o se equivoca el personal? | Supuesto de funcionalidad 1 |
+| Q7 | ¿Qué esperan los dueños de un recordatorio de vacunación: cuándo, por qué canal y cuántas veces? | I5, C3 |
 
 ### 8.1.4. Question Backlog
 
-_Pendiente de completar._
+El backlog es amplio (broad): cubre los dos segmentos y los tres productos, en lugar de profundizar en uno solo. Cada pregunta se puntúa de 1 a 5 en cuatro criterios:
+
+- **Confianza:** cuánto confiamos ya en la respuesta. Menos confianza significa más prioridad.
+- **Riesgo:** cuánto perdemos si estamos equivocados.
+- **Impacto:** cuánto mueve un objetivo de negocio.
+- **Interés:** cuánto le importa al equipo y a los stakeholders.
+
+La prioridad es **(6 − Confianza) + Riesgo + Impacto + Interés**. En caso de empate, gana la pregunta de mayor Riesgo.
+
+| Prioridad | ID | Por qué importa | Confianza | Riesgo | Impacto | Interés | Puntaje |
+|---|---|---|---|---|---|---|---|
+| 1 | Q1 | Sin dueños activos, la propuesta de valor del dueño no existe y BG03 no se alcanza. | 2 | 5 | 5 | 5 | 19 |
+| 2 | Q3 | Si registrar toma más de un minuto, la clínica vuelve al papel (C1), y sin registros no hay cartillas (BG02). | 2 | 5 | 5 | 4 | 18 |
+| 3 | Q5 | Sin saber cómo usa el dueño la aplicación, cualquier mejora para él es una apuesta. | 1 | 3 | 4 | 4 | 16 |
+| 4 | Q2 | Que el dueño sepa cuándo volver es el beneficio sanitario central (H5). | 3 | 4 | 4 | 4 | 15 |
+| 5 | Q4 | La landing es el canal de captación de clínicas (BG01), pero su tráfico aún es bajo. | 3 | 3 | 4 | 3 | 13 |
+| 6 | Q7 | Los recordatorios pueden mover la retención, pero dependen de que Q1 y Q5 tengan respuesta. | 2 | 2 | 4 | 3 | 13 |
+| 7 | Q6 | El registro de mascota ya se verificó con pruebas de aceptación (US07 y US09). | 4 | 2 | 3 | 2 | 9 |
+
+Q4 y Q7 empatan en 13 puntos; Q4 queda antes por su mayor Riesgo. Las cinco primeras preguntas pasan a experimentos. Q6 y Q7 se cubren, por ahora, con las entrevistas de validación (sección 6.3).
 
 ### 8.1.5. Experiment Cards
 
-_Pendiente de completar._
+Cada tarjeta resume, en el frente, la pregunta, el porqué, la hipótesis y lo más simple que sirve para responderla. Al dorso van las medidas, las condiciones y la escala, que la sección 8.2 detalla. Las métricas son las de la sección 8.2.2.
+
+**EXP01 · Invitación con QR (Q1)**
+
+| Frente | |
+|---|---|
+| Pregunta | ¿Entregar una invitación con código QR en la consulta aumenta la proporción de dueños que inician sesión en 30 días? |
+| Por qué | BG03 exige que el 60 % de los dueños active su cuenta en 30 días; si no la activan, la aplicación móvil no aporta valor. |
+| Hipótesis | Creemos que la invitación con QR aumentará en al menos 20 puntos la tasa de activación (DBM01) frente a la entrega de palabra. |
+| Lo más simple que sirve | Una tarjeta imprimible desde la pantalla «Dar acceso», con el QR de descarga y el usuario; la contraseña temporal se sigue dictando. |
+
+| Dorso | |
+|---|---|
+| Medidas | Principal: DBM01. Secundaria: DBM08. De control: DBM10. |
+| Condiciones | Control: credenciales de palabra, como hoy. Experimental: credenciales más la tarjeta con QR. |
+| Escala | 97 dueños por grupo (sección 8.2.5). |
+
+**EXP02 · Cuenta regresiva de la próxima dosis (Q2)**
+
+| Frente | |
+|---|---|
+| Pregunta | ¿Mostrar la próxima dosis como cuenta regresiva aumenta la proporción de dueños que saben cuándo volver? |
+| Por qué | Es el beneficio sanitario central para el dueño (H5): que ninguna dosis se pase por desconocimiento. |
+| Hipótesis | Creemos que la cuenta regresiva elevará del 60 % al 85 % la comprensión de la próxima dosis (DBM06). |
+| Lo más simple que sirve | Agregar «en 12 días» junto a la fecha en la cartilla de la app, sin quitar la fecha. |
+
+| Dorso | |
+|---|---|
+| Medidas | Principal: DBM06. Secundaria: DBM09. De control: DBM11. |
+| Condiciones | Control: «Próxima dosis: 19/11/2026», como hoy. Experimental: «Próxima dosis: en 12 días · 19/11/2026». |
+| Escala | 49 dueños por grupo. |
+
+**EXP03 · Plantillas de motivos frecuentes (Q3)**
+
+| Frente | |
+|---|---|
+| Pregunta | ¿Las plantillas de motivos frecuentes reducen el tiempo de registro de una atención por debajo de 60 segundos? |
+| Por qué | El personal advierte que un registro de más de un minuto no se usará (C1); sin registros no hay cartillas ni historial (BG02). |
+| Hipótesis | Creemos que las plantillas reducirán la mediana de DBM05 en al menos 15 segundos y la dejarán bajo 60. |
+| Lo más simple que sirve | Cinco botones con los motivos más comunes (control anual, vacunación, desparasitación, control de peso y dermatológico) que llenan el motivo y una estructura sugerida. |
+
+| Dorso | |
+|---|---|
+| Medidas | Principal: DBM05. De control: DBM12. |
+| Condiciones | Cada participante registra atenciones equivalentes con y sin plantillas, en orden alternado. |
+| Escala | 14 registros pareados. |
+
+**EXP04 · Cómo usa el dueño la aplicación (Q5, exploratoria)**
+
+| Frente | |
+|---|---|
+| Pregunta | ¿Con qué frecuencia y en qué momentos abre el dueño la aplicación, y qué consulta primero? |
+| Por qué | Toda mejora para el dueño depende de saber cómo usa hoy la aplicación. |
+| Hipótesis | No aplica: es exploratoria. |
+| Lo más simple que sirve | Observar los eventos de uso del plan de seguimiento durante cuatro semanas, sin cambiar la aplicación. |
+
+| Dorso | |
+|---|---|
+| Medidas | DBM08, DBM09 y DBM11, por día de la semana y hora. |
+| Condiciones | Dueños con la cuenta activada hace al menos 30 días, de las clínicas usuarias. |
+| Escala | Todos los dueños que cumplan la condición durante cuatro semanas. |
+
+**EXP05 · Mensaje de la landing para clínicas (Q4)**
+
+| Frente | |
+|---|---|
+| Pregunta | ¿Un mensaje principal dirigido a clínicas aumenta los clics en «Solicitar una demostración»? |
+| Por qué | La landing es el canal de captación de clínicas (BG01). |
+| Hipótesis | Creemos que el mensaje para clínicas elevará DBM07 del 4 % al 6 %. |
+| Lo más simple que sirve | Una segunda versión del título y el subtítulo de la portada, servida a la mitad de las visitas. |
+
+| Dorso | |
+|---|---|
+| Medidas | Principal: DBM07. De control: DBM13. |
+| Condiciones | Control: «La cartilla de vacunación que no se pierde». Experimental: un título sobre el tiempo que la clínica deja de perder buscando antecedentes. |
+| Escala | 1 863 visitas por grupo. |
 
 ## 8.2. Experiment Design
 
 ### 8.2.1. Hypotheses
 
-_Pendiente de completar._
+Cada hipótesis es falsable y medible, y se acompaña de su hipótesis nula. El experimento no busca «validarla», sino ponerla a prueba: si no se puede rechazar la nula, la idea no se adopta.
+
+| Experimento | Hipótesis de trabajo (H1) | Hipótesis nula (H0) |
+|---|---|---|
+| EXP01 | La invitación con QR eleva la tasa de activación de dueños (DBM01) en al menos 20 puntos frente a la entrega de palabra. | La tasa de activación es igual con y sin la invitación; cualquier diferencia se debe al azar. |
+| EXP02 | La cuenta regresiva eleva la comprensión de la próxima dosis (DBM06) del 60 % al 85 % o más. | La comprensión de la próxima dosis es igual con y sin la cuenta regresiva. |
+| EXP03 | Las plantillas reducen la mediana del tiempo de registro de una atención (DBM05) en al menos 15 segundos, y por debajo de 60. | El tiempo de registro es igual con y sin plantillas. |
+| EXP05 | El mensaje para clínicas eleva la tasa de clic en «Solicitar una demostración» (DBM07) del 4 % al 6 % o más. | La tasa de clic es igual con ambos mensajes. |
+
+EXP04 es exploratorio: no tiene hipótesis, porque no hay una creencia previa que probar.
 
 ### 8.2.2. Domain Business Metrics
 
-_Pendiente de completar._
+Estas son las únicas métricas que pueden usar las Experiment Cards. Cada una se vincula con un objetivo de negocio de la sección 3.4.
+
+| ID | Métrica | Fórmula | Técnica de recolección | Meta | Objetivo |
+|---|---|---|---|---|---|
+| DBM01 | Tasa de activación de dueños | Dueños que inician sesión por primera vez en los 30 días posteriores a la creación de su acceso ÷ dueños con acceso creado en el período | Eventos `owner_access_created` y `owner_signed_in` de la API | ≥ 60 % | BG03 |
+| DBM02 | Cartillas activas | Mascotas con al menos una dosis registrada en los últimos 12 meses | Consulta a la base de datos | 1 500 | BG02 |
+| DBM03 | Clínicas activas | Clínicas con al menos una dosis o una atención registrada en los últimos 30 días | Consulta a la base de datos | 25 | BG01 |
+| DBM04 | Retención de clínicas a 90 días | Clínicas activas en el día 90 ÷ clínicas incorporadas hace 90 días o más | Consulta a la base de datos | ≥ 80 % | BG04 |
+| DBM05 | Tiempo de registro de una atención | Mediana de los segundos entre abrir el formulario de nueva atención y guardarla | Eventos `visit_form_opened` y `visit_saved` de la web | ≤ 60 s | BG02 |
+| DBM06 | Comprensión de la próxima dosis | Dueños que responden correctamente cuándo toca la próxima dosis ÷ dueños consultados | Pregunta dentro de la aplicación tras ver la cartilla (`next_dose_answered`) | ≥ 80 % | BG03 |
+| DBM07 | Tasa de clic en el llamado principal de la landing | Clics en «Solicitar una demostración» ÷ visitas a la portada | Vercel Web Analytics y evento `landing_cta_clicked` | ≥ 6 % | BG01 |
+| DBM08 | Retorno del dueño | Dueños activados que abren la aplicación al menos dos veces en 30 días ÷ dueños activados | Evento `app_opened` de la aplicación móvil | ≥ 50 % | BG03 |
+| DBM09 | Consultas de la cartilla | Aperturas de la cartilla ÷ aperturas de la aplicación | Eventos `card_viewed` y `app_opened` | Referencial | BG03 |
+| DBM10 | Tiempo para dar acceso | Mediana de los segundos entre abrir «Dar acceso» y crear la cuenta del dueño | Eventos `access_dialog_opened` y `owner_access_created` de la web y la API | ≤ 90 s | BG03 |
+| DBM11 | Consultas del historial | Aperturas del historial ÷ aperturas de la aplicación | Eventos `history_viewed` y `app_opened` | Referencial | BG03 |
+| DBM12 | Atenciones incompletas | Atenciones con un diagnóstico de menos de 10 caracteres ÷ atenciones registradas | Consulta a la base de datos | ≤ 5 % | BG02 |
+| DBM13 | Tasa de rebote de la portada | Visitas que salen sin interactuar ÷ visitas a la portada | Vercel Web Analytics | Referencial | BG01 |
+
+Las metas de DBM01 a DBM04 son las de los objetivos de negocio. DBM05 sigue el umbral que fijó el personal de clínica entrevistado (C1). Las metas de DBM06 a DBM08, DBM10 y DBM12 son estimaciones del equipo, y se ajustarán con las primeras dos semanas de datos. Las métricas referenciales no tienen meta: sirven para interpretar a las demás.
 
 ### 8.2.3. Measures
 
-_Pendiente de completar._
+Cada experimento usa solo las medidas necesarias, y solo mientras dura. Las medidas de control verifican que la mejora no empeore otra cosa.
+
+| Experimento | Medida principal | Medida secundaria | Medida de control | Duración |
+|---|---|---|---|---|
+| EXP01 | DBM01 | DBM08 | DBM10: que entregar la tarjeta no alargue la atención | Hasta 97 dueños por grupo, más 30 días |
+| EXP02 | DBM06 | DBM09 | DBM11: que la cartilla no desplace las consultas al historial | Hasta 49 respuestas por grupo |
+| EXP03 | DBM05 | — | DBM12: que registrar más rápido no deje atenciones incompletas | 14 pares de registros |
+| EXP04 | DBM08 | DBM09 y DBM11, por día de la semana y hora | — | 4 semanas |
+| EXP05 | DBM07 | — | DBM13 | Hasta 1 863 visitas por grupo |
 
 ### 8.2.4. Conditions
 
-_Pendiente de completar._
+| Experimento | Condición de control | Condición experimental | Unidad de asignación |
+|---|---|---|---|
+| EXP01 | La clínica dicta el usuario y la contraseña temporal, como hoy. | Además entrega la tarjeta impresa con el QR de descarga y el usuario. | Dueño, por sorteo al crear su acceso |
+| EXP02 | «Próxima dosis: 19/11/2026». | «Próxima dosis: en 12 días · 19/11/2026». | Dueño, por sorteo al activar su cuenta |
+| EXP03 | Formulario actual de nueva atención. | Formulario con cinco plantillas de motivos frecuentes. | Atención: cada participante registra en ambas condiciones, en orden alternado |
+| EXP05 | Título actual: «La cartilla de vacunación que no se pierde». | Título dirigido a la clínica, sobre el tiempo que deja de perder buscando antecedentes. | Visita, por sorteo en el navegador |
+
+**EXP04 (exploratorio).** No hay condiciones. Se estudia a los dueños con la cuenta activada hace al menos 30 días, de clínicas usuarias que no sean del equipo; se excluyen las cuentas de demostración.
 
 ### 8.2.5. Scale Calculations and Decisions
 
-_Pendiente de completar._
+**Certeza.** Nivel de significancia α = 0,05 (bilateral), para limitar los falsos positivos (error tipo I), y potencia estadística de 0,80 (β = 0,20), para limitar los falsos negativos (error tipo II).
+
+**Precisión.** El efecto mínimo detectable (MDE) es la diferencia más pequeña que justificaría adoptar el cambio.
+
+Los tamaños se calcularon con las fórmulas de la aproximación normal, con z(α/2) = 1,960 y z(β) = 0,842:
+
+- **Dos proporciones:** n = [z(α/2)·√(2·p̄·(1 − p̄)) + z(β)·√(p₁(1 − p₁) + p₂(1 − p₂))]² ÷ (p₂ − p₁)².
+- **Medias pareadas:** n = [(z(α/2) + z(β))·σ_d ÷ MDE]².
+
+El cálculo es reproducible con el script `escala.py` del Anexo C.
+
+| Experimento | Prueba | Línea base | MDE | Tamaño necesario | Decisión |
+|---|---|---|---|---|---|
+| EXP01 | Dos proporciones | 40 % de activación (estimada) | +20 puntos | 97 dueños por grupo | Es alcanzable con 3 o 4 clínicas en 2 a 3 meses. Si la línea base real se aleja del 40 %, se recalcula tras las dos primeras semanas. |
+| EXP02 | Dos proporciones | 60 % de comprensión (estimada) | +25 puntos | 49 dueños por grupo | Viable con los dueños de las clínicas de EXP01, una vez activados. |
+| EXP03 | Medias pareadas | Desviación de las diferencias σ_d = 20 s (estimada) | −15 s | 14 pares de registros | Viable: la población de personal es pequeña, por eso el diseño es intra-sujeto, que necesita menos participantes. |
+| EXP05 | Dos proporciones | 4 % de clic (estimada) | +2 puntos | 1 863 visitas por grupo | Con el tráfico actual no es alcanzable en el semestre. Se corre como prueba direccional durante 8 semanas, y no se decide con significancia estadística. |
 
 ### 8.2.6. Methods Selection
 
-_Pendiente de completar._
+El método de cada experimento es lo más simple que alcanza su tamaño de muestra y sus condiciones (Simplest Useful Thing).
+
+| Experimento | Método | Por qué |
+|---|---|---|
+| EXP01 | Prueba A/B en campo: al crear un acceso, la web sortea si la clínica imprime la tarjeta. | La activación ocurre días después y fuera de la clínica, así que solo se observa en uso real. |
+| EXP02 | Prueba A/B en la aplicación, con una pregunta breve tras ver la cartilla. | La comprensión se mide en la situación real de consulta, no en una sala de pruebas. |
+| EXP03 | Prueba de usabilidad moderada e intra-sujeto, con el personal de las clínicas de la sección 6.3. | Pocos participantes alcanzan la potencia si cada uno se compara consigo mismo. |
+| EXP04 | Análisis observacional de los eventos de uso. | Es exploratoria: no hay condiciones que comparar. |
+| EXP05 | Prueba A/B en la landing, sorteada en el navegador. | Es el único método que alcanza muchas visitas sin contacto con el visitante. |
+
+**Reglas.**
+
+- **Sin solapamiento.** No se corren a la vez dos experimentos sobre el mismo tema que expongan a un usuario a ambos. EXP01 y EXP02 afectan al mismo dueño, así que EXP02 empieza cuando EXP01 termina de asignar.
+- **Sin daño.** Ninguna condición oculta información clínica ni retrasa un aviso: el control de EXP02 sigue mostrando la fecha, y las plantillas de EXP03 se pueden editar por completo. Los datos se recogen sin identificar a la persona (sección 8.2.8).
 
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection
 
-_Pendiente de completar._
+Cada objetivo de análisis se mide con un KPI, que es una de las métricas de la sección 8.2.2, y con las métricas de apoyo justas para explicarlo.
+
+| Objetivo de análisis | KPI | Métricas de apoyo | Experimentos | Decisión que habilita |
+|---|---|---|---|---|
+| Que los dueños activen su cuenta | DBM01 | DBM08 y DBM10 | EXP01 | Adoptar la invitación con QR como paso estándar al dar acceso. |
+| Que el dueño sepa cuándo volver | DBM06 | DBM09 y DBM11 | EXP02, EXP04 | Adoptar la cuenta regresiva y decidir si construir los recordatorios (Q7). |
+| Que registrar no le quite tiempo a la consulta | DBM05 | DBM12 | EXP03 | Adoptar las plantillas y decidir si ampliarlas. |
+| Captar clínicas desde la landing | DBM07 | DBM13 | EXP05 | Elegir el mensaje principal de la landing. |
+| Seguir los objetivos de negocio | DBM02, DBM03 y DBM04 | — | Todos | Medir el avance hacia BG01, BG02 y BG04, fuera de los experimentos. |
+
+Se registra solo lo que alguna de estas filas necesita. No se recolectan eventos «por si acaso».
 
 ### 8.2.8. Web and Mobile Tracking Plan
 
-_Pendiente de completar._
+Los eventos se envían a un endpoint propio de la API (`POST /api/v1/events`) y se guardan en la misma base de datos. Así no se comparten datos con terceros. La landing usa además Vercel Web Analytics, que ya cuenta las visitas sin cookies.
+
+| Evento | Producto | Se emite cuando | Propiedades | Métrica |
+|---|---|---|---|---|
+| `landing_cta_clicked` | Landing | Se hace clic en «Solicitar una demostración» | `variant` | DBM07 |
+| `access_dialog_opened` | Web | Se abre «Dar acceso» para un cliente | `variant` de EXP01 | DBM10 |
+| `owner_access_created` | API | La clínica crea el acceso de un dueño | `clinicId`, `variant` de EXP01 | DBM01 y DBM10 |
+| `owner_signed_in` | API | Un dueño inicia sesión | `firstTime` | DBM01 |
+| `visit_form_opened` | Web | Se abre el formulario de nueva atención | `variant` de EXP03 | DBM05 |
+| `visit_saved` | Web | Se guarda una atención | `durationSeconds`, `variant`, `hasPrescription` | DBM05 |
+| `app_opened` | Móvil | Se abre la aplicación con sesión | — | DBM08 y DBM09 |
+| `card_viewed` | Móvil | Se abre la cartilla de una mascota | `variant` de EXP02 | DBM09 |
+| `history_viewed` | Móvil | Se abre el historial de una mascota | — | DBM11 |
+| `next_dose_answered` | Móvil | El dueño responde la pregunta de EXP02 | `variant`, `correct` | DBM06 |
+
+**Reglas de privacidad.**
+
+- Cada evento lleva solo un identificador seudónimo del usuario, la clínica, la fecha y hora, y sus propiedades.
+- Nunca lleva nombres, correos, documentos ni datos clínicos.
+- Los eventos se borran a los 12 meses.
+
+DBM02, DBM03, DBM04 y DBM12 no necesitan eventos: se calculan con los datos que la plataforma ya guarda. DBM13 la calcula Vercel Web Analytics.
 
 ## 8.3. Experimentation
 
 ### 8.3.1. To-Be User Stories
 
-_Pendiente de completar._
+Las historias To-Be implementan lo que los experimentos necesitan: la recolección de eventos del plan de seguimiento y las condiciones experimentales. Se agrupan en un epic nuevo.
+
+| Epic ID | Título | Descripción |
+|---|---|---|
+| EP06 | Experimentación y medición | Como startup, deseo medir el uso de VetPass y comparar variantes del producto, para decidir con evidencia qué cambios adoptar. |
+
+| Story ID | User | Priority | Epic ID | Título | Descripción | Criterios de Aceptación |
+|---|---|---|---|---|---|---|
+| TS05 | Developer | Alta | EP06 | Registro de eventos de uso | Como desarrollador, deseo exponer un endpoint que registre los eventos del plan de seguimiento, para calcular las métricas de los experimentos sin compartir datos con terceros. | **E1: Evento válido**<br>Dado que una aplicación envía un evento del plan de seguimiento con sus propiedades<br>Cuando la API lo recibe<br>Entonces lo guarda con un identificador seudónimo del usuario y responde 202.<br><br>**E2: Evento desconocido**<br>Dado que una aplicación envía un evento que no está en el plan de seguimiento<br>Cuando la API lo recibe<br>Entonces responde 400 y no lo guarda.<br><br>**E3: Sin datos personales**<br>Dado que un evento incluye una propiedad no declarada en el plan, como un correo<br>Cuando la API lo recibe<br>Entonces descarta esa propiedad y guarda solo las declaradas. |
+| TS06 | Developer | Alta | EP06 | Asignación de variantes | Como desarrollador, deseo asignar cada usuario o visita a una condición de un experimento de forma estable, para que vea siempre la misma variante. | **E1: Asignación estable**<br>Dado que un usuario fue asignado a la condición experimental de un experimento<br>Cuando vuelve a usar el producto<br>Entonces sigue en la misma condición.<br><br>**E2: Reparto equilibrado**<br>Dado que se asignan 1 000 usuarios simulados<br>Cuando se cuentan las condiciones<br>Entonces cada una recibe entre el 45 % y el 55 %.<br><br>**E3: Sin solapamiento**<br>Dado que un dueño participa en EXP01<br>Cuando EXP01 aún asigna dueños<br>Entonces ese dueño no entra en EXP02. |
+| US19 | Personal de clínica | Alta | EP06 | Invitación con código QR para el dueño | Como personal de la clínica, deseo imprimir una invitación con un código QR al dar acceso a un cliente, para que active su cuenta sin tener que recordar los pasos. | **E1: Invitación disponible**<br>Dado que el personal creó el acceso de un cliente asignado a la condición experimental de EXP01<br>Cuando se muestra la contraseña temporal<br>Entonces aparece la opción «Imprimir invitación» con el código QR de descarga y el usuario.<br><br>**E2: La invitación no incluye la contraseña**<br>Dado que el personal imprime la invitación<br>Cuando revisa la tarjeta<br>Entonces la tarjeta no muestra la contraseña temporal. |
+| US20 | Dueño de mascota | Alta | EP06 | Cuenta regresiva de la próxima dosis | Como dueño de mascota, deseo ver cuántos días faltan para la próxima dosis, para saber cuándo volver a la clínica. | **E1: Dosis futura**<br>Dado que el dueño está en la condición experimental de EXP02 y la próxima dosis de su mascota es dentro de 12 días<br>Cuando abre la cartilla<br>Entonces ve «Próxima dosis: en 12 días» junto a la fecha.<br><br>**E2: Dosis vencida**<br>Dado que la próxima dosis venció hace 3 días<br>Cuando el dueño abre la cartilla<br>Entonces ve «Vencida hace 3 días» junto a la fecha.<br><br>**E3: Condición de control**<br>Dado que el dueño está en la condición de control<br>Cuando abre la cartilla<br>Entonces ve solo la fecha, como en la versión actual. |
+| US21 | Dueño de mascota | Media | EP06 | Pregunta sobre la próxima dosis | Como dueño de mascota, deseo responder en un toque cuándo me toca volver, para que la clínica sepa si la cartilla se entiende. | **E1: Pregunta única**<br>Dado que el dueño participa en EXP02 y abre la cartilla por primera vez después de 24 horas<br>Cuando la cierra<br>Entonces se le pregunta una sola vez cuándo es la próxima dosis, con tres opciones.<br><br>**E2: Se puede omitir**<br>Dado que se muestra la pregunta<br>Cuando el dueño elige «Omitir»<br>Entonces no se registra respuesta y no se vuelve a preguntar. |
+| US22 | Personal de clínica | Alta | EP06 | Plantillas de motivos frecuentes | Como personal de la clínica, deseo elegir un motivo frecuente al registrar una atención, para completarla en menos de un minuto. | **E1: Elegir plantilla**<br>Dado que el personal registra una atención en la condición experimental de EXP03<br>Cuando elige «Control anual»<br>Entonces el motivo y la estructura sugerida del diagnóstico y del tratamiento se completan.<br><br>**E2: Se puede editar**<br>Dado que se aplicó una plantilla<br>Cuando el personal modifica cualquier campo<br>Entonces se guarda lo que escribió, no la plantilla.<br><br>**E3: Tiempo de registro**<br>Dado que el personal abre el formulario de nueva atención<br>Cuando guarda la atención<br>Entonces se registra el evento `visit_saved` con la duración en segundos. |
+| US23 | Visitante del segmento clínica | Media | EP06 | Mensaje principal dirigido a clínicas | Como visitante del segmento clínica, deseo leer en la portada cómo VetPass ahorra tiempo a mi clínica, para decidir si pido una demostración. | **E1: Variante para clínicas**<br>Dado que la visita fue asignada a la condición experimental de EXP05<br>Cuando se carga la portada<br>Entonces se muestra el título dirigido a clínicas.<br><br>**E2: Clic medido**<br>Dado que el visitante está en cualquiera de las dos condiciones<br>Cuando hace clic en «Solicitar una demostración»<br>Entonces se registra el evento `landing_cta_clicked` con su variante. |
+| US24 | Dueño de mascota | Media | EP06 | Medición del uso de la aplicación móvil | Como dueño de mascota, deseo que la aplicación mida su uso sin identificarme, para que VetPass mejore lo que más consulto. | **E1: Eventos de uso**<br>Dado que el dueño inició sesión<br>Cuando abre la aplicación, la cartilla o el historial<br>Entonces se registran `app_opened`, `card_viewed` o `history_viewed` sin datos personales.<br><br>**E2: Sin conexión**<br>Dado que el teléfono no tiene red<br>Cuando ocurre un evento<br>Entonces se guarda y se envía cuando vuelve la conexión, sin interrumpir al dueño. |
 
 ### 8.3.2. To-Be Product Backlog
 
-_Pendiente de completar._
+El backlog To-Be continúa la numeración del Product Backlog de la sección 3.3. Se ordena según la prioridad de las preguntas de la sección 8.1.4:
+
+1. Primero va la infraestructura que todos los experimentos necesitan: eventos y asignación de variantes.
+2. Después, los experimentos en el orden de su puntaje.
+
+| # Orden | Story ID | Título | Descripción | Story Points | Experimento |
+|---|---|---|---|---|---|
+| 25 | TS05 | Registro de eventos de uso | Como desarrollador, deseo exponer un endpoint que registre los eventos del plan de seguimiento, para calcular las métricas de los experimentos sin compartir datos con terceros. | 5 | Todos |
+| 26 | TS06 | Asignación de variantes | Como desarrollador, deseo asignar cada usuario o visita a una condición de un experimento de forma estable, para que vea siempre la misma variante. | 3 | EXP01, EXP02, EXP03 y EXP05 |
+| 27 | US19 | Invitación con código QR para el dueño | Como personal de la clínica, deseo imprimir una invitación con un código QR al dar acceso a un cliente, para que active su cuenta sin tener que recordar los pasos. | 3 | EXP01 |
+| 28 | US22 | Plantillas de motivos frecuentes | Como personal de la clínica, deseo elegir un motivo frecuente al registrar una atención, para completarla en menos de un minuto. | 3 | EXP03 |
+| 29 | US24 | Medición del uso de la aplicación móvil | Como dueño de mascota, deseo que la aplicación mida su uso sin identificarme, para que VetPass mejore lo que más consulto. | 3 | EXP02 y EXP04 |
+| 30 | US20 | Cuenta regresiva de la próxima dosis | Como dueño de mascota, deseo ver cuántos días faltan para la próxima dosis, para saber cuándo volver a la clínica. | 2 | EXP02 |
+| 31 | US21 | Pregunta sobre la próxima dosis | Como dueño de mascota, deseo responder en un toque cuándo me toca volver, para que la clínica sepa si la cartilla se entiende. | 2 | EXP02 |
+| 32 | US23 | Mensaje principal dirigido a clínicas | Como visitante del segmento clínica, deseo leer en la portada cómo VetPass ahorra tiempo a mi clínica, para decidir si pido una demostración. | 2 | EXP05 |
+
+El backlog To-Be suma 23 Story Points en ocho historias. Su implementación, la ejecución de los experimentos y el análisis de los resultados corresponden al Trabajo Final (secciones 8.3.3 a 8.6).
 
 ### 8.3.3. Pipeline-supported, Experiment-Driven To-Be Software Platform Lifecycle
 
@@ -3226,11 +3740,19 @@ Avance al Trabajo Parcial:
 - **Pipeline.** Desde la versión 1.1.0, un cambio llega a producción por pull request y con el pipeline en verde, salvo que un administrador salte esa barrera en una emergencia. La entrega es desechable y reproducible, con las limitaciones descritas en las secciones 7.2.1 y 7.3.1.
 - **Validación pendiente.** Estas conclusiones cubren la verificación técnica. Los Problem Statements, Assumptions e Hypothesis Statements de la sección 1.2.2 aún no se contrastan con usuarios reales: eso corresponde a las entrevistas de validación (sección 6.3) y a los experimentos (capítulo VIII).
 
+Avance al Avance 2:
+
+- **Calidad del código.** El pipeline rechaza el código que no cumple las convenciones, que supera los límites de complejidad o que duplica más del 5 %. Al activarlo encontró 11 defectos reales en el código de producción, como fechas y correos procesados según la cultura del servidor. Hoy pasa sin avisos.
+- **Seguridad.** CodeQL y Dependabot revisan el código y las dependencias en cada pull request y cada semana.
+- **Operación.** Producción se comprueba cada 30 minutos, y un fallo llega como incidente asignado a todo el equipo. La comprobación de la base además evita que Supabase se pause, como ocurrió en noviembre.
+- **Experimentos.** Las preguntas del equipo se ordenaron por riesgo e impacto. Las cinco primeras tienen su experimento diseñado, con métricas, condiciones y tamaño de muestra. El cálculo muestra que el experimento de la landing (EXP05) no alcanza significancia con el tráfico actual, y se decidió correrlo como prueba direccional en lugar de prometer un resultado que no se puede obtener.
+- **Validación pendiente.** Las entrevistas de validación y la auditoría de UX están diseñadas, pero aún no realizadas.
+
 Recomendaciones para las siguientes etapas:
 
-1. Agregar análisis estático y de seguridad al pipeline (sección 6.2).
-2. Instrumentar la recolección de datos en los productos, necesaria para los experimentos del capítulo VIII.
-3. Agregar monitoreo y alertas (sección 7.4).
+1. Realizar las entrevistas de validación y la auditoría cruzada antes de implementar el backlog To-Be, para que sus hallazgos lo corrijan.
+2. Implementar primero el registro de eventos y la asignación de variantes (TS05 y TS06), que todos los experimentos necesitan.
+3. Exigir la revisión de otro integrante en cada pull request (sección 6.2.2).
 4. Llevar las migraciones de base de datos al pipeline.
 5. Evaluar un entorno Stage permanente si las validaciones con usuarios lo necesitan.
 
@@ -3256,7 +3778,11 @@ Conventional Commits. (s. f.). *Conventional Commits 1.0.0*. https://www.convent
 
 Driessen, V. (2010, 5 de enero). *A successful Git branching model*. https://nvie.com/posts/a-successful-git-branching-model/
 
+ESLint. (s. f.). *ESLint documentation*. https://eslint.org/docs/latest/
+
 Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley.
+
+GitHub. (s. f.). *About code scanning with CodeQL*. https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql
 
 GitHub. (s. f.). *GitHub Actions documentation*. https://docs.github.com/en/actions
 
@@ -3266,13 +3792,23 @@ Humble, J., & Farley, D. (2010). *Continuous delivery: Reliable software release
 
 Instituto Nacional de Estadística e Informática. (2026). *Crianza de mascotas en el hogar: módulo de la Encuesta Nacional de Hogares*. INEI.
 
+Kohavi, R., Tang, D., & Xu, Y. (2020). *Trustworthy online controlled experiments: A practical guide to A/B testing*. Cambridge University Press.
+
 Ley N.° 29733, Ley de Protección de Datos Personales. (2011). Congreso de la República del Perú.
 
+Microsoft. (s. f.). *Code analysis in .NET*. https://learn.microsoft.com/dotnet/fundamentals/code-analysis/overview
+
 Microsoft. (s. f.). *Playwright documentation*. https://playwright.dev/docs/intro
+
+Nielsen, J. (2024). *10 usability heuristics for user interface design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
+
+OWASP Foundation. (2021). *OWASP Top 10: 2021*. https://owasp.org/Top10/
 
 Preston-Werner, T. (s. f.). *Semantic Versioning 2.0.0*. https://semver.org/
 
 Reqnroll. (s. f.). *Reqnroll documentation*. https://docs.reqnroll.net/
+
+Rissen, P. (2019). *Experiment-driven product development: How to use a data-informed approach to learn, iterate, and succeed faster*. Apress.
 
 Testcontainers. (s. f.). *Testcontainers*. https://testcontainers.com/
 
@@ -3707,4 +4243,45 @@ Feature: US18 - Password reset by the clinic
     Given the staff of another clinic is signed in
     When the staff resets the password of "Valeria Campos"
     Then the request is denied
+```
+
+### Anexo C. Cálculo de escala de los experimentos
+
+Script de la sección 8.2.5. Usa solo la biblioteca estándar de Python 3: `python3 escala.py`.
+
+```python
+"""Tamaños de muestra de los experimentos del capítulo VIII (sección 8.2.5).
+alfa = 0,05 (bilateral), potencia = 0,80. Solo usa la biblioteca estándar."""
+from math import ceil, sqrt
+from statistics import NormalDist
+
+z = NormalDist().inv_cdf
+ALFA, POTENCIA = 0.05, 0.80
+za, zb = z(1 - ALFA / 2), z(POTENCIA)
+
+def dos_proporciones(p1, p2):
+    """n por grupo para comparar dos proporciones (aproximación normal)."""
+    pm = (p1 + p2) / 2
+    n = (za * sqrt(2 * pm * (1 - pm)) + zb * sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2
+    return ceil(n)
+
+def pareada(sd_diferencias, mde):
+    """n de participantes para una comparación pareada de medias (intra-sujeto)."""
+    return ceil(((za + zb) * sd_diferencias / mde) ** 2)
+
+print(f'z(alfa/2) = {za:.3f}, z(potencia) = {zb:.3f}')
+print('EXP01 activación 40 % -> 60 %:', dos_proporciones(0.40, 0.60), 'dueños por grupo')
+print('EXP02 identifica la fecha 60 % -> 85 %:', dos_proporciones(0.60, 0.85), 'dueños por grupo')
+print('EXP03 tiempo de registro, MDE 15 s, sd 20 s:', pareada(20, 15), 'registros pareados')
+print('EXP05 clic en «Solicitar una demostración» 4 % -> 6 %:', dos_proporciones(0.04, 0.06), 'visitas por grupo')
+```
+
+Salida:
+
+```text
+z(alfa/2) = 1.960, z(potencia) = 0.842
+EXP01 activación 40 % -> 60 %: 97 dueños por grupo
+EXP02 identifica la fecha 60 % -> 85 %: 49 dueños por grupo
+EXP03 tiempo de registro, MDE 15 s, sd 20 s: 14 registros pareados
+EXP05 clic en «Solicitar una demostración» 4 % -> 6 %: 1863 visitas por grupo
 ```
