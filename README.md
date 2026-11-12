@@ -60,6 +60,7 @@
 | 1.3 | 2026-11-06 | Guerrero Tomas Nelson Fabrizio | Corrección de 6.1 y 7.1 según el pipeline en verde; secciones 7.2 Continuous Delivery y 7.3 Continuous deployment; US07-E4 en 3.2; carátula, Student Outcome, Collaboration Insights, avance de conclusiones, bibliografía y anexos. |
 | 1.4 | 2026-11-07 | Guerrero Tomas Nelson Fabrizio | Evidencias de la primera entrega y el primer despliegue por el pipeline (versión 1.1.0) en 7.2 y 7.3. |
 | 1.5 | 2026-11-09 | Guerrero Tomas Nelson Fabrizio | Avance 2: secciones 6.2 Static testing & Verification, 6.3 Validation Interviews (diseño), 6.4 (estructura), 7.4 Continuous Monitoring y 8.1 a 8.3.2 Experiment-Driven Development; 5.1.3 actualizada; Collaboration Insights del Avance 1; Anexo C. |
+| 1.6 | 2026-11-12 | Guerrero Tomas Nelson Fabrizio | Evidencias de la versión 1.2.0: pipeline con el análisis estático, resultado de CodeQL y primer incidente real del monitoreo. |
 
 <div style="page-break-after: always;"></div>
 
@@ -2845,7 +2846,11 @@ Las convenciones son las de la sección 5.1.3. El archivo `.editorconfig` de la 
 
 Además, la guía de la sección 5.1.3 exige identificadores en inglés, y la web y la app móvil aún los tenían en español. Se migraron 52 archivos: funciones, variables, claves de i18n, clases CSS, `id` de formulario y nombres de ruta. Los textos visibles, las rutas de la URL y las claves guardadas en el navegador y en el teléfono no cambiaron, así que nadie perdió su sesión ni su idioma. Las pruebas de los cuatro niveles pasaron sin cambiar ninguna aserción.
 
-_Pendiente de completar: enlace a la ejecución del pipeline con el análisis estático en verde._
+La [ejecución del pull request de la versión 1.2.0](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/42687008059) pasó todas las verificaciones: compilación con los analizadores, formato, lint, duplicación, las pruebas de los cuatro niveles y el emulador.
+
+![Pipeline con el análisis estático](./img/cap%206/6.2-pipeline-analisis.png)
+
+*Figura 6.3. Pipeline de la versión 1.2.0 con el job de duplicación y los análisis en verde.*
 
 #### 6.2.1.2. Code Quality & Code Security
 
@@ -2875,7 +2880,15 @@ La mayor parte del marcado duplicado es la cabecera y el pie, que se repiten en 
 
 Dart no está soportado por CodeQL; la app móvil se cubre con `flutter analyze`. Dependabot revisa cada semana las dependencias de NuGet, npm, pub y GitHub Actions, y propone las actualizaciones agrupadas en pull requests que pasan por el mismo pipeline.
 
-_Pendiente de completar: resultado y captura de la primera ejecución de CodeQL._
+**Primera ejecución de CodeQL** (9 de noviembre de 2026, en los pull requests #6 y #7):
+
+| Lenguaje | Alertas de seguridad | Alertas de calidad |
+|---|---|---|
+| C# | 0 | 1 |
+| JavaScript | 0 | 0 |
+| Workflows de GitHub Actions | 0 | 0 |
+
+La alerta de calidad marca como innecesaria la conversión `email = (string?)null` en `ApiFixture.cs`, una clase de prueba. Es un falso positivo: en un tipo anónimo de C#, un `null` sin tipo no compila, así que la conversión es necesaria. Se documenta aquí y no se cambia el código.
 
 ### 6.2.2. Reviews
 
@@ -3262,7 +3275,7 @@ flowchart LR
 | Producto recién publicado | `post-deploy.yml` | En cada despliegue de producción | Las mismas comprobaciones, para el producto desplegado. |
 | Uso real | Vercel Web Analytics y Speed Insights | Continuo | Visitas, páginas y Core Web Vitals. |
 
-La consulta a la base cada 30 minutos tiene además un efecto práctico: evita que el proyecto gratuito de Supabase se pause tras 7 días sin actividad, lo que en noviembre dejó a la API sin base de datos.
+La consulta a la base cada 30 minutos también mantiene actividad en el proyecto gratuito de Supabase, que se detiene tras un período sin uso. Antes de que el monitor estuviera activo, eso dejó a la API sin base de datos dos veces en noviembre (sección 7.4.3).
 
 ### 7.4.3. Alerting Pipeline Components
 
@@ -3281,7 +3294,18 @@ flowchart LR
 | Alerta de despliegue | `post-deploy.yml` | Un despliegue que no pasa la comprobación posterior | Abre el incidente y sugiere el Instant Rollback de Vercel. |
 | Prueba de la alerta | `monitor.yml` con *simulate-failure* | Ejecución manual | Agrega una comprobación que falla a propósito. |
 
-_Pendiente de completar: captura del incidente abierto por la prueba de la alerta y de su cierre automático._
+**Primer incidente real.** El 12 de noviembre de 2026, al desplegar la versión 1.2.0, la comprobación posterior de la API encontró la base de datos sin responder: `/health/ready` devolvía 503 tras 15 segundos de espera.
+
+1. `post-deploy.yml` abrió el [incidente #17](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/issues/17) y lo asignó a los cuatro integrantes.
+2. Los Runtime Logs de Vercel mostraron un `TimeoutException` de Npgsql al autenticarse con el pooler de Supabase.
+3. Los registros de Supabase confirmaron que el pooler no alcanzaba Postgres. El proyecto no había registrado actividad en las 24 horas anteriores: estaba detenido, y arrancó a las 08:06 UTC.
+4. Una ejecución manual del monitor, lanzada al ver la base de nuevo en línea, encontró todo sano y [cerró el incidente](https://github.com/1ASI0732-2620-9086-DEIS-TF/vetpass/actions/runs/43180336288), unos cinco minutos después de abierto.
+
+El código de la versión 1.2.0 no tenía el defecto, así que no hizo falta volver atrás. Antes de esta versión, el mismo problema solo se habría notado cuando un usuario no pudiera iniciar sesión.
+
+![Incidente #17](./img/cap%207/7.4-incidente.png)
+
+*Figura 7.4. Incidente abierto por la comprobación posterior, asignado al equipo y cerrado por el monitor al recuperarse la base.*
 
 ### 7.4.4. Notification Pipeline Components
 
